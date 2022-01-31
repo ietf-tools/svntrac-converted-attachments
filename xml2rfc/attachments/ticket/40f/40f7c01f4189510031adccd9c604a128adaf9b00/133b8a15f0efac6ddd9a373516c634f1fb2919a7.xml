@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc rfcedstyle="yes"?>
+<?rfc toc="yes"?>
+<?rfc tocompact="yes"?>
+<?rfc tocdepth="3"?>
+<?rfc tocindent="yes"?>
+<?rfc tocappendix="yes"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes"?>
+<?rfc comments="yes"?>
+<?rfc inline="yes"?>
+<?rfc compact="yes"?>
+<?rfc subcompact="no"?>
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+
+  <!ENTITY rfc2119 PUBLIC '' 
+  'http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml'>
+
+  <!ENTITY rfc2131 PUBLIC '' 
+  'http://xml.resource.org/public/rfc/bibxml/reference.RFC.2131.xml'>  
+  
+  <!ENTITY rfc2663 PUBLIC '' 
+  'http://xml.resource.org/public/rfc/bibxml/reference.RFC.2663.xml'>  
+
+  <!ENTITY rfc6275 PUBLIC '' 
+  'http://xml.resource.org/public/rfc/bibxml/reference.RFC.6275.xml'>
+
+  <!ENTITY rfc5101 PUBLIC '' 
+  'http://xml.resource.org/public/rfc/bibxml/reference.RFC.5101.xml'>  
+
+  <!ENTITY rfc5844 PUBLIC '' 
+  'http://xml.resource.org/public/rfc/bibxml/reference.RFC.5844.xml'>
+   
+  <!ENTITY rfc5213 PUBLIC '' 
+  'http://xml.resource.org/public/rfc/bibxml/reference.RFC.5213.xml'>
+
+  <!ENTITY rfc6088 PUBLIC '' 
+  'http://xml.resource.org/public/rfc/bibxml/reference.RFC.6088.xml'>
+  
+  <!ENTITY rfc6089 PUBLIC '' 
+  'http://xml.resource.org/public/rfc/bibxml/reference.RFC.6089.xml'>  
+
+  
+]>
+
+
+<rfc number="XXXX" category="std" ipr="trust200902" submissionType="IETF" consensus="yes">
+<front>
+
+
+<title abbrev="IPv4 Traffic Offload Selector Option">
+IPv4 Traffic Offload Selector Option for Proxy Mobile IPv6
+</title>
+
+
+<author role="editor"  initials="S" surname="Gundavelli" fullname="Sri Gundavelli">
+<organization abbrev="">Cisco</organization>
+<address>
+<postal>
+<street>170 West Tasman Drive</street>
+<city>San Jose</city> 
+<region>CA</region>
+<code>95134</code>
+<country>USA</country>
+</postal>
+<email>sgundave@cisco.com</email>
+</address>
+</author>
+
+<author initials="X" surname="Zhou" fullname="Xingyue Zhou">
+<organization abbrev="">ZTE Corporation</organization>
+<address>
+<postal>
+<street>No.68 Zijinghua Rd</street>
+<city>Nanjing</city> 
+<code></code>
+<country>China</country>
+</postal>
+<email>zhou.xingyue@zte.com.cn</email>
+</address>
+</author>
+
+<author initials="J" surname="Korhonen" fullname="Jouni Korhonen">
+<organization abbrev="">Nokia Siemens Networks</organization>
+<address>
+<postal>
+<street>Linnoitustie 6</street>
+<city>Espoo </city> 
+<code>FIN-02600</code>
+<country>Finland</country>
+</postal>
+<email>jouni.nospam@gmail.com</email>
+</address>
+</author>
+
+
+<author initials="G" surname="Feige" fullname="Gaetan Feige">
+<organization abbrev="">Cisco</organization>
+<address>
+<postal>
+<street> </street>
+<city> </city>
+<code> </code>
+<country>France</country>
+</postal>
+<email>gfeige@cisco.com</email>
+</address>
+</author>
+
+
+
+<author initials="R" surname="Koodli" fullname="Rajeev Koodli">
+<organization abbrev="">Cisco</organization>
+<address>
+<postal>
+<street>3650 Cisco Way</street>
+<city>San Jose</city> 
+<region>CA</region>
+<code>95134</code>
+<country>USA</country>
+</postal>
+<email>rkoodli@cisco.com</email>
+</address>
+</author>
+
+<date month="March" year="2013" />
+<area>Internet</area>
+<workgroup>NETEXT WG</workgroup>
+
+
+<!-- [rfced] Please insert any keywords (beyond those that appear in
+the title) for use on http://www.rfc-editor.org/rfcsearch.html. -->
+
+<keyword> </keyword>
+
+
+<!--  SECTION 0:  Abstract                      -->
+
+<abstract>
+<t>
+This specification defines a new mobility option, the IPv4 Traffic Offload
+Selector option, for Proxy Mobile IPv6. 
+This option can be used by the local mobility anchor (LMA) and the mobile access
+gateway (MAG) for negotiating IPv4
+traffic offload policy for a mobility session. Based on the negotiated IPv4
+traffic offload policy, 
+a mobile access gateway can selectively offload some of the IPv4 traffic flows
+in the access network instead
+of tunneling back to the local mobility anchor in the home network.
+</t>
+
+</abstract>
+</front>
+<middle>
+
+
+
+
+
+
+
+<!--  SECTION 1:  Introduction                  -->
+
+
+<section anchor="sec:introduction"  title="Introduction">
+<t>
+Mobile operators are expanding their network coverage by integrating various access technology domains
+(e.g., Wireless LAN, CDMA, and Long-Term Evolution (LTE)) into a common IP
+mobility core. The Third Generation Partnership Project (3GPP) S2a Proxy Mobile IPv6 <xref target="TS23402"></xref>
+reference point, specified by the 3GPP system architecture, defines the protocol interworking for building
+such integrated multi-access networks. In this scenario, the mobile node's IP traffic is always
+tunneled back from the mobile access gateway <xref target="RFC5213"/>  in the access network to the local
+mobility anchor in the home network. Currently, there is no mechanism for allowing some of the subscriber's IP flows to
+be offloaded in the access network.
+</t>
+
+
+<!-- [rfced] Section 1: How may be clarify what "it" refers to in this sentence?
+
+Original
+   From the point of view of this specification, it is
+   only about IP traffic matching a given flow selector and
+   classification for offload.
+
+Perhaps
+   This specification is only concerned with IP traffic matching 
+   a given flow selector and classification for offload.
+-->
+
+<t>
+With the exponential growth in mobile data traffic, mobile operators are exploring new
+ways to offload some of the IP traffic flows at the nearest access edge. The offload is intended  either for local
+service access in the access network or for  internet offload through the access network when there is an internet
+peering point.  Not all IP traffic flows need to be routed back to the
+home network; some of the non-essential traffic that does not require IP mobility support can be offloaded at the
+mobile access gateway in the access network.  This approach allows efficient usage of the mobile packet core, which
+helps in lowering transport costs. To identify the IP flows that need to be
+offloaded, the local mobility anchor in the home network can deliver the IP flow
+policy to the mobile access gateway in the access network.
+It's a policy decision as to which traffic an operator deems non-essential. One operator might choose to offload
+everything except traffic (such as Voice over IP) that requires QoS services.  Another might choose to offload only HTTP
+traffic. From the point of view of this specification, it is only about IP traffic matching a given flow selector and
+classification for offload. This approach has one limitation with respect to
+identifying encrypted traffic: IPsec-encrypted traffic with no visibility into
+the application payload cannot be selected for offload.
+</t>
+
+
+<!-- [rfced] Section 1: Please clarify "for offloading them at the access edge". 
+
+Original
+   This IPv4 traffic offload policy identifies
+   the flow selectors that can used for selecting the flows for
+   offloading them at the access edge.
+
+Perhaps
+   This IPv4 traffic offload policy identifies
+   the flow selectors that can used for selecting the flows for
+   offloading at the access edge.
+
+Or
+   This IPv4 traffic offload policy identifies
+   the flow selectors that can used for selecting the flows to
+   offload at the access edge.
+-->
+
+<t>
+This document defines a new mobility option, the IPv4 Traffic Offload Selector
+option (<xref target="ipts-option"/>), for Proxy
+Mobile IPv6 (PMIPv6). This option can be used by the local mobility anchor for delivering the IPv4 traffic offload policy associated with
+a mobility session to the mobile access gateway. This IPv4 traffic offload policy identifies the flow selectors
+that can used for selecting the flows for offloading them at the access edge. Since the mobile node's IP address
+topologically belongs to the home network, the offloaded IPv4 traffic flows may need to be NAT  <xref target="RFC2663"/>
+translated. These offloaded flows will not have mobility support as the NAT becomes the anchor point for those
+flows. However, when the traffic is offloaded for local service access as opposed to internet offload, NAT
+translation may not be needed if the mobile access gateway is in the path for the return traffic. The decision on
+when to apply NAT translation can be based on local configuration on the mobile access gateway. There are better ways
+to address the offload problem for IPv6, and with the goal not to create a NAT66 requirement, this specification therefore 
+does not support traffic offload support for IPv6 flows.
+</t>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!--  SECTION 2: CONVENTIONS & TERMINOLOGY                                      -->
+
+<section anchor="sec:conventions_terminology" title="Conventions and Terminology">
+
+
+
+
+<!--  SECTION 2.1: CONVENTIONS                                                 -->
+
+<section anchor="sec:conventions" title="Conventions">
+<t>
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+"SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+document are to be interpreted as described in RFC 2119 <xref target="RFC2119"/>.
+</t>
+</section> <!-- conventions -->
+
+
+
+<!--  SECTION 2.2: TERMINOLOGY			                               -->
+
+<section anchor="sec:terminology" title="Terminology">
+<t>
+All the mobility-related terms used in this document are to be interpreted as
+defined in the base Proxy Mobile IPv6 specifications <xref target="RFC5213"/>
+and <xref target="RFC5844"/>. Additionally, this document uses the following
+terms: 
+</t>
+
+
+
+
+<t>
+IP Flow
+</t>
+
+<t>
+<list style="hanging">
+<t>
+IP Flow <xref target="RFC5101"/> represents a set of IP packets that match a traffic
+selector. The selector is typically based on the source IP address, destination IP address,
+source port, destination port, and other fields in upper-layer headers.
+</t>
+
+</list>
+</t>
+
+
+
+<t>
+IP Traffic Offload
+</t>
+
+<t>
+<list style="hanging">
+<t>
+IP Traffic Offload is the approach of selecting specific IP flows and routing
+them through the access network
+instead of tunneling them to the home network. Offload can also be between two access
+networks (e.g., moving some of the traffic from LTE access to Wireless Local
+Area Network (WLAN) access). 
+</t>
+</list>
+</t>
+
+
+
+</section> <!-- Terminology -->
+</section> <!-- Conventions & Terminology -->
+
+
+
+
+
+
+
+<!--  SECTION 3: Protocol Considerations                                       -->
+
+
+<section anchor="proto-cons" title="Solution Overview">
+      
+<t>
+<xref target="fig1"/> illustrates the scenario where the mobile access
+gateway in an access network has enabled IPv4 traffic offload support for a mobility
+session. The offload decision is based on the  IPv4 traffic offload policy that it
+negotiated with the local mobility anchor in the home network. For example, all the HTTP flows
+may be offloaded at the mobile access gateway, and all the other flows for that mobility
+session are  tunneled back to the local mobility anchor. The offloaded flows
+typically have to be
+NAT translated, and this specification does not impose any restrictions on the
+location of the NAT function.  It is possible for the NAT function to be co-located with
+the mobile access gateway or located somewhere at the edge of the access network. When the NAT
+function is not co-located with the mobile access gateway, offloaded traffic flows must be
+delivered through the local access network between the mobile access gateway and the NAT function,
+for example, through a VLAN or a point-to-point link.  The exact means for this delivery are outside
+the scope of this document. If the offloaded IPv4 flows are for local service access and reverse 
+traffic from the local service device can be routed to the mobile node through the mobile access
+gateway, the offloaded flows may be delivered directly to a local service device.
+</t>
+
+
+<t>
+The traffic selectors in the IPv4 traffic offload policy are used to
+classify the traffic, so it can be offloaded to the access network.
+These parameters include source IP address, destination IP address, TCP/UDP port numbers,
+and other fields. The format of the 
+IPv4 binary traffic selector is specified in Section 3.1 of  <xref target="RFC6088"/>.
+</t>
+
+
+
+
+
+
+<figure anchor='fig1' title="IPv4 Traffic Offload Support at the MAG">
+<artwork><![CDATA[
+                                _----_                                      
+                              _(      )_                  
+           :-----------------( Internet )---------------:            
+           |                  (_      _)                |        
+           |                    '----'                  |
+           |                                            |
+           :                                            |
+(IPv4 Traffic Offload Point)                            |
+           :                                            |
+           |                                            |
+........................................................|....
+           |                              |             |
++--------+ |                   +---------------------+  |   
+|  Local | |                   | Services requiring  |  |
+|Services| |                   | mobility, or service|  |            
++--------+ |                   | treatment           |  |
+     |     |                   +---------------------+  |
+     |   +---+                            |             |
+     |   |NAT|                            |             |
+     |   +---+                            |             |
+     +-----|            _----_            |             |
+        +-----+       _(      )_       +-----+          |   
+[MN]----| MAG |======(    IP    )======| LMA |----------   
+        +-----+       (_      _)       +-----+  Internet         
+                        '----'                   		    
+                           .
+                           .
+    [Access Network]       .        [Home Network]
+..........................................................
+]]></artwork>
+</figure>
+
+
+
+
+<t>
+<xref target="fig2"/> explains the operational sequence of the Proxy Mobile IPv6
+protocol signaling message exchange between the mobile access gateway and the
+local mobility anchor for negotiating the IPv4 traffic offload selectors. The
+details related to DHCP transactions, or Router Advertisements on the access
+link are not shown here as that is not the key focus of this specification.  The
+use of IPv4 Traffic Selector option in the Proxy Binding Update is for allowing
+the MAG to request the LMA for the IPv4 traffic offload policy. 
+</t>
+
+<figure anchor="fig2"  title="Exchange of IPv4 Traffic Offload Selectors">
+<artwork><![CDATA[
+MN    MAG(NAT)   LMA
+|------>|        |    1.  Mobile Node Attach
+|       |------->|    2.  Proxy Binding Update (IPv4TS)
+|       |<-------|    3.  Proxy Binding Acknowledgement (IPv4TS)
+|       |========|    4.  Tunnel/Route Setup
+|       +        |    5.  Installing the traffic offload rules
+|------>|        |    6.  IPv4 packet from mobile node
+|       +        |    7.  Offload rule applied (Tunnel/offload) 
+|       |        | 
+]]> </artwork>
+</figure>
+
+
+
+
+
+<!--  SECTION 3.1:  IPv4 Traffic Offload Selector Option  -->
+
+<section title="IPv4 Traffic Offload Selector Option" anchor="ipts-option">
+<t>
+A new mobility option, the IPv4 Traffic Offload Selector option, is defined for
+use in Proxy Binding Update (PBU) and Proxy Binding Acknowledgement (PBA)
+messages exchanged between a mobile access gateway and a local mobility anchor. 
+This option is used for carrying the IPv4 traffic offload policy. This policy
+identifies the IPv4 traffic flow selectors that can be used by the mobile access
+gateway for enforcing the offload policy.
+</t>
+
+<t>
+The alignment requirement for this option is 4n.
+</t>
+
+<figure anchor='fig3' title="IPv4 Traffic Offload Selector Option" >
+<artwork><![CDATA[
+0                   1                   2                   3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+                                +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                                |      Type     |   Length      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|M|                         Reserved                            |                
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                  Traffic Selector Sub-option   ...
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+]]></artwork>
+</figure> 
+
+
+<t>
+<list style="hanging">
+<t hangText="Type"><vspace blankLines="0" />&lt;IANA-1&gt;</t>
+
+<t hangText="Length"><vspace blankLines="0" />
+8-bit unsigned integer indicating the length in octets of the option,
+excluding the type and length fields. 
+</t>
+
+
+<t hangText="Offload Mode (M) Flag"><vspace blankLines="0" />
+This field indicates the offload mode. 
+
+<list>
+<t>
+If the (M) flag value is set to a value of (0), it is an  indication that the
+IPv4 flow(s) that match the traffic selectors in the Traffic Selector sub-option
+<xref target="RFC6089"/> 
+and that are associated to that  mobility session have to be offloaded at the
+mobile access gateway. All the other IPv4 flows associated with that mobility
+session and not matching the traffic selectors have to be tunneled to the local
+mobility anchor.
+</t>
+
+<t>
+If the (M) flag value is set to a  value of (1), it is an indication that
+all the IPv4 flows associated to that  mobility session except the
+IPv4 flow(s) matching the traffic selectors in the Traffic Selector sub-option 
+have to be offloaded at the mobile access gateway. All the IPv4 flows
+associated with that mobility session and matching the traffic selectors
+have to be tunneled back to the local mobility anchor.
+</t>
+</list>
+</t>
+
+
+<t hangText="Reserved"><vspace blankLines="0" />
+This field is unused for now. The value MUST be initialized to 0 by the
+sender and MUST be ignored by the receiver.
+</t>
+
+<t hangText="Traffic Selector Sub-option"><vspace blankLines="0" />
+The Traffic Selector sub-option includes the parameters used to match packets for a specific flow
+binding. This is an optional sub-option when the IPv4 Traffic Selector option is carried in a 
+Proxy Binding Update message but is a mandatory sub-option when the IPv4 Traffic Selector option
+is carried in a Proxy Binding Acknowledgement message. The format of the Traffic Selector sub-option
+is defined in Section 4.2.1.4 of <xref target="RFC6089"/>. This sub-option
+includes a Traffic Selector (TS) Format field,
+which identifies the format of the flow specification included in that sub-option.  The values for that
+field are defined in Section 3 of <xref target="RFC6088"/> and are repeated here for completeness.  When
+the value of the TS Format field is set to (1), the format that follows is the IPv4 binary traffic selector
+specified in Section 3.1 of <xref target="RFC6088"/>, and that support is mandatory for this specification.
+The text specified in this section takes precedence over what is specified in  <xref target="RFC6088"/>
+and <xref target="RFC6089"/>.
+<list>
+<t>
+1: IPv4 binary traffic selector
+</t>
+
+<t>
+2: IPv6 binary traffic selector (not used by this specification) 
+</t>
+
+</list>
+
+
+</t>
+</list>
+</t>
+</section>
+
+
+
+
+
+
+<!--  SECTION 3.2: MAG Considerations                                       -->
+
+
+<section anchor="mag-cons" title="MAG Considerations">
+<t>
+<list style="symbols">
+
+
+<t> 
+If the  mobile access gateway is configured to support IPv4 traffic offload support, then it
+includes the  IPv4 Traffic Offload Selector option (<xref target="ipts-option"/>)  in the Proxy Binding
+Update message that it sends to the local mobility anchor. Optionally, the mobile access gateway can
+also propose a specific offload policy.
+
+
+<list style="symbols">
+<t>
+The mobile access gateway MAY choose not to propose any specific IPv4 traffic offload policy 
+but request the local mobility anchor for the offload policy.  In this scenario, the 
+IPv4 Traffic Offload Selector option that is carried in the Proxy Binding Update message 
+does not include the Traffic Selector sub-option (<xref target="ipts-option"/>), 
+and the (M) flag (<xref target="ipts-option"/>) in the option MUST be set to value of (0).
+Including the IPv4 Traffic Offload Selector option in the Proxy Binding Update without the
+Traffic Selector sub-option serves as an indication that the mobile access gateway is not
+proposing any specific offload policy for that mobility session, but rather it makes a request
+to the local mobility anchor to provide the offload policy.
+</t>
+
+
+<!-- [rfced] Section 3.2: Should this sentence cite Section 3.1 of RFC 6088 
+(rather than Section 3.0)?
+
+   The values for that field and the
+   corresponding message format are defined in section 3.0 of
+   [RFC6088].
+-->
+
+<t>
+The mobile access gateway MAY choose to propose a specific IPv4 traffic offload policy by including
+the Traffic Selector sub-option in the IPv4 Traffic Offload Selector option (<xref target="ipts-option"/>). 
+The specific details on how the mobile access gateway obtains the mobile node's
+IPv4 traffic offload policy are outside the scope of this document. 
+When this offload policy is included in the Proxy Binding Update message, it serves as a proposal to the
+local mobility anchor. The local mobility anchor can override with its own
+offload policy, or it can agree to
+the proposed policy. The offload policy has to be translated to a set of selectors that can be used to
+match the mobile node's IP flows, and these selectors have to be carried in the Traffic Selector sub-option. 
+The Traffic Selector sub-option  MUST be constructed as specified in Section 4.2.1.4 of <xref target="RFC6089"/>. 
+This sub-option includes a TS Format field, which identifies the format of the flow specification
+included in the sub-option. The values for that field and the corresponding message format are defined in Section
+3.0 of <xref target="RFC6088"/>. Considerations from  <xref target="ipts-option"/> apply with respect to setting
+the Offload Mode (M) flag.
+</t>
+</list>
+</t>
+
+
+<t>
+When sending a Proxy Binding Update either for Binding Lifetime Extension or for Binding De-Registration, the 
+mobile access gateway SHOULD copy the IPv4 Traffic Offload Selector option from the initial Proxy Binding Update 
+message.  Considerations from Section 6.9.1.3 of <xref target="RFC5213"/> and Section 6.9.1.4 of <xref target="RFC5213"/> 
+MUST be applied.
+</t>
+
+
+<t>
+If the  mobile access gateway is not configured to support IPv4 traffic offload support as specified
+in this specification, but if the received Proxy Binding Acknowledgement message has the IPv4 Traffic
+Offload Selector option, then the mobile access gateway MUST ignore the option and process the
+rest of the message as per <xref target="RFC5213"/>.
+</t>
+
+<t>
+If there is no IPv4 Traffic Offload Selector option in the Proxy Binding Acknowledgement message received
+from the local mobility anchor, it is an indication that the local mobility anchor did not enable IPv4 traffic
+offload support for that mobility session. Upon accepting the Proxy Binding Acknowledgement
+message, the mobile access gateway SHOULD NOT enable IPv4 traffic offload support for that mobility session.
+</t>
+
+<!-- [rfced] Section 3.2: We removed the first instance of the word "based" in 
+this sentence. Please confirm that this change reflects the intended
+meaning.
+
+Original
+   The IPv4 flows matching the flow selectors have to be
+   offloaded, or tunneled back based to the local mobility anchor
+   based on the value of the Offload Mode (M) flag Section 3.1.
+
+Suggested
+   The IPv4 flows matching the flow selectors have to be
+   offloaded or tunneled back to the local mobility anchor
+   based on the value of the Offload Mode (M) flag (Section 3.1).
+-->
+
+<t>
+If there is an IPv4 Traffic Offload Selector option in the Proxy Binding Acknowledgement message, then the mobile
+access gateway SHOULD enable IPv4 traffic offload support for that mobility session. The mobility access
+gateway has to provision the data plane using the flow selectors present in the Traffic Selector sub-option.
+The IPv4 flows matching the flow selectors have to be offloaded or tunneled back based to the local mobility
+anchor based on the value of the  Offload Mode (M) flag (<xref target="ipts-option"/>).
+</t>
+
+
+</list>
+</t>
+
+</section>
+
+
+
+
+
+
+
+
+<!--  SECTION 3.3: LMA Considerations                                       -->
+
+
+<section anchor="lma-cons" title="LMA Considerations"> 
+
+
+<t>
+<list style="symbols">
+<t>
+If the received Proxy Binding Update message does not include the IPv4 Traffic Offload Selector option
+(<xref target="ipts-option"/>), then the local mobility anchor MUST NOT enable IPv4 traffic offload
+support for that mobility session, and the Proxy Binding Acknowledgement message that will be sent in
+response MUST NOT contain the IPv4 Traffic Offload Selector option.
+</t>
+
+<t>
+If the Proxy Binding Update message includes the IPv4 Traffic Offload Selector option, but the
+local mobility anchor is not configured to support IPv4 traffic offload support, then the local mobility
+anchor will ignore the option and process the rest of the message as per <xref target="RFC5213"/>.  This
+would have no effect on the operation of the rest of the protocol.
+</t>
+
+
+<t>
+If the Proxy Binding Update message has the IPv4 Traffic Offload Selector option and if the local
+mobility anchor is configured to support IPv4 traffic offload support, then the local mobility anchor MUST
+enable IPv4 traffic offload support for that mobility session. The Proxy Binding Acknowledgement message
+that will be sent in response MUST include the IPv4 Traffic Offload Selector option. The following
+considerations apply with respect to constructing the IPv4 Traffic Offload Selector option.
+
+
+<list style="symbols">
+<t>
+The local mobility anchor can obtain the offload policy from the local configuration store or from a network
+function such as AAA (Authentication, Authorization, and Accounting) or PCRF
+(Policy and Charging Rule
+Function). The offload policy has to be translated to a set of selectors that can be used to match 
+the mobile node's IP flows, and these selectors have to be carried in the Traffic Selector sub-option. The
+Traffic Selector sub-option MUST be constructed as specified in Section 4.2.1.4 of <xref target="RFC6089"/>.
+Considerations from <xref target="ipts-option"/> apply with respect to the
+Offload Mode (M) flag setting.
+</t>
+
+
+<t>
+If the Proxy Binding Update message includes a specific IPv4 traffic offload
+policy proposal in the form of the Traffic
+Selector sub-option  <xref target="RFC6089"/>,  then the local mobility anchor MAY choose to agree to that
+request by including the same IPv4 traffic offload policy in the Proxy Binding Acknowledgement message. This implies
+the local mobility anchor has agreed to the IPv4 traffic offload policy
+provided by the mobile access gateway. The
+local mobility anchor MAY also choose to override the request by including a different IPv4 traffic offload policy
+that it wants the mobile access gateway to enforce for that mobility session. This is entirely based on the policy 
+configuration on the local mobility anchor.
+</t>
+
+
+<t>
+The IPv4 traffic offload policy that is sent to the mobile access gateway has to be specific to the mobility session
+identified using the Mobile Node Identifier option <xref target="RFC5213"/>.  The offload policy MUST be specific
+to a mobile node's application traffic. The traffic selectors have to match only the mobile node's application traffic
+and MUST NOT match any other mobile node's IP traffic. Furthermore, control-plane traffic such as DHCP, Neighbor Discovery (ND), or any other
+IP traffic that is used for IP address configuration, mobility management, or other control-plane functions has to
+be excluded.
+</t>
+
+<t>
+The local mobility anchor MUST NOT make any changes to the mobile node's offload policy during the middle of a
+mobility session, as that might break some of the IP sessions. Therefore, the IPv4 Traffic Selector option with the
+Traffic Selector sub-option that is delivered during the initial mobility signaling MUST be the same as the
+one that is delivered as part of the mobility signaling related to lifetime extension.
+</t>
+
+</list>
+</t>
+</list>
+</t>
+</section>
+
+</section>
+
+
+
+
+
+
+
+
+<!--  SECTION 4: Protocol Configuration Variables      	-->
+
+<section title="Protocol Configuration Variables" anchor="sec-pvars">
+<t>
+This specification defines the following configuration variable that controls
+the IPv4 traffic offload support feature. This configuration variable is 
+internal to the system and has no bearing on interoperability across different
+implementations.
+</t>
+
+<t>
+The mobility entities, local mobility anchor, and the mobile access gateway have
+to allow these variables to  be configured by the system management. The configured
+values for these protocol variables have to survive server reboots and service
+restarts.
+</t>
+
+
+<t>
+<list style='hanging'>
+
+<t hangText="EnableIPv4TrafficOffloadSupport">
+<list>
+<t>
+This flag indicates whether or not IPv4 traffic offload support needs to be enabled.
+This configuration variable is available at both the mobile access gateway and
+the local mobility anchor. The default value for this flag is set to (0), indicating
+that the support for IPv4 traffic offload support is disabled.
+</t>
+
+<t>
+When this flag on the mobile access gateway is set to a value of (1), the mobile
+access gateway has to enable IPv4 traffic offload support for all mobility sessions,
+by specifically requesting the IPv4 traffic offload policy from the local mobility anchor
+by including the IPv4 Traffic Offload Selector option in the Proxy Binding Update
+message.  If the flag is set to a value of (0), the mobile access gateway has to 
+disable support for  IPv4 traffic offload support for all mobility sessions.
+</t>
+
+<t>
+Similarly, when this flag on the local mobility anchor is set to a value of (1),
+the local mobility anchor has to enable support for IPv4 traffic offload support. If
+the local mobility anchor chooses to enable IPv4 traffic offload support when there
+is an offload policy specified for a mobile node, it has to deliver the IPv4 traffic
+offload policy to the mobile access gateway by including the  IPv4 Traffic Offload Selector
+option in the Proxy Binding Acknowledgement message.
+</t>
+
+</list>
+</t>
+</list>
+</t>
+
+</section>
+
+
+
+
+
+<!--  SECTION 5:  IANA Considerations           -->
+
+<section anchor="sec:iana"  title="IANA Considerations">
+<t>
+This document requires the following IANA action.
+</t>
+
+<t>
+<list style="symbols">
+
+<t>
+Action-1: This specification defines a new mobility option, IPv4 Traffic
+Offload Selector option. This option is described in <xref target="ipts-option"/>.
+The Type value for this option needs to be assigned from the same numbering 
+space as allocated for the other mobility options <xref target="RFC6275"/>.
+</t>
+
+
+<!--RFC Editor: Please replace &lt;IANA-1&gt; in Section 4 with the assigned value, and update
+this section accordingly.
+-->
+
+</list>
+</t>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!--  SECTION 6:  Security Considerations      	-->
+
+<section anchor="sec:secons"  title="Security Considerations">
+<t>
+The IPv4 Traffic Offload Selector option defined in this specification
+is for use in Proxy Binding Update and Proxy Binding Acknowledgement
+messages.  This option is carried like any other mobility header option as
+specified in <xref target="RFC5213"/>. Therefore, it inherits from <xref target="RFC5213"/>
+its security guidelines and does not require any additional security
+considerations. Carrying IPv4 traffic offload selectors does not introduce any new
+security vulnerabilities.
+</t>
+
+
+<t>
+When IPv4 traffic offload support is enabled for a mobile node, the 
+mobile access gateway selectively offloads some of the mobile node's
+IPv4 traffic flows to the access network. Typically, these offloaded
+flows get NAT translated, which essentially introduces certain
+vulnerabilities that are common to any NAT deployment. These vulnerabilities
+and the related considerations have been well documented in the NAT
+specification <xref target="RFC2663"/>. There are no additional considerations
+above and beyond what has already been documented by the NAT specifications and
+that are unique to the approach specified in this document.
+</t>
+
+<!-- [rfced] Section 6: Please clarify "the security features in the access
+network as in the home network". 
+
+Original
+   This threat can be mitigated by deploying the security features in the
+   access network as in the home network.
+
+Perhaps
+   This threat can be mitigated by deploying the same security features in the
+   access network as in the home network.
+-->
+
+
+<t>
+The mobile node's home network may be equipped with firewall and other security devices to 
+guard against any security threats. When IPv4 traffic offload support is enabled, it 
+potentially exposes the mobile node to some security risks in the access network. This
+threat can be mitigated by deploying the security features in the access network as in the
+home network.
+</t>
+
+<t>
+When IPv4 traffic offload support is enabled for a mobile node, some of the IP flows
+are sent through the home network, and some other IP flows are routed through the access network.
+This potentially  introduces some complexity with respect to enabling diagnostics or monitoring
+on the user traffic. The tools that are used for such diagnostics have to be aware of the
+offload policy that in enabled in the network.
+</t>
+
+
+</section>
+
+
+
+
+
+
+<!--  SECTION 7:  Acknowledgements     			-->
+
+<section anchor="sec:ack" title="Acknowledgements">
+<t>
+The authors would like to thank  Ahmad Muhanna, Basavaraj Patil, Carlos Bernardos,
+Eric Voit, Frank Brockners, Hidetoshi Yokota, Marco Liebsch, Mark Grayson, 
+Pierrick Seite, Ryuji Wakikawa, Steve Wood, Barry Lieba, Sean Turner, Pete Resnick,
+Wesley Eddy, Mary Barnes, Vincent Roca, Ralph Droms, Scott Bradner, Stephen Farrell,
+Adrian Farrell, Benoit Claise, and Brian Haberman for all the reviews and
+discussions related to the topic of IPv4 traffic offload.
+</t>
+
+</section>
+
+
+</middle>
+<back>
+
+
+
+
+
+
+
+
+
+
+
+<!--  SECTION 8:  Normative References		-->
+
+<references title="Normative References">
+&rfc2119;
+&rfc5213;
+&rfc5844;
+&rfc6088;
+&rfc6089;
+&rfc6275;
+</references>
+
+
+
+
+
+
+<!--  SECTION 9:  Informative References		-->
+
+<references title="Informative References">
+&rfc2663;
+&rfc5101;
+
+<reference anchor="TS23402">
+<front>
+<title>
+Architecture enhancements for non-3GPP accesses
+</title>
+<author fullname="3GPP TS 23.402">
+<organization>3GPP</organization>
+</author>
+<date year="2010" />
+</front>
+</reference>
+
+</references>
+
+
+</back>
+</rfc>

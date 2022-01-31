@@ -1,0 +1,8 @@
+SetEnv TRAC_ENV /www/tools.ietf.org/tools/xml2rfc/trac
+
+SetHandler mod_python
+PythonHandler trac.web.modpython_frontend 
+PythonOption TracEnv /www/tools.ietf.org/tools/xml2rfc/trac
+PythonOption TracUriRoot /tools/xml2rfc/trac
+PythonOption TracLocale en_DK.iso-8859-15
+PythonInterpreter main_interpreter

@@ -1,0 +1,25 @@
+--- xml2rfc-2.3.9/xml2rfc/writers/paginated_txt.py	2012-06-29 23:47:40.000000000 +0200
++++ /tmp/paginated_txt.py	2012-11-22 20:00:53.100208684 +0100
+@@ -120,6 +120,7 @@
+         current_page_length = 0
+         current_page_number = 1
+         max_page_length = 55
++        max_header_line = 45
+ 
+         def insertFooterAndHeader():
+             self.output.append('')
+@@ -151,6 +152,14 @@
+                     current_page_length += 1
+                 # Store last pair of toc pointers
+                 toc_pointers.append((toc_prev_start, len(self.output)))
++
++            if line_num in self.heading_marks:
++                if current_page_length > max_header_line:
++                    # Force a page break
++                    insertFooterAndHeader()
++                    # Update counters -- done this way to preserve scope without reassigning
++                    current_page_length -= current_page_length - 1
++                    current_page_number += 1
+                 
+             if line_num == self.iref_marker and self.iref_marker > 0:
+                 # Add page number for index

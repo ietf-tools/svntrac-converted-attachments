@@ -1,0 +1,114 @@
+
+
+
+
+
+
+Internet Architecture Board (IAB)                                A. Mous
+Request for Comments: XXXX
+Category: Informational                                   September 2014
+ISSN: 2070-1721
+
+
+                               An Example
+
+Abstract
+
+   An example.
+
+Status of This Memo
+
+   This document is not an Internet Standards Track specification; it is
+   published for informational purposes.
+
+   This document is a product of the Internet Architecture Board (IAB)
+   and represents information that the IAB has deemed valuable to
+   provide for permanent record.  It represents the consensus of the
+   Internet Architecture Board (IAB).  Documents approved for
+   publication by the IAB are not a candidate for any level of Internet
+   Standard; see Section 2 of RFC 5741.
+
+   Information about the current status of this document, any errata,
+   and how to provide feedback on it may be obtained at
+   http://www.rfc-editor.org/info/rfcXXXX.
+
+Copyright Notice
+
+   Copyright (c) 2014 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (http://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.
+
+Table of Contents
+
+   1.  Requirements Notation . . . . . . . . . . . . . . . . . . . .   2
+   2.  Security Considerations . . . . . . . . . . . . . . . . . . .   2
+   3.  Normative References  . . . . . . . . . . . . . . . . . . . .   2
+
+
+
+
+
+
+Mous                          Informational                     [Page 1]
+
+RFC XXXX                       An Example                 September 2014
+
+
+1.  Requirements Notation
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in [RFC2119].
+
+2.  Security Considerations
+
+   None.  This document is RFC XXXX.
+
+      this
+
+3.  Normative References
+
+   [IEEE802.1Q]
+              IEEE, "IEEE Standard for Local and metropolitan area
+              networks - Media Access Control (MAC) Bridges and Virtual
+              Bridged Local Area Networks", IEEE 802.1Q, October 2012.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119, March 1997.
+
+   [STD62]    Harrington, D., Presuhn, R., and B. Wijnen, "An
+              Architecture for Describing Simple Network Management
+              Protocol (SNMP) Management Frameworks", STD 62, RFC 3411,
+              December 2002.
+
+              Case, J., Harrington, D., Presuhn, R., and B.  Wijnen,
+              "Message Processing and Dispatching for the Simple Network
+              Management Protocol (SNMP)", STD 62, RFC 3412, December
+              2002.
+
+   [UPnP]     UPnP Forum, "Internet Gateway & Device (IGD) Standardized
+              Device Control Protocol V 1.0", November 2001.
+
+Author's Address
+
+   Anon Y. Mous
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mous                          Informational                     [Page 2]

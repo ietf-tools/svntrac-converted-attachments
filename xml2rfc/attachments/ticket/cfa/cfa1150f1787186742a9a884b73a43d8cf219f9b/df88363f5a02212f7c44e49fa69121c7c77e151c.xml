@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- This template is for creating an Internet Draft using xml2rfc,
+    which is available here: http://xml.resource.org. -->
+<!DOCTYPE rfc SYSTEM "rfc2629-xhtml.ent">
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<!-- used by XSLT processors -->
+<!-- For a complete list and description of processing instructions (PIs),
+    please see http://xml.resource.org/authoring/README.html. -->
+<rfc
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      category="info"
+      docName="draft-feamster-livingood-iab-covid19-workshop"
+      ipr="trust200902"
+      obsoletes=""
+      updates=""
+      submissionType="IAB"
+      xml:lang="en"
+      tocInclude="true"
+      tocDepth="4"
+      symRefs="true"
+      sortRefs="true"
+      version="3">
+  <!-- xml2rfc v2v3 conversion 2.38.1 -->
+  <!-- category values: std, bcp, info, exp, and historic
+    ipr values: trust200902, noModificationTrust200902, noDerivativesTrust200902,
+       or pre5378Trust200902
+    you can add the attributes updates="NNNN" and obsoletes="NNNN"
+    they will automatically be output with "(if approved)" -->
+
+ <!-- ***** FRONT MATTER ***** -->
+
+ <front>
+    <!-- The abbreviated title is used in the page header - it is only necessary if the
+        full title is longer than 39 characters -->
+
+   <title abbrev="Abbreviated Title">IAB COVID-19 Workshop: Interconnection Changes in the United States</title>
+    <seriesInfo name="Internet-Draft" value="draft-feamster-livingood-iab-covid19-workshop-00"/>
+    <!-- add 'role="editor"' below for the editors if appropriate -->
+
+   <!-- Another author who claims to be an editor -->
+
+   <author fullname="Nick Feamster" initials="N." surname="Feamster">
+      <organization>University of Chicago</organization>
+      <address>
+        <postal>
+         <city>Chicago</city>
+          <region>IL</region>
+          <country>USA</country>
+        </postal>
+        <email>feamster@uchicago.edu</email>
+     </address>
+    </author>
+	 
+   <author fullname="NEW AUTHOR HERE" initials="N." surname="Author">
+      <organization>University of Chicago</organization>
+      <address>
+        <postal>
+         <city>Chicago</city>
+          <region>IL</region>
+          <country>USA</country>
+        </postal>
+        <email>xxxx@uchicago.edu</email>
+     </address>
+    </author>
+	 
+	    <author fullname="Paul Schmitt" initials="P." surname="Schmitt">
+      <organization>Princeton University</organization>
+      <address>
+        <postal>
+         <city>Princeton</city>
+          <region>NJ</region>
+          <country>USA</country>
+        </postal>
+        <email>pschmitt@cs.princeton.edu</email>
+     </address>
+    </author>
+
+    <author fullname="Elizabeth Culley" initials="E" surname="Culley">
+       <organization>Comcast</organization>
+       <address>
+         <postal>
+          <city>Mount Laurel</city>
+           <region>NJ</region>
+           <country>USA</country>
+         </postal>
+         <email>elizabeth_culley@comcast.com</email>
+      </address>
+     </author>
+	 
+     <author fullname="Jason Livingood" initials="J" surname="Livingood">
+       <organization>Comcast</organization>
+       <address>
+         <postal>
+          <city>Philadelphia</city>
+           <region>PA</region>
+           <country>USA</country>
+         </postal>
+         <email>jason_livingood@comcast.com</email>
+      </address>
+     </author>
+
+    <date year="2020"/>
+    <!-- If the month and year are both specified and are the current ones, xml2rfc will fill
+        in the current day for you. If only the current year is specified, xml2rfc will fill
+	 in the current day and month for you. If the year is not the current one, it is
+	 necessary to specify at least a month (xml2rfc assumes day="1" if not specified for the
+	 purpose of calculating the expiry date).  With drafts it is normally sufficient to
+	 specify just the year. -->
+
+   <!-- Meta-data Declarations -->
+
+   <area>General</area>
+    <workgroup>Internet Architecture Board</workgroup>
+    <!-- WG name at the upperleft corner of the doc,
+        IETF is fine for individual submissions.
+	 If this element is not present, the default is "Network Working Group",
+        which is used by the RFC Editor as a nod to the history of the IETF. -->
+
+   <keyword>COVID, COVID-19, Coronavirus, Pandemic</keyword>
+    <!-- Keywords will be incorporated into HTML output
+        files in a meta tag but they have no effect on text or nroff
+        output. If you submit your draft to the RFC Editor, the
+        keywords will be used for the search engine. -->
+
+   <abstract>
+      <t>During the early weeks and months of the COVID-19 pandemic, significant changes to Internet usage occurred as a result of a sudden 
+	   global shift to people working, studying and quarantining at home. One aspect that this affected was interconnection between 
+	   networks, which this paper studies.</t>
+    </abstract>
+
+  </front>
+  <middle>
+
+    <!-- This PI places the pagebreak correctly (before the section title) in the text output. -->
+
+    <section numbered="true" toc="default">
+      <name>Introduction</name>
+      
+      <t>During the early weeks and months of the COVID-19 pandemic <xref target="WHO-Declaration" />, significant changes to Internet usage occurred as a 
+		result of a sudden global shift to people working, studying and quarantining at home. One aspect that this affected 
+		was interconnection between networks, which this paper studies.</t>
+		
+		<t>In 2016, the Interconnection Measurement Project <xref target="Tinker-Blog" /> was launched. The IMP platform initially collected interconnection-related data from seven U.S.-based cable-based Internet Service 
+		Providers (ISPs) and an <xref target="ArXiv-Paper" /> shared some of the details and findings.</t>
+	    
+	    <t>This paper looks specifically at the long-term interconnection data from one of those ISPs, Comcast. We examine the long-term 
+	    pre-COVID-19 trend as well as what occurred as COVID-19 impacted the Internet from February 2020 through August 2020. We also 
+	    include observations by Comcast concerning interconnection changes during this timeframe.</t>
+	    
+	    <t>We hope that this information will be useful to the IAB workshop and the Internet community more broadly. As well, it may serve 
+	    as an interesting and useful historical reference in the future.</t>
+
+    </section>
+	  
+    <section numbered="true" toc="default">
+      <name>Long-Term Interconnection Data</name>
+
+            <t>The IMP platform collected interconnection data starting in 2016, roughly four years prior to the COVID-19-driven shift in 
+	    Internet usage. This provides an interesting capability for a before and after view of interconnection. A full explanation 
+		    of the data can be found in Section 3 of the <xref target="ArXiv-Paper" />. At a high level, the key data collected 
+		    encompasses:</t>
+		    <ul>
+			    <li>Timestamp (representing a five-minute interval)</li>
+			    <li>Region (representing an aggregated link group)</li>
+			    <li>Anonymized partner network</li>
+			    <li>Access ISP</li>
+			    <li>Total ingress bytes</li>
+			    <li>Total egress bytes</li>
+			    <li>Capacity</li>
+		    </ul>
+	    
+	    <t>The Comcast part of this long timeframe data set shows the following (Nick - include some stats and charts here. 
+	    maybe total capacity over time, utilization over time, and cap and util by the partner nets with biggest covid changes. We 
+	    can then later do so deep dive views of each partner net.)</t>
+	    
+    </section>
+	  
+    <section numbered="true" toc="default">
+      <name>Comcast's COVID-19-Related Experiences</name>
+
+            <t>Comcast observed a wide range of significant changes in Internet usage as residential users remained at home and 
+	    shifted to working and studying from home. Changes in usage patterns observed in the access network in sum led to 
+	    changes in the traffic flowing to interconnected networks.</t>
+	    
+	    <t>At the peak of the surge, in March and April 2020, Comcast observed network traffic increase over 30% and 
+		    as high as 60% in some areas. Voice &amp; video conferencing (conferencing hereafter) jumped as much as 
+		    285% and Wi-Fi use increased 36% among our Xfinity Mobile (MVNO) customers 
+		    (<xref target="June-Blog" /> and 
+		    <xref target="July-Blog" />. As this continued 
+		    into May 2020 we observed conferencing remained up roughly 210-285%, VPN traffic up 30-40% and gaming downloads 
+		    up 20-80%, and web-based streaming video consumption up 20-40% 
+		    <xref target="May-Blog" />. In this several week period, traffic essentially 
+	    grew at or more than it had in the prior year, which was an astounding amount or growth in a short period of time.</t>
+	    
+	    <t>For the six month period from March to August 2020, Comcast observed:</t>
+		    <ul>
+			    <li>Overall average downstream peak growth is up 14%.</li>
+			    <li>Overall average upstream peak growth is up 27%.</li>
+			    <li>At its highest peak during this time, downstream traffic was up by 20.1% and 
+				    upstream traffic was up by 35.1%.</li>
+			    <li>In the access network, an average of 771 network augments per week were performed, peaking 
+				    at over 1,800 in a single week and over with over 7 weeks with more than 1,000 per week. For 
+			    comparison, the average earlier in the year was roughly 350 per week.</li>
+			    <li>In the core network, 493 augments were made in order to add 135 Tbps in capacity.</li>
+			    <li>On a daily basis between 550,000 - 700,000 automated speed tests from customer homes were 
+				    conducted in order to gauge the customer experience during this time. Average speeds 
+				    to customers (both downstream and upstream) have generally 
+				    remained at or above 105% of advertised speeds since March 1, 2020 in all regions. 
+				    National average speeds have remained above 110% of advertised speeds over the same period. 
+				    <xref target="NF-Paper-1" /> and <xref target="NF-Paper-2" /></li>
+			    <li>The share of streaming video as a percentage of total traffic is declined slightly from 67% to 63%. 
+				    Despite strong growth, conferencing occupies a small share of total traffic and grew from 1% share 
+				    to 4%. But gaming software released have driven significant download spikes since late April 2020.</li>
+			    <li>For interconnection, the informal prior threshold for adding capacity was when peak 95th percentile 
+				    utilization hit 75% - 80%. As a result of rapid changes in early 2020, we observed that many 
+				    peering coordinators shifted to 50% due to how rapidly growth was occurring. Prior to the pandemic in February 2020
+				    the network had 10 links above threshold for augment, rising quickly to 121 within a month, falling back to just 1 by June 
+				    2020. </li>
+			    <li>As interconnection capacity was added it was exclusively via 100 Gbps links, rather than slower speed links, 
+			    in order to provide ample capacity for future growth.</li>
+		    </ul>
+	    <t>In 2019, interconnection capacity grew by 13%. The nine months of 2020, driven by COVID-19 changes, saw a 41% increase in capacity to 
+		    over 10 Tbps total. (((NICK - We need to ensure this squares with the IMP data)))</t>
+	    <t>Between September 2019 and September 2020, interconnection capacity grew by 50%.</t>
+	    <t>In the smaller period between March 3, 2020, and May 6, 2020, inbound interconnection traffic at the 95th percentile grew by 110%. By September 2, 2020, 
+	    traffic had settled to a lower level that represented 31% growth from March and 46% growth annual growth from September 2019.</t>
+	    
+    </section>
+	  
+   <section numbered="true" toc="default">
+      <name>Detailed Partner Network Observations</name>
+
+            <t>(some brief deep dives here: maybe stuff like Netflix, Zoom, Akamai, Amazon, Cogent, Telia, NTT, Google)</t>
+	   <t>(Cogent's traffic DOUBLED in one week in March 2020 from 575 Gbps to 1,020 Gbps)</t>
+	    
+    </section>
+
+   <section anchor="IANA" numbered="true" toc="default">
+      <name>IANA Considerations</name>
+      <t>This document includes no request to IANA.</t>
+    </section>
+    
+    <section anchor="Security" numbered="true" toc="default">
+      <name>Security Considerations</name>
+      <t>This document includes no security considerations.</t>
+    </section>
+  </middle>
+  <!--  *****BACK MATTER ***** -->
+
+ <back>
+    <!-- References split into informative and normative -->
+
+   <!-- There are 2 ways to insert reference entries from the citation libraries:
+    1. define an ENTITY at the top, and use "ampersand character"RFC2629; here (as shown)
+    2. simply use a PI "less than character"?rfc include="reference.RFC.2119.xml"?> here
+       (for I-Ds: include="reference.I-D.narten-iana-considerations-rfc2434bis.xml")
+    Both are cited textually in the same manner: by using xref elements.
+    If you use the PI option, xml2rfc will, by default, try to find included files in the same
+    directory as the including file. You can also define the XML_LIBRARY environment variable
+    with a value containing a set of directories to search.  These can be either in the local
+    filing system or remote ones accessed by http (http://domain/dir/... ).-->
+
+    <references title="Normative References">
+
+   </references>
+
+   <references title="Informative References">
+   
+   		<reference anchor="WHO-Declaration" target="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020">
+   			<front>
+   			<title>WHO Director-General's opening remarks at the media briefing on COVID-19 - 11 March 2020</title>
+   			<author initials="TAG" surname="Adhanom Ghebreyesus" fullname="Dr. Tedros Adhanom Ghebreyesus">
+				<organization>World Health Organization</organization>
+   			</author>
+   			<date day="11" month="March" year="2020"/>
+   			</front>
+   		</reference>
+	   
+	   	<reference anchor="Tinker-Blog" target="https://freedom-to-tinker.com/2016/05/09/the-interconnection-measurement-project/">
+   			<front>
+   			<title>Interconnection Measurement Project Website</title>
+   			<author initials="NF" surname="Feamster" fullname="Nick Feamster">
+   			</author>
+   			<date day="9" month="May" year="2016"/>
+   			</front>
+   		</reference>
+   		
+   		<reference anchor="ArXiv-Paper" target="https://arxiv.org/pdf/1603.03656.pdf">
+   			<front>
+   			<title>Revealing Utilization at Internet Interconnection Points</title>
+   			<author initials="NF" surname="Feamster" fullname="Nick Feamster">
+   				<organization>Princeton University</organization>
+   			</author>
+   			<date day="5" month="September" year="2016"/>
+   			</front>
+   		</reference>
+   		
+   		<reference anchor="May-Blog" target="https://corporate.comcast.com/covid-19/network/may-20-2020">
+   			<front>
+   			<title>COVID-19 Network Update</title>
+   			<author>
+   				<organization>Comcast</organization>
+   			</author>
+   			<date day="20" month="May" year="2020"/>
+   			</front>
+   		</reference>
+   		
+   		<reference anchor="June-Blog" target="https://corporate.comcast.com/press/releases/cresting-the-wave-how-our-network-thrived-what-comes-next">
+   			<front>
+   			<title>Cresting the Wave: The Factors that Powered our Network Through the COVID-19 Surge</title>
+   			<author initials="TW" surname="Werner" fullname="Tony Werner">
+   				<organization>Comcast</organization>
+   			</author>
+   			<date day="15" month="June" year="2020"/>
+   			</front>
+   		</reference>
+   		
+   		<reference anchor="July-Blog" target="https://corporate.comcast.com/stories/covid-19-network-report-smart-network-speed-and-stability">
+   			<front>
+   			<title>COVID-19 Network Report: How A Smart Network Delivered Speed and Stability When it Mattered</title>
+   			<author initials="EN" surname="Nafshi" fullname="Elad Nafshi">
+   				<organization>Comcast</organization>
+   			</author>
+   			<date day="13" month="July" year="2020"/>
+   			</front>
+   		</reference>
+   		
+   		<reference anchor="NF-Paper-1" target="https://www.netforecast.com/netforecast-design-audit-report-of-comcasts-network-performance-measurement-system/">
+   			<front>
+   			<title>NetForecast Design Audit Report of Comcast's Network Performance Measurement System</title>
+   			<author initials="AJ" surname="Jones" fullname="Alan Jones">
+                <organization>NetForecast</organization>
+   			</author>
+   			<author initials="PS" surname="Sevcik" fullname="Peter Sevcik">
+   				<organization>NetForecast</organization>
+   			</author>
+   			<author initials="AL" surname="Lacy" fullname="Andrew Lacy">
+   				<organization>NetForecast</organization>
+   			</author>	
+   			<date month="April" year="2020"/>
+   			</front>
+   		</reference>
+   		
+   		<reference anchor="NF-Paper-2" target="https://www.netforecast.com/netforecasts-report-on-comcasts-network-performance-measurement-system-results-data/">
+   			<front>
+   			<title>NetForecast's Report on Comcast's Network Performance Measurement System Results Data</title>
+   			<author initials="AJ" surname="Jones" fullname="Alan Jones">
+                <organization>NetForecast</organization>
+   			</author>
+   			<author initials="PS" surname="Sevcik" fullname="Peter Sevcik">
+   				<organization>NetForecast</organization>
+   			</author>
+   			<author initials="AL" surname="Lacy" fullname="Andrew Lacy">
+   				<organization>NetForecast</organization>
+   			</author>	
+   			<date month="May" year="2020"/>
+   			</front>
+   		</reference>
+   		
+   </references>
+
+    <section anchor="app-additional" numbered="true" toc="default">
+      <name>Additional Stuff</name>
+      <t>This becomes an Appendix.</t>
+    </section>
+    <!-- Change Log
+v00   2020-XX-XX    Initial version
+    -->
+
+    <!-- OPEN ITEMS
+	1 - Convert parenthetical URLs to proper references
+    -->
+ </back>
+</rfc>

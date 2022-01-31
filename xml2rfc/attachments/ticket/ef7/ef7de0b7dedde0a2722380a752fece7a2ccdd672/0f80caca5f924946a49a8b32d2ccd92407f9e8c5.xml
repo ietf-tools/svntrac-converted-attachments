@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!-- Getting references from the online citation library.
+     There has to be one entity for each item to be referenced. -->
+<!ENTITY rfc2119 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY rfc1846 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1846.xml">
+<!ENTITY rfc5321 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5321.xml">
+
+<!-- Outline of entity definition for citations to Internet Drafts
+     &lt;!ENTITY I-D.mrose-writing-rfcs SYSTEM 
+     "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.mrose-writing-rfcs">
+     corresponding to a draft filename draft-mrose-writing-rfcs-nn.txt.
+     Naming convention for draft-ietf-xx-yy is that
+       ietf-xx-yy  is latest version
+       draft-ietf-xx-yy-NN is that version.  Similarly for draft-foo
+       rather than draft-ietf: foo-xx-yy and draft-foo-xx-yy-NN
+   -->
+<!-- Fudge for XMLmind which doesn't have this built in -->
+<!ENTITY nbsp "&#160;">
+
+]>
+<!-- Extra statement used by XSLT processors to control the output style. -->
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<!-- Processing Instructions- PIs (for a complete list and description,
+     see file http://xml.resource.org/authoring/README.html.
+     You may find that some sphisticated editors are not able to edit PIs when palced here.
+     An alternative position is just inside the rfc elelment as noted below. -->
+<!-- Some of the more generally applicable PIs that most I-Ds might want to use -->
+<!-- Try to enforce the ID-nits conventions and DTD validity -->
+<?rfc strict="yes" ?>
+<!-- Items used when reviewing the document -->
+<!-- Controls display of <cref> elements -->
+<?rfc comments="yes" ?>
+<!-- When no, put comments at end in comments section,
+     otherwise, put inline -->
+<?rfc inline="yes" ?>
+<!-- When yes, insert editing marks: editing marks consist of a 
+     string such as <29> printed in the blank line at the 
+     beginning of each paragraph of text. -->
+<?rfc editing="no" ?>
+<!-- Create Table of Contents (ToC) and set some options for it.  
+     Note the ToC may be omitted for very short documents,but idnits insists on a ToC 
+     if the document has more than 15 pages. -->
+<?rfc toc="yes"?>
+<?rfc tocompact="yes"?>
+<!-- If "yes" eliminates blank lines before main section entries. -->
+<?rfc tocdepth="3"?>
+<!-- Sets the number of levels of sections/subsections... in ToC.
+   Can be overridden by 'toc="include"/"exclude"' on the section
+   element-->
+<!-- Choose the options for the references. 
+     Some like symbolic tags in the references (and citations) and others prefer 
+     numbers. The RFC Editor always uses symbolic tags.
+     The tags used are the anchor attributes of the references. -->
+<?rfc symrefs="no"?>
+<?rfc sortrefs="yes" ?>
+<!-- If "yes", causes the references to be sorted in order of tags.
+			 This doesn't have any effect unless symrefs is "yes"
+          also. --> 
+<!-- These two save paper: Just setting compact to "yes" makes savings by not starting each 
+     main section on a new page but does not omit the blank lines between list items. 
+     If subcompact is also "yes" the blank lines between list items are also omitted. -->
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<!-- end of list of popular I-D processing instructions -->
+
+<!-- Information about the document.
+     category values: std, bcp, info, exp, and historic
+     For Internet-Drafts, specify attribute "ipr".
+     (ipr values are: full3978, noModification3978, noDerivatives3978), 
+     (2008 IETF Trust versions: trust200811, noModificationTrust200811, noDerivativeTrust200811
+     Also for Internet-Drafts, you must specify a value for attributes "docName" which is 
+     typically the file name under which it is filed - but need not be - and,if relevant, 
+     "iprExtract".  
+     Note that the value for iprExtract is the anchor attribute value of a section (such as 
+     a MIB specification) that can be extracted for separate publication, and is only useful 
+     when the value of "ipr" is not "full3978".
+     "updates" and "obsoletes" attributes can also be specified here,
+     their arguments are comma-separated lists of RFC numbers (just
+	 the numbers) -->
+<!-- Per Marshall Rose, 20090225 add trust200811,
+    noModificationTrust200811, noDerivativesTrust200811, trust200902,
+    noModificationTrust200902, noDerivativesTrust200902,
+	pre5378Trust200902 -->
+
+<rfc  docName="draft-klensin-smtp-521code-01a.txt"
+     ipr="trust200902"  category="std"
+	 updates="1846, 5321">
+     <!-- obsoletes='2821, 821' updates='1123' category='std' -->   
+<!-- Note that this succeeds draft-klensin-rfc1846bis-00 and was
+   derived from the never-published -01a version of that document
+   after we decided to eliminate all of the general "how to handle sites that
+   don't want mail" material. -->
+
+  <!-- ***** FRONT MATTER ***** -->
+
+  <front>
+
+    <title>SMTP 521 Reply Code</title>
+
+    <author fullname="John C Klensin" initials="J.C." surname="Klensin">
+      <organization/>
+      <address>
+        <postal>
+          <street>1770 Massachusetts Ave, Ste 322</street>
+          <city>Cambridge</city> <region>MA</region>
+          <code>02140</code>
+          <country>USA</country>
+        </postal>
+        <phone>+1 617 245 1457</phone>
+        <email>john-ietf@jck.com</email>
+      </address>
+    </author>  
+
+    <date month="August" day="21" year="2014" />
+
+    <!-- Meta-data Declarations -->
+    <area>Applications</area>   
+
+    <!-- WG name at the upper left corner of the doc,
+         IETF fine for individual submissions.  You can also
+         omit this element in which case it defaults to "Network Working Group" -
+         a hangover from the ancient history of the IETF!
+    <workgroup>Network Working Group</workgroup>   -->
+
+	<!-- You can add <keyword/> elements here.  They will be incorporated into HTML output
+         files in a meta tag but they have no effect on text or nroff output. -->
+	<!-- <keyword>Text</keyword> (as many of those elements as needed
+	-->
+	<keyword>Reply code</keyword>
+	<keyword>Email</keyword>
+	<keyword>Server</keyword>
+	<keyword>No Mail</keyword>
+
+	
+    <abstract>
+      <t>   This memo defines a Simple Mail Transfer Protocol (SMTP)
+	   reply code, 521.  THe code was originally described in an
+	   Experimental RFC in 1995 and is in wide use, but has not
+	   previously been formally incorporated into SMTP. The code may
+	   be used to indicate that an Internet host 
+	   does not accept incoming mail. </t> 
+    </abstract>
+	
+  </front>
+
+  <middle>
+	 <section title="Introduction" anchor="intro">
+		<t>The SMTP specification <xref target="RFC5321"/> (referred
+		   to, along with its various updates, as "SMTP" below) contains a
+		   list and discussion of error codes.  This document updates
+		   that list with a new code, 521, for use in
+		   response to an initial connection.  In that context, it
+		   specifically denotes a
+		   system that does not receive email or otherwise handle
+		   SMTP mail or inquiry transactions.  That code differs from
+		   the use of reply code 554, recommended by RFC 5321, because
+		   the latter code can be used in a larger variety of
+		   situations, including mail that is not accepted for, or
+		   from, particular sources, destinations, or addresses.</t>
+		<t>This specification updates RFC 5321 to add the new 521
+		   code.  That code was first formally proposed in the
+		   Experimental <xref target="RFC1846">RFC 1846</xref>; this
+		   document updates that specification to standardize the code
+		   and provide more specific treatment of it.</t>
+		<t>The reader of this document is expected to have reasonable
+		   familiarity with the SMTP specification in RFC 5321,
+		   particularly its discussion of reply codes and their use
+		   and theory.</t>
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+		  "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+		  document are to be interpreted as described in
+		  <xref target="RFC2119">RFC 2119</xref>.</t>
+	 </section>
+		
+	 <section title="Background">
+	   <t>  Many Internet hosts
+		   are not in a position -- whether technically, operationally, or
+		   administratively-- to offer email service.  If an SMTP
+		   client (sender) attempts to open a mail 
+		   connection to a system that does not have an SMTP server, the
+		   connection attempt will time out.  SMTP requires that
+		   timeouts result in the client queuing the message and
+		   retrying it for an extended period.  That behavior will
+		   result in wasted resources and long delays in getting an
+		   error message back to its originator.</t>
+		<t>An alternative is to run a dummy SMTP server on hosts that
+		   do not receive mail under any circumstances, having that
+		   dummy server return a fatal error reply code in response to
+		   any connection-opening attempt.  This document specifies a
+		   reply code to be used for that purpose.</t>
+	  </section>
+	  <section title="The 521 Reply Code">
+		 <t> This specification adds the 521 reply code to the
+			repertoire specified in SMTP, reserving it for use at
+			connection-opening time to indicate that the host does
+			not accept email 
+			under any circumstances.  It SHOULD be used for dummy SMTP
+			servers whose sole purpose is to notify systems that
+			attempt to open mail connections that the host never
+			accepts mail.  It MAY be used in other situations where
+			the intent is to indicate that the host never accepts
+			email.  It SHOULD NOT be used for situations in which the
+			server rejects mail from particular hosts or addresses or
+			in which mail for a particular destination host is not
+			accepted; as discussed in SMTP, reply code 554 is more
+			appropriate for those conditions.</t>
+		 <t>The preferred message to accompany a 521 code is "Host
+			does not accept mail".  <!-- optionally preceded by a domain
+			name.  Because the code is used at the time of a
+			connection opening attempt, the host may not know the
+			domain name by which the client attempted to reach it.  If
+			its configuration does not allow confidence about that
+			domain name, the domain name SHOULD NOT be included lest
+			it add confusion rather than clarity. --> </t>
+		 <t> Once the 521 reply code is returned instead of the usual
+			220, the SMTP session proceeds normally.   If the SMTP
+			client attempts to send additional commands other than
+			QUIT, the Server MAY either continue sending 521 reply
+			codes or simply close the connection.  If the purpose of
+			running a dummy SMTP server that returns a 521 code is to
+			conserve resources, the latter will usually be
+			preferable.</t>
+	   </section>
+
+	   <section title="Small details to avoid loose ends">
+		  <section title="Specific changes to RFC 5321">
+			 <t>This document adds the 521 code, with message "Host
+				does not accept mail" to the function group and
+				numerical lists (Sections 4.2.2 and 4.2.3
+				respectively) of RFC 5321.  It also adds the 521 code
+				to the "CONNECTION ESTABLISHMENT" portion of Section
+				4.3.2 ("Command-Reply Sequences"), preceding the 554
+				code.</t>
+		  </section>
+		 <!-- <section title="Postmaster">
+			  <t>An SMTP server that sends a reply message using a 521
+				 code in response to an initial connection is not
+				 subject to the postmaster requirement of Section 4.5.1 of
+				 RFC 5321.  This should be obvious: if a RCPT command is
+				 not allowed, mail addressed to Postmaster cannot be
+				 sent.</t> 
+		   </section> -->
+		   <section title="The RFC 1846 Experiment">
+			  <t> By formalizing Response Code 521, this specification
+				 ends the experiment proposed in RFC 1846.  That
+				 document also discusses general strategies 
+				 for hosts that do not accept mail directly.
+				 That discussion is out of scope for the present
+				 document.</t>
+		  </section>
+	   </section>
+
+	   <!--
+	   <section title="Context and other approaches" anchor="Context">
+		  <t>This specification, and the 521 code, are intended to
+			 address situations in which an SMTP connection is
+			 attempted to a host that does not support SMTP.
+			 An alternate approach is to provide information about SMTP
+			 non-support in the hope of discouraging such connection
+			 attempts.  One way to do that using the DNS is specified
+			 as the "null MX" approach <xref target="nullMX"/>.  Even
+			 when that approach is used, it is desirable to support a
+			 server that will 
+			 return this code if a connection is attempted on the
+			 SMTP port because client recognition of the special
+			 DNS records for null MX is not universal.</t>
+	   </section>  -->
+
+	   <section title="Security Considerations">
+		  <t>Not running any SMTP server, or running an SMTP server which simply
+		   emits fixed strings in response to incoming connections, should provide
+		   significantly fewer opportunities for security problems than running
+		   a complete SMTP implementation.</t>
+	   </section>
+
+	   <section title="Acknowledgments">
+		  <t>Alain Durand and Francis Dupont proposed the 521 code in
+			 <xref target="RFC1846">RFC 1846</xref>.  They also
+			 participated in an extended conversation and provided
+			 many useful comments that led to this document.  The
+			 document also contains, with their permission, some text
+			 copied from that early specification.</t>
+		  <t>Discussion of the "null MX" approach and
+			 proposal <xref target="nullMX"/> inspired the creation of
+			 this specification.</t>
+	   </section>
+
+  </middle>
+
+  <!--  *****BACK MATTER ***** -->
+
+  <back>
+    <!-- References split to informative and normative -->
+
+    <references title="Normative References">
+
+	  &rfc2119;
+	  &rfc5321;
+    </references>
+
+    <references title="Informative References">
+
+	   &rfc1846;
+	   
+     <reference anchor="nullMX"
+                 target="https://datatracker.ietf.org/doc/draft-ietf-appsawg-nullmx/">
+        <front>
+          <title>A "Null MX" No Service Resource Record for Domains
+			 that Accept No Mail</title>
+          <author initials="J." surname="Levine">
+            <organization/>
+          </author>
+          <author initials="M." surname="Delany">
+            <organization/>
+          </author>
+          <date year="2014" month="August" day="8" />  <!-- -08 -->
+        </front>
+      </reference>
+	   
+    </references>
+
+
+<!--   Sections below here become  Appendices.  -->
+	
+	<section title="Change Log" anchor="ChangeLog">
+	    <t>RFC Editor: Please remove this appendix before
+		   publication..</t>
+	   <t>This Internet Draft is the successor to
+		  draft-klensin-rfc1846bis-00.  That document was an attempt to
+		  completely update and replace RFC 1846.  That effort led to
+		  the conclusion that it would be better to focus narrowly on
+		  the 521 code, leaving a more general treatment of hosts that
+		  do not receive mail to a separate replacement for RFC 1846
+		  and/or an update to RFC 5321.</t> 
+<!--	   <section title="Changss from -00 to -01">
+		  <t> ... </t>
+	    </section>  -->
+	</section>    <!-- End of change log -->
+
+  </back>
+</rfc>

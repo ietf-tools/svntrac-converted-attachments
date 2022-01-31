@@ -1,0 +1,560 @@
+
+
+
+
+Network Working Group                                           E. Wilde
+Internet-Draft                                               UC Berkeley
+Intended status: Standards Track                        February 8, 2018
+Expires: August 12, 2018
+
+
+                        XML2RFC xref Test Cases
+                               xref-tests
+
+Abstract
+
+   Some xref test cases.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on August 12, 2018.
+
+Copyright Notice
+
+   Copyright (c) 2018 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+
+
+
+
+
+
+Wilde                    Expires August 12, 2018                [Page 1]
+
+Internet-Draft           XML2RFC xref Test Cases           February 2018
+
+
+1.  Tests
+
+   This section contains test cases for <xref/>, testing 9 different
+   types of targets.  Each target is tested for all possible values of
+   the @format attribute, and for <xref/> elements with and without
+   content.
+
+1.1.  Tests for section-anchor
+
+   <xref target="section-anchor"/>: Section 2
+
+   <xref target="section-anchor">TEXT-CONTENT</xref>: TEXT-CONTENT
+   (Section 2)
+
+   <xref format="counter" target="section-anchor"/>: 2
+
+   <xref format="counter" target="section-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (2)
+
+   <xref format="title" target="section-anchor"/>: Test Targets
+
+   <xref format="title" target="section-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (Test Targets)
+
+   <xref format="none" target="section-anchor"/>:
+
+   <xref format="none" target="section-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT
+
+   <xref format="default" target="section-anchor"/>: Section 2
+
+   <xref format="default" target="section-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (Section 2)
+
+1.2.  Tests for section-anchor (unnumbered)
+
+   <xref target="section-anchor-unnumbered"/>: Appendix "Unnumbered
+   Section" [section-anchor-unnumbered]
+
+   <xref target="section-anchor-unnumbered">TEXT-CONTENT</xref>: TEXT-
+   CONTENT [section-anchor-unnumbered]
+
+   <xref format="counter" target="section-anchor-unnumbered"/>:
+   [section-anchor-unnumbered]
+
+   <xref format="counter" target="section-anchor-unnumbered">TEXT-
+   CONTENT</xref>: TEXT-CONTENT [section-anchor-unnumbered]
+
+
+
+
+Wilde                    Expires August 12, 2018                [Page 2]
+
+Internet-Draft           XML2RFC xref Test Cases           February 2018
+
+
+   <xref format="title" target="section-anchor-unnumbered"/>:
+   [section-anchor-unnumbered]
+
+   <xref format="title" target="section-anchor-unnumbered">TEXT-
+   CONTENT</xref>: TEXT-CONTENT [section-anchor-unnumbered]
+
+   <xref format="none" target="section-anchor-unnumbered"/>:
+   [section-anchor-unnumbered]
+
+   <xref format="none" target="section-anchor-unnumbered">TEXT-
+   CONTENT</xref>: TEXT-CONTENT [section-anchor-unnumbered]
+
+   <xref format="default" target="section-anchor-unnumbered"/>:
+   Appendix "Unnumbered Section" [section-anchor-unnumbered]
+
+   <xref format="default" target="section-anchor-unnumbered">TEXT-
+   CONTENT</xref>: TEXT-CONTENT [section-anchor-unnumbered]
+
+1.3.  Tests for t-anchor
+
+   <xref target="t-anchor"/>: Section 2, Paragraph 2
+
+   <xref target="t-anchor">TEXT-CONTENT</xref>: TEXT-CONTENT
+   (Section 2, Paragraph 2)
+
+   <xref format="counter" target="t-anchor"/>: 2
+
+   <xref format="counter" target="t-anchor">TEXT-CONTENT</xref>: TEXT-
+   CONTENT (2)
+
+   <xref format="title" target="t-anchor"/>:
+
+   <xref format="title" target="t-anchor">TEXT-CONTENT</xref>: TEXT-
+   CONTENT ()
+
+   <xref format="none" target="t-anchor"/>:
+
+   <xref format="none" target="t-anchor">TEXT-CONTENT</xref>: TEXT-
+   CONTENT
+
+   <xref format="default" target="t-anchor"/>: Section 2, Paragraph 2
+
+   <xref format="default" target="t-anchor">TEXT-CONTENT</xref>: TEXT-
+   CONTENT (Section 2, Paragraph 2)
+
+
+
+
+
+
+
+Wilde                    Expires August 12, 2018                [Page 3]
+
+Internet-Draft           XML2RFC xref Test Cases           February 2018
+
+
+1.4.  Tests for list-t-anchor-empty
+
+   <xref target="list-t-anchor-empty"/>: Paragraph 1
+
+   <xref target="list-t-anchor-empty">TEXT-CONTENT</xref>: TEXT-CONTENT
+   (Paragraph 1)
+
+   <xref format="counter" target="list-t-anchor-empty"/>: 1
+
+   <xref format="counter" target="list-t-anchor-empty">TEXT-
+   CONTENT</xref>: TEXT-CONTENT (1)
+
+   <xref format="title" target="list-t-anchor-empty"/>:
+
+   <xref format="title" target="list-t-anchor-empty">TEXT-
+   CONTENT</xref>: TEXT-CONTENT ()
+
+   <xref format="none" target="list-t-anchor-empty"/>:
+
+   <xref format="none" target="list-t-anchor-empty">TEXT-CONTENT</xref>:
+   TEXT-CONTENT
+
+   <xref format="default" target="list-t-anchor-empty"/>: Paragraph 1
+
+   <xref format="default" target="list-t-anchor-empty">TEXT-
+   CONTENT</xref>: TEXT-CONTENT (Paragraph 1)
+
+1.5.  Tests for list-t-anchor-numbers
+
+   <xref target="list-t-anchor-numbers"/>: Paragraph 1
+
+   <xref target="list-t-anchor-numbers">TEXT-CONTENT</xref>: TEXT-
+   CONTENT (Paragraph 1)
+
+   <xref format="counter" target="list-t-anchor-numbers"/>: 1
+
+   <xref format="counter" target="list-t-anchor-numbers">TEXT-
+   CONTENT</xref>: TEXT-CONTENT (1)
+
+   <xref format="title" target="list-t-anchor-numbers"/>:
+
+   <xref format="title" target="list-t-anchor-numbers">TEXT-
+   CONTENT</xref>: TEXT-CONTENT ()
+
+   <xref format="none" target="list-t-anchor-numbers"/>:
+
+   <xref format="none" target="list-t-anchor-numbers">TEXT-
+   CONTENT</xref>: TEXT-CONTENT
+
+
+
+Wilde                    Expires August 12, 2018                [Page 4]
+
+Internet-Draft           XML2RFC xref Test Cases           February 2018
+
+
+   <xref format="default" target="list-t-anchor-numbers"/>: Paragraph 1
+
+   <xref format="default" target="list-t-anchor-numbers">TEXT-
+   CONTENT</xref>: TEXT-CONTENT (Paragraph 1)
+
+1.6.  Tests for list-t-anchor-letters
+
+   <xref target="list-t-anchor-letters"/>: Paragraph 1
+
+   <xref target="list-t-anchor-letters">TEXT-CONTENT</xref>: TEXT-
+   CONTENT (Paragraph 1)
+
+   <xref format="counter" target="list-t-anchor-letters"/>: 1
+
+   <xref format="counter" target="list-t-anchor-letters">TEXT-
+   CONTENT</xref>: TEXT-CONTENT (1)
+
+   <xref format="title" target="list-t-anchor-letters"/>:
+
+   <xref format="title" target="list-t-anchor-letters">TEXT-
+   CONTENT</xref>: TEXT-CONTENT ()
+
+   <xref format="none" target="list-t-anchor-letters"/>:
+
+   <xref format="none" target="list-t-anchor-letters">TEXT-
+   CONTENT</xref>: TEXT-CONTENT
+
+   <xref format="default" target="list-t-anchor-letters"/>: Paragraph 1
+
+   <xref format="default" target="list-t-anchor-letters">TEXT-
+   CONTENT</xref>: TEXT-CONTENT (Paragraph 1)
+
+1.7.  Tests for list-t-anchor-hanging
+
+   <xref target="list-t-anchor-hanging"/>: Paragraph 1
+
+   <xref target="list-t-anchor-hanging">TEXT-CONTENT</xref>: TEXT-
+   CONTENT (Paragraph 1)
+
+   <xref format="counter" target="list-t-anchor-hanging"/>: 1
+
+   <xref format="counter" target="list-t-anchor-hanging">TEXT-
+   CONTENT</xref>: TEXT-CONTENT (1)
+
+   <xref format="title" target="list-t-anchor-hanging"/>:
+
+   <xref format="title" target="list-t-anchor-hanging">TEXT-
+   CONTENT</xref>: TEXT-CONTENT ()
+
+
+
+Wilde                    Expires August 12, 2018                [Page 5]
+
+Internet-Draft           XML2RFC xref Test Cases           February 2018
+
+
+   <xref format="none" target="list-t-anchor-hanging"/>:
+
+   <xref format="none" target="list-t-anchor-hanging">TEXT-
+   CONTENT</xref>: TEXT-CONTENT
+
+   <xref format="default" target="list-t-anchor-hanging"/>: Paragraph 1
+
+   <xref format="default" target="list-t-anchor-hanging">TEXT-
+   CONTENT</xref>: TEXT-CONTENT (Paragraph 1)
+
+1.8.  Tests for texttable-anchor
+
+   <xref target="texttable-anchor"/>: Table 1
+
+   <xref target="texttable-anchor">TEXT-CONTENT</xref>: TEXT-CONTENT
+   (Table 1)
+
+   <xref format="counter" target="texttable-anchor"/>: 1
+
+   <xref format="counter" target="texttable-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (1)
+
+   <xref format="title" target="texttable-anchor"/>: TEXTTABLE-TITLE
+
+   <xref format="title" target="texttable-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (TEXTTABLE-TITLE)
+
+   <xref format="none" target="texttable-anchor"/>:
+
+   <xref format="none" target="texttable-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT
+
+   <xref format="default" target="texttable-anchor"/>: Table 1
+
+   <xref format="default" target="texttable-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (Table 1)
+
+1.9.  Tests for table-anchor
+
+   <xref target="table-anchor"/>: Table 2
+
+   <xref target="table-anchor">TEXT-CONTENT</xref>: TEXT-CONTENT
+   (Table 2)
+
+   <xref format="counter" target="table-anchor"/>: 2
+
+   <xref format="counter" target="table-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (2)
+
+
+
+Wilde                    Expires August 12, 2018                [Page 6]
+
+Internet-Draft           XML2RFC xref Test Cases           February 2018
+
+
+   <xref format="title" target="table-anchor"/>: TABLE-TITLE
+
+   <xref format="title" target="table-anchor">TEXT-CONTENT</xref>: TEXT-
+   CONTENT (TABLE-TITLE)
+
+   <xref format="none" target="table-anchor"/>:
+
+   <xref format="none" target="table-anchor">TEXT-CONTENT</xref>: TEXT-
+   CONTENT
+
+   <xref format="default" target="table-anchor"/>: Table 2
+
+   <xref format="default" target="table-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (Table 2)
+
+1.10.  Tests for figure-anchor
+
+   <xref target="figure-anchor"/>: Figure 1
+
+   <xref target="figure-anchor">TEXT-CONTENT</xref>: TEXT-CONTENT
+   (Figure 1)
+
+   <xref format="counter" target="figure-anchor"/>: 1
+
+   <xref format="counter" target="figure-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (1)
+
+   <xref format="title" target="figure-anchor"/>: FIGURE-TITLE
+
+   <xref format="title" target="figure-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (FIGURE-TITLE)
+
+   <xref format="none" target="figure-anchor"/>:
+
+   <xref format="none" target="figure-anchor">TEXT-CONTENT</xref>: TEXT-
+   CONTENT
+
+   <xref format="default" target="figure-anchor"/>: Figure 1
+
+   <xref format="default" target="figure-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (Figure 1)
+
+1.11.  Tests for reference-anchor
+
+   <xref target="reference-anchor"/>: [reference-anchor]
+
+   <xref target="reference-anchor">TEXT-CONTENT</xref>: TEXT-CONTENT
+   [reference-anchor]
+
+
+
+Wilde                    Expires August 12, 2018                [Page 7]
+
+Internet-Draft           XML2RFC xref Test Cases           February 2018
+
+
+   <xref format="counter" target="reference-anchor"/>: 1
+
+   <xref format="counter" target="reference-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (1)
+
+   <xref format="title" target="reference-anchor"/>:
+   Extensible Markup Language (XML) 1.0 (Fifth Edition)
+
+   <xref format="title" target="reference-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (Extensible Markup Language (XML) 1.0 (Fifth Edition))
+
+   <xref format="none" target="reference-anchor"/>:
+
+   <xref format="none" target="reference-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT
+
+   <xref format="default" target="reference-anchor"/>:
+   [reference-anchor]
+
+   <xref format="default" target="reference-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT [reference-anchor]
+
+1.12.  Tests for cref-anchor
+
+   <xref target="cref-anchor"/>: Comment cref-anchor
+
+   <xref target="cref-anchor">TEXT-CONTENT</xref>: TEXT-CONTENT
+   (Comment cref-anchor)
+
+   <xref format="counter" target="cref-anchor"/>: 1
+
+   <xref format="counter" target="cref-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (1)
+
+   <xref format="title" target="cref-anchor"/>:
+
+   <xref format="title" target="cref-anchor">TEXT-CONTENT</xref>: TEXT-
+   CONTENT ()
+
+   <xref format="none" target="cref-anchor"/>:
+
+   <xref format="none" target="cref-anchor">TEXT-CONTENT</xref>: TEXT-
+   CONTENT
+
+   <xref format="default" target="cref-anchor"/>: Comment cref-anchor
+
+   <xref format="default" target="cref-anchor">TEXT-CONTENT</xref>:
+   TEXT-CONTENT (Comment cref-anchor)
+
+
+
+Wilde                    Expires August 12, 2018                [Page 8]
+
+Internet-Draft           XML2RFC xref Test Cases           February 2018
+
+
+2.  Test Targets
+
+   This section contains a couple of markup constructs carrying anchors
+   (this is paragraph 1).
+
+   Some regular paragraph text... (this is paragraph 2)
+
+      Some paragraph in a list... (this is list item 1 in a default
+      style list)
+
+   1.  Some paragraph in a list... (this is list item 1 in a "numbers"
+       style list)
+
+   a.  Some paragraph in a list... (this is list item 1 in a "letters"
+       style list)
+
+   hanging-title  Some paragraph in a list... (this is list item 1 in a
+      "hanging" style list)
+
+                        +------------------------+
+                        | Some texttable text... |
+                        +------------------------+
+                        +------------------------+
+
+                         Table 1: TEXTTABLE-TITLE
+
+   Some figure text...
+
+                          Figure 1: FIGURE-TITLE
+
+   [cref-anchor]
+
+                                   +---+
+                                   | C |
+                                   +---+
+                                   | 1 |
+                                   +---+
+
+                           Table 2: TABLE-TITLE
+
+3.  Normative References
+
+   [reference-anchor]
+              Maler, E., Yergeau, F., Paoli, J., Sperberg-McQueen, M.,
+              and T. Bray, "Extensible Markup Language (XML) 1.0 (Fifth
+              Edition)", W3C Recommendation REC-xml-20081126, November
+              2008, <http://www.w3.org/TR/2008/REC-xml-20081126/>.
+
+
+
+
+Wilde                    Expires August 12, 2018                [Page 9]
+
+Internet-Draft           XML2RFC xref Test Cases           February 2018
+
+
+              Latest version available at <http://www.w3.org/TR/xml>.
+
+Unnumbered Section
+
+   The quick brown fox is bored.
+
+Editorial Comments
+
+[cref-anchor] A comment.
+
+Author's Address
+
+   Erik Wilde
+   UC Berkeley
+
+   Email: dret@berkeley.edu
+   URI:   http://dret.net/netdret/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Wilde                    Expires August 12, 2018               [Page 10]

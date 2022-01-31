@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!-- xml2rfc v2-->
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC2119 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml'>
+<!ENTITY RFC3971 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.3971.xml'>
+<!ENTITY RFC3972 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.3972.xml'>
+<!ENTITY RFC4389 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.4389.xml'>
+<!ENTITY RFC4861 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.4861.xml'>
+<!ENTITY RFC4862 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.4862.xml'>
+<!ENTITY RFC5072 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.5072.xml'>
+<!ENTITY RFC5909 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.5909.xml'>
+<!ENTITY RFC6085 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.6085.xml'>
+<!ENTITY RFC6275 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.6275.xml'>
+<!ENTITY RFC6496 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.6496.xml'>
+<!ENTITY RFC6620 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.6620.xml'>
+<!ENTITY RFC6775 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.6775.xml'>
+<!ENTITY savi-send PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-savi-send.xml'>
+<!ENTITY savi-mix PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-savi-mix.xml'>
+]>
+<?rfc rfcedstyle="yes" ?>
+<?rfc toc="yes" ?>
+<?rfc tocompact="yes" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<?rfc symrefs="yes" ?>
+<?rfc sortrefs="yes" ?>
+<rfc category="std" submissionType="IETF" number="6957" consensus="yes" ipr="trust200902">
+  <front>
+    <title abbrev="DAD-Proxy">Duplicate Address Detection Proxy</title>
+
+    <!-- AUTHORS -->
+
+    <author fullname="Fabio Costa" initials="F." surname="Costa">
+      <organization>France Telecom Orange</organization>
+
+      <address>
+        <postal>
+          <street>61 rue des Archives</street>
+
+          <city>75141 Paris Cedex 03</city>
+
+          <country>France</country>
+        </postal>
+
+        <email>fabio.costa@orange.com</email>
+      </address>
+    </author>
+
+    <author fullname="Jean-Michel Combes" initials="J-M." surname="Combes" role="editor">
+      <organization>France Telecom Orange</organization>
+
+      <address>
+        <postal>
+          <street>38 rue du General Leclerc</street>
+
+          <city>92794 Issy-les-Moulineaux Cedex 9</city>
+
+          <country>France</country>
+        </postal>
+
+        <email>jeanmichel.combes@orange.com</email>
+      </address>
+    </author>
+
+    <author fullname="Xavier Pougnard" initials="X." surname="Pougnard">
+      <organization>France Telecom Orange</organization>
+
+      <address>
+        <postal>
+          <street>2 avenue Pierre Marzin</street>
+
+          <city>22300 Lannion</city>
+
+          <country>France</country>
+        </postal>
+
+        <email>xavier.pougnard@orange.com</email>
+      </address>
+    </author>
+
+    <author fullname="Hongyu Li" initials="H." surname="Li">
+      <organization>Huawei Technologies</organization>
+
+      <address>
+        <postal>
+          <street>Huawei Industrial Base</street>
+
+          <city>Shenzhen</city>
+
+          <country>China</country>
+        </postal>
+
+        <email>lihy@huawei.com</email>
+      </address>
+    </author>
+
+    <date month="June" year="2013" />
+
+    <area>Internet</area>
+
+    <workgroup>6man Working Group</workgroup>
+
+    <abstract>
+      <t>The document describes a proxy-based mechanism allowing the use of
+Duplicate Address Detection (DAD) by IPv6 nodes in a point-to-multipoint
+architecture with a "split-horizon" forwarding scheme, primarily deployed for
+Digital Subscriber Line (DSL) and Fiber access architectures. Based on the DAD
+signaling, the first-hop router stores in a Binding Table all known IPv6 addresses used on a point-to-multipoint domain (e.g., VLAN). When a node performs DAD for an address already used by another node, the first-hop router defends the address rather than the device using the address.</t>
+    </abstract>
+  </front>
+
+  <middle>
+    <section anchor="Intro" title="Introduction">
+      <t>This document specifies a function called Duplicate Address Detection
+  (DAD) proxy allowing the use of DAD by the nodes on the same point-to-multipoint domain with a "split-horizon" forwarding scheme,
+  primarily deployed for Digital Subscriber Line (DSL) and Fiber access
+  architectures <xref target="TR-101"></xref>.  It only impacts the first-hop router and it doesn't
+  need modifications on the other IPv6 nodes.  This mechanism is fully
+  effective if all the nodes of a point-to-multipoint domain (except
+  the DAD proxy itself) perform DAD.</t>
+      <t>This document explains also why the DAD mechanism <xref
+target="RFC4862"></xref> without a proxy cannot be used in a
+point-to-multipoint architecture with a "split-horizon" forwarding scheme (IPv6 over PPP <xref target="RFC5072"></xref> is not affected). One of the main reasons is that, because of this forwarding scheme, IPv6 nodes on the same point-to-multipoint domain cannot have direct communication: any communication between them must go through the first-hop router of the same domain.</t>
+      
+      <t>It is assumed in this document that link-layer addresses on a point-to-multipoint domain are unique from the first-hop router's point of view (e.g., in an untrusted Ethernet architecture, this assumption can be guaranteed thanks to mechanisms such as Media Access Control (MAC) address translation performed by an aggregation device between IPv6 nodes and the first-hop router).</t>
+      
+      <section title="Requirements Language">
+      	<t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119">RFC 2119</xref>.</t>
+      </section>      	
+   	</section>
+
+    <section title="Background">
+    	<t>Terminology in this document follows that in "Neighbor Discovery for IP version 6 (IPv6)" <xref target="RFC4861"></xref> and "IPv6 Stateless Address Autoconfiguration" <xref target="RFC4862"></xref>. In addition, this section defines additional terms related to DSL and Fiber access architectures, which are an important case where the solution described in this document can be used:</t>
+
+      <t><list hangIndent="6" style="hanging">
+          <t hangText="Customer Premises Equipment (CPE)"><vspace /> 
+          The first IPv6 node in a customer's network.</t>
+
+          <t hangText="Access Node (AN)"><vspace /> 
+          The first aggregation point in the public access network. It is considered as an L2 bridge in this document.</t>
+
+          <t hangText="Broadband Network Gateway (BNG)"><vspace /> 
+          The first-hop router from the CPE's point of view.</t>
+
+          <t hangText="VLAN N:1 architecture"><vspace /> 
+          A point-to-multipoint architecture where many CPEs are connected to the same VLAN. The CPEs may be connected on the same or different Access Nodes.</t>
+
+          <t hangText="split-horizon model"><vspace /> 
+          A forwarding scheme where CPEs cannot have direct layer 2 communications between them (i.e., IP flows must be forwarded through the BNG via routing).</t>
+      </list></t>
+
+      <t>The following figure shows where the different entities are, as defined
+      above.</t>
+
+      <figure anchor="Fig_Architecture" title="DSL and Fiber Access Architecture">
+        <artwork xml:space="preserve"><![CDATA[		
+   +------+         +----+
+   | CPE3 |---------| AN |
+   +------+         +----+
+                      |
+                      |
+   +------+         +----+
+   | CPE2 |---------| AN |---+	
+   +------+         +----+   |
+   +------+            |     |
+   | CPE1 |------------+     |
+   +------+               +-----+
+                          | BNG |--- Internet
+                          +-----+
+				]]></artwork>
+      </figure>
+    </section>
+
+    <section title="Why Existing IETF Solutions Are Not Sufficient">
+    	<t>In a DSL or Fiber access architecture depicted in <xref
+target="Fig_Architecture"></xref>, CPE1, CPE2, CPE3, and the BNG are IPv6
+nodes, while AN is an L2 bridge providing connectivity between the BNG and each
+CPE. The AN enforces a split-horizon model so that CPEs can only send and
+receive frames (e.g., Ethernet frames) to and from the BNG but not to each
+other. That said, the BNG is on the same link with all CPEs, but a given CPE is not on the same link with any other CPE.</t>
+    	
+    	<section title="Duplicate Address Detection">
+    		<t>Duplicate Address Detection (DAD) <xref target="RFC4862"></xref> is performed when an IPv6 node verifies the uniqueness of a tentative IPv6 address. This node sends a Neighbor Solicitation (NS) message with the IP destination set to the solicited-node multicast address of the tentative address. This NS message is multicasted to other nodes on the same link. When the tentative address is already used on the link by another node, this last one replies with a Neighbor Advertisement (NA) message to inform the first node. So, when performing DAD, a node expects the NS messages to be received by any node currently using the tentative address.</t>
+    		<t>However, in a point-to-multipoint network with a split-horizon forwarding scheme implemented in the AN, the CPEs are prevented from talking to each other directly. All packets sent out from a CPE are forwarded by the AN only to the BNG but not to any other CPE. NS messages sent by a certain CPE will be received only by the BNG and will not reach other CPEs.  So, other CPEs have no idea that a certain IPv6 address is used by another CPE. That means, in a network with split-horizon, DAD, as defined in <xref target="RFC4862"></xref>, can't work properly without additional help.</t>
+    	</section>
+    	
+    	<section title="Neighbor Discovery Proxy">
+    		<t>Neighbor Discovery (ND) Proxy <xref target="RFC4389"></xref> is designed for forwarding ND messages between different IP links where the subnet prefix is the same. An ND Proxy function on a bridge ensures that packets between nodes on different segments can be received by this function and have the correct link-layer address type on each segment. When the ND Proxy receives a multicast ND message, it forwards it to all other interfaces on a same link.</t>
+    		<t>In DSL or Fiber networks, when the AN, acting as an ND Proxy, receives an ND message from a CPE, it will forward it to the BNG but none of the other CPEs, as only the BNG is on the same link with the CPE. Hence, implementing ND Proxy on the AN would not help a CPE acknowledge link-local addresses used by other CPEs.</t>
+    		<t>As the BNG must not forward link-local scoped messages sent from a CPE to other CPEs, ND Proxy cannot be implemented in the BNG.</t>
+    	</section>
+    	
+    	<section title="6LoWPAN Neighbor Discovery">
+    		<t><xref target="RFC6775"></xref> defines an optional
+modification of DAD for IPv6 over Low-Power
+              Wireless Personal Area Networks (6LoWPAN). When a 6LoWPAN node wants to configure an IPv6 address, it registers that address with one or more of its default routers using the Address Registration Option (ARO). If this address is already owned by another node, the router informs the 6LoWPAN node that this address cannot be configured.</t>
+    		<t>This mechanism requires modifications in all hosts in order to support the ARO.</t>
+    	</section>
+    	
+    	<section title="IPv6 Mobility Manager">
+    		<t>According to <xref target="RFC6275"></xref>, a home agent acts as a proxy for mobile nodes when they are away from the home network: the home agent defends a mobile node's home address by replying to NS messages with NA messages.</t>
+    		<t>There is a problem for this mechanism if it is applied in a DSL or Fiber public access network. Operators of such networks require that an NA message is only received by the sender of the corresponding NS message, for security and scalability reasons. However, the home agent per <xref target="RFC6275"></xref> multicasts NA messages on the home link and all nodes on this link will receive these NA messages. This shortcoming prevents this mechanism from being deployed in DSL or Fiber access networks directly.</t>
+    	</section>
+    </section>
+
+    <section title="Duplicate Address Detection Proxy (DAD-Proxy) Specifications">
+	<t>First, it is important to note that, as this mechanism is strongly based
+on DAD <xref target="RFC4862"></xref>, it is not completely reliable, and the goal of this document is not to fix DAD.</t>
+    	<section title="DAD-Proxy Data Structure">
+    		<t>A BNG needs to store in a Binding Table information related to the IPv6 addresses generated by any CPE. This Binding Table can be distinct from the Neighbor Cache. This must be done per point-to-multipoint domain (e.g., per Ethernet VLAN).  Each entry in this Binding Table MUST contain the following fields: <list style="symbols">
+    			<t>IPv6 Address</t>
+    			<t>Link-layer Address</t>
+    		</list></t>
+
+    		<t>For security or performances reasons, it must be possible to limit the number of IPv6 addresses per link-layer address (possibly, but not necessarily, to 1).</t>
+    		<t>On the reception of an unsolicited NA (e.g., when a CPE wishes to inform its neighbors of a new link-layer address) for an IPv6 address already recorded in the Binding Table, each entry associated to this IPv6 address MUST be updated consequently: the current link-layer address is replaced by the one included in the unsolicited NA message.</t>
+			<t>For security or performances reasons, the Binding
+Table MUST be large enough for the deployment in which it is used: if the
+Binding Table is distinct from the Neighbor Cache, it MUST be at least the
+same size as this last one. Implementations MUST either state the fixed size of
+the Binding Table that they support or make the size configurable. In the
+latter case, implementations MUST state the largest Binding Table size that
+they support. Additionally, implementations SHOULD allow an operator to inquire
+about the current occupancy level of the Binding Table to determine if it is about to become full. Implementations encountering a full Binding Table will likely handle it in a way similar to NS message loss.</t>
+			<t>It is recommended to apply technical solutions to minimize the risk that the Binding Table becomes full. These solutions are out of the scope of this document.</t>
+		</section>
+    	
+    	<section anchor="DADProxy" title="DAD-Proxy Mechanism">
+    		<t>When a CPE performs DAD, as specified in <xref target="RFC4862"></xref>, it sends a Neighbor Solicitation (NS) message, with the unspecified address as the source address, in order to check if a tentative address is already in use on the link. The BNG receives this message and MUST perform actions specified in the following sections based on the information in the Binding Table.</t>
+    		
+    		<section anchor="NoEntry" title="No Entry Exists for the Tentative Address">
+    			<t>When there is no entry for the tentative address, the BNG MUST create one with the following information: <list style="symbols">
+    				<t>IPv6 Address field set to the tentative address in the NS message.</t>
+    				<t>Link-layer Address field set to the link-layer source address in the link-layer header of the NS message.</t>
+    			</list></t>
+    			<t>The BNG MUST NOT reply to the CPE or forward the NS message.</t>
+    		</section>
+    		
+    		<section anchor="Entry" title="An Entry Already Exists for the Tentative Address">
+    			<t>When there is an entry for the tentative address, the BNG MUST check the following conditions: <list style="symbols">
+    				<t>The address in the Target Address field in the NS message is equal to the address in the IPv6 Address field in the entry.</t>
+    				<t>The source address of the IPv6 Header in the NS message is equal to the unspecified address.</t>
+    			</list></t>
+    			<t>When these conditions are met and the source address of the link-layer header in the NS message is equal to the address in the Link-layer Address field in the entry, that means the CPE is still performing DAD for this address. The BNG MUST NOT reply to the CPE or forward the NS message.</t>
+    			<t>When these conditions are met and the source address
+of the link-layer header in the NS message is not equal to the address in the
+Link-layer Address field in the entry, that means possibly another CPE is
+performing DAD for an already owned address. The BNG then has to verify whether
+there is a real conflict by checking if the CPE whose IPv6 address is in the
+entry is still connected. In the following text, we will call IPv6-CPE1 the IPv6 address of the existing entry in the Binding Table, Link-layer-CPE1 the link-layer address of that entry, and Link-layer-CPE2 the link-layer address of the CPE that is performing DAD, which is different from Link-layer-CPE1.</t>
+    			<t>The BNG MUST check if the potential address conflict is real. In particular: <list style="symbols">
+    				<t>If IPv6-CPE1 is in the Neighbor Cache and it is associated with Link-layer-CPE1, the reachability of IPv6-CPE1 MUST be confirmed as explained in <xref target="Confirmation"/>.</t>
+    				<t>If IPv6-CPE1 is in the Neighbor Cache, but in this cache it is associated with a link-layer address other than Link-layer-CPE1, that means that there is possibly a conflict with another CPE, but that CPE did not perform DAD. This situation is out of the scope of this document, since one assumption made above is that all the nodes of a point-to-multipoint domain (except the DAD proxy itself) perform DAD.</t>
+    				<t>If IPv6-CPE1 is not in the Neighbor Cache,
+then the BNG MUST create a new entry based on the information of the entry in
+the Binding Table. This step is necessary in order to trigger the reachability
+check as explained in <xref target="Confirmation"/>. 
+
+The entry in the Neighbor
+Cache MUST be created based on the algorithm defined in Section 7.3.3 of <xref
+target="RFC4861"></xref>, in particular by treating this case as though a packet other than a solicited Neighbor Advertisement were received from IPv6-CPE1. Thus, the new entry of the Neighbor Cache MUST contain the following information:
+					<list style="symbols">
+    					<t>IPv6 address: IPv6-CPE1</t>
+    					<t>Link-layer address: Link-layer-CPE1</t>
+    					<t>State: STALE</t>
+    				</list>
+The reachability of IPv6-CPE1 MUST be confirmed as soon as possible following the procedure explained in Section 4.2.3.
+
+					</t>
+    			</list></t>
+    			
+    		</section>
+    		
+    		<section anchor="Confirmation" title="Confirmation of Reachability to Check the Validity of the Conflict">
+    			<t>Given that the IPv6-CPE1 is in an entry of the
+Neighbor Cache, the reachability of IPv6-CPE1 is checked by using the Neighbor
+Unreachability Detection (NUD) mechanism described in Section 7.3.1 of <xref
+target="RFC4861"></xref>. 
+
+This mechanism MUST be triggered as though a packet had to be sent to
+IPv6-CPE1. Note that in some cases this mechanism does not do anything. For
+instance, if the state of the entry is REACHABLE and a positive confirmation
+was received recently that the forward path to the IPv6-CPE1 was functioning
+properly (see RFC 4861 for more details), this mechanism does not do anything.</t>
+    			<t>Next, the behavior of the BNG depends on the result of the NUD process, as explained in the following sections.</t>
+    			
+    			<section title="The Result of the NUD Process is Negative">
+    				<t>If the result of the NUD process is negative (i.e., if this process removes IPv6-CPE1 from the Neighbor Cache), that means that the potential conflict is not real.</t>
+    				<t>The conflicting entry in the Binding Table
+(Link-layer-CPE1) is deleted and it is replaced by a new entry with the same
+IPv6 address, but the link-layer address of the CPE is performing DAD (Link-layer-CPE2), as explained in <xref target="NoEntry"/>.</t>
+    			</section>
+    			
+    			<section title="The Result of the NUD Process is Positive">
+    				<t>If the result of the NUD process is positive (i.e., if after this process the state of IPv6-CPE1 is REACHABLE), that means that the potential conflict is real.</t>
+    				<t>As shown in <xref target="Fig_valid_status"></xref>, the BNG MUST reply to the CPE that is performing DAD (CPE2 in <xref target="Fig_Architecture"></xref>) with an NA message that has the following format: <list hangIndent="6" style="hanging">
+              <t hangText="Layer 2 Header Fields:"><list hangIndent="6"
+                  style="hanging">
+                  <t hangText="Source Address"><vspace /> 
+                  The link-layer address of the interface on which the BNG received the NS message.</t>
+
+                  <t hangText="Destination Address"><vspace /> 
+                  The source address in the Layer 2 Header of the NS message received by the BNG (i.e., Link-layer-CPE2).</t>
+               </list></t>
+
+              <t hangText="IPv6 Header Fields:"><list hangIndent="6"
+                  style="hanging">
+                  <t hangText="Source Address"><vspace /> 
+                  An address assigned to the interface from which the advertisement is sent.</t>
+
+                  <t hangText="Destination Address"><vspace /> 
+                  The all-nodes multicast address.</t>
+                </list></t>
+
+              <t hangText="ICMPv6 Fields:"><list hangIndent="6"
+                  style="hanging">
+                  <t hangText="Target Address"><vspace /> 
+                  The tentative address already used (i.e., IPv6-CPE1).</t>
+
+                  <t hangText="Target Link-layer Address"><vspace /> 
+                  The link-layer address of the interface on which the BNG received the NS message.</t>
+                </list></t>
+            </list></t>
+
+          <figure anchor="Fig_valid_status" title="DAD Failure">
+            <artwork xml:space="preserve"><![CDATA[		
+  CPE1      CPE2       BNG
+   |         |          |
+(a)|         |          |
+   |         |          |
+(b)|===================>|
+   |         |          |(c)
+   |         |          |
+   |      (d)|          |
+   |         |          |
+   |      (e)|=========>|
+   |         |          |
+   |         |<=========|(f)
+   |         |          |
+
+(a) CPE1 generates a tentative address
+(b) CPE1 performs DAD for this one
+(c) BNG updates its Binding Table
+(d) CPE2 generates a same tentative address
+(e) CPE2 performs DAD for this one
+(f) BNG informs CPE2 that DAD fails
+]]></artwork></figure>
+          
+          <t>The BNG and the CPE MUST support the unicast transmission on the
+link layer of IPv6 multicast messages <xref target="RFC6085"></xref>, to be able, respectively, to generate and to process such a packet format.</t>
+        		</section>
+
+      </section>
+    </section>
+    </section>
+	
+	<section title="Manageability Considerations">
+      <t>The BNG SHOULD support a mechanism to log and emit alarms whenever a duplication of IPv6 addresses is detected by the DAD-Proxy function. Moreover, the BNG SHOULD implement a function to allow an operator to access logs and to see the current entries in the Binding Table. The management of access rights to get this information is out of the scope of this document.</t>
+    </section>
+
+    <section title="Security Considerations">
+    	<section title="Interoperability with SEND">
+    		<t>The mechanism described in this document will not interoperate with SEcure Neighbor Discovery (SEND) <xref target="RFC3971"></xref>. This is due to the BNG not owning the private key associated with the Cryptographically Generated  Address (CGA) <xref target="RFC3972"></xref> needed to correctly sign the proxied ND messages <xref target="RFC5909"></xref>.</t>
+    		<t>Secure Proxy ND Support for SEND <xref
+target="RFC6496"></xref> has been specified to address this limitation, and it SHOULD be implemented and used on the BNG and the CPEs.</t>
+    	</section>
+    	<section title="Protection against IP Source Address Spoofing">
+    	      <t>To ensure protection against IP source address spoofing in data packets, this proposal can be used in combination with Source Address Validation Improvement (SAVI) mechanisms <xref target="RFC6620"></xref> <xref target="SAVI-SEND"></xref> <xref target="SAVI-MIX"></xref>.</t>
+    	      <t>If SAVI mechanisms are used, the SAVI device is the BNG, and the Binding Anchor for a CPE is its MAC address, which is assumed to be unique in this document (cf.&nbsp;<xref target="Intro"></xref>).</t>
+    	</section>
+    </section>
+
+    <section title="Acknowledgments">
+      <t>The authors would like to thank Alan Kavanagh, Wojciech Dec, Suresh Krishnan, and Tassos Chatzithomaoglou for their comments. The authors would like also to thank the IETF 6man WG members and the BBF community for their support.</t>
+    </section>
+
+    <!-- Acknowledgments -->
+  </middle>
+
+  <back>
+    <references title="Normative References">
+    
+      &RFC2119;
+    
+      <!-- Neighbor Discovery for IP version 6 (IPv6) -->
+
+      &RFC4861;
+
+      <!-- IPv6 Stateless Address Autoconfiguration -->
+
+      &RFC4862;
+      
+      <!-- Address Mapping of IPv6 Multicast Packets on Ethernet -->
+      
+      &RFC6085;
+
+	
+	</references>
+	
+	<references  title='Informative References' >
+	
+	  <!-- IP Version 6 over PPP -->
+	  
+	  &RFC5072;
+	
+	  <!-- SEcure Neighbor Discovery (SEND) -->
+      
+      &RFC3971;
+      
+      <!-- Cryptographically Generated Addresses (CGA) -->
+      
+      &RFC3972;
+      
+      <!-- Mobility Support in IPv6 -->
+      
+      &RFC6275;
+      
+      <!-- Neighbor Discovery Proxies -->
+      
+      &RFC4389;
+      
+      <!-- Securing Neighbor Discovery Proxy: Problem Statement -->
+      
+      &RFC5909;
+      
+      <!-- Neighbor Discovery Optimization for Low Power and Lossy Networks (6LoWPAN) -->
+      
+      &RFC6775;
+      
+      <!-- Secure Proxy ND Support for SEND -->
+      
+      &RFC6496;
+      
+      <!-- FCFS SAVI: First-Come First-Serve Source-Address Validation for Locally Assigned IPv6 Addresses -->
+      
+      &RFC6620;
+      
+      <!-- draft-ietf-savi-send, AD Evaluation -->
+<reference anchor='SAVI-SEND'>
+<front>
+<title>SEND-based Source-Address Validation Implementation</title>
+
+<author initials='M' surname='Bagnulo' fullname='Marcelo Bagnulo'>
+    <organization />
+</author>
+
+<author initials='A' surname='Garcia-Martinez' fullname='Alberto Garcia-Martinez'>
+    <organization />
+</author>
+
+<date month='April' year='2013' />
+
+<abstract><t>This memo describes SEND SAVI, a mechanism to provide source address validation using the SEND protocol.  The proposed mechanism is intended to complement ingress filtering techniques to provide a finer granularity on the control of the source addresses used.</t></abstract>
+
+</front>
+
+<seriesInfo name='Work in' value='Progress' />
+</reference>
+
+      
+      <!-- draft-ietf-savi-mix, I-D Exists -->
+<reference anchor='SAVI-MIX'>
+<front>
+<title>SAVI for Mixed Address Assignment Methods Scenario</title>
+
+<author initials='J' surname='Bi' fullname='Jun Bi'>
+    <organization />
+</author>
+
+<author initials='G' surname='Yao' fullname='Guang Yao'>
+    <organization />
+</author>
+
+<author initials='J' surname='Halpern' fullname='Joel Halpern'>
+    <organization />
+</author>
+
+<author initials='E' surname='Levy-Abegnoli' fullname='Eric Levy-Abegnoli' role='editor'>
+    <organization />
+</author>
+
+<date month='May' year='2013' />
+
+<abstract><t>This document reviews how multiple address discovery methods can coexist in a single SAVI device and collisions are resolved when the same binding entry is discovered by two or more methods.</t></abstract>
+
+</front>
+
+<seriesInfo name='Work in' value='Progress' />
+
+</reference>
+
+      
+  <reference anchor='TR-101' target='http://www.broadband-forum.org/technical/download/TR-101_Issue-2.pdf'>
+<front>
+<title>Migration to Ethernet-Based DSL Aggregation</title>
+
+<author><organization>The Broadband Forum</organization>
+</author>
+
+<date month='July' year='2011' />
+
+<abstract><t></t></abstract>
+
+</front>
+
+<seriesInfo name='Issue 2,' value='Technical Report TR-101' />
+</reference>  
+			
+	</references>
+
+
+
+    <section anchor="State_Machine" title="DAD-Proxy State Machine">
+    	<t>This appendix, which is informative, contains a summary (cf.&nbsp;<xref target='Tab_State_machine'/>) of the actions done by the BNG when it receives a DAD-based NS (DAD&nbhy;NS) message. The tentative address in this message is IPv6-CPE1 and the associated link-layer address is Link-layer-CPE2. The actions are precisely specified in <xref target="DADProxy"/>.</t>
+
+
+<texttable anchor="Tab_State_machine" title="DAD-Proxy State Machine">
+        <ttcol align='left'>Event</ttcol>
+        <ttcol align='left'>Check</ttcol>
+        <ttcol align='left'>Action</ttcol>
+        <ttcol align='left'>New event</ttcol>
+        <c>DAD-NS message reception.</c>
+        <c>* No entry for IPv6-CPE1 in the Binding Table.</c>
+        <c>Create an entry for IPv6-CPE1 bound to Link-layer-CPE2 in the Binding Table.</c>
+        <c>-</c>
+        <c> </c>
+        <c>  </c>
+        <c>  </c>
+        <c>  </c>
+        <c>  </c>
+        <c>* Entry for IPv6-CPE1 in the Binding Table.</c>
+        <c>-</c>
+        <c>Existing entry.</c>
+        <c>  </c>
+        <c>  </c>
+        <c>  </c>
+        <c>  </c>
+        <c>Existing entry.</c>
+        <c>* Link-layer-CPE2 bound to IPv6-CPE1 in the Binding Table.</c>
+        <c>-</c>
+        <c>-</c>
+        <c> </c>
+        <c> </c>
+        <c> </c>
+        <c> </c>
+        <c> </c>
+        <c>* Another link-layer address, Link-layer-CPE1, bound to IPv6-CPE1 in the Binding Table.</c>
+        <c>-</c>
+        <c>Conflict?</c>
+        <c>Conflict?</c>
+        <c>* IPv6-CPE1 associated to Link-layer-CPE1 in the Neighbor Cache.</c>
+        <c>-</c>
+        <c>Reachable?</c>
+        <c> </c>
+        <c>* IPv6-CPE1 associated to another link-layer address than Link-layer-CPE1 in the Neighbor Cache.</c>
+        <c>Out of scope.</c>
+        <c>-</c>
+        <c> </c>
+        <c>* IPv6-CPE1 is not in the Neighbor Cache.</c>
+        <c>Create an entry for IPv6-CPE1 associated to Link-layer-CPE1 in the Neighbor Cache.</c>
+        <c>Reachable?</c>
+        <c>Reachable?</c>
+        <c>* NUD process is negative.</c>
+        <c>IPv6-CPE2 is bound to Link-layer-CPE2, instead to Link-layer-CPE1, in the Binding Table.</c>
+        <c>-</c>
+        <c> </c>
+        <c>* NUD process is positive.</c>
+        <c>A NA message is sent.</c>
+        <c>-</c>
+    </texttable>	
+    	
+    </section>
+    
+  </back>
+</rfc>

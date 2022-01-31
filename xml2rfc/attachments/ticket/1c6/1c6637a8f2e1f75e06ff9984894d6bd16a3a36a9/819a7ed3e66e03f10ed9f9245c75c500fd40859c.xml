@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ascii'?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd">
+<rfc ipr="trust200902" category="std" docName="" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
+  <?rfc toc="yes"?>
+  <front>
+    <title>test</title>
+    <author initials="" surname="" fullname="R. (Miek) Gieben">
+      <address>
+        <phone/>
+        <email>miek@miek.nl</email>
+        <uri>http://miek.nl</uri>
+      </address>
+    </author>
+    <date/>
+    <area>Internet</area>
+    <workgroup/>
+    <keyword>Service</keyword>
+    <abstract>
+      <t>AA</t>
+    </abstract>
+  </front>
+  <middle><!--This document was prepared using Pandoc2rfc, https://github.com/miekg/pandoc2rfc --><section title="Bla" anchor="bla" toc="default"><t>Bla (<eref target="http://blog.gopheracademy.com/skydns">Announcement Blog Post</eref>) is a distributed service for announcement and discovery of services.  </t></section> </middle>
+  <back>
+    <references title="Normative References"><reference anchor="RFC4627"><front><title>The application/json Media Type for JavaScript Object Notation (JSON)</title><author initials="D." surname="Crockford" fullname="D. Crockford"><organization/></author><date year="2006" month="July"/><abstract><t>JavaScript Object Notation (JSON) is a lightweight, text-based, language-independent data interchange format.  It was derived from the ECMAScript Programming Language Standard.  JSON defines a small set of formatting rules for the portable representation of structured data.  This memo provides information for the Internet community.</t></abstract></front><seriesInfo name="RFC" value="4627"/><format type="TXT" octets="16319" target="http://www.rfc-editor.org/rfc/rfc4627.txt"/></reference> </references>
+  </back>
+</rfc>

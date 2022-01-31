@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?rfc comments="yes"?>
+<?rfc toc="yes"?>
+<rfc docName="draft-reschke-xref-tests"
+     submissionType="independent"
+     category="info"
+     ipr="trust200902"
+     version="3">
+   <front>
+      <title>Tests for &lt;xref&gt; Element</title>
+      <author surname="Reschke" initials="J." fullname="Julian Reschke"/>
+      <date/>
+      <abstract anchor="t-abstract">
+         <t>This document tests many variations of the &lt;xref&gt; element.</t>
+      </abstract>
+   </front>
+   <middle>
+      <section>
+         <name>Introduction</name>
+         <t>This document tests many variations of the &lt;xref&gt; element.</t>
+      </section>
+      <section>
+         <name>
+            <tt>&lt;xref&gt;</tt> Tests</name>
+         <section>
+            <name>...to <tt>&lt;dl&gt;</tt> Element</name>
+            <sourcecode type="xml">&lt;xref target="t-dl"/&gt;</sourcecode>
+            <t>Output: "<xref target="t-dl"/>"</t>
+            <sourcecode type="xml">&lt;xref target="t-dl"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref target="t-dl">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="default" target="t-dl"/&gt;</sourcecode>
+            <t>Output: "<xref format="default" target="t-dl"/>"</t>
+            <sourcecode type="xml">&lt;xref format="default" target="t-dl"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="default" target="t-dl">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="counter" target="t-dl"/&gt;</sourcecode>
+            <t>(not allowed)</t>
+            <sourcecode type="xml">&lt;xref format="counter" target="t-dl"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>(not allowed)</t>
+            <sourcecode type="xml">&lt;xref format="title" target="t-dl"/&gt;</sourcecode>
+            <t>Output: "<xref format="title" target="t-dl"/>"</t>
+            <sourcecode type="xml">&lt;xref format="title" target="t-dl"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="title" target="t-dl">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="none" target="t-dl"/&gt;</sourcecode>
+            <t>Output: "<xref format="none" target="t-dl"/>"</t>
+            <sourcecode type="xml">&lt;xref format="none" target="t-dl"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="none" target="t-dl">TEXTCONTENT</xref>"</t>
+         </section>
+         <section>
+            <name>...to <tt>&lt;ol&gt;</tt> Element</name>
+            <sourcecode type="xml">&lt;xref target="t-ol"/&gt;</sourcecode>
+            <t>Output: "<xref target="t-ol"/>"</t>
+            <sourcecode type="xml">&lt;xref target="t-ol"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref target="t-ol">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="default" target="t-ol"/&gt;</sourcecode>
+            <t>Output: "<xref format="default" target="t-ol"/>"</t>
+            <sourcecode type="xml">&lt;xref format="default" target="t-ol"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="default" target="t-ol">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="counter" target="t-ol"/&gt;</sourcecode>
+            <t>(not allowed)</t>
+            <sourcecode type="xml">&lt;xref format="counter" target="t-ol"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>(not allowed)</t>
+            <sourcecode type="xml">&lt;xref format="title" target="t-ol"/&gt;</sourcecode>
+            <t>Output: "<xref format="title" target="t-ol"/>"</t>
+            <sourcecode type="xml">&lt;xref format="title" target="t-ol"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="title" target="t-ol">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="none" target="t-ol"/&gt;</sourcecode>
+            <t>Output: "<xref format="none" target="t-ol"/>"</t>
+            <sourcecode type="xml">&lt;xref format="none" target="t-ol"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="none" target="t-ol">TEXTCONTENT</xref>"</t>
+         </section>
+         <section>
+            <name>Reference elements</name>
+            <section>
+               <name>...to <tt>&lt;reference&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-reference"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-reference"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-reference"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-reference">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-reference"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-reference"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-reference"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-reference">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-reference"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-reference"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-reference"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-reference"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-reference"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-reference">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-reference"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-reference"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-reference"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-reference">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;reference&gt;</tt> Element with non-ASCII title</name>
+               <sourcecode type="xml">&lt;xref target="t-reference-u"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-reference-u"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-reference-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-reference-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-reference-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-reference-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-reference-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-reference-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-reference-u"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-reference-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-reference-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-reference-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-reference-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-reference-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-reference-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-reference-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-reference-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-reference-u">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>
+                  <tt>&lt;relref&gt;</tt> to <tt>&lt;reference&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;relref section="1" target="t-reference"/&gt;</sourcecode>
+               <t>Output: "<relref section="1" target="t-reference"/>"</t>
+               <sourcecode type="xml">&lt;relref section="1" target="t-reference"&gt;TEXTCONTENT&lt;/relref&gt;</sourcecode>
+               <t>Output: "<relref section="1" target="t-reference">TEXTCONTENT</relref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;referencegroup&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-referencegroup"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-referencegroup"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-referencegroup"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-referencegroup">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-referencegroup"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-referencegroup"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-referencegroup"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-referencegroup">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-referencegroup"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-referencegroup"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-referencegroup"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-referencegroup"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-referencegroup"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-referencegroup">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-referencegroup"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-referencegroup"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-referencegroup"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-referencegroup">TEXTCONTENT</xref>"</t>
+               <section>
+                  <name>...to member of <tt>&lt;referencegroup&gt;</tt> Element</name>
+                  <sourcecode type="xml">&lt;xref target="t-referencegroup-member"/&gt;</sourcecode>
+                  <t>Output: "<xref target="t-referencegroup-member"/>"</t>
+                  <sourcecode type="xml">&lt;xref target="t-referencegroup-member"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+                  <t>Output: "<xref target="t-referencegroup-member">TEXTCONTENT</xref>"</t>
+                  <sourcecode type="xml">&lt;xref format="default" target="t-referencegroup-member"/&gt;</sourcecode>
+                  <t>Output: "<xref format="default" target="t-referencegroup-member"/>"</t>
+                  <sourcecode type="xml">&lt;xref format="default" target="t-referencegroup-member"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+                  <t>Output: "<xref format="default" target="t-referencegroup-member">TEXTCONTENT</xref>"</t>
+                  <sourcecode type="xml">&lt;xref format="counter" target="t-referencegroup-member"/&gt;</sourcecode>
+                  <t>(not allowed)</t>
+                  <sourcecode type="xml">&lt;xref format="counter" target="t-referencegroup-member"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+                  <t>(not allowed)</t>
+                  <sourcecode type="xml">&lt;xref format="title" target="t-referencegroup-member"/&gt;</sourcecode>
+                  <t>Output: "<xref format="title" target="t-referencegroup-member"/>"</t>
+                  <sourcecode type="xml">&lt;xref format="title" target="t-referencegroup-member"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+                  <t>Output: "<xref format="title" target="t-referencegroup-member">TEXTCONTENT</xref>"</t>
+                  <sourcecode type="xml">&lt;xref format="none" target="t-referencegroup-member"/&gt;</sourcecode>
+                  <t>Output: "<xref format="none" target="t-referencegroup-member"/>"</t>
+                  <sourcecode type="xml">&lt;xref format="none" target="t-referencegroup-member"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+                  <t>Output: "<xref format="none" target="t-referencegroup-member">TEXTCONTENT</xref>"</t>
+               </section>
+            </section>
+         </section>
+         <section>
+            <name>...to <tt>&lt;t&gt;</tt> Element</name>
+            <sourcecode type="xml">&lt;xref target="t-t"/&gt;</sourcecode>
+            <t>Output: "<xref target="t-t"/>"</t>
+            <sourcecode type="xml">&lt;xref target="t-t"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref target="t-t">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="default" target="t-t"/&gt;</sourcecode>
+            <t>Output: "<xref format="default" target="t-t"/>"</t>
+            <sourcecode type="xml">&lt;xref format="default" target="t-t"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="default" target="t-t">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="counter" target="t-t"/&gt;</sourcecode>
+            <t>Output: "<xref format="counter" target="t-t"/>"</t>
+            <sourcecode type="xml">&lt;xref format="counter" target="t-t"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="counter" target="t-t">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="title" target="t-t"/&gt;</sourcecode>
+            <t>Output: "<xref format="title" target="t-t"/>"</t>
+            <sourcecode type="xml">&lt;xref format="title" target="t-t"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="title" target="t-t">TEXTCONTENT</xref>"</t>
+            <sourcecode type="xml">&lt;xref format="none" target="t-t"/&gt;</sourcecode>
+            <t>Output: "<xref format="none" target="t-t"/>"</t>
+            <sourcecode type="xml">&lt;xref format="none" target="t-t"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+            <t>Output: "<xref format="none" target="t-t">TEXTCONTENT</xref>"</t>
+         </section>
+         <section>
+            <name>Top-level elements</name>
+            <section>
+               <name>...to <tt>&lt;abstract&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-abstract"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-abstract"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-abstract"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-abstract">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-abstract"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-abstract"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-abstract"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-abstract">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-abstract"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-abstract"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-abstract"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-abstract"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-abstract"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-abstract">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-abstract"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-abstract"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-abstract"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-abstract">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;references&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-references"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-references"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-references"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-references">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-references"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-references"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-references"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-references">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-references"/&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-references"/>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-references"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-references">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-references"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-references"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-references"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-references">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-references"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-references"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-references"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-references">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;section&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-section"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-section"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-section"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-section">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-section"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-section"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-section"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-section">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-section"/&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-section"/>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-section"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-section">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-section"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-section"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-section"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-section">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-section"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-section"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-section"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-section">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to unnumbered <tt>&lt;section&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-section-u"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-section-u"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-section-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-section-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-section-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-section-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-section-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-section-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-section-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-section-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-section-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-section-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-section-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-section-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-section-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-section-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-section-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-section-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-section-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-section-u">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;section&gt;</tt> Element inside <tt>&lt;back&gt;</tt>
+               </name>
+               <sourcecode type="xml">&lt;xref target="t-appendix"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-appendix"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-appendix"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-appendix">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-appendix"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-appendix"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-appendix"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-appendix">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-appendix"/&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-appendix"/>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-appendix"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-appendix">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-appendix"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-appendix"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-appendix"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-appendix">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-appendix"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-appendix"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-appendix"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-appendix">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to unnumbered <tt>&lt;section&gt;</tt> Element inside <tt>&lt;back&gt;</tt>
+               </name>
+               <sourcecode type="xml">&lt;xref target="t-appendix-u"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-appendix-u"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-appendix-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-appendix-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-appendix-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-appendix-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-appendix-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-appendix-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-appendix-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-appendix-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-appendix-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-appendix-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-appendix-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-appendix-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-appendix-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-appendix-u">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-appendix-u"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-appendix-u"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-appendix-u"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-appendix-u">TEXTCONTENT</xref>"</t>
+            </section>
+         </section>
+         <section>
+            <name>Block-level elements</name>
+            <section>
+               <name>...to bare <tt>&lt;artwork&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-bare-artwork"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-bare-artwork"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-bare-artwork"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-bare-artwork">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-bare-artwork"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-bare-artwork"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-bare-artwork"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-bare-artwork">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-bare-artwork"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-bare-artwork"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-bare-artwork"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-bare-artwork"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-bare-artwork"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-bare-artwork">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-bare-artwork"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-bare-artwork"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-bare-artwork"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-bare-artwork">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;aside&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-aside"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-aside"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-aside"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-aside">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-aside"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-aside"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-aside"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-aside">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-aside"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-aside"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-aside"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-aside"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-aside"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-aside">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-aside"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-aside"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-aside"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-aside">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;blockquote&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-blockquote"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-blockquote"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-blockquote"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-blockquote">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-blockquote"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-blockquote"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-blockquote"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-blockquote">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-blockquote"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-blockquote"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-blockquote"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-blockquote"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-blockquote"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-blockquote">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-blockquote"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-blockquote"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-blockquote"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-blockquote">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;figure&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-figure"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-figure"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-figure"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-figure">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-figure"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-figure"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-figure"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-figure">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-figure"/&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-figure"/>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-figure"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-figure">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-figure"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-figure"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-figure"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-figure">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-figure"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-figure"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-figure"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-figure">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;table&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-table"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-table"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-table"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-table">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-table"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-table"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-table"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-table">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-table"/&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-table"/>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-table"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-table">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-table"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-table"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-table"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-table">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-table"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-table"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-table"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-table">TEXTCONTENT</xref>"</t>
+            </section>
+         </section>
+         <section>
+            <name>List members</name>
+            <section>
+               <name>...to <tt>&lt;dd&gt;</tt> child of <tt>&lt;dl&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-dl-dd"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-dl-dd"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-dl-dd"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-dl-dd">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-dl-dd"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-dl-dd"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-dl-dd"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-dl-dd">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-dl-dd"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-dl-dd"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-dl-dd"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-dl-dd"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-dl-dd"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-dl-dd">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-dl-dd"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-dl-dd"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-dl-dd"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-dl-dd">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;dt&gt;</tt> child of <tt>&lt;dl&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-dl-dt"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-dl-dt"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-dl-dt"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-dl-dt">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-dl-dt"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-dl-dt"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-dl-dt"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-dl-dt">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-dl-dt"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-dl-dt"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-dl-dt"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-dl-dt"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-dl-dt"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-dl-dt">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-dl-dt"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-dl-dt"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-dl-dt"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-dl-dt">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;li&gt;</tt> child of <tt>&lt;ol&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-ol-1"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-ol-1"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-ol-1"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-ol-1">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-ol-1"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-ol-1"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-ol-1"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-ol-1">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-ol-1"/&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-ol-1"/>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-ol-1"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-ol-1">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-ol-1"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-ol-1"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-ol-1"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-ol-1">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-ol-1"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-ol-1"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-ol-1"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-ol-1">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;li&gt;</tt> child of <tt>&lt;ol&gt;</tt> Element (nested)</name>
+               <sourcecode type="xml">&lt;xref target="t-ol-2-2"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-ol-2-2"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-ol-2-2"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-ol-2-2">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-ol-2-2"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-ol-2-2"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-ol-2-2"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-ol-2-2">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-ol-2-2"/&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-ol-2-2"/>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-ol-2-2"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="counter" target="t-ol-2-2">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-ol-2-2"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-ol-2-2"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-ol-2-2"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-ol-2-2">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-ol-2-2"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-ol-2-2"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-ol-2-2"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-ol-2-2">TEXTCONTENT</xref>"</t>
+            </section>
+         </section>
+         <section>
+            <name>Flow elements</name>
+            <section>
+               <name>...to <tt>&lt;cref&gt;</tt> Element</name>
+               <sourcecode type="xml">&lt;xref target="t-cref"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-cref"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-cref"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-cref">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-cref"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-cref"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-cref"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-cref">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-cref"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-cref"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-cref"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-cref"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-cref"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-cref">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-cref"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-cref"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-cref"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-cref">TEXTCONTENT</xref>"</t>
+            </section>
+            <section>
+               <name>...to <tt>&lt;cref&gt;</tt> Element (with display=false)</name>
+               <sourcecode type="xml">&lt;xref target="t-cref-df"/&gt;</sourcecode>
+               <t>Output: "<xref target="t-cref-df"/>"</t>
+               <sourcecode type="xml">&lt;xref target="t-cref-df"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref target="t-cref-df">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-cref-df"/&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-cref-df"/>"</t>
+               <sourcecode type="xml">&lt;xref format="default" target="t-cref-df"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="default" target="t-cref-df">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-cref-df"/&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="counter" target="t-cref-df"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>(not allowed)</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-cref-df"/&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-cref-df"/>"</t>
+               <sourcecode type="xml">&lt;xref format="title" target="t-cref-df"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="title" target="t-cref-df">TEXTCONTENT</xref>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-cref-df"/&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-cref-df"/>"</t>
+               <sourcecode type="xml">&lt;xref format="none" target="t-cref-df"&gt;TEXTCONTENT&lt;/xref&gt;</sourcecode>
+               <t>Output: "<xref format="none" target="t-cref-df">TEXTCONTENT</xref>"</t>
+            </section>
+         </section>
+      </section>
+      <section title="Test Link Targets">
+         <section anchor="t-section" title="Section Title">
+            <t>A <cref anchor="t-cref">comment</cref>.</t>
+            <t>This comment is hidden: <cref anchor="t-cref-df" display="false">hidden comment</cref>.</t>
+            <aside anchor="t-aside">
+               <t>...aside...</t>
+            </aside>
+            <blockquote anchor="t-blockquote">
+               <t>...blockquote...</t>
+            </blockquote>
+            <t>Definition List:</t>
+            <dl anchor="t-dl">
+               <dt anchor="t-dl-dt">A</dt>
+               <dd anchor="t-dl-dd">B</dd>
+            </dl>
+            <t>Ordered List (nested):</t>
+            <ol anchor="t-ol">
+               <li anchor="t-ol-1">One</li>
+               <li>Two</li>
+               <li>
+                  <ol>
+                     <li>Two-One</li>
+                     <li anchor="t-ol-2-2">Two-Two</li>
+                  </ol>
+               </li>
+            </ol>
+            <t anchor="t-t">A simple paragraph.</t>
+            <t>A figure:</t>
+            <figure anchor="t-figure" title="Figure Title">
+               <artwork>FOO</artwork>
+            </figure>
+            <t>artwork outside figure:</t>
+            <artwork anchor="t-bare-artwork">FOO</artwork>
+            <t>A table:</t>
+            <table anchor="t-table">
+               <name>Table Title</name>
+               <thead>
+                  <tr>
+                     <th>X</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Y</td>
+                  </tr>
+               </tbody>
+            </table>
+         </section>
+      </section>
+      <section anchor="t-section-u"
+               title="Unnumbered Section Title"
+               numbered="false"/>
+   </middle>
+   <back>
+      <references title="References" anchor="t-references">
+         <reference anchor="t-reference">
+            <front>
+               <title>Another Document</title>
+               <author/>
+               <date/>
+            </front>
+            <seriesInfo name="RFC" value="9999"/>
+         </reference>
+         <reference anchor="t-reference-u"
+                    target="https://en.wikipedia.org/wiki/Capital_%E1%BA%9E">
+            <front>
+               <title ascii="Capital SZ">Capital ẞ</title>
+               <author/>
+            </front>
+            <annotation>A document with non-ASCII characters in the title.</annotation>
+         </reference>
+         <referencegroup anchor="t-referencegroup">
+            <reference anchor="t-referencegroup-member">
+               <front>
+                  <title>Title of Referencegroup Member</title>
+                  <author/>
+               </front>
+            </reference>
+         </referencegroup>
+      </references>
+      <section anchor="t-appendix" title="Appendix Title"/>
+      <section anchor="t-appendix-u"
+               title="Unnumbered Appendix Title"
+               numbered="false"/>
+   </back>
+</rfc>

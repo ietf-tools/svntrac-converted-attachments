@@ -1,0 +1,44 @@
+From 9f010818661e0090aa71b21cdc05cf384489eb38 Mon Sep 17 00:00:00 2001
+From: Martin Thomson <mt@lowentropy.net>
+Date: Wed, 3 Feb 2021 10:45:16 +1100
+Subject: [PATCH] Render integer superscripts simply
+
+The parentheses are great, but they add a lot of noise.
+---
+ xml2rfc/writers/text.py | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/xml2rfc/writers/text.py b/xml2rfc/writers/text.py
+index dfa25c0..8dab412 100644
+--- a/xml2rfc/writers/text.py
++++ b/xml2rfc/writers/text.py
+@@ -3590,21 +3590,25 @@ class TextWriter(BaseV3Writer):
+         return text
+ 
+ 
+     # 2.52.  <sup>
+     # 
+     #    Causes the text to be displayed as superscript, approximately half a
+     #    letter-height higher than normal text.  This element can be combined
+     #    with other character formatting elements, and the formatting will be
+     #    additive.
+     def render_sup(self, e, width, **kwargs):
+-        text = '^(%s)' % self.inner_text_renderer(e)
++        inner = self.inner_text_renderer(e)
++        if re.match(r'^-?\d+$', inner) is not None:
++            text = '^%s' % inner
++        else:
++            text = '^(%s)' % inner
+         text += e.tail or ''
+         return text
+ 
+ 
+     # 2.53.  <t>
+     # 
+     #    Contains a paragraph of text.
+     # 
+     #    This element appears as a child element of <abstract> (Section 2.1),
+     #    <aside> (Section 2.6), <blockquote> (Section 2.10), <dd>
+-- 
+2.25.1
+

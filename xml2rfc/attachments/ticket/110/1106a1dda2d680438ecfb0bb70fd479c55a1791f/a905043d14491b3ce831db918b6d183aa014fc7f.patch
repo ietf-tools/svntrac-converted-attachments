@@ -1,0 +1,165 @@
+diff -rupN xml2rfc-original/__init__.py xml2rfc/__init__.py
+--- xml2rfc-original/__init__.py	2014-06-05 13:46:16.000000000 -0700
++++ xml2rfc/__init__.py	2014-06-28 22:29:40.000000000 -0700
+@@ -1,7 +1,7 @@
+ 
+ 
+ # Static values
+-__version__  = '2.4.8'
++__version__  = '2.4.8v'
+ NAME         = 'xml2rfc'
+ VERSION      = [ int(i) if i.isdigit() else i for i in __version__.split('.') ]
+ CACHES       = ['/var/cache/xml2rfc', '~/.cache/xml2rfc']  # Ordered by priority
+diff -rupN xml2rfc-original/templates/rfc2629.dtd xml2rfc/templates/rfc2629.dtd
+--- xml2rfc-original/templates/rfc2629.dtd	2013-07-01 09:49:06.000000000 -0700
++++ xml2rfc/templates/rfc2629.dtd	2014-06-29 01:27:07.000000000 -0700
+@@ -1,5 +1,5 @@
+ <!--
+-  revised DTD for the RFC document series, draft of 2009-10-06
++  revised DTD for the RFC document series, draft of 2009-10-06, modified 2014-06-28 by SeanTek to add list and vspace to c
+   -->
+ 
+ 
+@@ -257,7 +257,7 @@
+           width       %ATEXT;            ""
+           height      %ATEXT;            "">
+ 
+-<!ELEMENT preamble    (%TEXT;|xref|eref|iref|cref|spanx)*>
++<!ELEMENT preamble    (%TEXT;|xref|eref|iref|cref|spanx|vspace)*>
+ <!ELEMENT artwork     (%TEXT;)*>
+ <!ATTLIST artwork
+           xml:space   (default|preserve) "preserve"
+@@ -269,7 +269,7 @@
+           width       %ATEXT;            ""
+           height      %ATEXT;            "">
+ 
+-<!ELEMENT postamble   (%TEXT;|xref|eref|iref|cref|spanx)*>
++<!ELEMENT postamble   (%TEXT;|xref|eref|iref|cref|spanx|vspace)*>
+     
+ <!ELEMENT texttable   (preamble?,ttcol+,c*,postamble?)>
+ <!ATTLIST texttable
+@@ -282,7 +282,7 @@
+ <!ATTLIST ttcol
+           width       %ATEXT;            #IMPLIED
+           align       (left|center|right) "left">
+-<!ELEMENT c           (%TEXT;|xref|eref|iref|cref|spanx)*>
++<!ELEMENT c           (%TEXT;|xref|eref|iref|cref|spanx|vspace)*>
+ 
+ 
+ <!--
+diff -rupN xml2rfc-original/utils.py xml2rfc/utils.py
+--- xml2rfc-original/utils.py	2014-05-30 00:03:41.000000000 -0700
++++ xml2rfc/utils.py	2014-06-29 00:12:31.000000000 -0700
+@@ -146,7 +146,7 @@ class MyTextWrapper(textwrap.TextWrapper
+                         chunks += [ chunk3 ]
+             else:
+                 chunks += [ chunk2 ]
+-        
++    
+         # Original implementation
+         if self.fix_sentence_endings:
+             self._fix_sentence_endings(chunks)
+diff -rupN xml2rfc-original/writers/html.py xml2rfc/writers/html.py
+--- xml2rfc-original/writers/html.py	2014-06-05 07:27:07.000000000 -0700
++++ xml2rfc/writers/html.py	2014-06-29 00:48:23.000000000 -0700
+@@ -651,8 +651,20 @@ class HtmlRfcWriter(BaseRfcWriter):
+                 td.text = cell.text
+             for child in cell:
+                 # Add any inline elements (references)
+-                for element in self._expand_ref(child):
+-                    td.append(element)
++                # Handle vspace just like write_t_rec
++                if child.tag == 'vspace':
++                    br = E.BR()
++                    td.append(br)
++                    blankLines = int(child.attrib.get('blankLines',
++                                     self.defaults['vspace_blanklines']))
++                    for i in range(blankLines):
++                        br = E.BR()
++                        current.append(br)
++                    if child.tail:
++                        br.tail = child.tail
++                else:
++                    for element in self._expand_ref(child):
++                        td.append(element)
+             # Get alignment from header
+             td.attrib['class'] = col_aligns[col_num]
+             tr.append(td)
+diff -rupN xml2rfc-original/writers/raw_txt.py xml2rfc/writers/raw_txt.py
+--- xml2rfc-original/writers/raw_txt.py	2014-06-05 07:21:55.000000000 -0700
++++ xml2rfc/writers/raw_txt.py	2014-06-29 01:28:12.000000000 -0700
+@@ -17,7 +17,6 @@ except ImportError:
+ from xml2rfc.writers.base import BaseRfcWriter
+ import xml2rfc.utils
+ 
+-
+ class RawTextRfcWriter(BaseRfcWriter):
+     """ Writes to a text file, unpaginated, no headers or footers.
+ 
+@@ -66,6 +65,17 @@ class RawTextRfcWriter(BaseRfcWriter):
+         """ <vspace> line break wrapper to allow for overrides """
+         return self._lb(num=num)
+ 
++    def _text_wrap_with_newline(self, text, width):
++        """ Wrap some text like textwrap.wrap,
++            treating newlines as actual line breaks.
++        """
++        initial_lines = text.split('\n')
++        final_lines = []
++        for l in initial_lines:
++            final_lines += textwrap.wrap(l, width)
++        
++        return final_lines
++
+     def write_text(self, string, indent=0, sub_indent=0, bullet='',
+                   align='left', leading_blankline=False, buf=None,
+                   strip=True, edit=False, wrap_urls=True,
+@@ -854,11 +864,27 @@ class RawTextRfcWriter(BaseRfcWriter):
+ 
+ 
+             text = cell.text or ''
++            
+             if len(cell) > 0:
+                 # <c> has children, render their text and add to line
+-                inline_text, null = \
+-                    self._combine_inline_elements(cell.getchildren())
+-                text += inline_text
++                remainder = cell.getchildren()
++                while len(remainder) > 0:
++                    inline_text, remainder = \
++                    self._combine_inline_elements(remainder)
++                    
++                    text += inline_text
++                    # Handle vspace only for now
++                    if len(remainder) > 0:
++                        c_element = remainder.pop(0)
++                        if c_element.tag == 'vspace':
++                            text += '\n'
++                            text += '\n' * int(c_element.attrib.get('blankLines',
++                                               self.defaults['vspace_blanklines']))
++                
++                        # aggregate the tail after c_element
++                        if c_element.tail:
++                            text += c_element.tail
++
+             text = self.wrapper.replace(text)
+             matrix[row].append(text)
+ 
+@@ -1144,7 +1170,7 @@ class RawTextRfcWriter(BaseRfcWriter):
+ 
+         # Now construct the cells using textwrap against ttcol_widths
+         cell_lines = [
+-            [ textwrap.wrap(cell, ttcol_widths[j]) or [''] for j, cell in enumerate(matrix[i]) ]
++            [ self._text_wrap_with_newline(cell, ttcol_widths[j]) or [''] for j, cell in enumerate(matrix[i]) ]
+             for i in range(0, len(matrix))
+         ]
+ 
+@@ -1171,7 +1197,7 @@ class RawTextRfcWriter(BaseRfcWriter):
+                     # This is the header row, append the header decoration
+                     output.append(''.join(borderstring))
+                 continue
+-            # produce as many outpur rows as the number of wrapped
++            # produce as many output rows as the number of wrapped
+             # text lines in the cell with most lines, but at least 1
+             for row in range(0, max(map(len, cell_line))):
+                 if style == 'headers' or style == 'none':

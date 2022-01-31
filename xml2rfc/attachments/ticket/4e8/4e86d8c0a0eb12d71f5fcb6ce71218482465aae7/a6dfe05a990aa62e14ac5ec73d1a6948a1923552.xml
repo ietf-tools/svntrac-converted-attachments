@@ -1,0 +1,1844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This XML document is the output of clean-for-DTD.xslt; a tool that strips
+    extensions to RFC 7749 from documents for processing with xml2rfc.
+-->
+<!--TARGET-GENERATOR: 201706-->
+<!--TARGET-VOCABULARY: 2-->
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc toc="yes"?>
+<?rfc symrefs="yes"?>
+<?rfc comments="yes"?>
+<?rfc inline="no"?>
+<?rfc multiple-initials="yes"?>
+<?rfc private="XML2RFC Test Cases"?><rfc obsoletes="" submissionType="IETF" updates="">
+	
+<!--see https://trac.tools.ietf.org/tools/xml2rfc/trac/ticket/420-->
+<?v3xml2rfc silence="Warning: Setting consensus="true" for IETF STD document"?><front><title>Test cases for XML2RFC formatting</title><author initials="J. F." surname="Reschke" fullname="Julian F. Reschke">
+  		<organization abbrev="greenbytes">greenbytes GmbH</organization>
+        <address>
+        	<postal>
+          	<street>Hafenweg 16</street>
+            <code>48155</code><city>Muenster</city>
+           	<country>Germany</country>
+         	</postal>
+    		  <phone>+49 251 2807760</phone>	
+    		  <email>julian.reschke@greenbytes.de, julian.reschke@gmx.de</email>	
+    		  	
+    		  <uri>http://greenbytes.de/tech/webdav/</uri>	
+  		  </address>
+
+
+  	</author><date/>
+  	
+
+  	
+
+    
+    <keyword>RFC2629</keyword>
+    <keyword>test case</keyword>
+    <keyword>xml2rfc</keyword>
+	</front>
+
+	<middle>
+
+<section anchor="lists" toc="default" title="Lists">
+
+<section toc="default" title="hanging list">
+<section toc="default" title="default">
+<t>default
+<list style="hanging">
+  <t hangText="A:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="AB:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABC:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCD:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDE:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDEF:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+</list></t>
+
+<?rfc compact="yes"?>
+<t>compact="yes"
+<list style="hanging">
+  <t hangText="A:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="AB:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABC:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCD:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDE:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDEF:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+</list></t>
+
+<?rfc compact="yes" subcompact="yes"?>
+<t>compact="yes" subcompact="yes"
+<list style="hanging">
+  <t hangText="A:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="AB:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABC:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCD:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDE:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDEF:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+</list></t>
+
+<?rfc compact="yes" subcompact="no"?>
+<t>compact="yes" subcompact="no"
+<list style="hanging">
+  <t hangText="A:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="AB:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABC:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCD:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDE:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDEF:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+</list></t>
+
+<?rfc compact="no" subcompact="yes"?>
+<t>compact="no" subcompact="yes"
+<list style="hanging">
+  <t hangText="A:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="AB:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABC:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCD:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDE:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDEF:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+</list></t>
+
+<?rfc compact="no" subcompact="no"?>
+<t>compact="no" subcompact="no"
+<list style="hanging">
+  <t hangText="A:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="AB:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABC:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCD:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDE:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+  <t hangText="ABCDEF:">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</t>
+</list></t>
+
+<?rfc compact="no" subcompact="no"?>
+<t>compact="no" subcompact="yes", empty entries
+<list style="hanging">
+  <t hangText="A:"/>
+  <t hangText="AB:"/>
+  <t hangText="ABC:"/>
+  <t hangText="ABCD:"/>
+  <t hangText="ABCDE:"/>
+</list>
+</t>
+</section>
+
+<section toc="default" title="hanging list with hangIndent 7">
+<t><list style="hanging" hangIndent="7">
+  <t hangText="0">0</t>
+  <t hangText="01">01</t>
+  <t hangText="012">012</t>
+  <t hangText="0123">0123</t>
+  <t hangText="01234">01234</t>
+  <t hangText="012345">012345</t>
+  <t hangText="0123456">0123456</t>
+  <t hangText="01234567">01234567</t>
+  <t hangText="012345678">012345678</t>
+  <t hangText="0123456789">0123456789</t>
+</list></t></section>
+
+<section toc="default" title="hanging list with hangIndent 0">
+<t><list style="hanging" hangIndent="0">
+  <t hangText="0">0</t>
+  <t hangText="01">01</t>
+  <t hangText="012">012</t>
+  <t hangText="0123">0123</t>
+  <t hangText="01234">01234</t>
+  <t hangText="012345">012345</t>
+  <t hangText="0123456">0123456</t>
+  <t hangText="01234567">01234567</t>
+  <t hangText="012345678">012345678</t>
+  <t hangText="0123456789">0123456789</t>
+</list></t></section>
+</section>
+
+<section anchor="ordered.list.numbers" toc="default" title="numbered list">
+<t>
+A numbered list:
+<list style="numbers">
+  <t>one</t>
+  <t>two</t>
+  <t anchor="ordered.list.numbers.last">three</t>
+</list>
+</t>
+</section>
+
+<section anchor="ordered.list.letters" toc="default" title="ordered list (letters)">
+<t>
+An ordered list using letters:
+<list style="letters">
+  <t>one</t>
+  <t>two</t>
+  <t>three</t>
+  <t>one</t>
+  <t>two</t>
+  <t>three</t>
+  <t>one</t>
+  <t>two</t>
+  <t>three</t>
+  <t>one</t>
+  <t>two</t>
+  <t>three</t>
+  <t>one</t>
+  <t>two</t>
+  <t>three</t>
+  <t>one</t>
+  <t>two</t>
+  <t>three</t>
+  <t>one</t>
+  <t>two</t>
+  <t>three</t>
+  <t>one</t>
+  <t>two</t>
+  <t>three</t>
+  <t>one</t>
+  <t>two</t>
+  <t>three</t>
+  <t>one</t>
+  <t>two</t>
+  <t anchor="ordered.list.letters.last">three</t>
+</list>
+</t>
+</section>
+
+<section toc="default" title="no explicit counters">
+<t>
+  Example for numbered list with user-defined-format:
+  <list style="format R%d:">
+    <t>R1</t>
+    <t>R2</t>
+  </list>
+</t>
+<t>
+  Another list:
+  <list style="format S%d:">
+    <t>S1</t>
+    <t>S2</t>
+  </list>
+</t>
+<t>
+  Same with character-based numbering:
+  <list style="format c-%c:">
+    <t>c-a</t>
+    <t>c-b</t>
+  </list>
+</t>
+</section>
+
+<section toc="default" title="with explicit counters">
+<t>
+  A few requirements:
+  <list style="format R%d:" counter="requirements">
+    <t>req R1</t>
+    <t>req R2</t>
+  </list>
+</t>
+<t>
+  More requirements:
+  <list style="format R%d:" counter="requirements">
+    <t>req R3</t>
+    <t>req R4</t>
+  </list>
+</t>
+<t>
+  A few rules:
+  <list style="format R%d:" counter="rules">
+    <t>rule R1</t>
+    <t>rule R2</t>
+    <t>rule R3</t>
+  </list> 
+</t>
+</section>
+
+<section toc="default" title="Nested lists">
+<section toc="default" title="numbers/letters">
+  <t>
+    <list style="numbers">
+      <t>One</t>
+      <t>Two
+        <list style="letters">
+          <t>17</t>
+          <t>42</t>
+        </list>
+      </t>
+      <t>Three</t>
+    </list>
+  </t>
+</section>
+<section toc="default" title="numbers/numbers">
+  <t>
+    <list style="numbers">
+      <t>One</t>
+      <t>Two
+        <list style="numbers">
+          <t>17</t>
+          <t>42</t>
+        </list>
+      </t>
+      <t>Three</t>
+      <t>
+        <list style="numbers">
+          <t>17</t>
+          <t>42</t>
+        </list>
+      </t>
+    </list>
+  </t>
+</section>
+<section toc="default" title="letters/letters">
+  <t>
+    <list style="letters">
+      <t>One</t>
+      <t>Two
+        <list style="letters">
+          <t>17</t>
+          <t>42</t>
+        </list>
+      </t>
+      <t>Three</t>
+    </list>
+  </t>
+</section>
+<section toc="default" title="letters/letters/letters">
+  <t>
+    <list style="letters">
+      <t>One</t>
+      <t>Two
+        <list style="letters">
+          <t>17</t>
+          <t>42
+            <list style="letters">
+              <t>X</t>
+              <t>Y</t>
+            </list>
+          </t>
+        </list>
+      </t>
+      <t>Three</t>
+    </list>
+  </t>
+</section>
+<section toc="default" title="symbols/symbols/symbols">
+  <t>
+    <list style="symbols">
+      <t>One</t>
+      <t>Two
+        <list style="symbols">
+          <t>17</t>
+          <t>42
+            <list style="symbols">
+              <t>X</t>
+              <t>Y</t>
+            </list>
+          </t>
+        </list>
+      </t>
+      <t>Three</t>
+    </list>
+  </t>
+</section>
+<section toc="default" title="hanging/hanging">
+  <t>
+    <list style="hanging">
+      <t hangText="ABC">One
+        <list style="hanging">
+          <t hangText="GHI">One</t>
+          <t hangText="JKL">Two</t>
+        </list>
+      </t>
+      <t hangText="DEF">
+        <list style="hanging">
+          <t hangText="MNO">Three</t>
+          <t hangText="PQR">Four</t>
+        </list>
+      </t>
+    </list>
+  </t>
+</section>
+</section>
+
+<section toc="default" title="list without style">
+<t>No style attribute:<list>
+  <t>One</t>
+  <t>Two</t>
+  <t>Three</t>
+</list></t>
+</section>
+
+<section toc="default" title="list with multiple paragraphs in a single list item">
+<t><list style="numbers">
+  <t>Simple list item.</t>
+  <t>This one has two paragraphs. This is the first one.<vspace blankLines="1"/>This one has two paragraphs. This is the second one.</t>
+  <t>Another simple list item.</t>
+</list></t></section>
+
+<section toc="default" title="style=format...">
+<section toc="default" title="lists with fancy formats: %c">
+<t><list style="format %c">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %C">
+<t><list style="format %C">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %d">
+<t><list style="format %d">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %i">
+<t><list style="format %i">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %I">
+<t><list style="format %I">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %o">
+<t><list style="format %o">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %x">
+<t><list style="format %x">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %X">
+<t><list style="format %X">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %% %d">
+<t><list style="format %% %d">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: REQUIREMENT-%i plus hangIndent=20">
+<t><list style="format REQUIREMENT-%i" hangIndent="20">
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %c.">
+<t><list style="format %c.">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %C.">
+<t><list style="format %C.">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %d.">
+<t><list style="format %d.">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %i.">
+<t><list style="format %i.">
+  <t>test</t>
+</list></t></section>
+
+<section toc="default" title="lists with fancy formats: %I.">
+<t><list style="format %I.">
+  <t>test</t>
+</list></t></section>
+</section>
+
+<section toc="default" title="style inheritance">
+<t>Numbers:<list style="numbers">
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>Nested, without style:<list>
+    <t>test</t>
+    <t>test</t>
+    <t>test</t>
+  </list>
+  </t>
+</list></t>
+<t>Symbols:<list style="symbols">
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>Nested, without style:<list>
+    <t>test</t>
+    <t>test</t>
+    <t>test</t>
+  </list>
+  </t>
+</list></t>
+<t>Letters:<list style="letters">
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>Nested, without style:<list>
+    <t>test</t>
+    <t>test</t>
+    <t>test</t>
+  </list>
+  </t>
+</list></t>
+<t>Empty:<list style="empty">
+  <t>test</t>
+  <t>test</t>
+  <t>test</t>
+  <t>Nested, without style:<list>
+    <t>test</t>
+    <t>test</t>
+    <t>test</t>
+  </list>
+  </t>
+</list></t>
+</section>
+
+</section>
+
+
+
+<section toc="default" title="spanx">
+<t>
+This is <spanx style="emph" xml:space="preserve">default</spanx>.
+</t>
+<t>
+This is <spanx style="emph" xml:space="preserve">emph(asized)</spanx>.
+</t>
+<t>
+This is <spanx style="strong" xml:space="preserve">strong</spanx>.
+</t>
+<t>
+This is <spanx style="verb" xml:space="preserve">verb(atim)</spanx>.
+</t>
+<t>
+Here is <spanx style="verb" xml:space="preserve">a carriage return
+inside</spanx> a spanx element.
+</t>
+</section>
+
+<section toc="default" title="Tables">
+<texttable suppress-title="false" style="full" title="" align="center">
+<preamble>The list of valid keywords are:</preamble>
+<ttcol width="20%" align="right">keyword</ttcol>
+<ttcol width="20%" align="center">default</ttcol>
+<ttcol align="left">meaning</ttcol>
+<ttcol align="left">not aligned</ttcol>
+
+<c>strict</c>
+<c>no</c>
+<c>try to enforce the ID-nits conventions and DTD validity</c>
+<c>a</c>
+
+<c>iprnotified</c>
+<c>no</c>
+<c>include boilerplate from Section 10.4(d) of <xref target="RFC2026" format="default"/></c>
+<c>bb bb</c>
+
+<c>compact</c>
+<c>no</c>
+<c>when producing a txt/nroff file, try to conserve vertical whitespace</c>
+<c>ccc ccc ccc</c>
+    
+<c>subcompact</c>
+<c>compact</c>
+<c>if compact is "yes", then setting this to "no" will make things a little less
+compact</c>
+<c>dddd dddd dddd dddd</c>
+    
+<!--
+    ...                                                          ...
+    
+  -->
+    
+<c>needLines</c>
+<c>n/a</c>
+<c>an integer hint indicating how many contiguous lines are needed at this point
+in the output</c>
+<c>eeeee eeeee eeeee eeeee eeeee </c>
+
+<c>here come empty cells</c>
+<c/>
+<c/>
+<c/>
+
+<postamble>Remember,
+that as with everything else in XML,
+keywords and values are case-sensitive.</postamble>
+</texttable>
+
+<section toc="default" title="no borders">
+<texttable style="none" anchor="tablenoborder" title="a table with no borders" suppress-title="false" align="center">
+<preamble>The table below should appear with no borders.</preamble>
+<ttcol align="left">C1</ttcol>
+<ttcol align="left">C2</ttcol>
+<c>11</c>
+<c>12</c>
+<c>21</c>
+<c>22</c>
+</texttable>
+</section>
+
+<section toc="default" title="borders around headers">
+<texttable style="headers" suppress-title="false" title="" align="center">
+<preamble>The table below should appear with borders just around the headers.</preamble>
+<ttcol align="left">C1</ttcol>
+<ttcol align="left">C2</ttcol>
+<c>11</c>
+<c>12</c>
+<c>21</c>
+<c>22</c>
+</texttable>
+</section>
+
+<section toc="default" title="example from xml2rc README">
+       <texttable anchor="table_example" suppress-title="false" style="full" title="" align="center">
+           <preamble>So,
+           putting it all together, we have, e.g.,</preamble>
+           <ttcol align="center">ttcol #1</ttcol>
+           <ttcol align="center">ttcol #2</ttcol>
+           <c>c #1</c>
+           <c>c #2</c>
+           <c>c #3</c>
+           <c>c #4</c>
+           <c>c #5</c>
+           <c>c #6</c>
+           <postamble>which is a very simple example.</postamble>
+       </texttable>
+</section>
+
+<section toc="default" title="no column titles">
+<texttable anchor="tablenotitles" title="a table with no column titles" suppress-title="false" style="full" align="center">
+<preamble>The table below should appear with no titles.</preamble>
+<ttcol align="left"/>
+<ttcol align="left"/>
+<c>11</c>
+<c>12</c>
+<c>21</c>
+<c>22</c>
+</texttable>
+<texttable anchor="tableonetitle" title="a table with a single column title" suppress-title="false" style="full" align="center">
+<preamble>The table below should appear with column titles (one being non-empty).</preamble>
+<ttcol align="left">FOO</ttcol>
+<ttcol align="left"/>
+<c>11</c>
+<c>12</c>
+<c>21</c>
+<c>22</c>
+</texttable>
+</section>
+
+<section toc="default" title="referencing tables">
+  <t>
+    <xref target="tablenoborder" format="default"/> shows a table with no borders.
+  </t>
+  <t>
+    <xref target="tablenoborder" format="default">The table above</xref> shows a table with no borders.
+  </t>
+</section>
+
+<section toc="default" title="table captions">
+<texttable suppress-title="false" style="full" title="" align="center">
+<preamble>No anchor, no title</preamble>
+<ttcol align="left">Anchor</ttcol>
+<ttcol align="left">Title</ttcol>
+<c>-</c>
+<c>-</c>
+</texttable>
+
+<texttable anchor="texttable1" suppress-title="false" style="full" title="" align="center">
+<preamble>Anchor (not being referenced), no title</preamble>
+<ttcol align="left">Anchor</ttcol>
+<ttcol align="left">Title</ttcol>
+<c>yes</c>
+<c>-</c>
+</texttable>
+
+<texttable title="title" suppress-title="false" style="full" align="center">
+<preamble>No anchor, with title</preamble>
+<ttcol align="left">Anchor</ttcol>
+<ttcol align="left">Title</ttcol>
+<c>-</c>
+<c>"title"</c>
+</texttable>
+
+<texttable anchor="texttable2" title="title" suppress-title="false" style="full" align="center">
+<preamble>Both anchor and title</preamble>
+<ttcol align="left">Anchor</ttcol>
+<ttcol align="left">Title</ttcol>
+<c>yes</c>
+<c>"title"</c>
+</texttable>
+
+<texttable anchor="texttable3" suppress-title="true" style="full" title="" align="center">
+<preamble>anchor, suppress-title, and in use</preamble>
+<ttcol align="left">Anchor</ttcol>
+<ttcol align="left">Title</ttcol>
+<c>yes</c>
+<c>-</c>
+</texttable>
+<t>
+  Table above is: <xref target="texttable3" format="default"/>.
+</t>
+
+</section>
+
+
+<section toc="default" title="single column">
+<texttable suppress-title="false" style="full" title="" align="center">
+<ttcol align="left">title</ttcol>
+<c>1</c>
+<c>2</c>
+</texttable>
+</section>
+
+<section toc="default" title="empty body">
+<texttable suppress-title="false" style="full" title="" align="center">
+<ttcol align="left">title</ttcol>
+</texttable>
+</section>
+
+<section toc="default" title="table alignment">
+
+<section toc="default" title="left">
+<texttable align="left" title="left-aligned table" suppress-title="false" style="full">
+<ttcol align="left">left</ttcol>
+<c>1</c>
+</texttable>
+</section>
+
+<section toc="default" title="center">
+<texttable align="center" title="centered table" suppress-title="false" style="full">
+<ttcol align="left">center</ttcol>
+<c>1</c>
+</texttable>
+</section>
+
+<section toc="default" title="right">
+<texttable align="right" title="right-aligned table" suppress-title="false" style="full">
+<ttcol align="left">right</ttcol>
+<c>1</c>
+</texttable>
+</section>
+
+<section toc="default" title="default">
+<texttable title="default-aligned table" suppress-title="false" style="full" align="center">
+<ttcol align="left">default</ttcol>
+<c>1</c>
+</texttable>
+</section>
+</section>
+
+</section>
+
+
+<section toc="default" title="Figures">
+<section toc="default" title="with preamble, no title...">
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>with preamble, no title...</preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+  +--+
+  |  |
+  +--+
+]]></artwork></figure>
+</section>
+
+<section toc="default" title="with postamble and title...">
+<figure anchor="testfig" height="" suppress-title="false" width="" alt="" align="left" title="another figure"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+  +--+
+  |  |
+  +--+
+]]></artwork><postamble>with postamble and title...</postamble></figure>
+<t>
+  The figure above has the title "<xref target="testfig" format="title"/>".
+</t>
+</section>
+
+<section toc="default" title="Whitespace handling">
+<t>
+  Para...
+</t>  
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>Leading whitespace</preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+test test (leading ws)]]></artwork></figure>
+<t>
+  Para...
+</t>  
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>Trailing whitespace</preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[test test (trailing ws)
+   ]]></artwork></figure>
+<t>
+  Para...
+</t>  
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>No whitespace</preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[test test (no ws)]]></artwork></figure>
+<t>
+  Para...
+</t>  
+</section>
+
+<!-- as proposed by Bill F -->
+<section toc="default" title="Whitespace around figures">
+<t>spacing paragraph</t>
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[ART]]></artwork></figure>
+<t>spacing paragraph</t>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>preamble, then</preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[ART]]></artwork></figure>
+<t>spacing paragraph</t>
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[ART]]></artwork><postamble>then postamble</postamble></figure>
+<t>spacing paragraph</t>
+</section>
+
+<section toc="default" title="data URIs">
+<section anchor="artwork.src.data.uri.alt.text" toc="default" title="data URI as source (both @alt and text content)">
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" alt="Portrait of Larry Masinter (contents of alt attribute)" height="" name="" width="" align="left" xml:space="preserve"><![CDATA[
+    Portrait of Larry Masinter (text content of <artwork> element)
+  ]]></artwork></figure>
+</section>
+
+<section anchor="artwork.src.data.uri.text" toc="default" title="data URI as source (only text content, no @alt)">
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+    Portrait of Larry Masinter (text content of <artwork> element)
+  ]]></artwork></figure>
+</section>
+
+<section anchor="artwork.src.data.uri.alt" toc="default" title="data URI as source (only @alt attribute)">
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" alt="Portrait of Larry Masinter (contents of alt attribute)" height="" name="" width="" align="left" xml:space="preserve"/></figure>
+</section>
+</section>
+
+<section toc="default" title="alignment">
+
+<section anchor="artwork.align.left" toc="default" title="left">
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>preamble</preamble><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" align="left" height="" name="" width="" alt="" xml:space="preserve"/><postamble>postamble</postamble></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>preamble</preamble><artwork align="left" height="" name="" width="" type="" alt="" xml:space="preserve"><![CDATA[FOO]]></artwork><postamble>postamble</postamble></figure>
+</section>
+
+<section anchor="artwork.align.right" toc="default" title="right">
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>preamble</preamble><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" align="right" height="" name="" width="" alt="" xml:space="preserve"/><postamble>postamble</postamble></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>preamble</preamble><artwork align="right" height="" name="" width="" type="" alt="" xml:space="preserve"><![CDATA[FOO]]></artwork><postamble>postamble</postamble></figure>
+</section>
+
+<section anchor="artwork.align.center" toc="default" title="center">
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>preamble</preamble><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" align="center" height="" name="" width="" alt="" xml:space="preserve"/><postamble>postamble</postamble></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>preamble</preamble><artwork align="center" height="" name="" width="" type="" alt="" xml:space="preserve"><![CDATA[FOO]]></artwork><postamble>postamble</postamble></figure>
+</section>
+
+<section anchor="artwork.align.default" toc="default" title="default">
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>preamble</preamble><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" height="" name="" width="" alt="" align="left" xml:space="preserve"/><postamble>postamble</postamble></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>preamble</preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[FOO]]></artwork><postamble>postamble</postamble></figure>
+</section>
+</section>
+
+<section toc="default" title="artwork width/height">
+
+<section toc="default" title="width50%">
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" width="50%" height="" name="" alt="" align="left" xml:space="preserve"/></figure>
+</section>
+
+<section toc="default" title="width50">
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" width="50" height="" name="" alt="" align="left" xml:space="preserve"/></figure>
+</section>
+
+<section toc="default" title="height50">
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" height="50" name="" width="" alt="" align="left" xml:space="preserve"/></figure>
+</section>
+
+<section toc="default" title="height30width60">
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" height="30" width="60" name="" alt="" align="left" xml:space="preserve"/></figure>
+</section>
+
+</section>
+
+<section anchor="figure.artwork.attribute.overlap" toc="default" title="figure/artwork attribute overlap">
+<section toc="default" title="src overlap">
+<t>
+  Both figure and artwork having @src:
+</t>
+<figure src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%3E%0A%20%20%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2225%22%20stroke%3D%22black%22%20stroke-width%3D%221%22%20fill%3D%22green%22%2F%3E%0A%3C%2Fsvg%3E%0A" height="" suppress-title="false" width="" alt="" align="left"><preamble>Preamble...</preamble><artwork src="data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7" type="image/gif" height="" name="" width="" alt="" align="left" xml:space="preserve"/></figure>
+</section>
+<section toc="default" title="align overlap">
+<t>
+  figure/align=right, artwork/@align=center:
+</t>
+<figure align="right" height="" suppress-title="false" width="" alt="" title="title"><preamble>Preamble...</preamble><artwork align="center" height="" name="" width="" type="" alt="" xml:space="preserve"><![CDATA[
+TEST
+  ]]></artwork><postamble>Postamble...</postamble></figure>
+</section>
+<section toc="default" title="align inheritance">
+<t>
+  figure/align=right, artwork/@align not specified:
+</t>
+<figure align="right" height="" suppress-title="false" width="" alt="" title="title"><preamble>Preamble...</preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+TEST
+  ]]></artwork><postamble>Postamble...</postamble></figure>
+</section>
+</section>
+
+<section anchor="titles.numbering" toc="default" title="titles/numbering">
+
+<section anchor="titles.numbering.just.anchor" toc="default" title="just anchor">
+<figure anchor="just.anchor" height="" suppress-title="false" width="" alt="" align="left"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[FOO]]></artwork></figure>
+</section>
+
+<section anchor="titles.numbering.just.anchor.with.suppress" toc="default" title="just anchor (with suppress)">
+<figure anchor="just.anchor.with.suppress" suppress-title="true" height="" width="" alt="" align="left"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[FOO]]></artwork></figure>
+<t>
+  Above is <xref target="just.anchor.with.suppress" format="default"/>.
+</t>
+</section>
+
+<section anchor="titles.numbering.just.title" toc="default" title="just title">
+<figure height="" suppress-title="false" width="" alt="" align="left" title="figure title"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[FOO]]></artwork></figure>
+</section>
+
+<section anchor="titles.numbering.just.title.with.suppress" toc="default" title="just title (with suppress)">
+<figure suppress-title="true" height="" width="" alt="" align="left" title="figure title"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[FOO]]></artwork></figure>
+</section>
+
+</section>
+
+<section toc="default" title="SVG">
+<t>
+  Inclusion of SVG:
+</t>
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork src="testcase.svg" type="image/svg+xml" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+  Fallback content for UAs that do not support SVG.
+]]></artwork></figure>
+</section>
+
+<section anchor="code.components" toc="default" title="Code Components">
+<t>
+  Marking up Code Components according to the
+  <eref target="http://trustee.ietf.org/docs/IETF-Trust-License-Policy.pdf">Legal Provisions Relating to IETF Documents</eref>:
+</t>
+<t>Using @x:is-code-component</t>
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork type="code" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+<CODE BEGINS>
+
+int main(int argc, char **argv) {
+  return -1;
+}
+
+<CODE ENDS>
+]]></artwork></figure>
+<t>Using @markers</t>
+<figure><artwork><![CDATA[<CODE BEGINS>
+
+int main(int argc, char **argv) {
+  return -1;
+}
+
+<CODE ENDS>]]></artwork></figure>
+<t>Using @markers and @name</t>
+<figure><artwork><![CDATA[<CODE BEGINS> file "abc.c"
+
+int main(int argc, char **argv) {
+  return -1;
+}
+
+<CODE ENDS>]]></artwork></figure>
+</section>
+
+</section>
+
+<section anchor="xrefs" toc="default" title="xrefs">
+<t>
+  This section contains test cases for &lt;xref/&gt;, testing 9 different types of targets. Each target is tested for all possible values of the @format attribute, and for &lt;xref/&gt; elements with and without content.
+  <spanx style="emph" xml:space="preserve">These tests were contributed by Erik Wilde.</spanx>
+</t>
+<section anchor="section-anchor-tests" toc="default" title="Tests for section-anchor">
+  <t>&lt;xref target="section-anchor"/&gt;: <xref target="section-anchor" format="default"/>
+  </t>
+  <t>&lt;xref target="section-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="section-anchor" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="section-anchor"/&gt;: <xref format="counter" target="section-anchor"/>
+  </t>
+  <t>&lt;xref format="counter" target="section-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="section-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="section-anchor"/&gt;: <xref format="title" target="section-anchor"/>
+  </t>
+  <t>&lt;xref format="title" target="section-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="section-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="section-anchor"/&gt;: <xref format="none" target="section-anchor"/>
+  </t>
+  <t>&lt;xref format="none" target="section-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="section-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="section-anchor"/&gt;: <xref format="default" target="section-anchor"/>
+  </t>
+  <t>&lt;xref format="default" target="section-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="section-anchor">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="t-anchor-tests" toc="default" title="Tests for t-anchor">
+  <t>&lt;xref target="t-anchor"/&gt;: <xref target="t-anchor" format="default"/>
+  </t>
+  <t>&lt;xref target="t-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="t-anchor" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="t-anchor"/&gt;: <xref format="counter" target="t-anchor"/>
+  </t>
+  <t>&lt;xref format="counter" target="t-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="t-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="t-anchor"/&gt;: <xref format="title" target="t-anchor"/>
+  </t>
+  <t>&lt;xref format="title" target="t-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="t-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="t-anchor"/&gt;: <xref format="none" target="t-anchor"/>
+  </t>
+  <t>&lt;xref format="none" target="t-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="t-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="t-anchor"/&gt;: <xref format="default" target="t-anchor"/>
+  </t>
+  <t>&lt;xref format="default" target="t-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="t-anchor">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="list-t-anchor-empty-tests" toc="default" title="Tests for list-t-anchor-empty">
+  <t>&lt;xref target="list-t-anchor-empty"/&gt;: <xref target="list-t-anchor-empty" format="default"/>
+  </t>
+  <t>&lt;xref target="list-t-anchor-empty"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="list-t-anchor-empty" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="list-t-anchor-empty"/&gt;: <xref format="counter" target="list-t-anchor-empty"/>
+  </t>
+  <t>&lt;xref format="counter" target="list-t-anchor-empty"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="list-t-anchor-empty">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="list-t-anchor-empty"/&gt;: <xref format="title" target="list-t-anchor-empty"/>
+  </t>
+  <t>&lt;xref format="title" target="list-t-anchor-empty"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="list-t-anchor-empty">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="list-t-anchor-empty"/&gt;: <xref format="none" target="list-t-anchor-empty"/>
+  </t>
+  <t>&lt;xref format="none" target="list-t-anchor-empty"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="list-t-anchor-empty">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="list-t-anchor-empty"/&gt;: <xref format="default" target="list-t-anchor-empty"/>
+  </t>
+  <t>&lt;xref format="default" target="list-t-anchor-empty"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="list-t-anchor-empty">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="list-t-anchor-numbers-tests" toc="default" title="Tests for list-t-anchor-numbers">
+  <t>&lt;xref target="list-t-anchor-numbers"/&gt;: <xref target="list-t-anchor-numbers" format="default"/>
+  </t>
+  <t>&lt;xref target="list-t-anchor-numbers"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="list-t-anchor-numbers" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="list-t-anchor-numbers"/&gt;: <xref format="counter" target="list-t-anchor-numbers"/>
+  </t>
+  <t>&lt;xref format="counter" target="list-t-anchor-numbers"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="list-t-anchor-numbers">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="list-t-anchor-numbers"/&gt;: <xref format="title" target="list-t-anchor-numbers"/>
+  </t>
+  <t>&lt;xref format="title" target="list-t-anchor-numbers"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="list-t-anchor-numbers">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="list-t-anchor-numbers"/&gt;: <xref format="none" target="list-t-anchor-numbers"/>
+  </t>
+  <t>&lt;xref format="none" target="list-t-anchor-numbers"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="list-t-anchor-numbers">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="list-t-anchor-numbers"/&gt;: <xref format="default" target="list-t-anchor-numbers"/>
+  </t>
+  <t>&lt;xref format="default" target="list-t-anchor-numbers"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="list-t-anchor-numbers">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="list-t-anchor-letters-tests" toc="default" title="Tests for list-t-anchor-letters">
+  <t>&lt;xref target="list-t-anchor-letters"/&gt;: <xref target="list-t-anchor-letters" format="default"/>
+  </t>
+  <t>&lt;xref target="list-t-anchor-letters"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="list-t-anchor-letters" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="list-t-anchor-letters"/&gt;: <xref format="counter" target="list-t-anchor-letters"/>
+  </t>
+  <t>&lt;xref format="counter" target="list-t-anchor-letters"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="list-t-anchor-letters">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="list-t-anchor-letters"/&gt;: <xref format="title" target="list-t-anchor-letters"/>
+  </t>
+  <t>&lt;xref format="title" target="list-t-anchor-letters"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="list-t-anchor-letters">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="list-t-anchor-letters"/&gt;: <xref format="none" target="list-t-anchor-letters"/>
+  </t>
+  <t>&lt;xref format="none" target="list-t-anchor-letters"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="list-t-anchor-letters">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="list-t-anchor-letters"/&gt;: <xref format="default" target="list-t-anchor-letters"/>
+  </t>
+  <t>&lt;xref format="default" target="list-t-anchor-letters"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="list-t-anchor-letters">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="list-t-anchor-hanging-tests" toc="default" title="Tests for list-t-anchor-hanging">
+  <t>&lt;xref target="list-t-anchor-hanging"/&gt;: <xref target="list-t-anchor-hanging" format="default"/>
+  </t>
+  <t>&lt;xref target="list-t-anchor-hanging"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="list-t-anchor-hanging" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="list-t-anchor-hanging"/&gt;: <xref format="counter" target="list-t-anchor-hanging"/>
+  </t>
+  <t>&lt;xref format="counter" target="list-t-anchor-hanging"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="list-t-anchor-hanging">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="list-t-anchor-hanging"/&gt;: <xref format="title" target="list-t-anchor-hanging"/>
+  </t>
+  <t>&lt;xref format="title" target="list-t-anchor-hanging"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="list-t-anchor-hanging">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="list-t-anchor-hanging"/&gt;: <xref format="none" target="list-t-anchor-hanging"/>
+  </t>
+  <t>&lt;xref format="none" target="list-t-anchor-hanging"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="list-t-anchor-hanging">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="list-t-anchor-hanging"/&gt;: <xref format="default" target="list-t-anchor-hanging"/>
+  </t>
+  <t>&lt;xref format="default" target="list-t-anchor-hanging"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="list-t-anchor-hanging">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="texttable-anchor-tests" toc="default" title="Tests for texttable-anchor">
+  <t>&lt;xref target="texttable-anchor"/&gt;: <xref target="texttable-anchor" format="default"/>
+  </t>
+  <t>&lt;xref target="texttable-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="texttable-anchor" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="texttable-anchor"/&gt;: <xref format="counter" target="texttable-anchor"/>
+  </t>
+  <t>&lt;xref format="counter" target="texttable-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="texttable-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="texttable-anchor"/&gt;: <xref format="title" target="texttable-anchor"/>
+  </t>
+  <t>&lt;xref format="title" target="texttable-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="texttable-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="texttable-anchor"/&gt;: <xref format="none" target="texttable-anchor"/>
+  </t>
+  <t>&lt;xref format="none" target="texttable-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="texttable-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="texttable-anchor"/&gt;: <xref format="default" target="texttable-anchor"/>
+  </t>
+  <t>&lt;xref format="default" target="texttable-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="texttable-anchor">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="figure-anchor-tests" toc="default" title="Tests for figure-anchor">
+  <t>&lt;xref target="figure-anchor"/&gt;: <xref target="figure-anchor" format="default"/>
+  </t>
+  <t>&lt;xref target="figure-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="figure-anchor" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="figure-anchor"/&gt;: <xref format="counter" target="figure-anchor"/>
+  </t>
+  <t>&lt;xref format="counter" target="figure-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="figure-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="figure-anchor"/&gt;: <xref format="title" target="figure-anchor"/>
+  </t>
+  <t>&lt;xref format="title" target="figure-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="figure-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="figure-anchor"/&gt;: <xref format="none" target="figure-anchor"/>
+  </t>
+  <t>&lt;xref format="none" target="figure-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="figure-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="figure-anchor"/&gt;: <xref format="default" target="figure-anchor"/>
+  </t>
+  <t>&lt;xref format="default" target="figure-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="figure-anchor">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="reference-anchor-tests" toc="default" title="Tests for reference-anchor">
+  <t>&lt;xref target="reference-anchor"/&gt;: <xref target="reference-anchor" format="default"/>
+  </t>
+  <t>&lt;xref target="reference-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="reference-anchor" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="reference-anchor"/&gt;: <xref format="counter" target="reference-anchor"/>
+  </t>
+  <t>&lt;xref format="counter" target="reference-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="reference-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="reference-anchor"/&gt;: <xref format="title" target="reference-anchor"/>
+  </t>
+  <t>&lt;xref format="title" target="reference-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="reference-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="reference-anchor"/&gt;: <xref format="none" target="reference-anchor"/>
+  </t>
+  <t>&lt;xref format="none" target="reference-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="reference-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="reference-anchor"/&gt;: <xref format="default" target="reference-anchor"/>
+  </t>
+  <t>&lt;xref format="default" target="reference-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="reference-anchor">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="cref-anchor-tests" toc="default" title="Tests for cref-anchor">
+  <t>&lt;xref target="cref-anchor"/&gt;: <xref target="cref-anchor" format="default"/>
+  </t>
+  <t>&lt;xref target="cref-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref target="cref-anchor" format="default">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="counter" target="cref-anchor"/&gt;: <xref format="counter" target="cref-anchor"/>
+  </t>
+  <t>&lt;xref format="counter" target="cref-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="counter" target="cref-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="title" target="cref-anchor"/&gt;: <xref format="title" target="cref-anchor"/>
+  </t>
+  <t>&lt;xref format="title" target="cref-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="title" target="cref-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="none" target="cref-anchor"/&gt;: <xref format="none" target="cref-anchor"/>
+  </t>
+  <t>&lt;xref format="none" target="cref-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="none" target="cref-anchor">TEXT-CONTENT</xref>
+  </t>
+  <t>&lt;xref format="default" target="cref-anchor"/&gt;: <xref format="default" target="cref-anchor"/>
+  </t>
+  <t>&lt;xref format="default" target="cref-anchor"&gt;TEXT-CONTENT&lt;/xref&gt;: <xref format="default" target="cref-anchor">TEXT-CONTENT</xref>
+  </t>
+</section>
+<section anchor="section-anchor" toc="default" title="Test Targets">
+   <t>This section contains a couple of markup constructs carrying anchors (this is paragraph 1).</t>
+   <t anchor="t-anchor">Some regular paragraph text... (this is paragraph 2)</t>
+   <t>
+      <list>
+         <t anchor="list-t-anchor-empty">Some paragraph in a list... (this is list item 1 in a default style list)</t>
+      </list>
+   </t>
+   <t>
+      <list style="numbers">
+         <t anchor="list-t-anchor-numbers">Some paragraph in a list... (this is list item 1 in a "numbers" style list)</t>
+      </list>
+   </t>
+   <t>
+      <list style="letters">
+         <t anchor="list-t-anchor-letters">Some paragraph in a list... (this is list item 1 in a "letters" style list)</t>
+      </list>
+   </t>
+   <t>
+      <list style="hanging">
+         <t anchor="list-t-anchor-hanging" hangText="foobar">Some paragraph in a list... (this is list item 1 in a "hanging" style list)</t>
+      </list>
+   </t>
+   <texttable anchor="texttable-anchor" title="TEXTTABLE-TITLE" suppress-title="false" style="full" align="center">
+      <ttcol align="left">Some texttable text...</ttcol><c>Table cell</c>
+   </texttable>
+   <figure anchor="figure-anchor" height="" suppress-title="false" width="" alt="" align="left" title="FIGURE-TITLE"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[Some figure text...]]></artwork></figure>
+   <t>
+      <cref anchor="cref-anchor">A comment.</cref>
+   </t>
+</section>
+</section>
+
+
+<section anchor="refs" toc="default" title="More References">
+
+<section toc="default" title="xref to named &lt;spanx&gt; element">
+<t>
+  <spanx style="emph" xml:space="preserve">With content</spanx>: see this sentence.
+</t>
+</section>
+
+<section toc="default" title="xref with no content and counter formatting">
+<t>
+See [<xref target="RFC2026" format="counter"/>, <xref target="RFC2396" format="counter"/>].
+</t>
+</section>
+
+<section toc="default" title="eref with no content">
+<t>
+See also <eref target="http://greenbytes.de/tech/webdav"/>. Here's another
+one that is quite long: <eref target="http://greenbytes.de/tech/webdav/draft-reschke-rfc3744bis-issues.html#5.7_inherited-acl-set-protected"/>. Does it break properly?
+</t>
+</section>
+
+<section toc="default" title="eref with content">
+<t>
+See also <eref target="http://greenbytes.de/tech/webdav">greenbytes WebDAV resources</eref>.
+</t>
+</section>
+
+<section toc="default" title="iref inside paragraph">
+<t>
+This paragraph contains an <iref item="inline iref" subitem="" primary="false"/>inline iref. 
+</t>
+</section>
+
+<section toc="default" title="iref before paragraph">
+<iref item="section iref" subitem="" primary="false"/>
+<t>
+This paragraph follows an iref. 
+</t>
+</section>
+
+<section toc="default" title="iref at start of paragraph with list">
+<t>
+<iref item="paragraph with list start iref" subitem="" primary="false"/>
+<list>
+  <t>foo</t>
+</list>
+</t>
+</section>
+
+<section anchor="xref.pageno" toc="default" title="xref with pageno attribute">
+<t>
+A reference to <xref target="xref.pageno" format="default"/>.
+</t>
+</section>
+
+<section anchor="xref.in.title" toc="default" title="xref in section title: RFC 2396">
+  
+<t>
+  Bar.
+</t>
+</section>
+
+</section>
+
+<section anchor="formatting" toc="default" title="Paragraph formatting">
+<t>
+  This is the first sentence of the paragraph.  This is the second sentence of
+  the paragraph (with two leading blanks).
+  Here's another sentence that was started on a separate line in the input
+  file.
+</t>
+<t>
+  This is the second paragraph.
+</t>
+<t>
+<?foo?>
+  This paragraph has ignorable whitespace (but also contains processing instructions).
+
+<?bar?></t>
+<t>
+  This paragraph has ignorable whitespace (but also contains processing instructions
+<?qux1?>).
+</t>
+<t>
+  This paragraph has ignorable whitespace (but also contains processing 
+<?qux2?> instructions).
+</t>
+<t><!--foo-->
+  This paragraph has ignorable whitespace (but also contains comments).
+<!--bar--></t>
+<t>
+  This paragraph has ignorable whitespace (but also contains comments<!--qux1-->).
+</t>
+<t>
+  This paragraph has ignorable whitespace (but also contains <!--qux2--> comments).
+</t>
+<t>
+  This paragraph has ignorable whitespace (but also contains non-text-generating XML nodes).
+<iref item="foo" subitem="" primary="false"/></t>
+<t>
+  This paragraph has ignorable whitespace (but also contains non-text-generating XML nodes<iref item="foo" subitem="" primary="false"/>).
+</t>
+</section>
+
+<section toc="default" title="Sections">
+
+<section toc="default" title="Subsection with TOC entry">
+</section>
+
+<section toc="exclude" title="Subsection without TOC entry">
+
+<section toc="default" title="Sub-subsection with TOC entry">
+</section>
+
+</section>
+
+<section toc="default" title="x.x">
+<section toc="default" title="x.x.x">
+<section toc="default" title="x.x.x.x">
+<section toc="default" title="x.x.x.x.x">
+<section toc="default" title="x.x.x.x.x.x">
+<section toc="default" title="x.x.x.x.x.x.x">
+<section toc="default" title="x.x.x.x.x.x.x.x">
+</section>
+</section>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+</section>
+
+<section anchor="comments" toc="default" title="Comments">
+<t>
+  This line contains a few comments.
+  <cref anchor="comment-test" source="JRE">No anchor, source given.</cref>
+  This line contains a few comments.
+  <cref anchor="comment1">Anchor given, no source.</cref>
+  This line contains a few comments.
+  <cref anchor="comment2" source="JRE">Both specified.</cref>
+  This line contains a few comments.
+  <cref>No anchor, no source.</cref>
+  This line contains a few comments.
+  <cref>No anchor, no source, but embedded markup: &lt;http://xml.resource.org&gt;.</cref>
+  This line contains a few comments.
+</t>
+<t>
+  <cref>A comment containing &lt;x:ref&gt;: comments.</cref>
+</t>
+</section>
+
+<section toc="default" title="Artwork Width">
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>
+This should fit (69 characters plus three spaces of indentation in text output).
+</preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+012345678901234567890123456789012345678901234567890123456789012345678
+]]></artwork></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>
+This shouldn't.
+</preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+0123456789012345678901234567890123456789012345678901234567890123456789
+]]></artwork></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+**********(IN TEXT OUTPUT INDENTED BY 10)
+**********012345678901234567890123456789012345678901234567890123456789012
+**********]]></artwork></figure>
+</section>
+
+<section anchor="extensions" toc="default" title="Extensions">
+<t>
+  These are tests for extensions done in <spanx style="verb" xml:space="preserve">rfc2629.xslt</spanx>.
+  Do not expect them to work out-of-the-box in <spanx style="verb" xml:space="preserve">xml2rfc</spanx>.
+</t>
+
+<section toc="default" title="Markup in figure/artwork">
+<figure height="" suppress-title="false" width="" alt="" align="left"><iref item="&lt;iref&gt; in &lt;artwork&gt;" subitem="" primary="false"/><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+Internal References: a test reference to [RFC2396]
+
+External References: a test reference to <http://xml.resource.org>
+
+a test index entry inside a figure
+
+Styling: <spanx> inside artwork
+]]></artwork></figure>
+</section>
+
+<section toc="default" title="Measuring Lengths">
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork type="message/http; msgtype=&#34;request&#34;" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+PUT / HTTP/1.1
+Host: example.org
+Content-Type: application/xml
+Content-Length: 6
+
+<foo/>]]></artwork></figure>
+
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>...without indentation:</preamble><artwork type="message/http; msgtype=&#34;request&#34;" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+PUT / HTTP/1.1
+Host: example.org
+Content-Type: text/plain
+Content-Length: 16
+
+Line 1
+Line 2
+]]></artwork></figure>
+
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>...with indentation:</preamble><artwork type="message/http; msgtype=&#34;request&#34;" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+  PUT / HTTP/1.1
+  Host: example.org
+  Content-Type: text/plain
+  Content-Length: 16
+
+  Line 1
+  Line 2
+]]></artwork></figure>
+</section>
+
+<section toc="default" title="Quotations">
+  <t>
+    Here's a quote:
+    "This is a Quote."
+  </t>
+  <t>
+    Here's a block level quote:
+  </t>
+  <t><list>
+    <t>
+      Here's a quote.
+    </t>
+    <t>
+      More text.
+    </t>
+  </list></t>
+</section>
+
+<section toc="default" title="Subsections">
+  <t>
+    Foo
+  </t>
+  <t>
+    The line above should be marked up similar to a subsection heading.
+  </t>
+</section>
+
+<section toc="default" title="Box Drawing">
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>
+    The figure below should use box drawing characters instead of
+    "+", "-" and "|".
+  </preamble><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+  +----------------+
+  | This is a Box. |
+  +----------------+
+  ]]></artwork></figure>
+
+</section>
+
+<section anchor="computed.reference.targets" toc="default" title="Computed Reference Targets">
+<t>
+  Referring to this section by anchor name indirectly through the references:
+  Section 11.6 of <xref target="TSTCS" format="default" pageno="false"/>.
+</t>
+<t>
+  (default formatting):
+  Section 11.6 of <xref target="TSTCS" format="default" pageno="false"/>.
+</t>
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork height="" name="" width="" type="" alt="" align="left" xml:space="preserve"><![CDATA[
+  Default inside a figure: [TSTCS], Section 11.6
+]]></artwork></figure>
+<t>
+  With a broken anchor:
+  Appendix  of <xref target="TSTCS" format="default" pageno="false"/>.
+</t>
+<t>
+  To unnumbered section: 
+  Appendix "Contributors" of <xref target="TSTCS" format="default" pageno="false"/>.
+</t>
+<t anchor="testpara">
+  To paragraph:
+  Section 11.6 of <xref target="TSTCS" format="default" pageno="false"/>.
+</t>
+</section>
+
+<section anchor="abnf.support" toc="default" title="ABNF Support">
+<section toc="default" title="Expanding strings">
+<figure height="" suppress-title="false" width="" alt="" align="left"><artwork type="abnf" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+case-insensitive1 = "abcdefghijlkmnopqrstuvwxyz"
+case-insensitive2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+case-sensitive1 = %x61.62.63.64.65.66.67.68.69.6A.6C.6B.6D.6E.6F.70.71.72.73.74.75.76.77.78.79.7A
+case-sensitive2 = %x41.42.43.44.45.46.47.48.49.4A.4B.4C.4D.4E.4F.50.51.52.53.54.55.56.57.58.59.5A
+]]></artwork></figure>
+</section>
+
+<section toc="default" title="Highlighting">
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>Extensions from RFC 7230:</preamble><artwork type="abnf" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+x = 1#2y
+]]></artwork></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>Extensions from RFC 7405:</preamble><artwork type="abnf" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+x = %s"case-sensitive"
+y = %i"case-insensitive"
+]]></artwork></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>Literals:</preamble><artwork type="abnf" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+binary = %b00-11 %b00.01.10.11
+dec    = %d13.10
+hex    = %x0F.0A
+DIGIT  = %x30-39
+DIGIT2 = %x30.31.32.33.34.35.36.37.38.39
+; comment
+string = "abcde <y>"
+string = "foo;bar"
+]]></artwork></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>Broken literals:</preamble><artwork type="abnf" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+binary = %b00-12
+DIGIT  = %x30-39-4A
+string = "abcde"fgh"
+]]></artwork></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>Prose:</preamble><artwork type="abnf" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+foo = <simple prose string>
+bar = <with "double quotes">
+qux = <with '<' inside>
+]]></artwork></figure>
+<t>Using &lt;sourcecode&gt;:</t>
+<figure><artwork type="abnf"><![CDATA[
+left = right ; comment
+]]></artwork></figure>
+<figure height="" suppress-title="false" width="" alt="" align="left"><preamble>Broken prose and string literals:</preamble><artwork type="abnf" height="" name="" width="" alt="" align="left" xml:space="preserve"><![CDATA[
+foo = <no ABNF available,
+  but that does not justify a line break>
+extra = <good>bad ; comment
+bar = "illegal characters in string literal: ␉"
+qux = "runaway string
+qux2 = "in string literal"
+]]></artwork></figure>
+</section>
+
+</section>
+
+
+</section>
+
+<section toc="default" title="Blank Lines">
+<t>
+Just a forced <vspace blankLines="0"/>
+line break.
+</t>
+<t>
+One <vspace blankLines="1"/>
+blank line.
+</t>
+<t>
+Seven <vspace blankLines="7"/>
+blank lines.
+</t>
+<t>
+999 <vspace blankLines="999"/>
+blank lines (this is likely an attempt to force a pagebreak, thus the
+generated HTML should <spanx style="emph" xml:space="preserve">not</spanx> contain the blank lines, but only
+one).
+</t>
+</section>
+
+<section toc="default" title="Other">
+
+<section toc="default" title="Comments in Text">
+<t>
+  First sentence (before XML comment, invisible here).
+<!-- a comment -->
+  Second sentence.
+</t>
+</section>
+
+<section toc="default" title="Special Characters">
+<section anchor="nbsp" toc="default" title="Non-Breaking Space">
+<t>
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+  Non breaking space.
+</t>
+</section>
+<section anchor="nbhy" toc="default" title="Non-Breaking Hyphen">
+<t>
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  Non‑breaking‑hyphen.
+  (wrt Apache FOP, see <eref target="http://mail-archives.apache.org/mod_mbox/xmlgraphics-fop-users/200905.mbox/%3C4A035745.10601@freemail.gr%3E"/>)
+</t>
+</section>
+<section anchor="dashes" toc="default" title="Dashes">
+<t>
+  mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces.
+  mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces.
+  mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces.
+  mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces.
+  mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces. mdash — with regular spaces.
+</t>
+<t>
+  mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces.
+  mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces.
+  mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces.
+  mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces.
+  mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces. mdash—with no spaces.
+</t>
+<t>
+  mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces.
+  mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces.
+  mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces.
+  mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces.
+  mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces. mdash — with thin spaces.
+</t>
+</section>
+
+<section toc="default" title="Non-ASCII">
+<t>
+  Expansions of "ABC":
+</t>
+<t><?rfc subcompact='no'?><list style="hanging"><t hangText="num-lit-name">U+0041 U+0042 U+0043 ("ABC", LATIN CAPITAL LETTER A, LATIN CAPITAL LETTER B, LATIN CAPITAL LETTER C)</t><t hangText="name-num-lit">U+0041 U+0042 U+0043 ("ABC", LATIN CAPITAL LETTER A, LATIN CAPITAL LETTER B, LATIN CAPITAL LETTER C)</t><t hangText="name-num-lit">U+0041 U+0042 U+0043 ("ABC", LATIN CAPITAL LETTER A, LATIN CAPITAL LETTER B, LATIN CAPITAL LETTER C)</t><t hangText="test {name} foo {lit} bar">test LATIN CAPITAL LETTER A, LATIN CAPITAL LETTER B, LATIN CAPITAL LETTER C foo "ABC" bar</t></list></t>
+</section>
+</section>
+
+</section>
+<section toc="default" title="Includes">
+<t>
+  <xref target="RFC7749" format="default"/>.
+</t>
+<t>
+  <xref target="RFC7749" format="default">with text content</xref>.
+</t>
+</section>
+
+    </middle>
+
+	<back>
+  <references title="References">
+  <reference anchor="RFC2026" target="https://www.rfc-editor.org/info/rfc2026"><front><title abbrev="Internet Standards Process">The Internet Standards Process -- Revision 3</title><author initials="S." surname="Bradner" fullname="Scott O. Bradner">
+<organization>Harvard University</organization>
+<address>
+<postal>
+<street>1350 Mass. Ave.</street>
+<city>Cambridge</city>
+<region>MA</region>
+<code>02138</code>
+<country>US</country></postal>
+<phone>+1 617 495 3864</phone>
+<email>sob@harvard.edu</email></address></author><date month="October" year="1996"/>
+
+
+
+</front><seriesInfo name="BCP" value="9"/><seriesInfo name="RFC" value="2026"/><seriesInfo name="DOI" value="10.17487/RFC2026"/></reference>
+
+<reference anchor="RFC10000" target="https://www.rfc-editor.org/info/rfc10000"><front><title>FUTURERFC</title><author initials="J." surname="Doe" fullname="John Doe"/><date month="October" year="2018"/>
+    
+    
+    
+  </front><seriesInfo name="RFC" value="10000"/><seriesInfo name="DOI" value="10.17487/RFC10000"/></reference>
+
+<reference anchor="RFC2396" target="https://www.rfc-editor.org/info/rfc2396"><front><title abbrev="URI Generic Syntax">Uniform Resource Identifiers (URI): Generic Syntax</title><author initials="T." surname="Berners-Lee" fullname="Tim Berners-Lee">
+<organization>World Wide Web Consortium</organization>
+<address>
+<postal>
+<street>MIT Laboratory for Computer Science, NE43-356</street>
+<street>545 Technology Square</street>
+<city>Cambridge</city>
+<region>MA</region>
+<code>02139</code></postal>
+<facsimile>+1(617)258-8682</facsimile>
+<email>timbl@w3.org</email></address></author><author initials="R.T." surname="Fielding" fullname="Roy T. Fielding">
+<organization>Department of Information and Computer Science</organization>
+<address>
+<postal>
+<street>University of California, Irvine</street>
+<city>Irvine</city>
+<region>CA</region>
+<code>92697-3425</code></postal>
+<facsimile>+1(949)824-1715</facsimile>
+<email>fielding@ics.uci.edu</email></address></author><author initials="L." surname="Masinter" fullname="Larry Masinter">
+<organization>Xerox PARC</organization>
+<address>
+<postal>
+<street>3333 Coyote Hill Road</street>
+<city>Palo Alto</city>
+<region>CA</region>
+<code>94034</code></postal>
+<facsimile>+1(415)812-4333</facsimile>
+<email>masinter@parc.xerox.com</email></address></author><date month="August" year="1998"/>
+
+
+
+
+
+<area>Applications</area>
+<keyword>uniform resource</keyword>
+<keyword>URI</keyword>
+</front><seriesInfo name="RFC" value="2396"/><seriesInfo name="DOI" value="10.17487/RFC2396"/><annotation>
+  This RFC will soon be updated, check
+  <eref target="http://cvs.apache.org/viewcvs.cgi/*checkout*/ietf-uri/rev-2002/rfc2396bis.html"/> for the latest draft.
+</annotation><annotation>
+  The issues list is at <eref target="http://cvs.apache.org/viewcvs.cgi/*checkout*/ietf-uri/rev-2002/issues.html"/>.
+</annotation></reference>
+
+<reference anchor="TSTCS"><front><title>Test cases for RFC2629 formatting</title><author initials="J. F." surname="Reschke" fullname="Julian F. Reschke">
+  		<organization abbrev="greenbytes">greenbytes GmbH</organization>
+        <address>
+        	<postal>
+          	<street>Hafenweg 16</street>
+            <city>Muenster</city><region>NW</region><code>48155</code>
+           	<country>Germany</country>
+         	</postal>
+    		  <phone>+49 251 2807760</phone>	
+      	<facsimile>+49 251 2807761</facsimile>	
+  		  <email>julian.reschke@greenbytes.de</email>	
+  		  <uri>http://greenbytes.de/tech/webdav/</uri>	
+  		</address>
+  	</author><date month="March" year="2008"/>
+  	
+
+  	
+    
+	</front></reference>
+
+<reference anchor="reference-anchor"><!--included from testcase.xml--><front><title>Test cases for XML2RFC formatting</title><author initials="J. F." surname="Reschke" fullname="Julian F. Reschke">
+  		<organization abbrev="greenbytes">greenbytes GmbH</organization>
+        <address>
+        	<postal>
+          	<street>Hafenweg 16</street>
+            <code>48155</code><city>Muenster</city>
+           	<country>Germany</country>
+         	</postal>
+    		  <phone>+49 251 2807760</phone>	
+    		  <email>julian.reschke@greenbytes.de, julian.reschke@gmx.de</email>	
+    		  	
+    		  <uri>http://greenbytes.de/tech/webdav/</uri>	
+  		  </address>
+
+
+  	</author><date year="2020" month="August"/></front></reference>
+
+  <reference anchor="RFC7749" target="https://www.rfc-editor.org/info/rfc7749"><?rfc-ext system-id='https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7749.xml' line-no='3'?>
+<front><?rfc-ext line-no='4'?>
+<title><?rfc-ext line-no='5'?>The "xml2rfc" Version 2 Vocabulary</title>
+<author initials="J." surname="Reschke" fullname="J. Reschke"><?rfc-ext line-no='6'?><organization><?rfc-ext line-no='6'?></organization></author>
+<date year="2016" month="February"><?rfc-ext line-no='7'?></date>
+<abstract><?rfc-ext line-no='8'?><t><?rfc-ext line-no='8'?>This document defines the "xml2rfc" version 2 vocabulary: an XML-based language used for writing RFCs and Internet-Drafts.</t><t><?rfc-ext line-no='8'?>Version 2 represents the state of the vocabulary (as implemented by several tools and as used by the RFC Editor) around 2014.</t><t><?rfc-ext line-no='8'?>This document obsoletes RFC 2629.</t></abstract>
+</front>
+<seriesInfo name="RFC" value="7749"><?rfc-ext line-no='10'?></seriesInfo>
+<seriesInfo name="DOI" value="10.17487/RFC7749"><?rfc-ext line-no='11'?></seriesInfo>
+</reference>
+  <!-- include with query parameter -->
+  <reference anchor="NIST.SP.800_185.xml"><?rfc-ext system-id='https://xml2rfc.tools.ietf.org/public/rfc/bibxml7/reference.DOI.10.6028/nist.sp.800-185.xml?anchor=NIST.SP.800_185.xml' line-no='1'?>
+  <front><?rfc-ext line-no='2'?>
+    <title><?rfc-ext line-no='3'?>SHA-3 derived functions: cSHAKE, KMAC, TupleHash and ParallelHash</title>
+    <author initials="J." surname="Kelsey" fullname="John Kelsey"><?rfc-ext line-no='4'?>
+      <organization><?rfc-ext line-no='5'?></organization>
+    </author>
+    <author initials="S." surname="Change" fullname="Shu-jen Change"><?rfc-ext line-no='7'?>
+      <organization><?rfc-ext line-no='8'?></organization>
+    </author>
+    <author initials="R." surname="Perlner" fullname="Ray Perlner"><?rfc-ext line-no='10'?>
+      <organization><?rfc-ext line-no='11'?></organization>
+    </author>
+    <date year="2016" month="December"><?rfc-ext line-no='13'?></date>
+  </front>
+  <seriesInfo name="National Institute of Standards and Technology" value="report"><?rfc-ext line-no='15'?></seriesInfo>
+  <seriesInfo name="DOI" value="10.6028/nist.sp.800-185"><?rfc-ext line-no='16'?></seriesInfo>
+</reference>
+  <reference anchor="I-D.reschke-hab"><front><title>Test Renditions for new RFC Headers &amp; Boilerplate</title><author initials="J" surname="Reschke" fullname="Julian Reschke">
+    <organization/>
+</author><date month="April" day="17" year="2011"/>
+
+
+
+
+
+
+
+
+</front><seriesInfo name="Internet-Draft" value="draft-reschke-hab-08"/><format type="TXT" target="http://www.ietf.org/internet-drafts/draft-reschke-hab-08.txt"/></reference>
+
+<reference anchor="Err607" target="http://www.rfc-editor.org"><front><title>Errata ID 607</title><author><organization>RFC Errata</organization></author><date/> 
+
+ 
+
+</front><seriesInfo name="RFC" value="4627"/><annotation>Test for Errata formatting.</annotation></reference>
+
+  </references>
+  
+  <section anchor="contributors" toc="default" numbered="false" title="Contributors">
+    <t><iref item="Test in unnumbered section" subitem="" primary="false"/>Test.</t>
+    <t>
+      xref To unnumbered section within unnumbered section:
+      Appendix "Contributors" of <xref target="TSTCS" format="default" pageno="false"/>.
+    </t>
+    <t>A. Nonymous<vspace blankLines="0"/>Example<vspace blankLines="0"/>EMail: a.nonymous@example.org</t>
+    <t>
+      Using &lt;contact&gt; instead of &lt;x:contributor&gt;:
+    </t>
+    <t>A. Nonymous<vspace blankLines="0"/>Example<vspace blankLines="0"/>EMail: a.nonymous@example.org</t>
+  </section>
+  
+  </back>
+</rfc>

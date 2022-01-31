@@ -1,0 +1,402 @@
+
+
+
+
+Network Working Group                                         J. Reschke
+Internet-Draft                                        September 20, 2019
+Intended status: Informational
+Expires: March 23, 2020
+
+
+                        Tests for <xref> Element
+                        draft-reschke-xref-tests
+
+Abstract
+
+   This document tests many variations of the <xref> element.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on March 23, 2020.
+
+Copyright Notice
+
+   Copyright (c) 2019 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.
+
+Table of Contents
+
+   1.  Introduction
+   2.  <xref> Tests
+     2.1.  ...to <comment> Element
+     2.2.  ...to <figure> Element
+     2.3.  ...to <reference> Element
+     2.4.  ...to <reference> Element inside <back>
+     2.5.  ...to <section> Element
+     2.6.  ...to <t> Element
+     2.7.  ...to <texttable> Element
+   3.  Test Link Targets
+     3.1.  Section Title
+   4.  References
+   Appendix A.  Appendix Title
+   Author's Address
+
+1.  Introduction
+
+   This document tests many variations of the <xref> element.
+
+2.  <xref> Tests
+
+2.1.  ...to <comment> Element
+
+   <xref target="t-comment"/>
+
+   Output: "Comment t-comment"
+
+   <xref target="t-comment">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Comment t-comment)"
+
+   <xref format="default" target="t-comment"/>
+
+   Output: "Comment t-comment"
+
+   <xref format="default" target="t-comment">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Comment t-comment)"
+
+   <xref format="counter" target="t-comment"/>
+
+   Output: "1"
+
+   <xref format="counter" target="t-comment">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (1)"
+
+   <xref format="title" target="t-comment"/>
+
+   Output: ""
+
+   <xref format="title" target="t-comment">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT ()"
+
+   <xref format="none" target="t-comment"/>
+
+   Output: ""
+
+   <xref format="none" target="t-comment">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT"
+
+2.2.  ...to <figure> Element
+
+   <xref target="t-figure"/>
+
+   Output: "Figure 1"
+
+   <xref target="t-figure">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Figure 1)"
+
+   <xref format="default" target="t-figure"/>
+
+   Output: "Figure 1"
+
+   <xref format="default" target="t-figure">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Figure 1)"
+
+   <xref format="counter" target="t-figure"/>
+
+   Output: "1"
+
+   <xref format="counter" target="t-figure">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (1)"
+
+   <xref format="title" target="t-figure"/>
+
+   Output: "Figure Title"
+
+   <xref format="title" target="t-figure">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Figure Title)"
+
+   <xref format="none" target="t-figure"/>
+
+   Output: ""
+
+   <xref format="none" target="t-figure">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT"
+
+2.3.  ...to <reference> Element
+
+   <xref target="t-reference"/>
+
+   Output: "[t-reference]"
+
+   <xref target="t-reference">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT [t-reference]"
+
+   <xref format="default" target="t-reference"/>
+
+   Output: "[t-reference]"
+
+   <xref format="default" target="t-reference">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT [t-reference]"
+
+   <xref format="counter" target="t-reference"/>
+
+   Output: "1"
+
+   <xref format="counter" target="t-reference">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (1)"
+
+   <xref format="title" target="t-reference"/>
+
+   Output: "Another Document"
+
+   <xref format="title" target="t-reference">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Another Document)"
+
+   <xref format="none" target="t-reference"/>
+
+   Output: ""
+
+   <xref format="none" target="t-reference">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT"
+
+2.4.  ...to <reference> Element inside <back>
+
+   <xref target="t-appendix"/>
+
+   Output: "Appendix A"
+
+   <xref target="t-appendix">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Appendix A)"
+
+   <xref format="default" target="t-appendix"/>
+
+   Output: "Appendix A"
+
+   <xref format="default" target="t-appendix">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Appendix A)"
+
+   <xref format="counter" target="t-appendix"/>
+
+   Output: "A"
+
+   <xref format="counter" target="t-appendix">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (A)"
+
+   <xref format="title" target="t-appendix"/>
+
+   Output: "Appendix Title"
+
+   <xref format="title" target="t-appendix">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Appendix Title)"
+
+   <xref format="none" target="t-appendix"/>
+
+   Output: ""
+
+   <xref format="none" target="t-appendix">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT"
+
+2.5.  ...to <section> Element
+
+   <xref target="t-section"/>
+
+   Output: "Section 3.1"
+
+   <xref target="t-section">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Section 3.1)"
+
+   <xref format="default" target="t-section"/>
+
+   Output: "Section 3.1"
+
+   <xref format="default" target="t-section">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Section 3.1)"
+
+   <xref format="counter" target="t-section"/>
+
+   Output: "3.1"
+
+   <xref format="counter" target="t-section">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (3.1)"
+
+   <xref format="title" target="t-section"/>
+
+   Output: "Section Title"
+
+   <xref format="title" target="t-section">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Section Title)"
+
+   <xref format="none" target="t-section"/>
+
+   Output: ""
+
+   <xref format="none" target="t-section">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT"
+
+2.6.  ...to <t> Element
+
+   <xref target="t-t"/>
+
+   Output: "Section 3.1, Paragraph 2"
+
+   <xref target="t-t">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Section 3.1, Paragraph 2)"
+
+   <xref format="default" target="t-t"/>
+
+   Output: "Section 3.1, Paragraph 2"
+
+   <xref format="default" target="t-t">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Section 3.1, Paragraph 2)"
+
+   <xref format="counter" target="t-t"/>
+
+   Output: "2"
+
+   <xref format="counter" target="t-t">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (2)"
+
+   <xref format="title" target="t-t"/>
+
+   Output: ""
+
+   <xref format="title" target="t-t">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT ()"
+
+   <xref format="none" target="t-t"/>
+
+   Output: ""
+
+   <xref format="none" target="t-t">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT"
+
+2.7.  ...to <texttable> Element
+
+   <xref target="t-texttable"/>
+
+   Output: "Table 1"
+
+   <xref target="t-texttable">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Table 1)"
+
+   <xref format="default" target="t-texttable"/>
+
+   Output: "Table 1"
+
+   <xref format="default" target="t-texttable">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Table 1)"
+
+   <xref format="counter" target="t-texttable"/>
+
+   Output: "1"
+
+   <xref format="counter" target="t-texttable">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (1)"
+
+   <xref format="title" target="t-texttable"/>
+
+   Output: "Table Title"
+
+   <xref format="title" target="t-texttable">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT (Table Title)"
+
+   <xref format="none" target="t-texttable"/>
+
+   Output: ""
+
+   <xref format="none" target="t-texttable">TEXTCONTENT</xref>
+
+   Output: "TEXTCONTENT"
+
+3.  Test Link Targets
+
+3.1.  Section Title
+
+   A [t-comment].
+
+   A simple paragraph.
+
+   A figure:
+
+   FOO
+
+                          Figure 1: Figure Title
+
+   A table:
+
+                                   +---+
+                                   | X |
+                                   +---+
+                                   | Y |
+                                   +---+
+
+                           Table 1: Table Title
+
+4.  References
+
+   [t-reference]
+              "Another Document".
+
+Appendix A.  Appendix Title
+
+Editorial Comments
+
+[t-comment] comment
+
+Author's Address
+
+   Julian Reschke
+

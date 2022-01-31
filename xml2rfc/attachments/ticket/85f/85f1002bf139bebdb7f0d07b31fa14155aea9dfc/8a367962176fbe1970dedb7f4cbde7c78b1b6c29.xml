@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+    <!ENTITY rfc2119 PUBLIC '' 
+      'http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml'>
+]>
+
+<rfc number="XXXX" category="info" submissionType="IAB" consensus="yes">
+
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+
+
+<?rfc toc="yes" ?>
+<?rfc symrefs="yes" ?>
+<?rfc sortrefs="yes"?>
+<?rfc rfcedstyle="yes"?>
+<?rfc compact="yes"?>
+<?rfc subcompact="no"?>
+
+    <front>
+        <title>An Example</title>
+        <author initials='A.Y' surname="Mous" fullname='Anon Y. Mous'>
+            <organization/>
+        </author>
+
+        <date/>
+        <abstract><t>An example.</t></abstract>
+
+    </front>
+
+    <middle>
+        <section title="Requirements Notation">
+            <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL",
+            "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
+            and "OPTIONAL" in this document are to be interpreted as
+            described in <xref target="RFC2119"/>.</t>
+        </section>
+
+        <section title="Privacy Considerations">
+        <t>Here's a list:
+<list style="numbers">
+<t>apples
+</t>
+<t>bananas
+</t>
+<t>cherries
+</t>
+</list>
+	</t>
+        </section>
+
+        <section title="Security Considerations">
+        <t>Here's another list:
+
+<?rfc subcompact="yes"?>
+<list style="numbers">
+<t>anteater
+</t>
+<t>bear
+</t>
+<t>cheetah
+</t>
+</list>
+<?rfc subcompact="no"?>
+        </t>
+        </section>
+
+        <section title="Security Considerations 2">
+        <t>Here's another list:
+
+<?rfc subcompact="yes"?>
+<list style="numbers">
+<t>d
+</t>
+<t>e
+</t>
+<t>f
+</t>
+</list>
+<?rfc subcompact="no"?>
+        </t>
+        </section>
+
+    </middle>
+
+    <back>
+        <references title='Normative References'>&rfc2119;
+
+
+</references>
+    </back>
+
+</rfc>

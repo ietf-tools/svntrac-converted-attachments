@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!-- Getting references from the online citation library.
+     There has to be one entity for each item to be referenced. -->
+<!ENTITY rfc2119 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY rfc0952 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.0952.xml">
+<!ENTITY rfc1034 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1034.xml">
+<!ENTITY rfc7085 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7085.xml">
+
+<!-- Outline of entity definition for citations to Internet Drafts
+     &lt;!ENTITY I-D.mrose-writing-rfcs SYSTEM 
+     "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.mrose-writing-rfcs">
+     corresponding to a draft filename draft-mrose-writing-rfcs-nn.txt.
+     Naming convention for draft-ietf-xx-yy is that
+       ietf-xx-yy  is latest version
+       draft-ietf-xx-yy-NN is that version.  Similarly for draft-foo
+       rather than draft-ietf: foo-xx-yy and draft-foo-xx-yy-NN
+   -->
+<!-- Fudge for XMLmind which doesn't have this built in -->
+<!ENTITY nbsp "&#160;">
+
+]>
+<!-- Extra statement used by XSLT processors to control the output style. -->
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<!-- Processing Instructions- PIs (for a complete list and description,
+     see file http://xml.resource.org/authoring/README.html.
+     You may find that some sphisticated editors are not able to edit PIs when palced here.
+     An alternative position is just inside the rfc elelment as noted below. -->
+<!-- Some of the more generally applicable PIs that most I-Ds might want to use -->
+<!-- Try to enforce the ID-nits conventions and DTD validity -->
+<?rfc strict="yes" ?>
+<!-- Items used when reviewing the document -->
+<!-- Controls display of <cref> elements -->
+<?rfc comments="yes" ?>
+<!-- When no, put comments at end in comments section,
+     otherwise, put inline -->
+<?rfc inline="yes" ?>
+<!-- When yes, insert editing marks: editing marks consist of a 
+     string such as <29> printed in the blank line at the 
+     beginning of each paragraph of text. -->
+<?rfc editing="no" ?>
+<!-- Create Table of Contents (ToC) and set some options for it.  
+     Note the ToC may be omitted for very short documents,but idnits insists on a ToC 
+     if the document has more than 15 pages. -->
+<?rfc toc="yes"?>
+<?rfc tocompact="yes"?>
+<!-- If "yes" eliminates blank lines before main section entries. -->
+<?rfc tocdepth="3"?>
+<!-- Sets the number of levels of sections/subsections... in ToC.
+   Can be overridden by 'toc="include"/"exclude"' on the section
+   element-->
+<!-- Choose the options for the references. 
+     Some like symbolic tags in the references (and citations) and others prefer 
+     numbers. The RFC Editor always uses symbolic tags.
+     The tags used are the anchor attributes of the references. -->
+<?rfc symrefs="no"?>
+<?rfc sortrefs="no" ?>    <!-- Make sure the Carroll references come
+						       out in order -->
+<!-- If "yes", causes the references to be sorted in order of tags.
+			 This doesn't have any effect unless symrefs is "yes"
+          also. --> 
+<!-- These two save paper: Just setting compact to "yes" makes savings by not starting each 
+     main section on a new page but does not omit the blank lines between list items. 
+     If subcompact is also "yes" the blank lines between list items are also omitted. -->
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<!-- end of list of popular I-D processing instructions -->
+
+<!-- Information about the document.
+     category values: std, bcp, info, exp, and historic
+     For Internet-Drafts, specify attribute "ipr".
+     (ipr values are: full3978, noModification3978, noDerivatives3978), 
+     (2008 IETF Trust versions: trust200811, noModificationTrust200811, noDerivativeTrust200811
+     Also for Internet-Drafts, you must specify a value for attributes "docName" which is 
+     typically the file name under which it is filed - but need not be - and,if relevant, 
+     "iprExtract".  
+     Note that the value for iprExtract is the anchor attribute value of a section (such as 
+     a MIB specification) that can be extracted for separate publication, and is only useful 
+     when the value of "ipr" is not "full3978".
+     "updates" and "obsoletes" attributes can also be specified here,
+     their arguments are comma-separated lists of RFC numbers (just
+	 the numbers) -->
+<!-- Per Marshall Rose, 20090225 add trust200811,
+    noModificationTrust200811, noDerivativesTrust200811, trust200902,
+    noModificationTrust200902, noDerivativesTrust200902,
+	pre5378Trust200902 -->
+
+<rfc  docName="draft-klensin-dotless-terminology-harmful-00f"
+     ipr="trust200902"  category="bcp">
+     <!-- obsoletes='2821, 821' updates='1123' category='std' -->   
+
+
+  <!-- ***** FRONT MATTER ***** -->
+
+  <front>
+
+    <title abbrev="Dotless Confusion">"Dotless Domains", Confusion, and
+	   DNS Terminology</title>
+
+    <!-- add 'role="editor"' below for the editors if appropriate -->
+    <author fullname="John C Klensin" initials="J.C." surname="Klensin">
+      <organization/>
+      <address>
+        <postal>
+          <street>1770 Massachusetts Ave, Ste 322</street>
+          <city>Cambridge</city> <region>MA</region>
+          <code>02140</code>
+          <country>USA</country>
+        </postal>
+        <phone>+1 617 245 1457</phone>
+        <email>john-ietf@jck.com</email>
+      </address>
+    </author>
+
+    <date month="January" day="23" year="2014" />
+
+
+    <!-- Meta-data Declarations
+    <area>General</area>    -->
+
+    <!-- WG name at the upper left corner of the doc,
+         IETF fine for individual submissions.  You can also
+         omit this element in which case it defaults to "Network Working Group" -
+         a hangover from the ancient history of the IETF!
+    <workgroup>Network Working Group</workgroup>   -->
+
+	<!-- You can add <keyword/> elements here.  They will be incorporated into HTML output
+         files in a meta tag but they have no effect on text or nroff output. -->
+<keyword>DNS</keyword>
+<keyword>Terminology</keyword>
+	
+    <abstract>
+
+	  <t>The history of the DNS has included a great deal of confusion
+		 about terminology that has, in turn, led to discussions in which
+		 different parties have used the same words for different
+		 things.  For example, "host name" has been used to describe
+		 both fully-qualified domain names with particular properties
+		 and the first label component of such names.  While 
+		 established inconsistent uses may be impossible to correct,
+		 it is in the interest of the community to avoid increasing
+		 the confusion.  There have recently been a number of discussions about
+		 "dotless domains" with at least four different definitions
+		 used or implied in different contexts.  This document
+		 explains those uses and recommends avoiding the use of the
+		 term.</t>
+    </abstract>
+
+	<note title="Status and Stream">
+	   <t>The "BCP" category has been tentatively suggested for this
+		  document because it takes the position that the use of the
+		  term "dotless domain" is a bad practice that should be
+		  actively discouraged by the IETF.   If there is no agreement
+		  on that point, or willingness in the IESG to move it
+		  forward, the document will be treated as Informational and
+		  handled in some other way.</t>
+	   <t>On the other hand, while this document clearly interacts
+		  with the terminology in RFC 7085, it does not directly
+		  update that document.</t>
+	</note>
+	
+  </front>
+
+  <middle>
+    <section title="Introduction">
+	
+      <t>The history of the DNS has included a great deal of confusion
+		 about terminology.  That confusion has led to discussions in
+		 which  different parties have used the same words for different
+		 things, making it hard to reach reasonable agreements or
+		 understand differences.  The term "host name" has been a
+		 particular source of confusion and associated problems
+		 (see <xref target="WhatHostName"/>).
+		 While 
+		 established inconsistent uses may be impossible to correct,
+		 it is in the interest of the community to avoid increasing
+		 the confusion by adding new terms with multiple and
+		 conflicting meanings.</t>
+	  <t>In recent months, there have been a number of discussions of
+		 "dotless domains", apparently starting with several
+		 discussions about possible new gTLDs (generic Top Level
+		 Domains) in the ICANN context.
+		 Those discussions have included statements by ICANN's Security
+		 and Stability Advisory Committee (SSAC) <xref target="SAC053"/>
+		 (referred to as the "SSAC report" below) and the Internet
+		 Architecture Board (IAB) <xref target="IAB-Dotless"/>
+		 (referred to as the "IAB report" below), 
+		 a survey of the resource records associated with
+		 each TLD <xref target="RFC7085"/> (the "Levine-Hoffman
+		 study"), and an analysis of the use
+		 of such domains in various protocols <xref target="dotless-case"/>.
+		 At least four different definitions have been used or
+		 assumed in the various discussions:
+		 <list style="numbers">
+			<t>Naked domain label without any period(s), including
+			   missing the terminating one (SSAC report and probably
+			   the IAB report, although the latter is less clear).</t>
+		    <t>Top-level domain name used without subdomains (several
+			   instances around ICANN including some staff comments).</t>
+			<t>Top-level domain containing address records
+			   (Levine-Hoffman study).</t>
+			<t>Top-level domain containing records other than one with an SOA
+			   RRTYPE and records associated with delegation only (a
+			   different variation on the definition used by Hoffman
+			   and Levine that would consider TLDs that contain, e.g.,
+			   NAPTR, URI, or MX records and avoid any confusion about
+			   "glue").</t>
+		</list></t>
+	 <t> The first of these assumes that a "dotless domain" may
+		actually be a label that is subject to completion or search
+		rules to form a fully-qualified domain name (FQDN) with more
+		than one label.  The others assume that only top-level domains
+		are intended.</t>
+	 <t> This document expresses no opinion about the desirability or
+		appropriateness of use of DNS entries referred to as "dotless
+		domains" (however defined). 
+		It is only about the terminology and its use.
+	    If such opinions about desirability are wanted, they can be
+		found in abundance in several of the referenced documents.</t>
+	 <!--
+      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+      document are to be interpreted as described in
+	  <xref target="RFC2119">RFC 2119</xref>.</t> -->
+
+    </section>
+
+	<section title="The Humpty Dumpty and Queen of Hearts Syndromes"
+			anchor="HumptyQueen"> 
+	   <t>Note: Those for whom these metaphorical references are not
+		  familiar may want to consult <xref target="WhatsACarroll"/>.
+		  </t>
+	   <t>Humpty Dumpty <xref target="Dumpty"/> is famously quoted
+		  as saying "When I use a 
+		  word, it means just what I choose it to mean -- neither more
+		  nor less".  When there is 
+		  actually more than one definition, that approach
+		  works as long as the term is carefully defined, each
+		  document and context that uses it clearly identifies which
+		  definition it is using, and that people remember to read the
+		  definitions and know which one applies.  At least when the
+		  DNS is involved, those conditions
+		  are rarely met, as evidenced by the discussions cited
+		  above.</t>
+	   <t> When one reads a discussion about a "dotless domain" (or a
+		  "host name") without a clear and clearly understood binding
+		  to a particular definition -- especially if strong opinions
+		  are expressed about utility or importance -- one is likely to
+		  fall into what 
+		  we might call the Queen of Hearts <xref target="Queen"/>
+		  variation on the Humpty Dumpty theme, i.e., "you have to
+		  guess what I meant and, if you get it wrong, off with your
+		  head".</t>
+	   <t> Being headless rarely contributes positively to either
+		  protocol or policy discussions.  Neither does confusion
+		  about contradictory terminology, even if one is permitted to
+		  keep one's head.</t>
+	</section>
+
+	<section title="Dotless and the DNS Definition"
+			anchor="dotless1034"> 
+	   <t>Various very informal uses aside, "dotless domain" actually
+		  comes close to being an oxymoron.  The basic definition of
+		  DNS concepts <xref target="RFC1034"/> 
+		  specifies that every complete domain name ends in a dot
+		  (representing the root) whether that dot is actually written
+		  out or not.   Specifically, it says
+		  <list style="none">
+			 <t>"Since a complete domain name ends with the root label,
+				this leads to a printed form which ends in a dot."
+				<vspace blankLines="1"/> and </t>
+			 <t>"so a multi-label relative name is often one where the
+				trailing dot has been omitted to save typing."</t>
+		  </list></t>
+	   <t>Put differently, the trailing dot is always there in
+		  user-form FQDNs whether one sees it or not.  If there is
+		  such a thing as a "dotless domain", it is a deliberately
+		  relative reference.   That is not what usually seems to
+		  be intended by the term, although it is a case the SSAC and
+		  IAB reports explicitly discuss.</t>
+	   <t> Depending on the particular use or context, more exact
+		  terms might include "label", "single-label domain name
+		  string", "top-level domain name used alone",
+		  "top-level domain that is not delegation-only",
+		  and so on, including variations on that list.</t> 
+    </section>
+
+	<section title="Recommendation">
+	   <t>Especially in documents that are intended to represent
+		  precise statements of technology, recommendations, or
+		  policy, "dotless domain" should be eliminated from the vocabulary,
+		  replacing it with terms that actually mean something and
+		  have precise interpretations, such at the examples at the
+		  end of <xref target="dotless1034"/>.
+		  Even in less formal statements and documents, the use of
+		  "dotless domain" should
+		  either be avoided or carefully examined and questioned to
+		  be sure that the author and reader share an understanding
+		  about what is intended.</t>
+    </section>
+	
+    <section anchor="Acknowledgements" title="Acknowledgements">
+      <t>This document was inspired by a discussion with
+		 Spencer Dawkins, Patrik Faltstrom, 
+		 Subramanian Moonesamy, and Andrew Sullivan.
+		 Specific comments from Spencer Dawkins were particularly
+		 helpful.</t> 
+    </section>
+
+    <!-- Possibly a 'Contributors' section ... -->
+
+    <section anchor="IANA" title="IANA Considerations">
+	  <t><cref> RFC Editor: Please remove this section before
+		 publication.</cref></t>
+      <t>This memo includes no requests to or actions for IANA.</t>
+    </section>
+
+    <section anchor="Security" title="Security Considerations">
+      <t>Use of sloppy, imprecise, or confusing terminology or
+		 terminology with more than one definition can easily hide
+		 issues that lead to security holes.  This document proposes to
+		 eliminate one such specific case and to warn against
+		 others.</t> 
+    </section>
+  </middle>
+
+  <!--  *****BACK MATTER ***** -->
+
+  <back>
+
+
+<!--    <references title="Normative References">
+
+	   &rfc2119;
+
+    </references>  -->
+
+    <references title="Informative References">
+	   &rfc0952;
+	   &rfc1034;
+	   &rfc7085;   <!-- Hoffman-Levine Dotless -->
+ 
+   <reference anchor="IAB-Dotless" 
+      target="http://www.iab.org/documents/correspondence-reports-documents/2013-2/iab-statement-dotless-domains-considered-harmful/">
+        <front>
+          <title>Dotless Domains Considered Harmful</title>
+          <author>
+            <organization>Internet Architecture Board (IAB)</organization>
+	        <address/>
+          </author>
+          <date year="2013" month="July" day="10" />
+        </front>
+      </reference>
+
+   <reference anchor="SAC053"
+	  target="http://www.icann.org/en/groups/ssac/documents/sac-053-en.pdf">
+        <front>
+          <title>SSAC Report on Dotless Domains, SAC053</title>
+          <author>
+            <organization>ICANN Security and Stability Advisory Committee</organization>
+	        <address/>
+          </author>
+          <date year="2012" month="February" day="23" />
+        </front>
+      </reference>
+
+   <reference anchor="dotless-case"
+	  target="https://datatracker.ietf.org/doc/draft-moonesamy-dotless-domains/">
+        <front>
+          <title>The case of dotless domains</title>
+          <author initials="S." surname="Moonesamy">
+            <organization></organization>
+	        <address/>
+          </author>
+          <date year="2013" />
+        </front>
+		<annotation>Version -00, dated 2013-07-13, was used in
+		   constructing this discussion.</annotation>
+      </reference>
+
+	  <!--
+   <reference anchor="HostAsAddress">
+        <front>
+          <title>..HostAsAddress ... to be supplied..</title>
+          <author initials="?." surname="??">
+            <organization></organization>
+	        <address/>
+          </author>
+          <date year="1984" />
+        </front>
+      </reference>  -->
+
+   <reference anchor="Wiki-Hostname">
+        <front>
+          <title>Hostname</title>
+          <author>
+            <organization>Wikipedia</organization>
+	        <address/>
+          </author>
+          <date year="2013" />
+        </front>
+		<seriesInfo name="Version captured" value="2013-09-23" />
+      </reference>
+
+   <reference anchor="FreeBSD-HB"
+	  target="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/using-bsdinstall.html">
+	    <front>
+		   <title>FreeBSD Handbook</title>
+		   <author>
+			  <organization>FreeBSD.org</organization>
+			  <address/>
+		   </author>
+		   <date year="2013"/>
+		</front>
+		<seriesInfo name="Version captured" value="2013-09-23" />
+   </reference>		   
+
+   <reference anchor="Dumpty">
+        <front>
+          <title>'Humpty Dumpty'
+			 in Through the Looking Glass, and What Alice Found There</title>
+          <author initials="L. (pseud)" surname="Carroll">
+			 <!-- Charles Lutwidge Dodgson -->
+            <organization></organization>
+	        <address/>
+          </author>
+          <date year="1871" />
+        </front>
+	    <seriesInfo name="Chapter" value="VI"/>
+		<annotation>Reprinted in The Complete Works of Lewis Carroll
+		   196 (1939),
+		   in Gardiner, M., The Annotated Alice, New York: Clarkson
+		   N. Potter, 1960, and elsewhere.</annotation>
+      </reference>
+
+   <reference anchor="Queen">
+        <front>
+          <title>'The Queen's Croquet-Ground' in
+			 Alice's Adventures in Wonderland</title>
+          <author initials="L. (pseud)" surname="Carroll">
+            <organization></organization>
+	        <address/>
+          </author>
+          <date year="1865" />
+        </front>
+		<seriesInfo name="Chapter" value="VIII"/>
+		<annotation>Reprinted 
+		   in Gardiner, M., The Annotated Alice, New York: Clarkson
+		   N. Potter, 1960, and elsewhere.</annotation>
+      </reference>
+	   
+    </references>
+
+
+<!--   Sections below here become  Appendices.  -->
+    <section title="Alice References" anchor="WhatsACarroll">
+	   <t> The characters, references, and metaphors of
+		   <xref target="HumptyQueen"/> and at least the title of
+		   <xref target="RabbitHole"/> are to a pair of books from
+		   nineteenth century England <xref target="Queen"/>
+		   <xref target="Dumpty"/> that 
+		   are usually described as children's stories or fantasies.
+		   Parts of both have also been extensively analyzed as social 
+		   satire and logic exercises.  They are
+		   fairly well known culturally in some areas, having been
+		   adapted into multiple motion pictures and other works.  If
+		   interpreted as children's books from nearly a century and a
+		   half ago,  their match to current IETF (and related)
+		   discussions should act as a caution about self-defined,
+		   poorly-defined and localized terminology.  If viewed,
+		   instead, as exercises and demonstrations in logic and, for
+		   the first reference, in the nature of names and naming, the
+		   caution should be even stronger.</t>
+	</section>
+	
+	<section title="Down the Rabbit Hole" anchor="RabbitHole">
+	<section title="What is a Hostname?" anchor="WhatHostName">
+	   <t>
+         "Host name" has been used to describe  
+		 both fully-qualified domain names with particular properties
+		 such as address records,
+		 <!-- <xref target="HostAsAddress"/>, -->
+		 a practice that follows the pre-DNS "host table" use of that
+		 term <xref target="RFC0952"/>
+		 and the first label component of such names (e.g., "foo" in
+		 "foo.example.com"). </t>
+	  <t>A current Wikipedia article <xref target="Wiki-Hostname"/> illustrates
+		 all of the confusion referred 
+		   to above: the first label of the domain, the complete
+		   domain name, only some domain names, and so on.  It is
+		   probably consistent if read carefully enough, but the
+		   distinctions and multiple uses are very subtle.</t>
+	   <t> The "host as first label" model is also used in the
+		  configuration 
+		   mechanisms of several major operating systems.  For example
+		   Windows 7 (and most of its predecessors) gives a computer
+		   a name "in a domain" and handles the two separately. By
+		   contrast, current versions of FreeBSD (9.0 and later)
+		   consider a "hostname" to be an FQDN (see Section 2.5.2 of
+		   the FreeBSD Handbook <xref target="FreeBSD-HB"/>).</t>
+	   <t> By contrast, the ISC DHCP Server uses "domain-name" to
+		   designate the containing domain and "host" to designate an
+		   unqualified host name to which the domain names is
+		   appended.</t>
+	</section>
+	
+	<section title='An Imagined History of "dotless domain"'>
+	   <t>"Dotless domain" is not the first term to enter the
+		  Internet's DNS vocabulary through less formal discussions
+		  and then become a problem due to conflicting uses.  In
+		  terminology used for top-level domains, the dubious
+		  distinction of being first may belong, not to "dotless
+		  domain" but to "dot-com".  The latter
+		  actually interacts with the discussion about all domain
+		  names ending in implicit or explicit dots in
+		  <xref target="dotless1034"/> above.  Because of that
+		  interaction, the term probably should have
+		  been "com-dot", rather than "dot-com".  More important,
+		  once one believes that "dot-foo" is standard and precise
+		  terminology for the name of a top-level domain,
+		  "no-dot-foo" or "dotless-foo" seems natural and it is only
+		  a half-step to "dotless domain".</t>
+	</section>
+	<!-- <section title="More Examples">
+	  <t><cref> Reserved for a number of other snarky comments ...
+		  perhaps should just drop this.</cref></t>
+	  </section> -->
+	</section>
+
+	
+<!--
+	<section title="Change Log" anchor="ChangeLog">
+	    <t>RFC Editor: Please remove this appendix before
+	publication.</t>
+	   <section title="Changes from version -00 to -01">
+		  <t><list style="symbols">
+			 <t>Blather</t>
+		  </list></t>
+	   </section>
+	</section>      -->
+
+  </back>
+</rfc>

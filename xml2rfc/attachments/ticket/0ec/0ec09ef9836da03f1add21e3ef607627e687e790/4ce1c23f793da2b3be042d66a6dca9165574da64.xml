@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?rfc symrefs="yes"?>
+
+<rfc category="std" docName="sample" ipr="trust200902">
+
+    <front>
+        <title>Examples for &lt;eref&gt;</title>
+        <author initials='A.Y.' surname="Mous" fullname='Anon Y. Mous'/>
+        <date/>
+        <abstract><t>Examples for &lt;eref&gt;.</t></abstract>
+    </front>
+
+    <middle>
+<section title="erefs">
+
+<section title="empty content">
+  <t>
+    See <eref target="http://example.org"/>.
+  </t>
+</section>
+
+<section title="text content">
+  <t>
+    See <eref target="http://example.org">example site</eref>.
+  </t>
+</section>
+
+</section>
+
+    </middle>
+   <back>
+      <references title="Normative References">
+         <reference anchor="reference-anchor" target="http://www.w3.org/TR/2008/REC-xml-20081126/">
+            <front>
+               <title>Extensible Markup Language (XML) 1.0 (Fifth Edition)</title>
+               <author fullname="Eve Maler" surname="Maler" initials="E."/>
+               <author fullname="Francois Yergeau" surname="Yergeau" initials="F."/>
+               <author fullname="Jean Paoli" surname="Paoli" initials="J."/>
+               <author fullname="Michael Sperberg-McQueen" surname="Sperberg-McQueen" initials="M."/>
+               <author fullname="Tim Bray" surname="Bray" initials="T."/>
+               <date year="2008" month="November" day="26"/>
+            </front>
+            <seriesInfo name="W3C Recommendation" value="REC-xml-20081126"/>
+            <annotation> Latest version available at <eref target="http://www.w3.org/TR/xml"/>. </annotation>
+         </reference>
+      </references>
+   </back>
+</rfc>

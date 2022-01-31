@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- file from http://xml.resource.org/authoring/sample.xml
+slightly updated. -->
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY voicexml SYSTEM "http://xml.resource.org/public/rfc/bibxml4/reference.W3C.REC-voicexml20-20040316.xml">
+]>
+
+<rfc category="std" ipr="trust200902" docName="sample.txt">
+
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+
+<?rfc toc="yes" ?>
+<?rfc symrefs="no" ?>
+<?rfc sortrefs="yes"?>
+<?rfc compact="yes"?>
+<?rfc subcompact="no"?>
+
+    <front>
+<title abbrev="RSerPool for VNFPOOL">The Applicability of Reliable Server
+Pooling&nbsp;(RSerPool) for Virtual Network Function Resource Pooling&nbsp;
+(VNFPOOL)</title>
+<!--        <title>An Example</title> -->
+        <author initials='A.Y' surname="Mous" fullname='Anon Y. Mous'>
+            <organization/>
+                </author>
+        <date year="2013" month="Nov"/>
+        <abstract><t>An example.</t></abstract>
+    </front>
+
+    <middle>
+      <section title="References" anchor="me">
+        <t>
+          This paragraph contains a set of references to a bunch of different things so I can figure out what they are doing in TCL.
+          Refer to section <xref target="me"/>.
+          Refer to section <xref target="not_me"/>.
+          The first is to refer to <xref target="para1"/>.
+          This is to the first nested parapgraph is <xref target="para2"/>.
+          Next reference to list item <xref target="num_para1"/>.
+          Next reference to list item <xref target="num_para2"/>.
+        </t>
+        
+        <t>
+          Next reference to list item <xref target="num_para1"/>.
+          Next reference to list item <xref target="num_para2"/>.
+          Next reference to list item <xref target="ltr_para1"/>.
+          Next reference to list item <xref target="ltr_para2"/>.
+          Next reference to list item <xref target="sym_para1"/>.
+          Next reference to list item <xref target="sym_para2"/>.
+          Next reference to list item <xref target="hang_para1"/>.
+          Next reference to list item <xref target="hang_para2"/>.
+          Next reference to list item <xref target="fmt_para1"/>.
+          Next reference to list item <xref target="fmt_para2"/>.
+          Next reference to list item <xref target="empty_para1"/>.
+          Next reference to list item <xref target="empty_para2"/>.
+        </t>
+
+        <t>
+          Different types of references in this paragraph.
+          Counter reference to list item <xref target="num_para1" format="counter"/>.
+          Title reference to <xref target="not_me" format="title"/>.
+          None reference to <xref target="not_me" format="none">With Text</xref>.
+          Default reference  <xref target="not_me" format="default">More text</xref>.
+        </t>
+
+        <t anchor="para1">
+          This paragrph can be referenced.
+          And point to a reference <xref target="WEBER"/>.
+        </t>
+
+        <t>
+          And we should be able to reference a nested paragraph as well.
+        </t>
+          <t anchor="para2">
+            Which is a nested paragraph.
+          </t>
+
+        <t>
+          This parapgraph has a list which is going to have a reference inside of it.
+          <list style="numbers">
+            <t anchor="num_para1">This is an item.</t>
+            <t>
+              And a nested list to make things fun.
+              <list style="numbers">
+                <t>line one</t>
+                <t anchor="num_para2">line two</t>
+              </list>
+            </t>
+          </list>
+        </t>
+
+        <t>
+          This parapgraph has a list which is going to have a reference inside of it.
+          <list style="letters">
+            <t anchor="ltr_para1">This is an item.</t>
+            <t>
+              And a nested list to make things fun.
+              <list style="numbers">
+                <t>line one</t>
+                <t anchor="ltr_para2">line two</t>
+              </list>
+            </t>
+          </list>
+        </t>
+
+        <t>
+          This parapgraph has a list which is going to have a reference inside of it.
+          <list style="symbols">
+            <t anchor="sym_para1">This is an item.</t>
+            <t>
+              And a nested list to make things fun.
+              <list style="numbers">
+                <t>line one</t>
+                <t anchor="sym_para2">line two</t>
+              </list>
+            </t>
+          </list>
+        </t>
+
+        <t>
+          This parapgraph has a list which is going to have a reference inside of it.
+          <list style="hanging">
+            <t hangText="tag1" anchor="hang_para1">This is an item.</t>
+            <t hangText="tag2">
+              And a nested list to make things fun.
+              <list style="numbers">
+                <t>line one</t>
+                <t anchor="hang_para2">line two</t>
+              </list>
+            </t>
+          </list>
+        </t>
+
+        <t>
+          This parapgraph has a list which is going to have a reference inside of it.
+          <list style="format Q%d" >
+            <t anchor="fmt_para1">This is an item.</t>
+            <t>
+              And a nested list to make things fun.
+              <list style="numbers">
+                <t>line one</t>
+                <t anchor="fmt_para2">line two</t>
+              </list>
+            </t>
+          </list>
+        </t>
+
+        <t>
+          This parapgraph has a list which is going to have a reference inside of it.
+          <list >
+            <t anchor="empty_para1">This is an item.</t>
+            <t>
+              And a nested list to make things fun.
+              <list style="numbers">
+                <t>line one</t>
+                <t anchor="empty_para2">line two</t>
+              </list>
+            </t>
+          </list>
+        </t>
+
+      </section>
+      <section title="Security Considerations" anchor="not_me">
+        <t>There are none</t>
+      </section>
+
+    </middle>
+
+    <back>
+    <references title="Normative References">
+      &voicexml;
+<reference anchor="OASIS-SAMLv2-CORE"
+target="http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf">
+  <front>
+    <title>Assertions and Protocols for the OASIS Security Assertion Markup
+Language (SAML) V2.0</title>
+     <author fullname="Scott Cantor" initials="S." surname="Cantor" role="editor">
+     </author>
+     <author fullname="John Kemp" initials="J." surname="Kemp" role="editor">
+
+
+     </author>
+     <author fullname="Rob Philpott" initials="R." surname="Philpott" role="editor">
+     <organization>RSA Security</organization>
+     </author>
+     <author fullname="Eve Maler" initials="E." surname="Maler" role="editor">
+     </author>
+     <date year="2005" month="March"/>
+  </front>
+  <seriesInfo name="OASIS Standard" value="saml-core-2.0-os"/>
+</reference>
+
+    <reference anchor="WEBER"
+               target="http://www.lookout.net/files/Chris_Weber_Character%20Transformations%20v1.7_IUC33.pdf">
+    <front>
+    <title>Attacking Software Globalization</title>
+    <author initials="C." surname="Weber" fullname="Chris Weber">
+    <organization>Casaba Security</organization>
+    </author>
+    <date month="March" year="2010" />
+    </front>
+    </reference>
+    </references>
+</back>
+
+</rfc>

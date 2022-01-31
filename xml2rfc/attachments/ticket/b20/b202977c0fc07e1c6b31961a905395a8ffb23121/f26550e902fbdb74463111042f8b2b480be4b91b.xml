@@ -1,0 +1,97 @@
+<rfc version="3" submissionType="IETF" category="info" ipr="trust200902" docName="artwork-test">
+  <front>
+    <title>Tests for artset</title>
+    <author fullname="Julian Reschke" surname="Reschke" initials="J."/>
+  </front>
+  <middle>
+    <section anchor="artset">
+      <name><tt>&lt;artset&gt;</tt></name>
+      <section>
+        <name>Trivial <tt>&lt;artset&gt;</tt></name> 
+        <t>Trivial:</t>
+        <artset anchor="artset-trivial">
+          <artwork type="ascii-art">Trivial ASCII art</artwork>
+        </artset>
+        <t>In figure:</t>
+        <figure>
+          <artset anchor="artset-trivial-in-figure">
+            <artwork type="ascii-art">Trivial ASCII art in figure</artwork>  
+          </artset>
+        </figure>
+        <t>Trivial with anchor propagation:</t>
+        <artset>
+          <artwork anchor="arset-trivial-with-anchor-propagation" type="ascii-art">Trivial ASCII art</artwork>
+        </artset>
+        <t>In figure:</t>
+        <figure>
+          <artset>
+            <artwork anchor="arset-trivial-with-anchor-propagation-in-figure" type="ascii-art">Trivial ASCII art</artwork>
+          </artset>
+        </figure>
+        <t>Reference <tt>&lt;artwork&gt;</tt> in trivial <tt>&lt;artset&gt;</tt> with @anchor: <xref target="arset-trivial-with-anchor-propagation">TEST</xref>.</t>
+        <t>Reference <tt>&lt;artwork&gt;</tt> in trivial <tt>&lt;artset&gt;</tt> with @anchor inside <tt>&lt;figure&gt;</tt>: <xref target="arset-trivial-with-anchor-propagation-in-figure">TEST</xref>.</t>
+      </section>
+      <section>
+        <name>Simple <tt>&lt;artset&gt;</tt></name>
+        <t>A simple case with SVG and ASCII art</t>
+        <artset>
+          <artwork type="ascii-art">
++-+
+| |
++-+</artwork>
+          <artwork><svg xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="30" height="30" stroke="black" fill="white" stroke-width="2"/>
+</svg></artwork>
+        </artset>
+        <t>A simple case with SVG and ASCII art, order reversed</t>
+        <artset>
+          <artwork type="svg"><svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">
+  <rect x="10" y="10" width="30" height="30" stroke="black" fill="white" stroke-width="2"/>
+</svg></artwork>
+          <artwork type="ascii-art">
++-+
+| |
++-+</artwork>
+        </artset>
+      </section>
+      <section>
+        <name>Simple <tt>&lt;artset&gt;</tt>, anchor propagation</name>
+        <t>A simple case with SVG and ASCII art (with anchors on both elements)</t>
+        <artset>
+          <artwork anchor="simple-artset-anchor-prop-text" type="ascii-art">
++-+
+| |
++-+</artwork>
+          <artwork anchor="simple-artset-anchor-prop-svg" type="svg"><svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">
+  <rect x="10" y="10" width="30" height="30" stroke="black" fill="white" stroke-width="2"/>
+</svg></artwork>
+        </artset>
+        <t anchor="self-para">This is <xref target="self-para"/>. Reference to SVG: <xref target="simple-artset-anchor-prop-svg"/>.</t>
+        <t>Reference to ASCII artwork: <xref target="simple-artset-anchor-prop-text"/>.</t>
+        <t>A simple case with SVG and ASCII art (with anchors on both elements), reversed</t>
+        <artset>
+          <artwork anchor="simple-artset-anchor-prop-svg-reversed" type="svg"><svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">
+  <rect x="10" y="10" width="30" height="30" stroke="black" fill="white" stroke-width="2"/>
+</svg></artwork>
+          <artwork anchor="simple-artset-anchor-prop-text-reversed" type="ascii-art">
++-+
+| |
++-+</artwork>
+        </artset>
+        <t>A simple case with SVG and ASCII art (with anchors on both elements), also anchor on artset</t>
+        <artset anchor="artset-anchor-prop">
+          <artwork anchor="simple-artset-anchor-prop-svg-2" type="svg"><svg xmlns="http://www.w3.org/2000/svg" height="100" width="100"  >
+  <rect x="10" y="10" width="30" height="30" stroke="black" fill="white" stroke-width="2"/>
+</svg></artwork>
+          <artwork anchor="simple-artset-anchor-prop-text-2" type="ascii-art">
++-+
+| |
++-+</artwork>
+        </artset>
+        <t>Reference to container: <xref target="artset-anchor-prop"/> - <xref target="artset-anchor-prop">with text content</xref>.</t>
+        <t>Reference to SVG: <xref target="simple-artset-anchor-prop-svg-2"/> - <xref target="simple-artset-anchor-prop-svg-2">with text content</xref>.</t>
+        <t>Reference to ASCII artwork: <xref target="simple-artset-anchor-prop-text-2"/> - <xref target="simple-artset-anchor-prop-text-2">with text content</xref>.</t>
+      </section>
+    </section>
+  </middle>
+</rfc>

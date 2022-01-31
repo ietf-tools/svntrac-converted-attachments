@@ -1,0 +1,12 @@
+--- /tmp/xml2rfc-2.4.5.orig/xml2rfc/writers/paginated_txt.py	2014-01-17 18:42:30.000000000 +0000
++++ /tmp/xml2rfc-2.4.5/xml2rfc/writers/paginated_txt.py	2014-01-22 15:30:49.580065967 +0000
+@@ -176,7 +179,8 @@
+         elif len(surnames) > 2:
+             self.left_footer = '%s, et al.' % surnames[0]
+         if self.draft:
+-            self.center_footer = 'Expires %s' % self.expire_string
++            if not self.pis['private']:
++                self.center_footer = 'Expires %s' % self.expire_string
+         else:
+             self.center_footer = self.boilerplate.get(
+                                  self.r.attrib.get('category', ''), '(Category')

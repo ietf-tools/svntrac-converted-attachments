@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?rfc symrefs="yes"?>
+
+<rfc category="std" docName="sample" ipr="trust200902">
+
+    <front>
+        <title>Example for &lt;xref&gt;</title>
+        <author initials='A.Y.' surname="Mous" fullname='Anon Y. Mous'/>
+        <date/>
+        <abstract><t>Example for &lt;xref&gt;.</t></abstract>
+    </front>
+
+    <middle>
+
+<section title="text content" anchor="test">
+  <t>
+    See <xref target="test">sample</xref>.
+  </t>
+</section>
+
+    </middle>
+</rfc>

@@ -1,0 +1,11 @@
+--- rfc2html.py.orig	2022-01-10 19:05:12.175305837 +0000
++++ rfc2html.py	2022-01-10 19:05:49.355395278 +0000
+@@ -192,7 +192,7 @@
+   
+         # draft markup
+         # draft name crossing line break
+-        text = re.sub("([^/#=\?\w-])(draft-([-a-zA-Z0-9]+-)?)(\n +)([-a-zA-Z0-9]+[a-zA-Z0-9](.txt)?)",
++        text = re.sub("([^/#=\?\w-])(draft-([-a-zA-Z0-9]+-)?)((?: {3,}.+)?\n +)([-a-zA-Z0-9]+[a-zA-Z0-9](.txt)?)",
+                         "\g<1><a href=\"%s?%sdraft=\g<2>\g<5>\">\g<2></a>\g<4><a href=\"%s?%sdraft=\g<2>\g<5>\">\g<5></a>" % (script, extra, script, extra), text)
+         # draft name on one line (but don't mess with what we just did above)
+         text = re.sub("([^/#=\?\w>=-])(draft-[-a-zA-Z0-9]+[a-zA-Z0-9](.txt)?)",

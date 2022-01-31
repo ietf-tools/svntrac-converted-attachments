@@ -1,0 +1,3422 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <title>DoesNotExist at /codestand/</title>
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; }
+    h2 { margin-bottom:.8em; }
+    h2 span { font-size:80%; color:#666; font-weight:normal; }
+    h3 { margin:1em 0 .5em 0; }
+    h4 { margin:0 0 .5em 0; font-weight: normal; }
+    code, pre { font-size: 100%; white-space: pre-wrap; }
+    table { border:1px solid #ccc; border-collapse: collapse; width:100%; background:white; }
+    tbody td, tbody th { vertical-align:top; padding:2px 3px; }
+    thead th {
+      padding:1px 6px 1px 3px; background:#fefefe; text-align:left;
+      font-weight:normal; font-size:11px; border:1px solid #ddd;
+    }
+    tbody th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    table.vars { margin:5px 0 2px 40px; }
+    table.vars td, table.req td { font-family:monospace; }
+    table td.code { width:100%; }
+    table td.code pre { overflow:hidden; }
+    table.source th { color:#666; }
+    table.source td { font-family:monospace; white-space:pre; border-bottom:1px solid #eee; }
+    ul.traceback { list-style-type:none; color: #222; }
+    ul.traceback li.frame { padding-bottom:1em; color:#666; }
+    ul.traceback li.user { background-color:#e0e0e0; color:#000 }
+    div.context { padding:10px 0; overflow:hidden; }
+    div.context ol { padding-left:30px; margin:0 10px; list-style-position: inside; }
+    div.context ol li { font-family:monospace; white-space:pre; color:#777; cursor:pointer; padding-left: 2px; }
+    div.context ol li pre { display:inline; }
+    div.context ol.context-line li { color:#505050; background-color:#dfdfdf; padding: 3px 2px; }
+    div.context ol.context-line li span { position:absolute; right:32px; }
+    .user div.context ol.context-line li { background-color:#bbb; color:#000; }
+    .user div.context ol li { color:#666; }
+    div.commands { margin-left: 40px; }
+    div.commands a { color:#555; text-decoration:none; }
+    .user div.commands a { color: black; }
+    #summary { background: #ffc; }
+    #summary h2 { font-weight: normal; color: #666; }
+    #explanation { background:#eee; }
+    #template, #template-not-exist { background:#f6f6f6; }
+    #template-not-exist ul { margin: 0 0 10px 20px; }
+    #template-not-exist .postmortem-section { margin-bottom: 3px; }
+    #unicode-hint { background:#eee; }
+    #traceback { background:#eee; }
+    #requestinfo { background:#f6f6f6; padding-left:120px; }
+    #summary table { border:none; background:transparent; }
+    #requestinfo h2, #requestinfo h3 { position:relative; margin-left:-100px; }
+    #requestinfo h3 { margin-bottom:-1em; }
+    .error { background: #ffc; }
+    .specific { color:#cc3300; font-weight:bold; }
+    h2 span.commands { font-size:.7em;}
+    span.commands a:link {color:#5E5694;}
+    pre.exception_value { font-family: sans-serif; color: #666; font-size: 1.5em; margin: 10px 0 10px 0; }
+    .append-bottom { margin-bottom: 10px; }
+  </style>
+  
+  <script type="text/javascript">
+  //<!--
+    function getElementsByClassName(oElm, strTagName, strClassName){
+        // Written by Jonathan Snook, http://www.snook.ca/jon; Add-ons by Robert Nyman, http://www.robertnyman.com
+        var arrElements = (strTagName == "*" && document.all)? document.all :
+        oElm.getElementsByTagName(strTagName);
+        var arrReturnElements = new Array();
+        strClassName = strClassName.replace(/\-/g, "\-");
+        var oRegExp = new RegExp("(^|\s)" + strClassName + "(\s|$)");
+        var oElement;
+        for(var i=0; i<arrElements.length; i++){
+            oElement = arrElements[i];
+            if(oRegExp.test(oElement.className)){
+                arrReturnElements.push(oElement);
+            }
+        }
+        return (arrReturnElements)
+    }
+    function hideAll(elems) {
+      for (var e = 0; e < elems.length; e++) {
+        elems[e].style.display = 'none';
+      }
+    }
+    window.onload = function() {
+      hideAll(getElementsByClassName(document, 'table', 'vars'));
+      hideAll(getElementsByClassName(document, 'ol', 'pre-context'));
+      hideAll(getElementsByClassName(document, 'ol', 'post-context'));
+      hideAll(getElementsByClassName(document, 'div', 'pastebin'));
+    }
+    function toggle() {
+      for (var i = 0; i < arguments.length; i++) {
+        var e = document.getElementById(arguments[i]);
+        if (e) {
+          e.style.display = e.style.display == 'none' ? 'block': 'none';
+        }
+      }
+      return false;
+    }
+    function varToggle(link, id) {
+      toggle('v' + id);
+      var s = link.getElementsByTagName('span')[0];
+      var uarr = String.fromCharCode(0x25b6);
+      var darr = String.fromCharCode(0x25bc);
+      s.textContent = s.textContent == uarr ? darr : uarr;
+      return false;
+    }
+    function switchPastebinFriendly(link) {
+      s1 = "Switch to copy-and-paste view";
+      s2 = "Switch back to interactive view";
+      link.textContent = link.textContent.trim() == s1 ? s2: s1;
+      toggle('browserTraceback', 'pastebinTraceback');
+      return false;
+    }
+    //-->
+  </script>
+  
+</head>
+<body>
+<div id="summary">
+  <h1>DoesNotExist at /codestand/</h1>
+  <pre class="exception_value">Person matching query does not exist.</pre>
+  <table class="meta">
+
+    <tbody><tr>
+      <th>Request Method:</th>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <th>Request URL:</th>
+      <td>https://codestand.ietf.org/codestand/</td>
+    </tr>
+
+    <tr>
+      <th>Django Version:</th>
+      <td>1.10.7</td>
+    </tr>
+
+    <tr>
+      <th>Exception Type:</th>
+      <td>DoesNotExist</td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Value:</th>
+      <td><pre>Person matching query does not exist.</pre></td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Location:</th>
+      <td>/usr/local/lib/python2.7/dist-packages/django/db/models/query.py in get, line 385</td>
+    </tr>
+
+    <tr>
+      <th>Python Executable:</th>
+      <td>/usr/bin/python</td>
+    </tr>
+    <tr>
+      <th>Python Version:</th>
+      <td>2.7.6</td>
+    </tr>
+    <tr>
+      <th>Python Path:</th>
+      <td><pre>['/var/www/codestand',
+ '/usr/lib/python2.7',
+ '/usr/lib/python2.7/plat-x86_64-linux-gnu',
+ '/usr/lib/python2.7/lib-tk',
+ '/usr/lib/python2.7/lib-old',
+ '/usr/lib/python2.7/lib-dynload',
+ '/usr/local/lib/python2.7/dist-packages',
+ '/usr/lib/python2.7/dist-packages',
+ '/usr/lib/python2.7/dist-packages/PILcompat',
+ '/var/www/codestand']</pre></td>
+    </tr>
+    <tr>
+      <th>Server time:</th>
+      <td>Wed, 4 Oct 2017 07:46:13 -0700</td>
+    </tr>
+  </tbody></table>
+</div>
+
+
+
+
+<div id="traceback">
+  <h2>Traceback <span class="commands"><a href="#" onclick="return switchPastebinFriendly(this);">
+    Switch to copy-and-paste view</a></span>
+  </h2>
+  
+  <div id="browserTraceback">
+    <ul class="traceback">
+      
+        
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/core/handlers/exception.py</code> in <code>inner</code>
+
+          
+            <div class="context" id="c140174207717456">
+              
+                <ol start="35" class="pre-context" id="pre140174207717456" style="display: none;">
+                
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>    This decorator is automatically applied to all middleware to ensure that</pre></li>
+                
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>    no middleware leaks an exception and that the next middleware in the stack</pre></li>
+                
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>    can rely on getting a response instead of an exception.</pre></li>
+                
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>    """</pre></li>
+                
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>    @wraps(get_response, assigned=available_attrs(get_response))</pre></li>
+                
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>    def inner(request):</pre></li>
+                
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>        try:</pre></li>
+                
+                </ol>
+              
+              <ol start="42" class="context-line">
+                <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>            response = get_response(request)</pre> <span>...</span></li></ol>
+              
+                <ol start="43" class="post-context" id="post140174207717456" style="display: none;">
+                  
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>        except Exception as exc:</pre></li>
+                  
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>            response = response_for_exception(request, exc)</pre></li>
+                  
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>        return response</pre></li>
+                  
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre>    return inner</pre></li>
+                  
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140174207717456', 'post140174207717456')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140174207717456')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140174207717456" style="display: none;">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>exc</td>
+                    <td class="code"><pre>DoesNotExist('Person matching query does not exist.',)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>get_response</td>
+                    <td class="code"><pre>&lt;bound method WSGIHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x7f7cfa944a10&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET '/codestand/'&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py</code> in <code>_get_response</code>
+
+          
+            <div class="context" id="c140174207717528">
+              
+                <ol start="180" class="pre-context" id="pre140174207717528" style="display: none;">
+                
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>                break</pre></li>
+                
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>        if response is None:</pre></li>
+                
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>            wrapped_callback = self.make_view_atomic(callback)</pre></li>
+                
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>            try:</pre></li>
+                
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre></li>
+                
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>            except Exception as e:</pre></li>
+                
+                </ol>
+              
+              <ol start="187" class="context-line">
+                <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>                response = self.process_exception_by_middleware(e, request)</pre> <span>...</span></li></ol>
+              
+                <ol start="188" class="post-context" id="post140174207717528" style="display: none;">
+                  
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>        # Complain if the view returned None (a common error).</pre></li>
+                  
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>        if response is None:</pre></li>
+                  
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>            if isinstance(callback, types.FunctionType):    # FBV</pre></li>
+                  
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>                view_name = callback.__name__</pre></li>
+                  
+                  <li onclick="toggle('pre140174207717528', 'post140174207717528')"><pre>            else:                                           # CBV</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140174207717528')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140174207717528" style="display: none;">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function index at 0x7f7cf282ccf8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>e</td>
+                    <td class="code"><pre>DoesNotExist('Person matching query does not exist.',)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7f7cf88ebc50&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET '/codestand/'&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver</td>
+                    <td class="code"><pre>&lt;RegexURLResolver 'ietf.urls' (None:None) ^/&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver_match</td>
+                    <td class="code"><pre>ResolverMatch(func=ietf.codestand.views.index, args=(), kwargs={}, url_name=ietf.codestand.views.index, app_names=[], namespaces=[])</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7f7cfa944a10&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>wrapped_callback</td>
+                    <td class="code"><pre>&lt;function index at 0x7f7cf282ccf8&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py</code> in <code>_get_response</code>
+
+          
+            <div class="context" id="c140174207720552">
+              
+                <ol start="178" class="pre-context" id="pre140174207720552" style="display: none;">
+                
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>            response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li>
+                
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>            if response:</pre></li>
+                
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>                break</pre></li>
+                
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>        if response is None:</pre></li>
+                
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>            wrapped_callback = self.make_view_atomic(callback)</pre></li>
+                
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>            try:</pre></li>
+                
+                </ol>
+              
+              <ol start="185" class="context-line">
+                <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol start="186" class="post-context" id="post140174207720552" style="display: none;">
+                  
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>            except Exception as e:</pre></li>
+                  
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>                response = self.process_exception_by_middleware(e, request)</pre></li>
+                  
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>        # Complain if the view returned None (a common error).</pre></li>
+                  
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>        if response is None:</pre></li>
+                  
+                  <li onclick="toggle('pre140174207720552', 'post140174207720552')"><pre>            if isinstance(callback, types.FunctionType):    # FBV</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140174207720552')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140174207720552" style="display: none;">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function index at 0x7f7cf282ccf8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>e</td>
+                    <td class="code"><pre>DoesNotExist('Person matching query does not exist.',)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7f7cf88ebc50&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET '/codestand/'&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver</td>
+                    <td class="code"><pre>&lt;RegexURLResolver 'ietf.urls' (None:None) ^/&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver_match</td>
+                    <td class="code"><pre>ResolverMatch(func=ietf.codestand.views.index, args=(), kwargs={}, url_name=ietf.codestand.views.index, app_names=[], namespaces=[])</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7f7cfa944a10&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>wrapped_callback</td>
+                    <td class="code"><pre>&lt;function index at 0x7f7cf282ccf8&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          <code>/var/www/codestand/ietf/codestand/views.py</code> in <code>index</code>
+
+          
+            <div class="context" id="c140174207718176">
+              
+                <ol start="6" class="pre-context" id="pre140174207718176" style="display: none;">
+                
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre>from ietf.codestand.dashboard import (get_my_matches, get_my_requests, get_all_matches)</pre></li>
+                
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre>from django.conf import settings</pre></li>
+                
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre>from django.contrib.auth.decorators import login_required</pre></li>
+                
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre>def index(request):</pre></li>
+                
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre>    sync(request)</pre></li>
+                
+                </ol>
+              
+              <ol start="13" class="context-line">
+                <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre>    return render_page(request, constants.TEMPLATE_INDEX)</pre> <span>...</span></li></ol>
+              
+                <ol start="14" class="post-context" id="post140174207718176" style="display: none;">
+                  
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre>def about(request):</pre></li>
+                  
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre>    return render_page(request, constants.TEMPLATE_ABOUT)</pre></li>
+                  
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140174207718176', 'post140174207718176')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140174207718176')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140174207718176" style="display: none;">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET '/codestand/'&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          <code>/var/www/codestand/ietf/codestand/helpers/utils.py</code> in <code>render_page</code>
+
+          
+            <div class="context" id="c140174207719616">
+              
+                <ol start="97" class="pre-context" id="pre140174207719616" style="display: none;">
+                
+                  <li onclick="toggle('pre140174207719616', 'post140174207719616')"><pre>    if constants.ACTUAL_TEMPLATE in request.session:</pre></li>
+                
+                  <li onclick="toggle('pre140174207719616', 'post140174207719616')"><pre>        actual_template = request.session[constants.ACTUAL_TEMPLATE]</pre></li>
+                
+                  <li onclick="toggle('pre140174207719616', 'post140174207719616')"><pre>        if actual_template != request.path:</pre></li>
+                
+                  <li onclick="toggle('pre140174207719616', 'post140174207719616')"><pre>            request.session[constants.PREVIOUS_TEMPLATE] = actual_template</pre></li>
+                
+                  <li onclick="toggle('pre140174207719616', 'post140174207719616')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140174207719616', 'post140174207719616')"><pre>    request.session[constants.ACTUAL_TEMPLATE] = request.path</pre></li>
+                
+                  <li onclick="toggle('pre140174207719616', 'post140174207719616')"><pre></pre></li>
+                
+                </ol>
+              
+              <ol start="104" class="context-line">
+                <li onclick="toggle('pre140174207719616', 'post140174207719616')"><pre>    return render(request, template, get_menu_arguments(request, keys))</pre> <span>...</span></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140174207719616')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140174207719616" style="display: none;">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>actual_template</td>
+                    <td class="code"><pre>u'/codestand/'</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>keys</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET '/codestand/'&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>template</td>
+                    <td class="code"><pre>'codestand/index.html'</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          <code>/var/www/codestand/ietf/codestand/helpers/utils.py</code> in <code>get_menu_arguments</code>
+
+          
+            <div class="context" id="c140174207718680">
+              
+                <ol start="27" class="pre-context" id="pre140174207718680" style="display: none;">
+                
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>        else:</pre></li>
+                
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>            return None</pre></li>
+                
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>    else:</pre></li>
+                
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>        return request.session[constants.USER]</pre></li>
+                
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>def get_menu_arguments(request, keys):</pre></li>
+                
+                </ol>
+              
+              <ol start="34" class="context-line">
+                <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>    user = get_user(request)</pre> <span>...</span></li></ol>
+              
+                <ol start="35" class="post-context" id="post140174207718680" style="display: none;">
+                  
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>    # Always setted</pre></li>
+                  
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>    keys['from'] = request.GET.get('from', None)</pre></li>
+                  
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>    keys['codestand_debug'] = settings.CODESTAND_DEBUG</pre></li>
+                  
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>    keys['codestand_version'] = constants.VERSION</pre></li>
+                  
+                  <li onclick="toggle('pre140174207718680', 'post140174207718680')"><pre>    keys['codestand_revision_date'] = constants.RELEASE_DATE</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140174207718680')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140174207718680" style="display: none;">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>keys</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET '/codestand/'&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          <code>/var/www/codestand/ietf/codestand/helpers/utils.py</code> in <code>get_user</code>
+
+          
+            <div class="context" id="c140174207719832">
+              
+                <ol start="17" class="pre-context" id="pre140174207719832" style="display: none;">
+                
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>    print user, permission</pre></li>
+                
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>    return True</pre></li>
+                
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>def get_user(request):</pre></li>
+                
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>    if constants.USER not in request.session or request.session[constants.USER].user != request.user:</pre></li>
+                
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>        if request.user.is_authenticated():</pre></li>
+                
+                </ol>
+              
+              <ol start="24" class="context-line">
+                <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>            user = Person.objects.using('datatracker').get(user=request.user)</pre> <span>...</span></li></ol>
+              
+                <ol start="25" class="post-context" id="post140174207719832" style="display: none;">
+                  
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>            request.session[constants.USER] = user</pre></li>
+                  
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>            return user</pre></li>
+                  
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>        else:</pre></li>
+                  
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>            return None</pre></li>
+                  
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>    else:</pre></li>
+                  
+                  <li onclick="toggle('pre140174207719832', 'post140174207719832')"><pre>        return request.session[constants.USER]</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140174207719832')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140174207719832" style="display: none;">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET '/codestand/'&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/query.py</code> in <code>get</code>
+
+          
+            <div class="context" id="c140174207721128">
+              
+                <ol start="378" class="pre-context" id="pre140174207721128" style="display: none;">
+                
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>            clone = clone.order_by()</pre></li>
+                
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>        num = len(clone)</pre></li>
+                
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>        if num == 1:</pre></li>
+                
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>            return clone._result_cache[0]</pre></li>
+                
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>        if not num:</pre></li>
+                
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>            raise self.model.DoesNotExist(</pre></li>
+                
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>                "%s matching query does not exist." %</pre></li>
+                
+                </ol>
+              
+              <ol start="385" class="context-line">
+                <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>                self.model._meta.object_name</pre> <span>...</span></li></ol>
+              
+                <ol start="386" class="post-context" id="post140174207721128" style="display: none;">
+                  
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>            )</pre></li>
+                  
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>        raise self.model.MultipleObjectsReturned(</pre></li>
+                  
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>            "get() returned more than one %s -- it returned %s!" %</pre></li>
+                  
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>            (self.model._meta.object_name, num)</pre></li>
+                  
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre>        )</pre></li>
+                  
+                  <li onclick="toggle('pre140174207721128', 'post140174207721128')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140174207721128')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140174207721128" style="display: none;">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>clone</td>
+                    <td class="code"><pre>&lt;QuerySet []&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{'user': &lt;SimpleLazyObject: &lt;User: mdb@juniper.net&gt;&gt;}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>num</td>
+                    <td class="code"><pre>0</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;QuerySet [&lt;Person:  Zhou&gt;, &lt;Person: Aaron Stone&gt;, &lt;Person: Ali Begen&gt;, &lt;Person: Acee Lindem&gt;, &lt;Person: Al Morton&gt;, &lt;Person: Alissa Cooper&gt;, &lt;Person: Adam Roach&gt;, &lt;Person: Brian Adamson&gt;, &lt;Person: Addison Phillips&gt;, &lt;Person: Adrian Farrel&gt;, &lt;Person: Alain Durand&gt;, &lt;Person: Alfred Hoenes&gt;, &lt;Person: Andrew Sullivan&gt;, &lt;Person: Alia Atlas&gt;, &lt;Person: Aki Niemi&gt;, &lt;Person: Abhay Roy&gt;, &lt;Person: Alan Johnston&gt;, &lt;Person: Alan Clark&gt;, &lt;Person: Alan DeKok&gt;, &lt;Person: Alexander Mayrhofer&gt;, '...(remaining elements truncated)...']&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+    </ul>
+  </div>
+  
+  <form action="http://dpaste.com/" name="pasteform" id="pasteform" method="post">
+
+  <div id="pastebinTraceback" class="pastebin" style="display: none;">
+    <input name="language" value="PythonConsole" type="hidden">
+    <input name="title" value="DoesNotExist at /codestand/" type="hidden">
+    <input name="source" value="Django Dpaste Agent" type="hidden">
+    <input name="poster" value="Django" type="hidden">
+    <textarea name="content" id="traceback_area" cols="140" rows="25">Environment:
+
+
+Request Method: GET
+Request URL: https://codestand.ietf.org/codestand/
+
+Django Version: 1.10.7
+Python Version: 2.7.6
+Installed Applications:
+('django.contrib.admin',
+ 'django.contrib.admindocs',
+ 'django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.humanize',
+ 'django.contrib.messages',
+ 'django.contrib.sessions',
+ 'django.contrib.sitemaps',
+ 'django.contrib.sites',
+ 'django.contrib.staticfiles',
+ 'anora',
+ 'bootstrap3',
+ 'django_markup',
+ 'django_password_strength',
+ 'djangobwr',
+ 'form_utils',
+ 'tastypie',
+ 'widget_tweaks',
+ 'ietf.api',
+ 'ietf.community',
+ 'ietf.dbtemplate',
+ 'ietf.doc',
+ 'ietf.group',
+ 'ietf.idindex',
+ 'ietf.iesg',
+ 'ietf.ietfauth',
+ 'ietf.ipr',
+ 'ietf.liaisons',
+ 'ietf.mailinglists',
+ 'ietf.mailtrigger',
+ 'ietf.meeting',
+ 'ietf.message',
+ 'ietf.name',
+ 'ietf.nomcom',
+ 'ietf.person',
+ 'ietf.redirects',
+ 'ietf.release',
+ 'ietf.review',
+ 'ietf.submit',
+ 'ietf.sync',
+ 'ietf.utils',
+ 'ietf.secr.announcement',
+ 'ietf.secr.areas',
+ 'ietf.secr.drafts',
+ 'ietf.secr.groups',
+ 'ietf.secr.meetings',
+ 'ietf.secr.proceedings',
+ 'ietf.secr.roles',
+ 'ietf.secr.rolodex',
+ 'ietf.secr.sreq',
+ 'ietf.secr.telechat',
+ 'ietf.codestand',
+ 'ietf.codestand.accounts',
+ 'ietf.codestand.matches',
+ 'ietf.codestand.requests')
+Installed Middleware:
+('django.middleware.csrf.CsrfViewMiddleware',
+ 'django.middleware.common.CommonMiddleware',
+ 'django.contrib.sessions.middleware.SessionMiddleware',
+ 'django.contrib.auth.middleware.AuthenticationMiddleware',
+ 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+ 'django.contrib.messages.middleware.MessageMiddleware',
+ 'django.middleware.http.ConditionalGetMiddleware',
+ 'ietf.middleware.sql_log_middleware',
+ 'ietf.middleware.SMTPExceptionMiddleware',
+ 'ietf.middleware.redirect_trailing_period_middleware',
+ 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+ 'ietf.middleware.unicode_nfkc_normalization_middleware')
+
+
+
+Traceback:
+
+File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/exception.py" in inner
+  42.             response = get_response(request)
+
+File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py" in _get_response
+  187.                 response = self.process_exception_by_middleware(e, request)
+
+File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py" in _get_response
+  185.                 response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+File "/var/www/codestand/ietf/codestand/views.py" in index
+  13.     return render_page(request, constants.TEMPLATE_INDEX)
+
+File "/var/www/codestand/ietf/codestand/helpers/utils.py" in render_page
+  104.     return render(request, template, get_menu_arguments(request, keys))
+
+File "/var/www/codestand/ietf/codestand/helpers/utils.py" in get_menu_arguments
+  34.     user = get_user(request)
+
+File "/var/www/codestand/ietf/codestand/helpers/utils.py" in get_user
+  24.             user = Person.objects.using('datatracker').get(user=request.user)
+
+File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py" in get
+  385.                 self.model._meta.object_name
+
+Exception Type: DoesNotExist at /codestand/
+Exception Value: Person matching query does not exist.
+</textarea>
+  <br><br>
+  <input value="Share this traceback on a public website" type="submit">
+  </div>
+</form>
+</div>
+
+
+
+<div id="requestinfo">
+  <h2>Request information</h2>
+
+
+  
+    <h3 id="user-info">USER</h3>
+    <p>mdb@juniper.net</p>
+  
+
+  <h3 id="get-info">GET</h3>
+  
+    <p>No GET data</p>
+  
+
+  <h3 id="post-info">POST</h3>
+  
+    <p>No POST data</p>
+  
+  <h3 id="files-info">FILES</h3>
+  
+    <p>No FILES data</p>
+  
+
+
+  <h3 id="cookie-info">COOKIES</h3>
+  
+    <table class="req">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>csrftoken</td>
+            <td class="code"><pre>'bMMvmMtlsoRG1NPj3YIykHOwBanlpHKjQbIax7YGWj1qXHEEoCUiJONU1cTAzJid'</pre></td>
+          </tr>
+        
+          <tr>
+            <td>sessionid</td>
+            <td class="code"><pre>'hhi5cdx8j4fhtqff9xtqaaqvy70tzia5'</pre></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  
+
+  <h3 id="meta-info">META</h3>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>CONTEXT_DOCUMENT_ROOT</td>
+          <td class="code"><pre>'/var/www'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTEXT_PREFIX</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE</td>
+          <td class="code"><pre>'bMMvmMtlsoRG1NPj3YIykHOwBanlpHKjQbIax7YGWj1qXHEEoCUiJONU1cTAzJid'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DOCUMENT_ROOT</td>
+          <td class="code"><pre>'/var/www'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GATEWAY_INTERFACE</td>
+          <td class="code"><pre>'CGI/1.1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT</td>
+          <td class="code"><pre>'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT_ENCODING</td>
+          <td class="code"><pre>'gzip, deflate, br'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT_LANGUAGE</td>
+          <td class="code"><pre>'en-US,en;q=0.5'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_CONNECTION</td>
+          <td class="code"><pre>'keep-alive'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_COOKIE</td>
+          <td class="code"><pre>'sessionid=hhi5cdx8j4fhtqff9xtqaaqvy70tzia5; csrftoken=bMMvmMtlsoRG1NPj3YIykHOwBanlpHKjQbIax7YGWj1qXHEEoCUiJONU1cTAzJid'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_DNT</td>
+          <td class="code"><pre>'1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_HOST</td>
+          <td class="code"><pre>'codestand.ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_REFERER</td>
+          <td class="code"><pre>'https://codestand.ietf.org/codestand/accounts/login/?next=/codestand/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_UPGRADE_INSECURE_REQUESTS</td>
+          <td class="code"><pre>'1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_USER_AGENT</td>
+          <td class="code"><pre>'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:56.0) Gecko/20100101 Firefox/56.0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH_INFO</td>
+          <td class="code"><pre>u'/codestand/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH_TRANSLATED</td>
+          <td class="code"><pre>'/var/www/codestand/ietf/wsgi.py/codestand/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>QUERY_STRING</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_ADDR</td>
+          <td class="code"><pre>'66.129.239.11'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_PORT</td>
+          <td class="code"><pre>'51881'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REQUEST_METHOD</td>
+          <td class="code"><pre>'GET'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REQUEST_SCHEME</td>
+          <td class="code"><pre>'https'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REQUEST_URI</td>
+          <td class="code"><pre>'/codestand/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_FILENAME</td>
+          <td class="code"><pre>'/var/www/codestand/ietf/wsgi.py'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_NAME</td>
+          <td class="code"><pre>u''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_URI</td>
+          <td class="code"><pre>'https://codestand.ietf.org/codestand/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_URL</td>
+          <td class="code"><pre>'/codestand/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_ADDR</td>
+          <td class="code"><pre>'172.30.0.239'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_ADMIN</td>
+          <td class="code"><pre>'[no address given]'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_NAME</td>
+          <td class="code"><pre>'codestand.ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PORT</td>
+          <td class="code"><pre>'443'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PROTOCOL</td>
+          <td class="code"><pre>'HTTP/1.1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_SIGNATURE</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>'Apache/2.4.7 (Ubuntu)'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SSL_TLS_SNI</td>
+          <td class="code"><pre>'codestand.ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.application_group</td>
+          <td class="code"><pre>'codestand.ietf.org|'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.callable_object</td>
+          <td class="code"><pre>'application'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.enable_sendfile</td>
+          <td class="code"><pre>'0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.handler_script</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.input_chunked</td>
+          <td class="code"><pre>'0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.listener_host</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.listener_port</td>
+          <td class="code"><pre>'443'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.process_group</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.queue_start</td>
+          <td class="code"><pre>'1507128371339923'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.request_handler</td>
+          <td class="code"><pre>'wsgi-script'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.script_reloading</td>
+          <td class="code"><pre>'1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>mod_wsgi.version</td>
+          <td class="code"><pre>(3, 4)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.errors</td>
+          <td class="code"><pre>&lt;mod_wsgi.Log object at 0x7f7cdaa529b0&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.file_wrapper</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.input</td>
+          <td class="code"><pre>&lt;mod_wsgi.Input object at 0x7f7cdaa523b0&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multiprocess</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multithread</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.run_once</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.url_scheme</td>
+          <td class="code"><pre>'https'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.version</td>
+          <td class="code"><pre>(1, 0)</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+  <h3 id="settings-info">Settings</h3>
+  <h4>Using settings module <code>ietf.settings</code></h4>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Setting</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>ABSOLUTE_URL_OVERRIDES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ACCOUNT_REQUEST_EMAIL</td>
+          <td class="code"><pre>'account-request@ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMINS</td>
+          <td class="code"><pre>(('Henrik Levkowetz', 'henrik@levkowetz.com'),
+ ('Robert Sparks', 'rjsparks@nostrum.com'),
+ ('Ole Laursen', 'olau@iola.dk'),
+ ('Ryan Cross', 'rcross@amsl.com'),
+ ('Glen Barney', 'glen@amsl.com'),
+ ('Matt Larson', 'mlarson@amsl.com'))</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AGENDA_PATH</td>
+          <td class="code"><pre>'/a/www/www6s/proceedings/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_HOSTS</td>
+          <td class="code"><pre>['*']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPEND_SLASH</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUDIO_IMPORT_EMAIL</td>
+          <td class="code"><pre>['agenda@ietf.org', 'ietf@meetecho.com']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTHENTICATION_BACKENDS</td>
+          <td class="code"><pre>('django.contrib.auth.backends.ModelBackend',)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTH_PASSWORD_VALIDATORS</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTH_USER_MODEL</td>
+          <td class="code"><pre>u'auth.User'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_BETHERE</td>
+          <td class="code"><pre>200000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_CALC_LOG</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_CONFLICT_1</td>
+          <td class="code"><pre>100000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_CONFLICT_2</td>
+          <td class="code"><pre>10000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_CONFLICT_3</td>
+          <td class="code"><pre>1000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_MUCHTOOBIG</td>
+          <td class="code"><pre>500</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_TOOBIG</td>
+          <td class="code"><pre>100</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_TOOSMALL_100</td>
+          <td class="code"><pre>50000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_TOOSMALL_50</td>
+          <td class="code"><pre>5000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BADNESS_UNPLACED</td>
+          <td class="code"><pre>1000000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BASE_DIR</td>
+          <td class="code"><pre>'/var/www/codestand/ietf'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BIBXML_BASE_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/xml2rfc'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BOOTSTRAP3</td>
+          <td class="code"><pre>{'field_renderers': {'default': 'ietf.utils.bootstrap.SeparateErrorsFromHelpTextFieldRenderer',
+                     'inline': 'bootstrap3.renderers.InlineFieldRenderer'},
+ 'form_error_class': 'bootstrap3-error',
+ 'form_required_class': 'bootstrap3-required',
+ 'horizontal_field_class': 'col-md-10',
+ 'horizontal_label_class': 'col-md-2',
+ 'set_placeholder': False,
+ 'set_required': True}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BUG_REPORT_EMAIL</td>
+          <td class="code"><pre>'datatracker-project@ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHES</td>
+          <td class="code"><pre>{'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache'},
+ 'htmlized': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+              'LOCATION': '/var/cache/datatracker/htmlized',
+              'OPTIONS': {'MAX_ENTRIES': 1000}}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_BACKEND</td>
+          <td class="code"><pre>'memcached://127.0.0.1:11211/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_ALIAS</td>
+          <td class="code"><pre>u'default'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_SECONDS</td>
+          <td class="code"><pre>300</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CHANGELOG_PATH</td>
+          <td class="code"><pre>'/var/www/codestand/ietf/../changelog'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CHARTER_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/charter/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CHART_TYPE_ACTIVITY_OPTIONS</td>
+          <td class="code"><pre>{'chart': {'type': 'column'},
+ 'credits': {'enabled': False},
+ 'exporting': {'fallbackToExportServer': False},
+ 'navigation': {'buttonOptions': {'enabled': False}},
+ 'navigator': {'enabled': False},
+ 'rangeSelector': {'enabled': False},
+ 'scrollbar': {'enabled': False},
+ 'series': [{'animation': False,
+             'data': [],
+             'dataGrouping': {'units': [['year', [1]]]},
+             'name': None,
+             'pointIntervalUnit': 'day',
+             'pointPadding': -0.2,
+             'turboThreshold': 1,
+             'type': 'column'}],
+ 'title': {'text': None},
+ 'xAxis': {'ordinal': False, 'type': 'datetime'},
+ 'yAxis': {'labels': {'enabled': False}}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CHART_TYPE_COLUMN_OPTIONS</td>
+          <td class="code"><pre>{'chart': {'type': 'column'},
+ 'credits': {'enabled': False},
+ 'exporting': {'fallbackToExportServer': False},
+ 'rangeSelector': {'allButtonsEnabled': True, 'selected': 5},
+ 'series': [{'data': [],
+             'dataGrouping': {'units': [['week', [1]], ['month', [1, 4]]]},
+             'name': 'Items',
+             'pointIntervalUnit': 'day',
+             'pointPadding': 0.05,
+             'turboThreshold': 1,
+             'type': 'column'}],
+ 'title': {'text': 'Items over time'},
+ 'xAxis': {'ordinal': False, 'type': 'datetime'}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CODESTAND_APPS</td>
+          <td class="code"><pre>('ietf.codestand',
+ 'ietf.codestand.accounts',
+ 'ietf.codestand.matches',
+ 'ietf.codestand.requests')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CODESTAND_DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CODESTAND_PREFIX</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMPONENT_ROOT</td>
+          <td class="code"><pre>'/var/www/codestand/ietf/externals/static/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMPONENT_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/lib/dt/6.50.1/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONFLICT_REVIEW_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/conflict-reviews'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_AGE</td>
+          <td class="code"><pre>31449600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_NAME</td>
+          <td class="code"><pre>u'csrftoken'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_PATH</td>
+          <td class="code"><pre>u'/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_FAILURE_VIEW</td>
+          <td class="code"><pre>u'django.views.csrf.csrf_failure'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_HEADER_NAME</td>
+          <td class="code"><pre>u'HTTP_X_CSRFTOKEN'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_TRUSTED_ORIGINS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASES</td>
+          <td class="code"><pre>{'datatracker': {'ATOMIC_REQUESTS': False,
+                 'AUTOCOMMIT': True,
+                 'CONN_MAX_AGE': 0,
+                 'ENGINE': 'django.db.backends.mysql',
+                 'HOST': 'ietf.org',
+                 'NAME': 'ietf_utf8',
+                 'OPTIONS': {},
+                 'PASSWORD': u'********************',
+                 'PORT': '',
+                 'TEST': {'CHARSET': None,
+                          'COLLATION': None,
+                          'MIRROR': None,
+                          'NAME': None},
+                 'TIME_ZONE': None,
+                 'USER': 'codematch'},
+ 'default': {'ATOMIC_REQUESTS': False,
+             'AUTOCOMMIT': True,
+             'CONN_MAX_AGE': 0,
+             'ENGINE': 'django.db.backends.mysql',
+             'HOST': '127.0.0.1',
+             'NAME': 'ietf_utf8',
+             'OPTIONS': {},
+             'PASSWORD': u'********************',
+             'PORT': '',
+             'TEST': {'CHARSET': None,
+                      'COLLATION': None,
+                      'MIRROR': None,
+                      'NAME': None},
+             'TIME_ZONE': None,
+             'USER': 'ubuntu'}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_ROUTERS</td>
+          <td class="code"><pre>['ietf.codestand_router.DatatrackerRouter']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_TEST_OPTIONS</td>
+          <td class="code"><pre>{'init_command': 'SET storage_engine=InnoDB'}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATA_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATA_UPLOAD_MAX_NUMBER_FIELDS</td>
+          <td class="code"><pre>1000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_FORMAT</td>
+          <td class="code"><pre>'Y-m-d H:i T'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_INPUT_FORMATS</td>
+          <td class="code"><pre>[u'%Y-%m-%d %H:%M:%S',
+ u'%Y-%m-%d %H:%M:%S.%f',
+ u'%Y-%m-%d %H:%M',
+ u'%Y-%m-%d',
+ u'%m/%d/%Y %H:%M:%S',
+ u'%m/%d/%Y %H:%M:%S.%f',
+ u'%m/%d/%Y %H:%M',
+ u'%m/%d/%Y',
+ u'%m/%d/%y %H:%M:%S',
+ u'%m/%d/%y %H:%M:%S.%f',
+ u'%m/%d/%y %H:%M',
+ u'%m/%d/%y']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_FORMAT</td>
+          <td class="code"><pre>'Y-m-d'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_INPUT_FORMATS</td>
+          <td class="code"><pre>[u'%Y-%m-%d',
+ u'%m/%d/%Y',
+ u'%m/%d/%y',
+ u'%b %d %Y',
+ u'%b %d, %Y',
+ u'%d %b %Y',
+ u'%d %b, %Y',
+ u'%B %d %Y',
+ u'%B %d, %Y',
+ u'%d %B %Y',
+ u'%d %B, %Y']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DAYS_TO_EXPIRE_NOMINATION_LINK</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DAYS_TO_EXPIRE_REGISTRATION_LINK</td>
+          <td class="code"><pre>3</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DECIMAL_SEPARATOR</td>
+          <td class="code"><pre>u'.'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CHARSET</td>
+          <td class="code"><pre>u'utf-8'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CONTENT_TYPE</td>
+          <td class="code"><pre>u'text/html'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
+          <td class="code"><pre>u'django.views.debug.SafeExceptionReporterFilter'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FILE_STORAGE</td>
+          <td class="code"><pre>u'django.core.files.storage.FileSystemStorage'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FROM_EMAIL</td>
+          <td class="code"><pre>'IETF Secretariat &lt;ietf-secretariat-reply@ietf.org&gt;'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td class="code"><pre>u''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_TABLESPACE</td>
+          <td class="code"><pre>u''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEV_APPS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEV_MIDDLEWARE</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEV_TEMPLATE_CONTEXT_PROCESSORS</td>
+          <td class="code"><pre>['ietf.context_processors.sql_debug']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISALLOWED_USER_AGENTS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DOCUMENT_PATH_PATTERN</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/{doc.type_id}/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DOC_HREFS</td>
+          <td class="code"><pre>{'charter': 'https://www.ietf.org/charter/{doc.name}-{doc.rev}.txt',
+ 'conflrev': 'https://www.ietf.org/cr/{doc.name}-{doc.rev}.txt',
+ 'draft': 'https://www.ietf.org/archive/id/{doc.name}-{doc.rev}.txt',
+ 'liai-att': 'https://www.ietf.org/lib/dt/documents/LIAISON/{doc.external_url}',
+ 'liaison': 'https://www.ietf.org/lib/dt/documents/LIAISON/{doc.external_url}',
+ 'slides': 'https://www.ietf.org/slides/{doc.name}-{doc.rev}',
+ 'statchg': 'https://www.ietf.org/sc/{doc.name}-{doc.rev}.txt'}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DOT_BINARY</td>
+          <td class="code"><pre>'/usr/bin/dot'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DRAFT_ALIASES_PATH</td>
+          <td class="code"><pre>'/var/www/codestand/test/data/draft-aliases'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DRAFT_ALIAS_DOMAIN</td>
+          <td class="code"><pre>'ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DRAFT_NAMES_WITH_DOT</td>
+          <td class="code"><pre>'(draft-[a-z0-9-]+-(ion-sig-uni4\\.0|pilc-2\\.5g3g|trade-iotp-v1\\.0-[a-z]+|msword-template-v2\\.0|1240\\.his|(ieee)?802\\.[0-9a-z]+(-[a-z0-9-]+)?))'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DRAFT_VIRTUAL_DOMAIN</td>
+          <td class="code"><pre>'virtual.ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DRAFT_VIRTUAL_PATH</td>
+          <td class="code"><pre>'/var/www/codestand/test/data/draft-virtual'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_BACKEND</td>
+          <td class="code"><pre>u'django.core.mail.backends.smtp.EmailBackend'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST</td>
+          <td class="code"><pre>'localhost'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_PASSWORD</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_USER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_PORT</td>
+          <td class="code"><pre>1025</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SSL_CERTFILE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SSL_KEYFILE</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SUBJECT_PREFIX</td>
+          <td class="code"><pre>u'[Django] '</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_TIMEOUT</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_SSL</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_TLS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EXLUDED_PERSONAL_EMAIL_REGEX_PATTERNS</td>
+          <td class="code"><pre>['@ietf.org$']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_CHARSET</td>
+          <td class="code"><pre>u'utf-8'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_HANDLERS</td>
+          <td class="code"><pre>[u'django.core.files.uploadhandler.MemoryFileUploadHandler',
+ u'django.core.files.uploadhandler.TemporaryFileUploadHandler']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_TEMP_DIR</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIXTURE_DIRS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FLOORPLAN_MEDIA_DIR</td>
+          <td class="code"><pre>'floor'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORCE_SCRIPT_NAME</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORMAT_MODULE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GLOBAL_TEST_FIXTURES</td>
+          <td class="code"><pre>['names',
+ 'ietf.utils.test_data.make_immutable_base_data',
+ 'nomcom_templates',
+ 'proceedings_templates']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GROUP_ALIASES_PATH</td>
+          <td class="code"><pre>'/var/www/codestand/test/data/group-aliases'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GROUP_ALIAS_DOMAIN</td>
+          <td class="code"><pre>'ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GROUP_STATES_WITH_EXTRA_PROCESSING</td>
+          <td class="code"><pre>['sub-pub', 'rfc-edit']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GROUP_VIRTUAL_DOMAIN</td>
+          <td class="code"><pre>'virtual.ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GROUP_VIRTUAL_PATH</td>
+          <td class="code"><pre>'/var/www/codestand/test/data/group-virtual'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTMLIZER_CACHE_TIME</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTMLIZER_URL_PREFIX</td>
+          <td class="code"><pre>'/doc/html'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTMLIZER_VERSION</td>
+          <td class="code"><pre>1</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTPASSWD_COMMAND</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTPASSWD_FILE</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IANA_EVAL_EMAIL</td>
+          <td class="code"><pre>'drafts-eval@icann.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IANA_SYNC_CHANGES_URL</td>
+          <td class="code"><pre>'https://datatracker.iana.org:4443/data-tracker/changes'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IANA_SYNC_PASSWORD</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IANA_SYNC_PROTOCOLS_URL</td>
+          <td class="code"><pre>'https://www.iana.org/protocols/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_ANNOUNCE_FROM_EMAIL</td>
+          <td class="code"><pre>'internet-drafts@ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_ANNOUNCE_LIST_EMAIL</td>
+          <td class="code"><pre>'i-d-announce@ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_CHECKER_CLASSES</td>
+          <td class="code"><pre>('ietf.submit.checkers.DraftIdnitsChecker',
+ 'ietf.submit.checkers.DraftYangChecker')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_DEFAULT_CUTOFF_DAY_OFFSET_00</td>
+          <td class="code"><pre>13</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_DEFAULT_CUTOFF_DAY_OFFSET_01</td>
+          <td class="code"><pre>13</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_DEFAULT_CUTOFF_TIME_UTC</td>
+          <td class="code"><pre>datetime.timedelta(0, 86399)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_DEFAULT_CUTOFF_WARNING_DAYS</td>
+          <td class="code"><pre>datetime.timedelta(21)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_FILE_TYPES</td>
+          <td class="code"><pre>('txt', 'xml', 'pdf', 'ps')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_FROM_EMAIL</td>
+          <td class="code"><pre>'IETF I-D Submission Tool &lt;idsubmission@ietf.org&gt;'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_IDNITS_BINARY</td>
+          <td class="code"><pre>'/a/www/ietf-datatracker/scripts/idnits'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MANUAL_STAGING_DIR</td>
+          <td class="code"><pre>'/tmp/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MAX_DAILY_SAME_DRAFT_NAME</td>
+          <td class="code"><pre>20</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MAX_DAILY_SAME_DRAFT_NAME_SIZE</td>
+          <td class="code"><pre>50</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MAX_DAILY_SAME_GROUP</td>
+          <td class="code"><pre>150</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MAX_DAILY_SAME_GROUP_SIZE</td>
+          <td class="code"><pre>450</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MAX_DAILY_SAME_SUBMITTER</td>
+          <td class="code"><pre>50</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MAX_DAILY_SAME_SUBMITTER_SIZE</td>
+          <td class="code"><pre>150</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MAX_DAILY_SUBMISSIONS</td>
+          <td class="code"><pre>1000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MAX_DAILY_SUBMISSIONS_SIZE</td>
+          <td class="code"><pre>2000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_MAX_DRAFT_SIZE</td>
+          <td class="code"><pre>{'pdf': 6291456, 'ps': 6291456, 'txt': 2097152, 'xml': 3145728}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_PYANG_COMMAND</td>
+          <td class="code"><pre>'pyang -p %(modpath)s --verbose --ietf  %(model)s'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_REPOSITORY_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/internet-drafts/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_STAGING_PATH</td>
+          <td class="code"><pre>'/a/www/www6s/staging/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDSUBMIT_STAGING_URL</td>
+          <td class="code"><pre>'//www.ietf.org/staging/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IDTRACKER_BASE_URL</td>
+          <td class="code"><pre>'https://datatracker.ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IESG_MINUTES_FILE</td>
+          <td class="code"><pre>'/a/www/www6/iesg/internal/minutes.txt'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IESG_ROLL_CALL_FILE</td>
+          <td class="code"><pre>'/a/www/www6/iesg/internal/rollcall.txt'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IESG_TASK_FILE</td>
+          <td class="code"><pre>'/a/www/www6/iesg/internal/task.txt'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IESG_WG_EVALUATION_DIR</td>
+          <td class="code"><pre>'/a/www/www6/iesg/evaluation'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IETF_AUDIO_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/audio/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IETF_DOMAIN</td>
+          <td class="code"><pre>'ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IETF_HOST_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IETF_ID_ARCHIVE_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/archive/id/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IETF_ID_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/id/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IGNORABLE_404_URLS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INSTALLED_APPS</td>
+          <td class="code"><pre>('django.contrib.admin',
+ 'django.contrib.admindocs',
+ 'django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.humanize',
+ 'django.contrib.messages',
+ 'django.contrib.sessions',
+ 'django.contrib.sitemaps',
+ 'django.contrib.sites',
+ 'django.contrib.staticfiles',
+ 'anora',
+ 'bootstrap3',
+ 'django_markup',
+ 'django_password_strength',
+ 'djangobwr',
+ 'form_utils',
+ 'tastypie',
+ 'widget_tweaks',
+ 'ietf.api',
+ 'ietf.community',
+ 'ietf.dbtemplate',
+ 'ietf.doc',
+ 'ietf.group',
+ 'ietf.idindex',
+ 'ietf.iesg',
+ 'ietf.ietfauth',
+ 'ietf.ipr',
+ 'ietf.liaisons',
+ 'ietf.mailinglists',
+ 'ietf.mailtrigger',
+ 'ietf.meeting',
+ 'ietf.message',
+ 'ietf.name',
+ 'ietf.nomcom',
+ 'ietf.person',
+ 'ietf.redirects',
+ 'ietf.release',
+ 'ietf.review',
+ 'ietf.submit',
+ 'ietf.sync',
+ 'ietf.utils',
+ 'ietf.secr.announcement',
+ 'ietf.secr.areas',
+ 'ietf.secr.drafts',
+ 'ietf.secr.groups',
+ 'ietf.secr.meetings',
+ 'ietf.secr.proceedings',
+ 'ietf.secr.roles',
+ 'ietf.secr.rolodex',
+ 'ietf.secr.sreq',
+ 'ietf.secr.telechat',
+ 'ietf.codestand',
+ 'ietf.codestand.accounts',
+ 'ietf.codestand.matches',
+ 'ietf.codestand.requests')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERIM_ANNOUNCE_FROM_EMAIL</td>
+          <td class="code"><pre>'IESG Secretary &lt;iesg-secretary@ietf.org&gt;'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNAL_IPS</td>
+          <td class="code"><pre>('127.0.0.1', '::1')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNET_ALL_DRAFTS_ARCHIVE_DIR</td>
+          <td class="code"><pre>'/a/www/www6s/archive/id'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNET_DRAFT_ARCHIVE_DIR</td>
+          <td class="code"><pre>'/a/www/www6s/draft-archive'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNET_DRAFT_DAYS_TO_EXPIRE</td>
+          <td class="code"><pre>185</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNET_DRAFT_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/internet-drafts/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNET_DRAFT_PDF_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-datatracker/pdf/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IPR_DOCUMENT_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/ietf/IPR/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IPR_EMAIL_FROM</td>
+          <td class="code"><pre>'ietf-ipr@ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IS_CODESTAND_APP</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES</td>
+          <td class="code"><pre>[(u'af', u'Afrikaans'),
+ (u'ar', u'Arabic'),
+ (u'ast', u'Asturian'),
+ (u'az', u'Azerbaijani'),
+ (u'bg', u'Bulgarian'),
+ (u'be', u'Belarusian'),
+ (u'bn', u'Bengali'),
+ (u'br', u'Breton'),
+ (u'bs', u'Bosnian'),
+ (u'ca', u'Catalan'),
+ (u'cs', u'Czech'),
+ (u'cy', u'Welsh'),
+ (u'da', u'Danish'),
+ (u'de', u'German'),
+ (u'dsb', u'Lower Sorbian'),
+ (u'el', u'Greek'),
+ (u'en', u'English'),
+ (u'en-au', u'Australian English'),
+ (u'en-gb', u'British English'),
+ (u'eo', u'Esperanto'),
+ (u'es', u'Spanish'),
+ (u'es-ar', u'Argentinian Spanish'),
+ (u'es-co', u'Colombian Spanish'),
+ (u'es-mx', u'Mexican Spanish'),
+ (u'es-ni', u'Nicaraguan Spanish'),
+ (u'es-ve', u'Venezuelan Spanish'),
+ (u'et', u'Estonian'),
+ (u'eu', u'Basque'),
+ (u'fa', u'Persian'),
+ (u'fi', u'Finnish'),
+ (u'fr', u'French'),
+ (u'fy', u'Frisian'),
+ (u'ga', u'Irish'),
+ (u'gd', u'Scottish Gaelic'),
+ (u'gl', u'Galician'),
+ (u'he', u'Hebrew'),
+ (u'hi', u'Hindi'),
+ (u'hr', u'Croatian'),
+ (u'hsb', u'Upper Sorbian'),
+ (u'hu', u'Hungarian'),
+ (u'ia', u'Interlingua'),
+ (u'id', u'Indonesian'),
+ (u'io', u'Ido'),
+ (u'is', u'Icelandic'),
+ (u'it', u'Italian'),
+ (u'ja', u'Japanese'),
+ (u'ka', u'Georgian'),
+ (u'kk', u'Kazakh'),
+ (u'km', u'Khmer'),
+ (u'kn', u'Kannada'),
+ (u'ko', u'Korean'),
+ (u'lb', u'Luxembourgish'),
+ (u'lt', u'Lithuanian'),
+ (u'lv', u'Latvian'),
+ (u'mk', u'Macedonian'),
+ (u'ml', u'Malayalam'),
+ (u'mn', u'Mongolian'),
+ (u'mr', u'Marathi'),
+ (u'my', u'Burmese'),
+ (u'nb', u'Norwegian Bokm\xe5l'),
+ (u'ne', u'Nepali'),
+ (u'nl', u'Dutch'),
+ (u'nn', u'Norwegian Nynorsk'),
+ (u'os', u'Ossetic'),
+ (u'pa', u'Punjabi'),
+ (u'pl', u'Polish'),
+ (u'pt', u'Portuguese'),
+ (u'pt-br', u'Brazilian Portuguese'),
+ (u'ro', u'Romanian'),
+ (u'ru', u'Russian'),
+ (u'sk', u'Slovak'),
+ (u'sl', u'Slovenian'),
+ (u'sq', u'Albanian'),
+ (u'sr', u'Serbian'),
+ (u'sr-latn', u'Serbian Latin'),
+ (u'sv', u'Swedish'),
+ (u'sw', u'Swahili'),
+ (u'ta', u'Tamil'),
+ (u'te', u'Telugu'),
+ (u'th', u'Thai'),
+ (u'tr', u'Turkish'),
+ (u'tt', u'Tatar'),
+ (u'udm', u'Udmurt'),
+ (u'uk', u'Ukrainian'),
+ (u'ur', u'Urdu'),
+ (u'vi', u'Vietnamese'),
+ (u'zh-hans', u'Simplified Chinese'),
+ (u'zh-hant', u'Traditional Chinese')]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES_BIDI</td>
+          <td class="code"><pre>[u'he', u'ar', u'fa', u'ur']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_CODE</td>
+          <td class="code"><pre>'en-us'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_AGE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_NAME</td>
+          <td class="code"><pre>u'django_language'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_PATH</td>
+          <td class="code"><pre>u'/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LIAISON_ATTACH_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-datatracker/documents/LIAISON/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LIAISON_ATTACH_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/lib/dt/documents/LIAISON/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LIAISON_UNIVERSAL_FROM</td>
+          <td class="code"><pre>'Liaison Statement Management Tool &lt;lsmt@ietf.org&gt;'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LIST_ACCOUNT_DELAY</td>
+          <td class="code"><pre>90000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING</td>
+          <td class="code"><pre>{'disable_existing_loggers': False,
+ 'filters': {'require_debug_false': {'()': 'django.utils.log.RequireDebugFalse'},
+             'require_debug_true': {'()': 'django.utils.log.RequireDebugTrue'},
+             'skip_suspicious_operations': {'()': 'django.utils.log.CallbackFilter',
+                                            'callback': &lt;function skip_suspicious_operations at 0x7f7cfaba4398&gt;},
+             'skip_unreadable_posts': {'()': 'django.utils.log.CallbackFilter',
+                                       'callback': &lt;function skip_unreadable_post at 0x7f7cfaba4410&gt;}},
+ 'formatters': {'django.server': {'()': 'django.utils.log.ServerFormatter',
+                                  'format': '[%(server_time)s] %(message)s'}},
+ 'handlers': {'console': {'class': 'logging.StreamHandler',
+                          'filters': ['require_debug_true'],
+                          'level': 'INFO'},
+              'django.server': {'class': 'logging.StreamHandler',
+                                'formatter': 'django.server',
+                                'level': 'INFO'},
+              'mail_admins': {'class': 'django.utils.log.AdminEmailHandler',
+                              'filters': ['require_debug_false',
+                                          'skip_suspicious_operations',
+                                          'skip_unreadable_posts'],
+                              'include_html': True,
+                              'level': 'ERROR'}},
+ 'loggers': {'django': {'handlers': ['console', 'mail_admins'],
+                        'level': 'INFO'},
+             'django.server': {'handlers': ['django.server'],
+                               'level': 'INFO',
+                               'propagate': False}},
+ 'version': 1}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING_CONFIG</td>
+          <td class="code"><pre>u'logging.config.dictConfig'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_REDIRECT_URL</td>
+          <td class="code"><pre>u'/accounts/profile/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_URL</td>
+          <td class="code"><pre>u'/accounts/login/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGOUT_REDIRECT_URL</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MAILING_LIST_ARCHIVE_URL</td>
+          <td class="code"><pre>'https://mailarchive.ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MAILING_LIST_INFO_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/mailman/listinfo/%(list_addr)s'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MAILMAN_LIB_DIR</td>
+          <td class="code"><pre>'/usr/lib/mailman'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>(('Henrik Levkowetz', 'henrik@levkowetz.com'),
+ ('Robert Sparks', 'rjsparks@nostrum.com'),
+ ('Ole Laursen', 'olau@iola.dk'),
+ ('Ryan Cross', 'rcross@amsl.com'),
+ ('Glen Barney', 'glen@amsl.com'),
+ ('Matt Larson', 'mlarson@amsl.com'))</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MARKUP_SETTINGS</td>
+          <td class="code"><pre>{'restructuredtext': {'settings_overrides': {'default_reference_context': 'view',
+                                             'doctitle_xform': False,
+                                             'footnote_references': 'superscript',
+                                             'initial_header_level': 3,
+                                             'link_base': '',
+                                             'trim_footnote_reference_space': True}}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MAX_WG_DELEGATES</td>
+          <td class="code"><pre>3</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>'/a/www/www6s/lib/dt/media/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/lib/dt/media/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEETING_DOC_HREFS</td>
+          <td class="code"><pre>{'agenda': '/meeting/{meeting.number}/agenda/{doc.group.acronym}/',
+ 'bluesheets': 'https://www.ietf.org/proceedings/{meeting.number}/bluesheets/{doc.external_url}',
+ 'minutes': 'https://www.ietf.org/proceedings/{meeting.number}/minutes/{doc.external_url}',
+ 'recording': '{doc.external_url}',
+ 'slides': 'https://www.ietf.org/proceedings/{meeting.number}/slides/{doc.external_url}'}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEETING_MATERIALS_DEFAULT_SUBMISSION_CORRECTION_DAYS</td>
+          <td class="code"><pre>50</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEETING_MATERIALS_DEFAULT_SUBMISSION_CUTOFF_DAYS</td>
+          <td class="code"><pre>26</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEETING_MATERIALS_DEFAULT_SUBMISSION_START_DAYS</td>
+          <td class="code"><pre>90</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEETING_RECORDINGS_DIR</td>
+          <td class="code"><pre>'/a/www/audio'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>u'django.contrib.messages.storage.fallback.FallbackStorage'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIDDLEWARE</td>
+          <td class="code"><pre>('django.middleware.csrf.CsrfViewMiddleware',
+ 'django.middleware.common.CommonMiddleware',
+ 'django.contrib.sessions.middleware.SessionMiddleware',
+ 'django.contrib.auth.middleware.AuthenticationMiddleware',
+ 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+ 'django.contrib.messages.middleware.MessageMiddleware',
+ 'django.middleware.http.ConditionalGetMiddleware',
+ 'ietf.middleware.sql_log_middleware',
+ 'ietf.middleware.SMTPExceptionMiddleware',
+ 'ietf.middleware.redirect_trailing_period_middleware',
+ 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+ 'ietf.middleware.unicode_nfkc_normalization_middleware')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIDDLEWARE_CLASSES</td>
+          <td class="code"><pre>[u'django.middleware.common.CommonMiddleware',
+ u'django.middleware.csrf.CsrfViewMiddleware']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIGRATION_MODULES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>u'F j'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NEW_PROCEEDINGS_START</td>
+          <td class="code"><pre>95</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NOMCOM_FROM_EMAIL</td>
+          <td class="code"><pre>'nomcom-chair@ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NOMCOM_PUBLIC_KEYS_DIR</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NOMINEE_FEEDBACK_TYPES</td>
+          <td class="code"><pre>['comment', 'questio', 'nomina']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>OLD_PHOTO_DIRS</td>
+          <td class="code"><pre>['/a/www/www6/wg/images',
+ '/a/www/www6/iesg/bio/photo',
+ '/a/www/iab/wp-content/IAB-uploads/2010/10/',
+ '/a/www/iab/wp-content/IAB-uploads/2011/05/',
+ '/a/www/iab/wp-content/IAB-uploads/2014/02/',
+ '/a/www/iab/wp-content/IAB-uploads/2015/02/',
+ '/a/www/iab/wp-content/IAB-uploads/2015/03/',
+ '/a/www/iab/wp-content/IAB-uploads/2015/06/',
+ '/a/www/iab/wp-content/IAB-uploads/2015/08/',
+ '/a/www/iab/wp-content/IAB-uploads/2016/03/']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>OPENSSL_COMMAND</td>
+          <td class="code"><pre>'/usr/bin/openssl'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_HASHERS</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PHOTOS_DIR</td>
+          <td class="code"><pre>'/a/www/www6s/lib/dt/media/photo'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PHOTOS_DIRNAME</td>
+          <td class="code"><pre>'photo'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>POSTCONFIRM_PATH</td>
+          <td class="code"><pre>'/a/postconfirm/wrapper'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PREFERENCES_COOKIE_AGE</td>
+          <td class="code"><pre>1576800000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PREPEND_WWW</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PRODUCTION_TIMEZONE</td>
+          <td class="code"><pre>'America/Los_Angeles'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PYFLAKES_DEFAULT_ARGS</td>
+          <td class="code"><pre>['ietf']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REGISTRATION_ATTENDEES_BASE_URL</td>
+          <td class="code"><pre>'https://ietf.org/registration/attendees/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RFCDIFF_BASE_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/rfcdiff'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RFC_EDITOR_ERRATA_URL</td>
+          <td class="code"><pre>'https://www.rfc-editor.org/errata_search.php?rfc={rfc_number}&amp;amp;rec_status=0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RFC_EDITOR_INDEX_URL</td>
+          <td class="code"><pre>'https://www.rfc-editor.org/rfc/rfc-index.xml'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RFC_EDITOR_QUEUE_URL</td>
+          <td class="code"><pre>'https://www.rfc-editor.org/queue2.xml'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RFC_EDITOR_SYNC_NOTIFICATION_URL</td>
+          <td class="code"><pre>'https://www.rfc-editor.org/parser/parser.php'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RFC_EDITOR_SYNC_PASSWORD</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RFC_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/rfc/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RFC_TEXT_RSYNC_SOURCE</td>
+          <td class="code"><pre>'ftp.rfc-editor.org::rfcs-text-only'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROLODEX_URL</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>'ietf.urls'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RSYNC_BINARY</td>
+          <td class="code"><pre>'/usr/bin/rsync'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY</td>
+          <td class="code"><pre>u'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECR_BLUE_SHEET_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-datatracker/documents/blue_sheet.rtf'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECR_BLUE_SHEET_URL</td>
+          <td class="code"><pre>'//datatracker.ietf.org/documents/blue_sheet.rtf'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECR_INTERIM_LISTING_DIR</td>
+          <td class="code"><pre>'/a/www/www6/meeting/interim'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECR_MAX_UPLOAD_SIZE</td>
+          <td class="code"><pre>40960000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECR_PPT2PDF_COMMAND</td>
+          <td class="code"><pre>['/usr/bin/soffice', '--headless', '--convert-to', 'pdf', '--outdir']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECR_PROCEEDINGS_DIR</td>
+          <td class="code"><pre>'/a/www/www6s/proceedings/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_BROWSER_XSS_FILTER</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_CONTENT_TYPE_NOSNIFF</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_INCLUDE_SUBDOMAINS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_SECONDS</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_PROXY_SSL_HEADER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_REDIRECT_EXEMPT</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_HOST</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_REDIRECT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SELENIUM_TESTS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SELENIUM_TESTS_ONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>'Django Server &lt;django-project@tools.ietf.org&gt;'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_MODE</td>
+          <td class="code"><pre>'development'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVE_CDN_FILES_LOCALLY_IN_DEV_MODE</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_CACHE_ALIAS</td>
+          <td class="code"><pre>u'default'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>2419200</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>u'sessionid'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>u'/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>'django.contrib.sessions.backends.db'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_REQUEST_FROM_EMAIL</td>
+          <td class="code"><pre>'IETF Meeting Session Request Tool &lt;session-request@ietf.org&gt;'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SERIALIZER</td>
+          <td class="code"><pre>'django.contrib.sessions.serializers.PickleSerializer'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>'ietf.settings'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATETIME_FORMAT</td>
+          <td class="code"><pre>u'm/d/Y P'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>u'm/d/Y'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SIGNING_BACKEND</td>
+          <td class="code"><pre>u'django.core.signing.TimestampSigner'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SILENCED_SYSTEM_CHECKS</td>
+          <td class="code"><pre>['fields.W342']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SITE_ID</td>
+          <td class="code"><pre>1</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>('/var/www/codestand/ietf/static',
+ '/var/www/codestand/ietf/secr/static',
+ '/var/www/codestand/ietf/externals/static')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_FINDERS</td>
+          <td class="code"><pre>('django.contrib.staticfiles.finders.FileSystemFinder',
+ 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+ 'ietf.utils.bower_storage.BowerStorageFinder')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>u'django.contrib.staticfiles.storage.StaticFilesStorage'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_ROOT</td>
+          <td class="code"><pre>'/var/www/codestand/static'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>'/static/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATUS_CHANGE_PATH</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/status-changes'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SVN_ADMIN_COMMAND</td>
+          <td class="code"><pre>'/usr/bin/svnadmin'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SVN_PACKAGES</td>
+          <td class="code"><pre>['/usr/lib/python2.7/dist-packages/svn',
+ '/usr/lib/python2.7/dist-packages/libsvn']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATES</td>
+          <td class="code"><pre>[{'BACKEND': 'django.template.backends.django.DjangoTemplates',
+  'DIRS': ['/var/www/codestand/ietf/templates',
+           '/var/www/codestand/ietf/secr/templates'],
+  'OPTIONS': {'context_processors': ['django.contrib.auth.context_processors.auth',
+                                     'django.template.context_processors.debug',
+                                     'django.template.context_processors.i18n',
+                                     'django.template.context_processors.request',
+                                     'django.template.context_processors.media',
+                                     'django.contrib.messages.context_processors.messages',
+                                     'ietf.context_processors.server_mode',
+                                     'ietf.context_processors.debug_mark_queries_from_view',
+                                     'ietf.context_processors.revision_info',
+                                     'ietf.secr.context_processors.secr_revision_info',
+                                     'ietf.context_processors.rfcdiff_base_url',
+                                     'ietf.context_processors.sql_debug'],
+              'loaders': ('django.template.loaders.filesystem.Loader',
+                          'django.template.loaders.app_directories.Loader',
+                          'ietf.dbtemplate.template.Loader')}}]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_CODE_COVERAGE_CHECKER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_CODE_COVERAGE_EXCLUDE</td>
+          <td class="code"><pre>['*/tests*',
+ '*/admin.py',
+ '*/migrations/*',
+ '*/management/commands/*',
+ 'idindex/generate_all_id2_txt.py',
+ 'idindex/generate_all_id_txt.py',
+ 'idindex/generate_id_abstracts_txt.py',
+ 'idindex/generate_id_index_txt.py',
+ 'ietf/checks.py',
+ 'ietf/manage.py',
+ 'ietf/virtualenv-manage.py',
+ 'ietf/meeting/timedeltafield.py',
+ 'ietf/review/import_from_review_tool.py',
+ 'ietf/settings*',
+ 'ietf/utils/templatetags/debug_filters.py',
+ 'ietf/utils/test_runner.py',
+ 'name/generate_fixtures.py',
+ 'review/import_from_review_tool.py']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_CODE_COVERAGE_REPORT_DIR</td>
+          <td class="code"><pre>'/var/www/codestand/ietf/static/coverage/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_CODE_COVERAGE_REPORT_FILE</td>
+          <td class="code"><pre>'/var/www/codestand/ietf/static/coverage/index.html'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_CODE_COVERAGE_REPORT_PATH</td>
+          <td class="code"><pre>'coverage/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_CODE_COVERAGE_REPORT_URL</td>
+          <td class="code"><pre>'https://www.ietf.org/lib/dt/6.50.1/coverage/index.html'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_COVERAGE_LATEST_FILE</td>
+          <td class="code"><pre>'/var/www/codestand/ietf/../latest-coverage.json'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_COVERAGE_MASTER_FILE</td>
+          <td class="code"><pre>'/var/www/codestand/ietf/../release-coverage.json.gz'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_DATA_DIR</td>
+          <td class="code"><pre>'/var/www/codestand/test/data'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_DIFF_FAILURE_DIR</td>
+          <td class="code"><pre>'/tmp/test/failure/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_GHOSTDRIVER_LOG_PATH</td>
+          <td class="code"><pre>'ghostdriver.log'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_NON_SERIALIZED_APPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_RUNNER</td>
+          <td class="code"><pre>'ietf.utils.test_runner.IetfTestRunner'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_TEMPLATE_IGNORE</td>
+          <td class="code"><pre>['.*', '*~', '#*']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_URL_COVERAGE_EXCLUDE</td>
+          <td class="code"><pre>['^\\^admin/']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>u','</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>u'P'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>[u'%H:%M:%S', u'%H:%M:%S.%f', u'%H:%M']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>'PST8PDT'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TOOLS_ID_HTML_URL</td>
+          <td class="code"><pre>'https://tools.ietf.org/html/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TOOLS_ID_PDF_URL</td>
+          <td class="code"><pre>'https://tools.ietf.org/pdf/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TOOLS_SERVER</td>
+          <td class="code"><pre>'tools.ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TOOLS_SERVER_URL</td>
+          <td class="code"><pre>'https://tools.ietf.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_CREATE_GROUP_ACRONYMS</td>
+          <td class="code"><pre>['iesg', 'iaoc']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_CREATE_GROUP_TYPES</td>
+          <td class="code"><pre>['wg', 'rg', 'area', 'team', 'dir', 'ag']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_ENV_OPTIONS</td>
+          <td class="code"><pre>[('project', 'name', '{name} Wiki'),
+ ('trac', 'database', 'sqlite:db/trac.db'),
+ ('trac', 'repository_type', 'svn'),
+ ('trac', 'repository_dir', '{svn_dir}'),
+ ('inherit', 'file', '/a/www/trac-setup/conf/trac.ini'),
+ ('components', 'tracopt.versioncontrol.svn.*', 'enabled')]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_ISSUE_SEVERITY_ADD</td>
+          <td class="code"><pre>['-',
+ 'Candidate WG Document',
+ 'Active WG Document',
+ 'Waiting for Expert Review',
+ 'In WG Last Call',
+ 'Waiting for Shepherd Writeup',
+ 'Submitted WG Document',
+ 'Dead WG Document']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_ISSUE_URL_PATTERN</td>
+          <td class="code"><pre>'https://trac.ietf.org/trac/%s/report/1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_MASTER_DIR</td>
+          <td class="code"><pre>'/a/www/trac-setup/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_SVN_DIR_PATTERN</td>
+          <td class="code"><pre>'/a/svn/group/%s'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_SVN_URL_PATTERN</td>
+          <td class="code"><pre>'https://svn.ietf.org/svn/group/%s/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_WIKI_DIR_PATTERN</td>
+          <td class="code"><pre>'/a/www/www6s/trac/%s'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_WIKI_PAGES_TEMPLATES</td>
+          <td class="code"><pre>['utils/wiki/IetfSpecificFeatures',
+ 'utils/wiki/InterMapTxt',
+ 'utils/wiki/SvnTracHooks',
+ 'utils/wiki/ThisTracInstallation',
+ 'utils/wiki/TrainingMaterials',
+ 'utils/wiki/WikiStart']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRAC_WIKI_URL_PATTERN</td>
+          <td class="code"><pre>'https://trac.ietf.org/trac/%s/wiki'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TZDATA_ICS_PATH</td>
+          <td class="code"><pre>'/var/www/codestand/ietf/../vzic/zoneinfo/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>UNFLATTEN_BINARY</td>
+          <td class="code"><pre>'/usr/bin/unflatten'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>URL_REGEXPS</td>
+          <td class="code"><pre>{'acronym': 
+'(?P&lt;acronym&gt;[-a-z0-9]+)',
+ 'charter': '(?P&lt;name&gt;charter-[-a-z0-9]+)',
+ 'date': '(?P&lt;date&gt;\\d{4}-\\d{2}-\\d{2})',
+ 'name': 
+'(?P&lt;name&gt;([A-Za-z0-9_+-]+?|(draft-[a-z0-9-]+-(ion-sig-uni4\\.0|pilc-2\\.5g3g|trade-iotp-v1\\.0-[a-z]+|msword-template-v2\\.0|1240\\.his|(ieee)?802\\.[0-9a-z]+(-[a-z0-9-]+)?))))',
+
+ 'owner': "(?P&lt;owner&gt;[-A-Za-z0-9\\'+._]+@[A-Za-z0-9-._]+)",
+ 'rev': '(?P&lt;rev&gt;[0-9]{1,2}(-[0-9]{2})?)',
+ 'schedule_name': '(?P&lt;name&gt;[A-Za-z0-9-:_]+)'}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USER_PREFERENCE_DEFAULTS</td>
+          <td class="code"><pre>{'expires_soon': '14',
+ 'full_draft': 'off',
+ 'left_menu': 'on',
+ 'new_enough': '14'}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_ETAGS</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_I18N</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_L10N</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_TZ</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_HOST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_PORT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VULTURE_DEFAULT_ARGS</td>
+          <td class="code"><pre>['ietf']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WSGI_APPLICATION</td>
+          <td class="code"><pre>'ietf.wsgi.application'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XML_LIBRARY</td>
+          <td class="code"><pre>'/www/tools.ietf.org/tools/xml2rfc/web/public/rfc/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>X_FRAME_OPTIONS</td>
+          <td class="code"><pre>u'SAMEORIGIN'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YANG_DRAFT_MODEL_DIR</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/yang/draftmod/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YANG_INVAL_MODEL_DIR</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/yang/invalmod/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YANG_RFC_MODEL_DIR</td>
+          <td class="code"><pre>'/a/www/ietf-ftp/yang/rfcmod/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>u'F Y'</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+</div>
+
+  <div id="explanation">
+    <p>
+      You're seeing this error because you have <code>DEBUG = True</code> in your
+      Django settings file. Change that to <code>False</code>, and Django will
+      display a standard page generated by the handler for this status code.
+    </p>
+  </div>
+
+
+
+</body></html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?rfc symrefs="yes"?>
+
+<rfc category="std" docName="sample" ipr="trust200902">
+
+    <front>
+        <title>Examples for &lt;texttable&gt;</title>
+        <author initials='A.Y.' surname="Mous" fullname='Anon Y. Mous'>
+            <organization/>
+        </author>
+        <date/>
+        <abstract><t>Examples for &lt;texttable&gt;.</t></abstract>
+    </front>
+
+    <middle>
+<section title="styles">
+
+<section title="(default)">
+<texttable>
+  <ttcol>col1</ttcol>
+  <ttcol>col2</ttcol>
+  <c>cell11</c>
+  <c>cell12</c>
+  <c>cell21</c>
+  <c>cell22</c>
+</texttable>
+</section>
+
+<section title="all">
+<texttable style="all">
+  <ttcol>col1</ttcol>
+  <ttcol>col2</ttcol>
+  <c>cell11</c>
+  <c>cell12</c>
+  <c>cell21</c>
+  <c>cell22</c>
+</texttable>
+</section>
+
+<section title="full">
+<texttable style="full">
+  <ttcol>col1</ttcol>
+  <ttcol>col2</ttcol>
+  <c>cell11</c>
+  <c>cell12</c>
+  <c>cell21</c>
+  <c>cell22</c>
+</texttable>
+</section>
+
+<section title="headers">
+<texttable style="headers">
+  <ttcol>col1</ttcol>
+  <ttcol>col2</ttcol>
+  <c>cell11</c>
+  <c>cell12</c>
+  <c>cell21</c>
+  <c>cell22</c>
+</texttable>
+</section>
+
+<section title="none">
+<texttable style="none">
+  <ttcol>col1</ttcol>
+  <ttcol>col2</ttcol>
+  <c>cell11</c>
+  <c>cell12</c>
+  <c>cell21</c>
+  <c>cell22</c>
+</texttable>
+</section>
+
+</section>
+
+    </middle>
+</rfc>

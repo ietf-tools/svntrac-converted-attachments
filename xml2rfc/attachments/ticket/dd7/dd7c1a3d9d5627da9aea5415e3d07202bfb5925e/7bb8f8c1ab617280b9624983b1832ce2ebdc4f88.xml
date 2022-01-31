@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd">
+<?rfc toc="yes"?>
+<?rfc rfcedstyle="yes"?>
+<?rfc subcompact="no"?>
+<?rfc symrefs="yes"?>
+<?rfc comments="yes" ?>
+<?rfc inline="yes" ?>
+
+<rfc ipr="trust200902" category="info" docName='draft-melnikov-authentication-results-smime-10'>
+  <front>
+    <title abbrev="Authentication-Results Reg for S/MIME">
+      Authentication-Results Registration for S/MIME signature verification
+    </title>
+    <author initials="A." surname="Melnikov" fullname="Alexey Melnikov">
+      <organization>Isode Ltd</organization>
+      <address>
+	<postal>
+	  <street>5 Castle Business Village</street>
+	  <street>36 Station Road</street>
+	  <city>Hampton</city>
+	  <region>Middlesex</region>
+	  <code>TW12 2BX</code>
+	  <country>UK</country>
+	</postal>
+	<email>Alexey.Melnikov@isode.com</email>
+      </address>
+    </author>
+      
+    <date year="2014"/>
+    
+    <keyword>Authentication-Results</keyword>
+    <keyword>S/MIME</keyword>
+      
+    <abstract>
+	
+    <t>
+      RFC 7001 specifies the Authentication-Results header field for conveying results
+      of message authentication checks. This document defines a new authentication
+      method to be used in the Authentication-Results header field for S/MIME related
+      signature checks.
+    </t>
+	
+    </abstract>
+    
+  </front>
+  <middle>
+
+    <section title="Introduction">
+
+        <t>
+        <xref target="RFC7001"/> specifies the Authentication-Results header field for conveying results
+        of message authentication checks.
+        As S/MIME signature verification (and alteration) is sometimes implemented in
+        border message transfer agents, guards and gateways (for example see <xref target="RFC3183"/>),
+        there is a need to convey signature verification status to Mail User Agents (MUA)
+        and downstream filters.
+        This document defines a new authentication method to be used in the Authentication-Results
+        header field for S/MIME related signature checks.
+        </t>
+      
+    </section>
+    
+    <section title="Conventions Used in This Document">
+
+<!--      
+      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+	    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in
+	    this document are to be interpreted as described in
+	    <xref target="RFC2119"/>.</t>
+-->
+
+      <t>The formal syntax uses the <xref target="RFC5234">Augmented
+	    Backus-Naur Form (ABNF)</xref> notation including the core rules
+	    defined in Appendix B of <xref target="RFC5234">RFC 5234</xref>.
+      </t>
+
+    </section>
+
+
+    <section title='"smime" Authentication Method' anchor="registation">
+
+      <t>
+      S/MIME signature and countersignature verification is represented by the "smime" method
+      and is defined in <xref target="RFC5751"/>.
+      </t>
+
+      <section title='S/MIME Results' anchor='results'>
+        
+        <t>
+        The result values used by S/MIME <xref target="RFC5751"/> are as follows:
+        </t>
+	
+	    <texttable>
+		
+    <!--
+		<preamble></preamble>
+    -->
+        
+		<ttcol align='left'>Result code</ttcol>
+		<ttcol align='left'>Meaning</ttcol>
+        
+		<c>none</c><c>The message was not signed.</c>
+        
+		<c>pass</c><c>The message was signed, the signature or signatures were
+        acceptable to the verifier, and the signature(s) passed
+        verification tests.</c>
+     
+    <c>fail</c><c>The message was signed and the signature or signatures were
+        acceptable to the verifier, but they failed the verification
+        test(s).</c>
+
+    <c>policy</c><c>
+      The message was signed, signature(s) passed verification tests, but the signature or signatures were
+      not acceptable to the verifier.
+    </c>
+        
+    <c>neutral</c><c>
+      The message was signed but the signature or signatures
+      contained syntax errors or were not otherwise able to be
+      processed.  This result is also be used for other failures not
+      covered elsewhere in this list.
+    </c>
+        
+    <c>temperror</c><c>
+      The message could not be verified due to some error that
+      is likely transient in nature, such as a temporary inability to
+      retrieve a certificate or CRL.  A later attempt may produce a final
+      result.
+    </c>
+
+    <c>permerror</c><c>
+      The message could not be verified due to some error that
+      is unrecoverable, such as a required header field being absent
+      or the signer's certificate not being available.
+      A later attempt is unlikely to produce a final result.
+    </c>
+      </texttable>
+
+
+      <t>
+      A signature is "acceptable to the verifier" if it passes local policy
+      checks (or there are no specific local policy checks). For example,
+      a verifier might require that the domain in the rfc822Name subjectAltName
+      in the signing certificate matches the domain in the address of the
+      sender of the message (value of the Sender header field, if present. Value of the From header field otherwise),
+      thus making third-party signatures unacceptable.
+<!--////Is this actually true?-->      
+      <xref target="RFC5751"/> advises that if a message fails verification, it should be
+      treated as an unsigned message.  A report of "fail" here permits the
+      receiver of the report to decide how to handle the failure.  A report
+      of "neutral" or "none" preempts that choice, ensuring the message
+      will be treated as if it had not been signed.
+      </t>
+
+      </section>
+      
+      <section title="Examples">
+
+<figure>
+<artwork>
+Return-Path: &lt;aliceDss@example.com&gt;
+Authentication-Results: example.net;
+ smime=fail (certificate is revoked by CRL)
+ body.smime-identifier=aliceDss@example.com
+ body.smime-part=2
+Received: from ietfa.example.com (localhost [IPv6:::1])
+	by ietfa.example.com (Postfix) with ESMTP id 2875111E81A0;
+	Fri, 06 Sep 2002 00:35:14 -0700 (PDT)
+MIME-Version: 1.0
+To: User2@example.com
+From: aliceDss@example.com
+Subject: Example 4.8
+Message-Id: &lt;020906002550300.249@example.com&gt;
+Date: Fri, 06 Sep 2002 00:25:21 -0700
+Content-Type: multipart/signed;
+    micalg=SHA1;
+    boundary="----=_NextBoundry____Fri,_06_Sep_2002_00:25:21";
+    protocol="application/pkcs7-signature"
+
+This is a multi-part message in MIME format.
+
+------=_NextBoundry____Fri,_06_Sep_2002_00:25:21
+
+This is some sample content.
+------=_NextBoundry____Fri,_06_Sep_2002_00:25:21
+Content-Type: application/pkcs7-signature; name=smime.p7s
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=smime.p7s
+
+MIIDdwYJKoZIhvcNAQcCoIIDaDCCA2QCAQExCTAHBgUrDgMCGjALBgkqhkiG9w0BBwGgggL
+gMIIC3DCCApugAwIBAgICAMgwCQYHKoZIzjgEAzASMRAwDgYDVQQDEwdDYXJsRFNTMB4XDT
+k5MDgxNzAxMTA0OVoXDTM5MTIzMTIzNTk1OVowEzERMA8GA1UEAxMIQWxpY2VEU1MwggG2M
+IIBKwYHKoZIzjgEATCCAR4CgYEAgY3N7YPqCp45PsJIKKPkR5PdDteoDuxTxauECE//lOFz
+SH4M1vNESNH+n6+koYkv4dkwyDbeP5u/t0zcX2mK5HXQNwyRCJWb3qde+fz0ny/dQ6iLVPE
+/sAcIR01diMPDtbPjVQh11Tl2EMR4vf+dsISXN/LkURu15AmWXPN+W9sCFQDiR6YaRWa4E8
+baj7g3IStii/eTzQKBgCY40BSJMqo5+z5t2UtZakx2IzkEAjVc8ssaMMMeUF3dm1nizaoFP
+VjAe6I2uG4Hr32KQiWn9HXPSgheSz6Q+G3qnMkhijt2FOnOLl2jB80jhbgvMAF8bUmJEYk2
+RL34yJVKU1a14vlz7BphNh8Rf8K97dFQ/5h0wtGBSmA5ujY5A4GEAAKBgFzjuVp1FJYLqXr
+d4z+p7Kxe3L23ExE0phaJKBEj2TSGZ3V1ExI9Q1tv5VG/+onyohs+JH09B41bY8i7RaWgSu
+OF1s4GgD/oI34a8iSrUxq4Jw0e7wi/ZhSAXGKsZfoVi/G7NNTSljf2YUeyxDKE8H5BQP1Gp
+2NOM/Kl4vTyg+W4o4GBMH8wDAYDVR0TAQH/BAIwADAOBgNVHQ8BAf8EBAMCBsAwHwYDVR0j
+BBgwFoAUcEQ+gi5vh95K03XjPSC8QyuT8R8wHQYDVR0OBBYEFL5sobPjwfftQ3CkzhMB4v3
+jl/7NMB8GA1UdEQQYMBaBFEFsaWNlRFNTQGV4YW1wbGUuY29tMAkGByqGSM44BAMDMAAwLQ
+IUVQykGR9CK4lxIjONg2q1PWdrv0UCFQCfYVNSVAtcst3a53Yd4hBSW0NevTFjMGECAQEwG
+DASMRAwDgYDVQQDEwdDYXJsRFNTAgIAyDAHBgUrDgMCGjAJBgcqhkjOOAQDBC4wLAIUM/mG
+f6gkgp9Z0XtRdGimJeB/BxUCFGFFJqwYRt1WYcIOQoGiaowqGzVI
+
+------=_NextBoundry____Fri,_06_Sep_2002_00:25:21--
+</artwork>
+</figure>
+         
+      </section>
+
+    </section>
+
+      
+    <section title="IANA Considerations">
+
+      <t>
+      IANA is requested to add the the following entries to the "Email Authentication Methods"
+      subregistry of the "Email Authentication Parameters" registry:
+      </t>
+
+      <texttable>
+
+<!--
+		<preamble></preamble>
+-->
+
+        <ttcol align='left'>Method</ttcol>
+        <ttcol align='left'>Defined</ttcol>
+        <ttcol align='left'>ptype</ttcol>
+        <ttcol align='left'>Property</ttcol>
+        <ttcol align='left'>Value</ttcol>
+        <ttcol align='left'>Status</ttcol>
+        <ttcol align='left'>Version</ttcol>
+
+        <c>smime</c>
+        <c><xref target="RFC5751"/></c>
+        <c>body</c>
+        <c>smime-part</c>
+        <c>
+          A reference to the MIME body part that contains the signature, as defined in <xref target="smime-part"/> of [[This-RFC]].
+        </c>
+        <c>active</c>
+        <c>1</c>
+
+        <c>smime</c>
+        <c><xref target="RFC5751"/></c>
+        <c>body</c>
+        <c>smime-identifier</c>
+        
+        <c>The email address <xref target="RFC5322"/> associated with the S/MIME signature.
+        The email address can be specified explicitly or derived from the identity of the signer. 
+        Note that this email address can correspond to a countersignature.</c>
+        <c>active</c>
+        <c>1</c>
+
+<!--////David Wilson wrote:
+I would also point out that there is no requirement in RFC 5750 for the certificate
+relating to the signing key to contain an email address. It SHOULD, but
+receiving agents MUST be able to handle one without. RFC 5750 says that
+the receiving agent should compare the address associated with the certificate
+(if any) with the From or Sender address, and SHOULD provide some alternate processing
+if there is no match. Note this is for the address, not just the domain part
+of the address. It does not specify a different action should there be NO associated
+email address.
+
+Note that this affects your 'sime-identifier' field. The unique identity of the
+signer is given by the issuer of the certificate and its serial number - although
+these are not very helpful :-).
+-->
+
+        <c>smime</c>
+        <c>
+          <xref target="RFC5751"/>
+        </c>
+        <c>body</c>
+        <c>smime-serial</c>
+
+        <c>
+          serialNumber of the certificate associated with the S/MIME signature (see section
+          4.1.2.2 of <xref target="RFC5280"/>.
+        </c>
+        <c>active</c>
+        <c>1</c>
+
+        <c>smime</c>
+        <c>
+          <xref target="RFC5751"/>
+        </c>
+        <c>body</c>
+        <c>smime-issuer</c>
+
+        <c>
+          Issuer name DN (e.g. "CN=CA1,ST=BC,c=CA") of the certificate associated with the S/MIME signature (see section
+          4.1.2.4 of <xref target="RFC5280"/>.
+        </c>
+        <c>active</c>
+        <c>1</c>
+
+      </texttable>
+
+<t>
+  Either both or neither of body.smime-serial and
+  body.smime-issuer should be present in an
+  Authentication-Results header field.  body.smime-serial and
+  body.smime-issuer are used for cases when
+  body.smime-identifier (email address) can't be derived by the
+  entity adding the corresponding Authentication-Results header
+  field. For example this can be used when gatewaying from
+  X.400.
+</t>
+
+      <t>
+      IANA is requested to add the the following entries to the "Email Authentication Result Names"
+      subregistry of the "Email Authentication Parameters" registry:
+      </t>
+
+      <texttable>
+
+        <ttcol align='left'>Code</ttcol>
+        <ttcol align='left'>Defined</ttcol>
+        <ttcol align='left'>Auth Method</ttcol>
+        <ttcol align='left'>Meaning</ttcol>
+        <ttcol align='left'>Status</ttcol>
+
+        <c>none</c>
+        <c>this document</c>
+        <c>smime</c>
+        <c>[this memo] <xref target="results"/></c>
+        <c>active</c>
+
+        <c>pass</c>
+        <c>this document</c>
+        <c>smime</c>
+        <c>[this memo] <xref target="results"/></c>
+        <c>active</c>
+
+        <c>fail</c>
+        <c>this document</c>
+        <c>smime</c>
+        <c>[this memo] <xref target="results"/></c>
+        <c>active</c>
+
+        <c>policy</c>
+        <c>this document</c>
+        <c>smime</c>
+        <c>[this memo] <xref target="results"/></c>
+        <c>active</c>
+
+        <c>neutral</c>
+        <c>this document</c>
+        <c>smime</c>
+        <c>[this memo] <xref target="results"/></c>
+        <c>active</c>
+
+        <c>temperror</c>
+        <c>this document</c>
+        <c>smime</c>
+        <c>[this memo] <xref target="results"/></c>
+        <c>active</c>
+
+        <c>permerror</c>
+        <c>this document</c>
+        <c>smime</c>
+        <c>[this memo] <xref target="results"/></c>
+        <c>active</c>
+
+      </texttable>
+
+      <section title='body.smime-part' anchor='smime-part'>
+
+        <t>
+          body.smime-part contains the MIME body part reference which contains the S/MIME signature.
+          Syntax of this property is described by the smime-part ABNF production below.
+          application/pkcs7-signature or application/pkcs7-mime (containing SignedData) media type body parts
+          are references using the &lt;section&gt; syntax (see Section 6.4.5 of <xref target="RFC3501"/>).
+          <!--////Add an example?-->
+          If the signature being verified is encapsulated by another CMS content type
+          (e.g. application/pkcs7-mime containing EnvelopedData, which contains SignedData),
+          such inner signature body part can be references using &quot;section[/section...&quot; syntax.
+        </t>
+
+<figure><artwork type="ABNF">
+<![CDATA[
+    smime-part = section ["/" smime-subpart]
+    smime-subpart = smime-part
+    section = <Defined in Section 6.4.5 of [RFC3501]>
+]]></artwork></figure>
+
+      </section>
+      
+    </section>
+
+    <section title="Security Considerations" anchor="seccons">
+
+      <t>This document doesn't add new security considerations not already covered by
+      <xref target="RFC7001"/> and <xref target="RFC5751"/>.
+      In particular security considerations related to use of weak cryptography over plaintext,
+      weakening and breaking of cryptographic algorithms over time, as well
+      as changing the behavior of message processing based on presence of a signature
+      specified in <xref target="RFC5751"/> are relevant to this document.
+      Similarly, the following security considerations specified in <xref target="RFC7001"/>
+      are particularly relevant to this document: Forged Header Fields, Misleading Results,
+      Internal MTA Lists and Compromised Internal Hosts.
+      </t>
+
+      <t>To repeat something already mentioned in RFC 7001, Section 7.1:
+      
+      <list style="empty">
+        <t>
+          An MUA or filter that accesses a mailbox whose messages are handled
+          by a non-conformant MTA, and understands Authentication-Results
+          header fields, could potentially make false conclusions based on
+          forged header fields.  A malicious user or agent could forge a header
+          field using the DNS domain of a receiving ADMD as the authserv-id
+          token in the value of the header field and, with the rest of the
+          value, claim that the message was properly authenticated.  The non-
+          conformant MTA would fail to strip the forged header field, and the
+          MUA could inappropriately trust it.
+        </t>
+
+        <t>
+          For this reason, it is best not to have processing of the
+          Authentication-Results header field enabled by default; instead, it
+          should be ignored, at least for the purposes of enacting filtering
+          decisions, unless specifically enabled by the user or administrator
+          after verifying that the border MTA is compliant.  It is acceptable
+          to have an MUA aware of this specification but have an explicit list
+          of hostnames whose Authentication-Results header fields are
+          trustworthy; however, this list should initially be empty.
+        </t>
+      </list>
+      
+      So to emphasize this point: whenever possible, MUAs should implement their own
+      S/MIME signature verification instead of implementing this specification.
+      </t>
+
+      <t>
+      Note that agents adding Authentication-Results header fields
+      containing S/MIME Authentication Method might be unable to verify<vspace blankLines='0'/>
+      S/MIME signatures inside encrypted CMS content types such as
+      EnvelopedData <xref target="RFC5652"/>.
+      So agents processing Authentication-Results header fields can't treat lack of an Authentication-Results
+      header field with S/MIME Authentication Method as an indication that the corresponding
+      S/MIME signature is missing, invalid or valid.
+      </t>
+      
+    </section>
+    
+  </middle>
+  <back>
+    <references title="Normative References">
+<!--
+      <?rfc include="reference.RFC.2119"?>
+-->
+      <?rfc include="reference.RFC.3501"?> <!-- IMAP -->
+      <?rfc include="reference.RFC.5234"?> <!-- ABNF -->
+      <?rfc include="reference.RFC.5322"?> <!-- Email -->
+      <?rfc include="reference.RFC.7001"?> <!-- Authentication-Results -->
+      <?rfc include="reference.RFC.5280"?> <!-- X.509 certificates -->
+      <?rfc include="reference.RFC.5751"?> <!-- S/MIME 3.2 - Message Specification -->
+    </references>
+
+    <references title="Informative References">
+      <?rfc include="reference.RFC.3183"?> <!-- Domain Security Services using S/MIME -->
+      <?rfc include="reference.RFC.5652"?> <!-- CMS EncryptedData -->
+      <?rfc include="reference.RFC.5083"?> <!-- CMS AuthEnvelopedData -->
+
+    </references>
+
+    <section title="Acknowledgements">
+	
+      <t>Thank you to Murray S. Kucherawy, David Wilson, Jim Schaad, SM and Steve Kille for comments and corrections on this document.</t>
+      
+    </section>
+  </back>
+</rfc>

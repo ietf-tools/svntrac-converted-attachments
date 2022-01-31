@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?rfc symrefs="yes"?>
+
+<rfc category="std" docName="sample" ipr="trust200902">
+
+    <front>
+        <title>Examples for &lt;spanx&gt;</title>
+        <author initials='A.Y' surname="Mous" fullname='Anon Y. Mous'>
+            <organization/>
+        </author>
+        <date/>
+        <abstract><t>Examples for &lt;spanx&gt;.</t></abstract>
+    </front>
+
+    <middle>
+
+<section title="Whitespace Handling (default xml:space)">
+  <t>
+    START <spanx>nowhitespace</spanx> END.
+  </t>
+  <t>
+    START <spanx>  two leading whitespace characters</spanx> END.
+  </t>
+  <t>
+    START <spanx>two trailing whitespace characters  </spanx> END.
+  </t>
+  <t>
+    START <spanx>two whitespace characters (here: START  END) inside</spanx> END.
+  </t>
+</section>
+
+<section title="Whitespace Handling (xml:space=preserve)">
+  <t>
+    START <spanx xml:space="preserve">nowhitespace</spanx> END.
+  </t>
+  <t>
+    START <spanx xml:space="preserve">  two leading whitespace characters</spanx> END.
+  </t>
+  <t>
+    START <spanx xml:space="preserve">two trailing whitespace characters  </spanx> END.
+  </t>
+  <t>
+    START <spanx xml:space="preserve">two whitespace characters (here: START  END) inside</spanx> END.
+  </t>
+  <t>
+    With style="verb":
+  </t>
+  <t>
+    START <spanx xml:space="preserve" style="verb">nowhitespace</spanx> END.
+  </t>
+  <t>
+    START <spanx xml:space="preserve" style="verb">  two leading whitespace characters</spanx> END.
+  </t>
+  <t>
+    START <spanx xml:space="preserve" style="verb">two trailing whitespace characters  </spanx> END.
+  </t>
+  <t>
+    START <spanx xml:space="preserve" style="verb">two whitespace characters (here: START  END) inside</spanx> END.
+  </t>
+</section>
+
+<section title="styles">
+<section title="(documented)">
+  <t>This is the <spanx>default style</spanx>.</t>
+  <t>This is the <spanx style="emph">emph style</spanx>.</t>
+  <t>This is the <spanx style="strong">strong style</spanx>.</t>
+  <t>This is the <spanx style="verb">verb style</spanx>.</t>
+</section>
+<section title="(supported in TCL)">
+  <t>This is the <spanx style="vbare">vbare style</spanx>.</t>
+  <t>This is the <spanx style="vemph">vemph style</spanx>.</t>
+  <t>This is the <spanx style="vstrong">vstrong style</spanx>.</t>
+  <t>This is the <spanx style="vdeluxe">vdeluxe style</spanx>.</t>
+</section>
+<section title="(more tests)">
+  <t>This is the <spanx style="foobar">foobar style</spanx>.</t>
+</section>
+</section>
+
+    </middle>
+</rfc>

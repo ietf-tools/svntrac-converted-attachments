@@ -1,0 +1,392 @@
+Delivered-To: ynishida246@gmail.com
+Received: by 10.223.158.197 with SMTP id b5csp925372wrf;
+        Tue, 24 Oct 2017 11:29:52 -0700 (PDT)
+X-Google-Smtp-Source: ABhQp+QzqWDTiBhsqekmw2XP+6swQJ56UkVu5/yj21qlFSO2UkbRfyWh6Uj8c+qygzFmJICwzyzabIFPg1w=
+X-Received: by 10.223.197.69 with SMTP id s5mr16456126wrf.120.1508869792928;
+        Tue, 24 Oct 2017 11:29:52 -0700 (PDT)
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: found no external ips, assuming domain of mailman-bounces@mail.ietf.org as permitted sender) smtp.mailfrom=mailman-bounces@mail.ietf.org;
+       dkim=pass header.i=@ietf.org header.s=ietf1 header.b=od7+phbM;
+       dkim=pass header.i=@ietf.org header.s=ietf1 header.b=Kaiku37J
+Received-SPF: pass (google.com: found no external ips, assuming domain of mailman-bounces@mail.ietf.org as permitted sender)
+Received: by 10.223.135.237 with POP3 id c42mf1965128wrc.1;
+        Tue, 24 Oct 2017 11:29:52 -0700 (PDT)
+X-Gmail-Fetch-Info: nishida@sfc.wide.ad.jp 1 mail.sfc.wide.ad.jp 995 nishida
+Return-Path: <mailman-bounces@mail.ietf.org>
+X-Original-To: nishida@sfc.wide.ad.jp
+Received: from ironport1.sfc.wide.ad.jp (ironport1.sfc.wide.ad.jp [IPv6:2001:200:0:8803:203:178:142:150])
+	by mail.sfc.wide.ad.jp (Postfix) with ESMTPS id 5C6E4278366
+	for <nishida@sfc.wide.ad.jp>; Wed, 25 Oct 2017 03:29:00 +0900 (JST)
+Authentication-Results: ironport1.sfc.wide.ad.jp; spf=None smtp.pra=mailman-bounces@mail.ietf.org; spf=None smtp.mailfrom=mailman-bounces@mail.ietf.org; spf=None smtp.helo=postmaster@mail.ietf.org
+Received-SPF: None (ironport1.sfc.wide.ad.jp: no sender
+  authenticity information available from domain of
+  mailman-bounces@mail.ietf.org) identity=pra;
+  client-ip=2001:1900:3001:11::2c;
+  receiver=ironport1.sfc.wide.ad.jp;
+  envelope-from="mailman-bounces@mail.ietf.org";
+  x-sender="mailman-bounces@mail.ietf.org";
+  x-conformance=sidf_compatible
+Received-SPF: None (ironport1.sfc.wide.ad.jp: no sender
+  authenticity information available from domain of
+  mailman-bounces@mail.ietf.org) identity=mailfrom;
+  client-ip=2001:1900:3001:11::2c;
+  receiver=ironport1.sfc.wide.ad.jp;
+  envelope-from="mailman-bounces@mail.ietf.org";
+  x-sender="mailman-bounces@mail.ietf.org";
+  x-conformance=sidf_compatible
+Received-SPF: None (ironport1.sfc.wide.ad.jp: no sender
+  authenticity information available from domain of
+  postmaster@mail.ietf.org) identity=helo;
+  client-ip=2001:1900:3001:11::2c;
+  receiver=ironport1.sfc.wide.ad.jp;
+  envelope-from="mailman-bounces@mail.ietf.org";
+  x-sender="postmaster@mail.ietf.org";
+  x-conformance=sidf_compatible
+IronPort-PHdr: =?us-ascii?q?9a23=3AkdGNhx1WcFs94COysmDT+DRfVm0co7zxezQtwd8Z?=
+ =?us-ascii?q?sewRKvad9pjvdHbS+e9qxAeQG96Ku7Qc06L/iOPJYSQ4+5GPsXQPItRndiQuro?=
+ =?us-ascii?q?EopTEmG9OPEkbhLfTnPGQQFcVGU0J5rTngaRAGUMnxaEfPrXKs8DUcBgvwNRZv?=
+ =?us-ascii?q?JuTyB4Xek9m72/q89pDXYAhEniaxba9vJxiqsAvdsdUbj5F/Iagr0BvJpXVIe+?=
+ =?us-ascii?q?VSxWx2IF+Yggjx6MSt8pN96ipco/0u+dJOXqX8ZKQ4UKdXDC86PGAv5c3krgfM?=
+ =?us-ascii?q?QA2S7XYBSGoWkx5IAw/Y7BHmW5r6ryX3uvZh1CScIMb7S60/Vza/4KdxUBLmlS?=
+ =?us-ascii?q?cJOSA2/27LicJ+grpbrRC/qBxk2IPUZZ2ZOeBkc6/BYd8WW2xMVdtRWSxbBYO8?=
+ =?us-ascii?q?apMCD+8bMuZZq4n9okEBrR2lCAmtGuzv1jFIimXx3a0g3OQsFxzN0g84H98Wrn?=
+ =?us-ascii?q?jYsMn5OLoXXOyoyKTE0SnPYvZY1Dvh9ITEbxUsreyRUb91dMfd11UgGgXYhVuK?=
+ =?us-ascii?q?s4PlJSma1uEVvmib8eVgUeWvhnYiqw5rozivwt0giojXiYIJxFDI7yJ5wJw6Jd?=
+ =?us-ascii?q?GgSU57Z8CrEIdIui2EK4d6Xt4uTmR1tCs+1rEKpZu2cSYWxJg72hLSbuGLf5WN?=
+ =?us-ascii?q?7x/mSuqePS90hHd/d7K+gxay/1Kgyur5VsSs1VZFtCtFkt3Jtn8X0Rzf89OISv?=
+ =?us-ascii?q?xg/kenxTmAyRvT5/pBIU8ulKrbL4Qtwr8umZoPv0TPBCj2mF/5jKOObEUr5vCo?=
+ =?us-ascii?q?6/j7YrXhvpKcMY50ihr+MqQvh8OwG/81MhMAX2eH4+i92rzj8lDnT7lQlPI5j7?=
+ =?us-ascii?q?PVsJLCJZdTmqnsHwRN18Mk9BCyFR+n3cgW234dIwFrYhWC2o3gOlXLKfbQDPqj?=
+ =?us-ascii?q?jRKrijg4lLj9IrT9D8CVfTD4m7D7cOMl5g=3D=3D?=
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-Anti-Spam-Result: =?us-ascii?q?A8GhAAB0he9ZlwAZASCDgISAEQAsWhwBA?=
+ =?us-ascii?q?QQBAQoBARcBAQQBAQoBAYJmAYExbhQTg3qKH3SOVYFUgiECFpFNglqBMgMZGxw?=
+ =?us-ascii?q?WGAEKhRiEYz8YAQEBAQEBAQEBAQECEAEBAQEBCBYGV4I4IgwERicFAQEBAQEBA?=
+ =?us-ascii?q?QEBAQEBAQEBAQEBAQEBARUBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE?=
+ =?us-ascii?q?BAQEJAgg1AQYLHQICAgEBIB0BASwJAwICAQkCDiEZBAICAyRJBQ+KBAkEC6cWa?=
+ =?us-ascii?q?4IngwgBAQWIFAEKAQEBARsIgy6CB4M5NIJHgyWBbwEBSx+CSIJhihwPDYcdgRN?=
+ =?us-ascii?q?ajjCBboV3gReGMIVJghUbQoUdixaKJYdwAoNogTkfgQiBDIEHJyqCZAkJghEqC?=
+ =?us-ascii?q?gUcggdWiTyCNQEBAQ?=
+X-IPAS-Result: =?us-ascii?q?A8GhAAB0he9ZlwAZASCDgISAEQAsWhwBAQQBAQoBARcBAQQ?=
+ =?us-ascii?q?BAQoBAYJmAYExbhQTg3qKH3SOVYFUgiECFpFNglqBMgMZGxwWGAEKhRiEYz8YA?=
+ =?us-ascii?q?QEBAQEBAQEBAQECEAEBAQEBCBYGV4I4IgwERicFAQEBAQEBAQEBAQEBAQEBAQE?=
+ =?us-ascii?q?BAQEBARUBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEJAgg1AQYLH?=
+ =?us-ascii?q?QICAgEBIB0BASwJAwICAQkCDiEZBAICAyRJBQ+KBAkEC6cWa4IngwgBAQWIFAE?=
+ =?us-ascii?q?KAQEBARsIgy6CB4M5NIJHgyWBbwEBSx+CSIJhihwPDYcdgRNajjCBboV3gReGM?=
+ =?us-ascii?q?IVJghUbQoUdixaKJYdwAoNogTkfgQiBDIEHJyqCZAkJghEqCgUcggdWiTyCNQE?=
+ =?us-ascii?q?BAQ?=
+X-IronPort-AV: E=Sophos;i="5.43,428,1503327600"; 
+   d="scan'208,217";a="2791201"
+Received: from mail.ietf.org ([IPv6:2001:1900:3001:11::2c])
+  by ironport1.sfc.wide.ad.jp with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Oct 2017 03:28:59 +0900
+Received: from ietfa.amsl.com (localhost [IPv6:::1])
+	by ietfa.amsl.com (Postfix) with ESMTP id 849BB139695;
+	Tue, 24 Oct 2017 11:28:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ietf.org; s=ietf1;
+	t=1508869736; bh=MQU0Q4fVlc3as30r6aVIypOqaUqhIeZIWzvU/4yvBcg=;
+	h=Subject:From:To:Date:List-Id;
+	b=od7+phbMGiWS7rCN2rN4kqgRNDVoxdq7pFM2cussVTbRDmXhrfT4m5plS6uqojooT
+	 LBkIHTZXsUY3ETMgxkZ8OGKuNtQ7LDox0rovXxw4Tn2s8zayhnwH/SkBvZwYNNBgIK
+	 24sEHxf/oX94fDLGsGqdzN8FJ8ywZqL2jiEdYQIA=
+X-Original-To: tcpm-owner@ietf.org
+Delivered-To: tcpm-owner@ietfa.amsl.com
+Received: from ietfa.amsl.com (localhost [IPv6:::1])
+ by ietfa.amsl.com (Postfix) with ESMTP id 9EA3E138AEE
+ for <tcpm-owner@ietf.org>; Tue, 24 Oct 2017 11:28:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ietf.org; s=ietf1;
+ t=1508869733; bh=MQU0Q4fVlc3as30r6aVIypOqaUqhIeZIWzvU/4yvBcg=;
+ h=Subject:From:To:Date:List-Id;
+ b=Kaiku37J2wdUUYjUbsDRlHCNMtJeVOI+qNI1ft4TJZvNcdFnPubBc5OB5RjRFY8KK
+ dNeiDH4qZiqTtzVjO37JJAk5eMXp9065noGBh82VfQXK2C+Gb/8M0Z2u7FkYgTd8UV
+ mWtog3vI7ATyeHnMe662VqykWUIlUeGkOGJ5GYkI=
+Subject: Bounce action notification
+From: mailman@ietf.org
+To: tcpm-owner@ietf.org
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============2449225018830096788=="
+Message-ID: <mailman.349.1508869730.4115.tcpm@ietf.org>
+Date: Tue, 24 Oct 2017 11:28:50 -0700
+Precedence: list
+X-BeenThere: tcpm@ietf.org
+X-Mailman-Version: 2.1.22
+List-Id: TCP Maintenance and Minor Extensions Working Group <tcpm.ietf.org>
+X-List-Administrivia: yes
+Errors-To: mailman-bounces@mail.ietf.org
+Sender: "tcpm" <mailman-bounces@mail.ietf.org>
+
+--===============2449225018830096788==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+This is a Mailman mailing list bounce action notice:
+
+    List:       tcpm
+    Member:     garmitage@swin.edu.au
+    Action:     Subscription disabled.
+    Reason:     Excessive or fatal bounces.
+    
+
+
+The triggering bounce notice is attached below.
+
+Questions? Contact the Mailman site administrator at mailman@ietf.org.
+
+--===============2449225018830096788==
+Content-Type: message/rfc822
+MIME-Version: 1.0
+
+Return-Path: <>
+X-Original-To: tcpm-bounces@ietf.org
+Delivered-To: tcpm-bounces@ietfa.amsl.com
+Received: by ietfa.amsl.com (Postfix)
+	id 233E5139567; Tue, 24 Oct 2017 11:28:11 -0700 (PDT)
+Date: Tue, 24 Oct 2017 11:28:11 -0700 (PDT)
+From: MAILER-DAEMON@ietfa.amsl.com (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: tcpm-bounces@ietf.org
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="A6BF5139683.1508869691/ietfa.amsl.com"
+Message-Id: <20171024182811.233E5139567@ietfa.amsl.com>
+
+This is a MIME-encapsulated message.
+
+--A6BF5139683.1508869691/ietfa.amsl.com
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host ietfa.amsl.com.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<ben@niven-jenkins.co.uk>: host mx0.123-reg.co.uk[94.136.40.153] said: 550
+    Message from google.com failed sender's DMARC policy, REJECT (in reply to
+    end of DATA command)
+
+<garmitage@swin.edu.au>: host au-smtp-inbound-2.mimecast.com[124.47.150.26]
+    said: 550 DMARC Sender Invalid - envelope rejected -
+    https://community.mimecast.com/docs/DOC-1369#550 (in reply to end of DATA
+    command)
+
+--A6BF5139683.1508869691/ietfa.amsl.com
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; ietfa.amsl.com
+X-Postfix-Queue-ID: A6BF5139683
+X-Postfix-Sender: rfc822; tcpm-bounces@ietf.org
+Arrival-Date: Tue, 24 Oct 2017 11:27:33 -0700 (PDT)
+
+Final-Recipient: rfc822; ben@niven-jenkins.co.uk
+Original-Recipient: rfc822;ben@niven-jenkins.co.uk
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; mx0.123-reg.co.uk
+Diagnostic-Code: smtp; 550 Message from google.com failed sender's DMARC
+    policy, REJECT
+
+Final-Recipient: rfc822; garmitage@swin.edu.au
+Original-Recipient: rfc822;garmitage@swin.edu.au
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; au-smtp-inbound-2.mimecast.com
+Diagnostic-Code: smtp; 550 DMARC Sender Invalid - envelope rejected -
+    https://community.mimecast.com/docs/DOC-1369#550
+
+--A6BF5139683.1508869691/ietfa.amsl.com
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Return-Path: <tcpm-bounces@ietf.org>
+Received: from ietfa.amsl.com (localhost [IPv6:::1])
+	by ietfa.amsl.com (Postfix) with ESMTP id A6BF5139683;
+	Tue, 24 Oct 2017 11:27:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ietf.org; s=ietf1;
+	t=1508869653; bh=txAdlnixasRv/dCcYFTKR9m1Iy6GsWwXkw4UGMRmkxo=;
+	h=In-Reply-To:References:From:Date:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc;
+	b=gvi3j2B3tOIvOIttE1Wt02UHlso6AOOsYpH4l7XsXySqCqhQSu0f5n1EUmKVI+VFZ
+	 FFabz8F7kaHy6F9hYAI4BUtIHB4L+EDhDpl5P/UpI9pSBltuvNNsjOgsrSD/FZ5FGH
+	 SmFLVVmKSI11IWAGAr76KfHyCH8hK2vF1uu3zgio=
+X-Original-To: tcpm@ietfa.amsl.com
+Delivered-To: tcpm@ietfa.amsl.com
+Received: from localhost (localhost [127.0.0.1])
+ by ietfa.amsl.com (Postfix) with ESMTP id CB37D1395E9
+ for <tcpm@ietfa.amsl.com>; Tue, 24 Oct 2017 11:27:30 -0700 (PDT)
+X-Virus-Scanned: amavisd-new at amsl.com
+X-Spam-Flag: NO
+X-Spam-Score: -1.999
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.999 tagged_above=-999 required=5
+ tests=[BAYES_00=-1.9, DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
+ DKIM_VALID_AU=-0.1, HTML_MESSAGE=0.001, RCVD_IN_DNSWL_NONE=-0.0001,
+ SPF_PASS=-0.001, URIBL_BLOCKED=0.001] autolearn=ham autolearn_force=no
+Authentication-Results: ietfa.amsl.com (amavisd-new); dkim=pass (2048-bit key)
+ header.d=google.com
+Received: from mail.ietf.org ([4.31.198.44])
+ by localhost (ietfa.amsl.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id ajFJPJqs-sS1 for <tcpm@ietfa.amsl.com>;
+ Tue, 24 Oct 2017 11:27:28 -0700 (PDT)
+Received: from mail-wr0-x22f.google.com (mail-wr0-x22f.google.com
+ [IPv6:2a00:1450:400c:c0c::22f])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by ietfa.amsl.com (Postfix) with ESMTPS id 9997B139567
+ for <tcpm@ietf.org>; Tue, 24 Oct 2017 11:27:28 -0700 (PDT)
+Received: by mail-wr0-x22f.google.com with SMTP id o44so21603715wrf.11
+ for <tcpm@ietf.org>; Tue, 24 Oct 2017 11:27:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:in-reply-to:references:from:date:message-id:subject:to
+ :cc; bh=1RNa5fws24fV7MGQyxRWwobqgJAv5KGAlYqlFimn7II=;
+ b=GOSaLWyrfCQrLXBLyTDxus6XafcWjH4FAAXV727FpAmQ2aUikvyz/A87wDH4NMclAo
+ R9neHzEhWYUgXELPU4Rwm9IKVW55I6RJKN4qd9CDEcSgkhAaMsx9+8W8oN91T2L7Sr9C
+ FLIqFUABZJIyFjyeuPd1OqAryrF02tfjgxlaXma8Zuqx9sKbrJ1g7Gmj7/GnzuIFGrEC
+ 3+WVne9qzaQuiMwxUEE8kfca1K0nGyWRvseCzHPU51rS705jL+5aOCBsNlJoH/G2qQNe
+ xENbQBT6QtV0Bm0/gBB3k2kkN9Atrp4oH3Hjnpcxv7EtnjJNwk3ugC5Z43YO9AvWPewt
+ b3Zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+ :message-id:subject:to:cc;
+ bh=1RNa5fws24fV7MGQyxRWwobqgJAv5KGAlYqlFimn7II=;
+ b=hPIFQCJ9nvrRsY/X5WEZgUjeqHrhCoDBOcZs3I7AljHRWJ3D/XFvTfFI1KbAolIg45
+ VRwgNq6YIRcwA+c+F+MKJD9FKC45g81lG62Kp4gCsSxoMoK8lRFGspLlcS9N9EWwY8y6
+ iQhTi0xD9D7nzmIdfRC7trFawVYpf5RqA0tMITrqrd7mZ7lAl2dBNj9S0ZduIAhqmv0s
+ U8pjzZvOqMdHYEJqyGmLKo6j68GNIVFRVs9xGnAbEAqVEfmO0skABJZHIK55+ai+NSo4
+ Qjvo9xUIrsdINlzwlcs+oGZYIIoTBkRrU8Y+/e1k63LcblDaikikRbm1ndufgkGLJdJp
+ EKXQ==
+X-Gm-Message-State: AMCzsaXoOYGOfHVVHyBIXZHWjALoVvKFSuxKFGdTC4VOPlR8WQPvV6vi
+ QDMAvvhF45C8BwUS4T+KjT38xdMCtQJvVR7ZgD9N/A==
+X-Google-Smtp-Source: ABhQp+T8iidb/LgoFORuQg48Ca9BzatIq3buGPTVRXics6OhcNMk5lCPz24EsoHVChKUd/NtXWoyDvTJ5NcrbDdQu0I=
+X-Received: by 10.223.146.197 with SMTP id 63mr14098337wrn.180.1508869646892; 
+ Tue, 24 Oct 2017 11:27:26 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.28.91.134 with HTTP; Tue, 24 Oct 2017 11:26:46 -0700 (PDT)
+In-Reply-To: <CAO249yeJM9t9DBuCwaXho+7S4hLNr5t7iQr_dJY2EnNBWMwAvw@mail.gmail.com>
+References: <CAO249yeJM9t9DBuCwaXho+7S4hLNr5t7iQr_dJY2EnNBWMwAvw@mail.gmail.com>
+From: Yuchung Cheng <ycheng@google.com>
+Date: Tue, 24 Oct 2017 11:26:46 -0700
+Message-ID: <CAK6E8=eWq+RcOcEE6BVR2voxHJse=sNumdcdNRf3YF7=6g7uXQ@mail.gmail.com>
+To: Yoshifumi Nishida <nishida@sfc.wide.ad.jp>
+Archived-At: <https://mailarchive.ietf.org/arch/msg/tcpm/EStICuAWVWEl52WjPzZUHDN0u6o>
+Subject: Re: [tcpm] tcpm agenda request for IETF100
+X-BeenThere: tcpm@ietf.org
+X-Mailman-Version: 2.1.22
+Precedence: list
+List-Id: TCP Maintenance and Minor Extensions Working Group <tcpm.ietf.org>
+List-Unsubscribe: <https://www.ietf.org/mailman/options/tcpm>,
+ <mailto:tcpm-request@ietf.org?subject=unsubscribe>
+List-Archive: <https://mailarchive.ietf.org/arch/browse/tcpm/>
+List-Post: <mailto:tcpm@ietf.org>
+List-Help: <mailto:tcpm-request@ietf.org?subject=help>
+List-Subscribe: <https://www.ietf.org/mailman/listinfo/tcpm>,
+ <mailto:tcpm-request@ietf.org?subject=subscribe>
+Cc: Priyaranjan Jha <priyarjha@google.com>, "tcpm@ietf.org" <tcpm@ietf.org>
+Content-Type: multipart/mixed; boundary="===============8009016343583359400=="
+Errors-To: tcpm-bounces@ietf.org
+Sender: "tcpm" <tcpm-bounces@ietf.org>
+
+--===============8009016343583359400==
+Content-Type: multipart/alternative; boundary="94eb2c0d22c2517e34055c4f1762"
+
+--94eb2c0d22c2517e34055c4f1762
+Content-Type: text/plain; charset="UTF-8"
+
+On Fri, Oct 20, 2017 at 7:09 PM, Yoshifumi Nishida <nishida@sfc.wide.ad.jp>
+wrote:
+
+> Hello,
+> According to the agenda, we have a 2.5 hours slot at Singapore.
+> (9:30-12:00 11/16 Thursday)
+> If you plan to present something, please let the chairs know the following
+> info.
+>
+> * Title / draft name
+>
+Update of RACK draft-ietf-tcpm-rack-02
+
+> * Presenter's name
+>
+Yuchung Cheng
+
+> * Total time (including Q/A)
+>
+20m
+
+I will participate and present remotely
+
+
+
+> Thanks,
+> --
+> tcpm co-chairs
+>
+> _______________________________________________
+> tcpm mailing list
+> tcpm@ietf.org
+> https://www.ietf.org/mailman/listinfo/tcpm
+>
+>
+
+--94eb2c0d22c2517e34055c4f1762
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><div class=3D"gmail_extra"><br><div class=3D"gmail_quo=
+te">On Fri, Oct 20, 2017 at 7:09 PM, Yoshifumi Nishida <span dir=3D"ltr">&l=
+t;<a href=3D"mailto:nishida@sfc.wide.ad.jp" target=3D"_blank">nishida@sfc.w=
+ide.ad.jp</a>&gt;</span> wrote:<br><blockquote class=3D"gmail_quote" style=
+=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding=
+-left:1ex"><div dir=3D"ltr">Hello,<div>According to the agenda, we have a 2=
+.5 hours slot at Singapore. (9:30-12:00 11/16 Thursday)</div><div>If you pl=
+an to present something, please let the chairs know the following info.</di=
+v><div><br></div><div>* Title / draft name<br></div></div></blockquote><div=
+>Update of RACK draft-ietf-tcpm-rack-02</div><blockquote class=3D"gmail_quo=
+te" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204=
+);padding-left:1ex"><div dir=3D"ltr"><div>* Presenter&#39;s name<br></div><=
+/div></blockquote><div>Yuchung Cheng=C2=A0=C2=A0</div><blockquote class=3D"=
+gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(20=
+4,204,204);padding-left:1ex"><div dir=3D"ltr"><div>* Total time (including =
+Q/A)<br></div></div></blockquote><div>20m</div><div><br></div><div>I will p=
+articipate and present remotely</div><div><br></div><div><br></div><blockqu=
+ote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px=
+ solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div></div><div>=
+<br></div><div>Thanks,</div><div>--</div><div>tcpm co-chairs</div></div>
+<br>______________________________<wbr>_________________<br>
+tcpm mailing list<br>
+<a href=3D"mailto:tcpm@ietf.org">tcpm@ietf.org</a><br>
+<a href=3D"https://www.ietf.org/mailman/listinfo/tcpm" rel=3D"noreferrer" t=
+arget=3D"_blank">https://www.ietf.org/mailman/<wbr>listinfo/tcpm</a><br>
+<br></blockquote></div><br></div></div>
+
+--94eb2c0d22c2517e34055c4f1762--
+
+
+--===============8009016343583359400==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+tcpm mailing list
+tcpm@ietf.org
+https://www.ietf.org/mailman/listinfo/tcpm
+
+--===============8009016343583359400==--
+
+
+--A6BF5139683.1508869691/ietfa.amsl.com--
+
+--===============2449225018830096788==--

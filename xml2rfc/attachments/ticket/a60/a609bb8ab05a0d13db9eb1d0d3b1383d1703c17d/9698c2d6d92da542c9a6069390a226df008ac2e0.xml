@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="US-ASCII"?> 
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd">
+<!--  vi: set et smarttab sw=2 tabstop=4:--> 
+<?rfc toc="yes"?> 
+<?rfc tocompact="yes"?> 
+<?rfc tocdepth="4"?> 
+<?rfc tocindent="yes"?> 
+<?rfc symrefs="yes"?> 
+<?rfc sortrefs="no"?> 
+<?rfc rfcedstyle="yes"?>
+<?rfc comments="yes"?> 
+<?rfc inline="yes"?> 
+<?rfc compact="yes"?> 
+<?rfc subcompact="no"?>
+<?rfc strict="no" ?> 
+ <rfc category="std" docName="draft-ietf-pce-stateful-sync-optimizations-08" ipr="trust200902" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
+ <front>
+  <title abbrev="Optimizations of state synchronization">Optimizations of Label Switched Path State Synchronization Procedures for a Stateful PCE</title> 
+ <author fullname="Edward Crabbe" initials="E." surname="Crabbe">
+ <organization>Oracle</organization> 
+ <address>
+ <postal>
+  <street /> 
+  <city /> 
+  <region /> 
+  <code /> 
+  <country /> 
+  </postal>
+  <email>edward.crabbe@gmail.com</email> 
+  </address>
+  </author>
+ <author fullname="Ina Minei" initials="I." surname="Minei">
+  <organization>Google, Inc.</organization> 
+ <address>
+ <postal>
+  <street>1600 Amphitheatre Parkway</street> 
+  <city>Mountain View</city> 
+  <region>CA</region> 
+  <code>94043</code> 
+  <country>US</country> 
+  </postal>
+  <email>inaminei@google.com</email> 
+  </address>
+  </author>
+ <author fullname="Jan Medved" initials="J." surname="Medved">
+  <organization>Cisco Systems, Inc.</organization> 
+ <address>
+ <postal>
+  <street>170 West Tasman Dr.</street> 
+  <city>San Jose</city> 
+  <region>CA</region> 
+  <code>95134</code> 
+  <country>US</country> 
+  </postal>
+  <email>jmedved@cisco.com</email> 
+  </address>
+  </author>
+ <author fullname="Robert Varga" initials="R." surname="Varga">
+  <organization>Pantheon Technologies SRO</organization> 
+ <address>
+ <postal>
+  <street>Mlynske Nivy 56</street> 
+  <city>Bratislava</city> 
+  <code>821 05</code> 
+  <country>Slovakia</country> 
+  </postal>
+  <email>robert.varga@pantheon.sk</email> 
+  </address>
+  </author>
+ <author fullname="Xian Zhang" initials="X." surname="Zhang">
+  <organization>Huawei Technologies</organization> 
+ <address>
+ <postal>
+  <street>F3-5-B R&amp;D Center, Huawei Industrial Base, Bantian, Longgang District</street> 
+  <city>Shenzhen</city> 
+  <region>Guangdong</region> 
+  <code>518129</code> 
+  <country>P.R.China</country> 
+  </postal>
+  <email>zhang.xian@huawei.com</email> 
+  </address>
+  </author>
+ <author initials="D" surname="Dhody" fullname="Dhruv Dhody">
+  <organization>Huawei Technologies</organization> 
+ <address>
+ <postal>
+  <street>Divyashree Techno Park, Whitefield</street> 
+  <city>Bangalore</city> 
+  <region>Karnataka</region> 
+  <code>560066</code> 
+  <country>India</country> 
+  </postal>
+  <email>dhruv.ietf@gmail.com</email> 
+  </address>
+  </author>
+  <date month="January" year="2017" /> 
+  <workgroup>PCE Working Group</workgroup> 
+ <abstract>
+  <t>A stateful Path Computation Element (PCE) has access to not only the information disseminated by the network's Interior Gateway Protocol (IGP), but also the set of active paths and their reserved resources for its computation. The additional Label Switched Path (LSP) state information allows the PCE to compute constrained paths while considering individual LSPs and their interactions. This requires a reliable state synchronization mechanism between the PCE and the network, PCE and path computation clients (PCCs), and between cooperating PCEs. The basic mechanism for state synchronization is part of the stateful PCE specification. This draft presents motivations for optimizations to the base state synchronization procedure and specifies the required Path Computation Element Communication Protocol (PCEP) extensions.</t> 
+  </abstract>
+ <note title="Requirements Language">
+ <t>
+  The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in 
+  <xref target="RFC2119" pageno="false" format="default" />. 
+  </t>
+  </note>
+  </front>
+ <middle>
+ <section title="Introduction" toc="default">
+  <t>The Path Computation Element Communication Protocol (PCEP) provides mechanisms for Path Computation Elements (PCEs) to perform path computations in response to Path Computation Clients (PCCs) requests.</t> 
+ <t>
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" /> 
+  describes a set of extensions to PCEP to provide stateful control. A stateful PCE has access to not only the information carried by the network's Interior Gateway Protocol (IGP), but also the set of active paths and their reserved resources for its computations. The additional state allows the PCE to compute constrained paths while considering individual LSPs and their interactions. This requires a reliable state synchronization mechanism between the PCE and the network, PCE and PCC, and between cooperating PCEs. 
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" /> 
+  describes the basic mechanism for state synchronization. This draft specifies following optimizations for state synchronization and the corresponding PCEP procedures and extensions: 
+ <list style="symbols">
+ <t>
+  State Synchronization Avoidance: To skip state synchronization if the state has survived and not changed during session restart. (See <xref target="sync-avoidance" pageno="false" format="default" />.) 
+  </t>
+ <t>
+  Incremental State Synchronization: To do incremental (delta) state synchronization when possible. (See 
+  <xref target="incremental-sync" pageno="false" format="default" />.) 
+  </t>
+ <t>
+  PCE-triggered Initial Synchronization: To let PCE control the timing of the initial state synchronization. (See 
+  <xref target="triggered-initial-sync" pageno="false" format="default" />.) 
+  </t>
+ <t>
+  PCE-triggered Re-synchronization: To let PCE re-synchronize the state for sanity check. (See 
+  <xref target="triggered-resync" pageno="false" format="default" />.) 
+  </t>
+  </list>
+  </t>
+  </section>
+ <!--  Introduction 
+  --> 
+ <section title="Terminology" toc="default">
+ <t>
+  This document uses the following terms defined in 
+  <xref target="RFC5440" pageno="false" format="default" />: PCC, PCE, PCEP Peer. 
+  </t>
+ <t>
+  This document uses the following terms defined in 
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />: Delegation, Redelegation Timeout Interval, LSP State Report, LSP Update Request, LSP State Database. 
+  </t>
+  <t>Within this document, when describing PCE-PCE communications, the requesting PCE fills the role of a PCC. This provides a saving in documentation without loss of function.</t> 
+ <!-- 
+ commented as we do not have any message format change
+      <t>The message formats in this document are specified using Routing
+      Backus-Naur Format (RBNF) encoding as specified in <xref
+      target="RFC5511"/>.</t>
+      
+
+  --> 
+  </section>
+ <!--  Terminology 
+  --> 
+ <section anchor="sync-avoidance" title="State Synchronization Avoidance" toc="default">
+ <section anchor="sync-avoidance-motivation" title="Motivation" toc="default">
+ <t>
+  The purpose of state synchronization is to provide a checkpoint-in-time state replica of a PCC's LSP state in a stateful PCE. State synchronization is performed immediately after the initialization phase (<xref target="RFC5440" pageno="false" format="default" />). 
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" /> 
+  describes the basic mechanism for state synchronization. 
+  </t>
+  <t>State synchronization is not always necessary following a PCEP session restart. If the state of both PCEP peers did not change, the synchronization phase may be skipped. This can result in significant savings in both control-plane data exchanges and the time it takes for the stateful PCE to become fully operational.</t> 
+  </section>
+ <!--  sync-avoidance-motivation 
+  --> 
+ <section anchor="sync-avoidance-procedures" title="State Synchronization Avoidance Procedure" toc="default">
+  <t>State synchronization MAY be skipped following a PCEP session restart if the state of both PCEP peers did not change during the period prior to session re-initialization. To be able to make this determination, state must be exchanged and maintained by both PCE and PCC during normal operation. This is accomplished by keeping track of the changes to the LSP state database, using a version tracking field called the LSP State Database Version Number.</t> 
+ <t>
+  The LSP State Database Version Number, carried in LSP-DB-VERSION TLV (see 
+  <xref target="DB-VERSION-TLV" pageno="false" format="default" />), is owned by a PCC and it MUST be incremented by 1 for each successive change in the PCC's LSP state database. The LSP State Database Version Number MUST start at 1 and may wrap around. Values 0 and 0xFFFFFFFFFFFFFFFF are reserved. If either of the two values are used during LSP state (re)-synchronization, the PCE speaker receiving this node should send back a PCErr with Error-type 20 Error-value TBD (suggested value - 6) 'Received an invalid LSP DB Version Number', and close the PCEP session. Operations that trigger a change to the local LSP state database include a change in the LSP operational state, delegation of an LSP, removal or setup of an LSP or change in any of the LSP attributes that would trigger a report to the PCE. 
+  </t>
+  
+ <t>
+  If state synchronization avoidance is enabled, a PCC MUST increment its LSP State Database Version Number when the 'Redelegation Timeout Interval' timer expires (see 
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />) for the use of the Redelegation Timeout Interval). 
+  </t>
+  
+ <t>
+  State synchronization avoidance is advertised on a PCEP session during session startup using the INCLUDE-DB-VERSION (S) bit in the capabilities TLV (see 
+  <xref target="Capability-TLV" pageno="false" format="default" />). The peer may move in the network, either physically or logically, which may cause its connectivity details and transport-level identity (such as IP address) to change. To ensure that a PCEP peer can recognize a previously connected peer even in face of such mobility, each PCEP peer includes the SPEAKER-ENTITY-ID TLV described in 
+  <xref target="SPEAKER-ENTITY-ID-TLV-OPEN" pageno="false" format="default" /> 
+  in the OPEN message. 
+  </t>
+  <t>If both PCEP speakers set the S flag in the OPEN object's STATEFUL-PCE-CAPABILITY TLV to 1, the PCC MUST include the LSP-DB-VERSION TLV in each LSP object of the PCRpt message. If the LSP-DB-VERSION TLV is missing in a PCRpt message, the PCE will generate an error with Error-Type 6 (mandatory object missing) and Error-Value TBD (suggested value - 12) 'LSP-DB-VERSION TLV missing' and close the session. If state synchronization avoidance has not been enabled on a PCEP session, the PCC SHOULD NOT include the LSP-DB-VERSION TLV in the LSP Object and the PCE SHOULD ignore it were it to receive one.</t> 
+  <t>If a PCE's LSP state database survived the restart of a PCEP session, the PCE will include the LSP-DB-VERSION TLV in its OPEN object, and the TLV will contain the last LSP State Database Version Number received on an LSP State Report from the PCC in the previous PCEP session. If a PCC's LSP State Database survived the restart of a PCEP session, the PCC will include the LSP-DB-VERSION TLV in its OPEN object and the TLV will contain the latest LSP State Database Version Number. If a PCEP speaker's LSP state database did not survive the restart of a PCEP session, the PCEP speaker MUST NOT include the LSP-DB-VERSION TLV in the OPEN object.</t> 
+ <t>
+  If both PCEP speakers include the LSP-DB-VERSION TLV in the OPEN Object and the TLV values match, the PCC MAY skip state synchronization. Otherwise, the PCC MUST perform full state synchronization (see 
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />) or incremental state synchronization (see 
+  <xref target="incremental-sync" pageno="false" format="default" />) to the stateful PCE. If the PCC attempts to skip state synchronization, by setting the SYNC Flag to 0 and PLSP-ID to a non-zero value on the first LSP State Report from the PCC as per <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />, the PCE MUST send back a PCErr with Error-Type 20 Error-Value TBD (suggested value - 2) 'LSP Database version mismatch', and close the PCEP session. 
+  </t>
+ <t>
+  If state synchronization is required, then prior to completing the initialization phase, the PCE MUST mark any LSPs in the LSP database that were previously reported by the PCC as stale. When the PCC reports an LSP during state synchronization, if the LSP already exists in the LSP database, the PCE MUST update the LSP database and clear the stale marker from the LSP. When it has finished state synchronization, the PCC MUST immediately send an end of synchronization marker. The end of synchronization marker is a Path Computation State Report (PCRpt) message with an LSP object containing a PLSP-ID of 0 and with the SYNC flag set to 0 (<xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />). The LSP-DB-VERSION TLV MUST be included in this PCRpt message. On receiving this state report, the PCE MUST purge any LSPs from the LSP database that are still marked as stale. 
+  </t>
+  <t>Note that a PCE/PCC MAY force state synchronization by not including the LSP-DB-VERSION TLV in its OPEN object.</t> 
+  <t>Since a PCE does not make changes to the LSP State Database Version Number, a PCC should never encounter this TLV in a message from the PCE (other than the OPEN message). A PCC SHOULD ignore the LSP-DB-VERSION TLV, were it to receive one from a PCE.</t> 
+
+ <t>
+  <xref target="state-sync-skipped" pageno="false" format="default" /> 
+  shows an example sequence where the state synchronization is skipped. 
+  </t>
+ <figure anchor="state-sync-skipped" title="State Synchronization Skipped" suppress-title="false" align="left" alt="" width="" height="">
+ <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+ <![CDATA[ 
+                  +-+-+                    +-+-+
+                  |PCC|                    |PCE|
+                  +-+-+                    +-+-+
+                    |                        |
+                    |--Open--,               |
+                    |  DBv=42 \    ,---Open--|
+                    |    S=1   \  /   DBv=42 |
+                    |           \/      S=1  |
+                    |           /\           |
+                    |          /   `-------->| (OK to skip sync)
+        (Skip sync) |<--------`              |
+                    |            .           |
+                    |            .           |
+                    |            .           |
+                    |                        |
+                    |--PCRpt,DBv=43,SYNC=0-->| (Regular
+                    |                        |  LSP State Report)
+                    |--PCRpt,DBv=44,SYNC=0-->| (Regular
+                    |                        |  LSP State Report)
+                    |--PCRpt,DBv=45,SYNC=0-->|
+                    |                        |
+              
+
+  ]]> 
+  </artwork>
+  </figure>
+ <t>
+  <xref target="state-sync-performed" pageno="false" format="default" /> 
+  shows an example sequence where the state synchronization is performed due to LSP state database version mismatch during the PCEP session setup. Note that the same state synchronization sequence would happen if either the PCC or the PCE would not include the LSP-DB-VERSION TLV in their respective Open messages. 
+  </t>
+ <figure anchor="state-sync-performed" title="State Synchronization Performed" suppress-title="false" align="left" alt="" width="" height="">
+ <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+ <![CDATA[ 
+                  +-+-+                    +-+-+
+                  |PCC|                    |PCE|
+                  +-+-+                    +-+-+
+                    |                        |
+                    |--Open--,               |
+                    |  DBv=46 \    ,---Open--|
+                    |    S=1   \  /   DBv=42 |
+                    |           \/      S=1  |
+                    |           /\           |
+                    |          /   `-------->| (Expect sync)
+          (Do sync) |<--------`              |
+                    |                        |
+                    |--PCRpt,DBv=46,SYNC=1-->| (Sync start)
+                    |            .           |
+                    |            .           |
+                    |            .           |
+                    |--PCRpt,DBv=46,SYNC=0-->| (Sync done)
+                    |            .           |(Purge LSP State
+                    |            .           | if applicable)
+                    |            .           |
+                    |--PCRpt,DBv=47,SYNC=0-->| (Regular
+                    |                        |  LSP State Report)
+                    |--PCRpt,DBv=48,SYNC=0-->| (Regular
+                    |                        |  LSP State Report)
+                    |--PCRpt,DBv=49,SYNC=0-->|
+                    |                        |
+        
+
+  ]]> 
+  </artwork>
+  </figure>
+ <t>
+  <xref target="state-sync-skipped-no-dbver" pageno="false" format="default" /> 
+  shows an example sequence where the state synchronization is skipped, but because one or both PCEP speakers set the S Flag to 0, the PCC does not send LSP-DB-VERSION TLVs in subsequent PCRpt messages to the PCE. If the current PCEP session restarts, the PCEP speakers will have to perform state synchronization, since the PCE does not know the PCC's latest LSP State Database Version Number information. 
+  </t>
+ <figure anchor="state-sync-skipped-no-dbver" title="State Synchronization Skipped, no LSP-DB-VERSION TLVs sent from PCC" suppress-title="false" align="left" alt="" width="" height="">
+ <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+ <![CDATA[ 
+                  +-+-+                    +-+-+
+                  |PCC|                    |PCE|
+                  +-+-+                    +-+-+
+                    |                        |
+                    |--Open--,               |
+                    |  DBv=42 \    ,---Open--|
+                    |    S=0   \  /   DBv=42 |
+                    |           \/      S=0  |
+                    |           /\           |
+                    |          /   `-------->| (OK to skip sync)
+        (Skip sync) |<--------`              |
+                    |            .           |
+                    |            .           |
+                    |            .           |
+                    |------PCRpt,SYNC=0----->| (Regular
+                    |                        |  LSP State Report)
+                    |------PCRpt,SYNC=0----->| (Regular
+                    |                        |  LSP State Report)
+                    |------PCRpt,SYNC=0----->|
+                    |                        |
+              
+
+  ]]> 
+  </artwork>
+  </figure>
+  </section>
+ <!--  sync-avoidance-procedures 
+  --> 
+ <section anchor="PCEP-Ext-for-avoidance" title="PCEP Extensions" toc="default">
+ <t>
+  A new INCLUDE-DB-VERSION (S) bit is added in the stateful capabilities TLV (see 
+  <xref target="Capability-TLV" pageno="false" format="default" /> 
+  for details). 
+  </t>
+ <section anchor="DB-VERSION-TLV" title="LSP State Database Version Number TLV" toc="default">
+  <t>The LSP State Database Version Number (LSP-DB-VERSION) TLV is an optional TLV that MAY be included in the OPEN object and the LSP object.</t> 
+  <t>The format of the LSP-DB-VERSION TLV is shown in the following figure:</t> 
+ <figure anchor="DB-VERSION-Fmt" title="LSP-DB-VERSION TLV format" suppress-title="false" align="left" alt="" width="" height="">
+ <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+ <![CDATA[ 
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  |           Type=TBD            |            Length=8           |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  |                 LSP State DB Version Number                   |
+  |                                                               |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             
+
+  ]]> 
+  </artwork>
+  </figure>
+  <t>The type of the TLV is TBD and it has a fixed length of 8 octets. The value contains a 64-bit unsigned integer, representing the LSP State DB Version Number.</t> 
+  </section>
+ <!--  DB-VERSION-TLV 
+  --> 
+ <section anchor="SPEAKER-ENTITY-ID-TLV-OPEN" title="Speaker Entity Identifier TLV" toc="default">
+  <t>The Speaker Entity Identifier TLV (SPEAKER-ENTITY-ID) is an optional TLV that MAY be included in the OPEN Object when a PCEP speaker wishes to determine if state synchronization can be skipped when a PCEP session is restarted. It contains a unique identifier for the node that does not change during the lifetime of the PCEP speaker. It identifies the PCEP speaker to its peers even if the speaker's IP address is changed.</t> 
+  <t>In case of a remote peer IP address change, a PCEP speaker would learn the speaker entity identifier on receiving the open message but it MAY have already sent its open message without realizing that it is a known PCEP peer. In such a case, either a full synchronization is done or PCEP session is terminated. This may be a local policy decision. The new IP address is associated with the speaker entity identifier for future either way. In the latter case when PCEP session is re-established, it would be correctly associated with speaker entity identifier and not be considered as an unknown peer.</t> 
+  <t>The format of the SPEAKER-ENTITY-ID TLV is shown in the following figure:</t> 
+ <figure anchor="speaker-entity-id-Fmt" title="SPEAKER-ENTITY-ID TLV format" suppress-title="false" align="left" alt="" width="" height="">
+ <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+ <![CDATA[ 
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  |           Type=TBD            |       Length (variable)       |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  |                                                               |
+  //                 Speaker Entity Identifier                    //
+  |                                                               |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+            
+
+  ]]> 
+  </artwork>
+  </figure>
+  <t>The type of the TLV is TBD and it has a variable length, which MUST be greater than 0. The Value is padded to 4-octet alignment. The padding is not included in the Length field. The value contains the entity identifier of the speaker transmitting this TLV. This identifier is required to be unique within its scope of visibility, which is usually limited to a single domain. It MAY be configured by the operator. Alternatively, it can be derived automatically from a suitably-stable unique identifier, such as a MAC address, serial number, Traffic Engineering Router ID, or similar. In the case of inter-domain connections, the speaker SHOULD prefix its usual identifier with the domain identifier of its residence, such as Autonomous System number, IGP area identifier, or similar.</t> 
+  <t>The relationship between this identifier and entities in the Traffic Engineering database is intentionally left undefined.</t> 
+  <t>From a manageability point of view, a PCE or PCC implementation SHOULD allow the operator to configure this Speaker Entity Identifier.</t> 
+  </section>
+ <!--  SPEAKER-ENTITY-ID 
+  --> 
+  </section>
+ <!-- PCEP Extensions for sync-avoidance 
+  --> 
+  </section>
+ <!--  sync-avoidance 
+  --> 
+ <section anchor="incremental-sync" title="Incremental State Synchronization" toc="default">
+ <t>
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" /> 
+  describes the LSP state synchronization mechanism between PCCs and stateful PCEs. During the state synchronization, a PCC sends the information of all its LSPs (i.e., the full LSP-DB) to the stateful PCE. In order to reduce the state synchronization overhead when there is a small number of LSP state change in the network between PCEP session restart, this section defines a mechanism for incremental (Delta) LSP Database (LSP-DB) synchronization. 
+  </t>
+ <section anchor="incremental-sync-motivation" title="Motivation" toc="default">
+ <t>
+  According to <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />, if a PCE restarts and its LSP-DB survived, PCCs with mismatched LSP State Database Version Number will send all their LSPs information (full LSP-DB) to the stateful PCE, even if only a small number of LSPs underwent state change. It can take a long time and consume large communication channel bandwidth. 
+  </t>
+ <t>
+  <xref target="fig_topo" pageno="false" format="default" /> 
+  shows an example of LSP state synchronization. 
+  </t>
+ <figure anchor="fig_topo" title="Topology Example" suppress-title="false" align="left" alt="" width="" height="">
+ <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+ <![CDATA[ 
+                                    +-----+
+                                    | PCE |
+                                    +-----+
+                                   /
+                                  /
+                                 /
+                                /
+                         +------+            +------+
+                         | PCC1 |------------| PCC2 |
+                         +------+            +------+
+                            |                   |
+                            |                   |
+                         +------+            +------+
+                         | PCC3 |------------| PCC4 |
+                         +------+            +------+
+             
+
+  ]]> 
+  </artwork>
+  </figure>
+  <t>Assuming there are 320 LSPs in the network, with each PCC having 80 LSPs. During the time when the PCEP session is down, 20 LSPs of each PCC (i.e., 80 LSPs in total), are changed. Hence when PCEP session restarts, the stateful PCE needs to synchronize 320 LSPs with all PCCs. But actually, 240 LSPs stay the same. If performing full LSP state synchronization, it can take a long time to carry out the synchronization of all LSPs. It is especially true when only a low bandwidth communication channel is available (e.g., in-band control channel for optical transport networks) and there is a substantial number of LSPs in the network. Another disadvantage of full LSP synchronization is that it is a waste of communication bandwidth to perform full LSP synchronization given the fact that the number of LSP changes can be small during the time when PCEP session is down.</t> 
+  <t>An incremental (Delta) LSP Database (LSP-DB) state synchronization is described in this section, where only the LSPs underwent state change are synchronized between the session restart. This may include new/modified/deleted LSPs.</t> 
+  </section>
+ <!--  incremental-sync-motivation 
+  --> 
+ <section anchor="incremental-sync-procedures" title="Incremental Synchronization Procedure" toc="default">
+ <t>
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" /> 
+  describes state synchronization and 
+  <xref target="sync-avoidance" pageno="false" format="default" /> 
+  describes state synchronization avoidance by using LSP-DB-VERSION TLV in its OPEN object. This section extends this idea to only synchronize the delta (changes) in case of version mismatch. 
+  </t>
+ <t>
+  If both PCEP speakers include the LSP-DB-VERSION TLV in the OPEN object and the LSP-DB-VERSION TLV values match, the PCC MAY skip state synchronization. Otherwise, the PCC MUST perform state synchronization. Incremental State synchronization capability is advertised on a PCEP session during session startup using the DELTA-LSP-SYNC-CAPABILITY (D) bit in the capabilities TLV (see 
+  <xref target="Capability-TLV" pageno="false" format="default" />). Instead of dumping full LSP-DB to the stateful PCE again, the PCC synchronizes the delta (changes) as described in 
+  <xref target="fig_inc" pageno="false" format="default" /> 
+  when D flag and S flag is set to 1 by both PCC and PCE. Other combinations of D and S flags setting by PCC and PCE result in full LSP-DB synchronization procedure as described in 
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />.  The PCC MAY force a full LSP DB synchronization by setting the D flag to zero in the OPEN message. 
+  </t>
+ <figure anchor="fig_inc" title="Incremental Synchronization Procedure" suppress-title="false" align="left" alt="" width="" height="">
+ <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+ <![CDATA[ 
+                    +-+-+                    +-+-+
+                    |PCC|                    |PCE|
+                    +-+-+                    +-+-+
+                      |                        |
+                      |--Open--,               |
+                      |  DBv=46 \    ,---Open--|
+                      |    S=1   \  /   DBv=42 |
+                      |    D=1    \/      S=1  |
+                      |           /\      D=1  |
+                      |          /  \          |
+                      |         /    `-------->| (Expect Delta sync)
+             (Do sync)|<--------`              | (DONOT Purge LSP
+             (Delta)  |                        | State)
+                      |                        |
+  (Delta Sync starts) |--PCRpt,DBv=46,SYNC=1-->|
+                      |            .           |
+                      |            .           |
+                      |            .           |
+                      |            .           |
+                      |--PCRpt,DBv=46,SYNC=0-->| (Sync done,
+                      |                        | PLSP-ID=0)
+                      |                        |
+                      |--PCRpt,DBv=47,SYNC=0-->| (Regular
+                      |                        |  LSP State Report)
+                      |--PCRpt,DBv=48,SYNC=0-->| (Regular
+                      |                        |  LSP State Report)
+                      |--PCRpt,DBv=49,SYNC=0-->|
+                      |                        |
+
+              
+
+  ]]> 
+  </artwork>
+  </figure>
+ <t>
+  As per <xref target="sync-avoidance" pageno="false" format="default" />, the LSP State Database Version Number is incremented each time a change is made to the PCC's local LSP State Database. Each LSP is associated with the DB version at the time of its state change. This is needed to determine which LSP and what information needs to be synchronized in incremental state synchronization. 
+  </t>
+ <t>
+  It is not necessary for a PCC to store a complete history of LSP Database change, but rather remember the LSP state changes (including LSP modification, setup and deletion) that happened between the PCEP session(s) restart in order to carry out incremental state synchronization. After the synchronization procedure finishes, the PCC can dump this history information. In the example shown in <xref target="fig_inc" pageno="false" format="default" />, the PCC needs to store the LSP state changes that happened between DB Version 43 to 46 and synchronizes these changes only when performing incremental LSP state update.  So a PCC needs to remember at least the LSP state changes that happened after an existing PCEP session with a stateful PCE goes down to have any chance of doing incremental synchronisation when the session is re-established. 
+  </t>
+ <t>
+  If a PCC finds out it does not have sufficient information to complete incremental synchronisation after advertising incremental LSP state synchronization capability, it MUST send a PCErr with Error-Type 20 and Error-Value 5 'A PCC indicates to a PCE that it can not complete the state synchronization' (defined in <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />) and terminate the session.  The PCC SHOULD re-establish the session with the D bit set to 0 in the OPEN message.
+  </t>
+ <t>
+  The other procedures and error checks remain unchanged from the full state synchronization (<xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />). 
+  </t>
+  </section>
+ <!--  incremental-sync-procedures 
+  --> 
+  </section>
+ <!--  incremental-sync 
+  --> 
+ <section anchor="triggered-initial-sync" title="PCE-triggered Initial Synchronization" toc="default">
+ <section anchor="triggered-init-sync-motivation" title="Motivation" toc="default">
+ <t>
+  In networks such as optical transport networks, the control channel between network nodes can be realized through in-band overhead thus has limited bandwidth. With a stateful PCE connected to the network via one network node, it is desirable to control the timing of PCC state synchronization so as not to overload the low communication channel available in the network during the initial synchronization (be it incremental or full) when the session restarts , when there is comparatively large amount of control information needing to be synchronized between the stateful PCE and the network. The method proposed, i.e., allowing PCE to trigger the state synchronization, is similar to the function proposed in <xref target="triggered-resync" pageno="false" format="default" /> but is used in different scenarios and for different purposes. 
+  </t>
+  </section>
+ <!-- triggered-init-sync-motivation 
+  --> 
+ <section anchor="triggered-init-procedures" title="PCE-triggered Initial State Synchronization Procedure" toc="default">
+ <t>
+  Support of PCE-triggered initial state synchronization is advertised during session startup using the TRIGGERED-INITIAL-SYNC (F) bit in the STATEFUL-PCE-CAPABILITY TLV (see <xref target="Capability-TLV" pageno="false" format="default" />). 
+  </t>
+  <t>
+  In order to allow a stateful PCE to control the LSP-DB synchronization after establishing a PCEP session, both PCEP speakers MUST set F bit to 1 in the OPEN message.  If the TRIGGERED-INITIAL-SYNC capability is not advertised by a PCE and the PCC receives a PCUpd with the SYNC flag set to 1, it MUST send a PCErr with the SRP-ID-number of the PCUpd, Error-Type 20 and Error-Value TBD (suggested value - 4) 'Attempt to trigger synchronization when the TRIGGERED-SYNC capability has not been advertised' (see 
+  <xref target="PCEP-Error-Object" pageno="false" format="default" />).  If the LSP-DB Version is mis-matched, it can send a PCUpd message with PLSP-ID = 0 and SYNC = 1 in order to trigger the LSP-DB synchronization process. The PCUpd message MUST include an empty ERO as its intended path and SHOULD NOT include the optional objects for its attributes.
+In this way, the PCE can control the sequence of LSP synchronization among all the PCCs that are re-establishing PCEP sessions with it. When the capability of PCE control is enabled, only after a PCC receives this message, it will start sending information to the PCE. The PCC SHOULD NOT send PCRpt messages to the stateful PCE before it triggers the State Synchronization. This PCE-triggering capability can be applied to both full and incremental state synchronization. If applied to the later, the PCCs only send information that PCE does not possess, which is inferred from the LSP-DB version information exchanged in the OPEN message (see 
+  <xref target="incremental-sync-procedures" pageno="false" format="default" /> 
+  for detailed procedure). 
+  </t>
+ <t>
+  Once the initial state synchronization is triggered by the PCE, the procedures and error checks remain unchanged from the full state synchronization (<xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />). 
+  </t>
+  </section>
+ <!-- triggered-init-procedures 
+  --> 
+  </section>
+ <!--  pce triggered initial Sync 
+  --> 
+ <section anchor="triggered-resync" title="PCE-triggered Re-synchronization" toc="default">
+ <section anchor="triggered-resync-motivation" title="Motivation" toc="default">
+  <t>The accuracy of the computations performed by the PCE is tied to the accuracy of the view the PCE has on the state of the LSPs. Therefore, it can be beneficial to be able to re-synchronize this state even after the session has been established. The PCE may use this approach to continuously sanity check its state against the network, or to recover from error conditions without having to tear down sessions.</t> 
+  </section>
+ <!-- triggered-sync-motivation 
+  --> 
+ <section anchor="triggered-resync-procedures" title="PCE-triggered State Re-synchronization Procedure" toc="default">
+ <t>
+  Support of PCE-triggered state synchronization is advertised by both PCEP speakers during session startup using the TRIGGERED-RESYNC (T) bit in the STATEFUL-PCE-CAPABILITY TLV (see <xref target="Capability-TLV" pageno="false" format="default" />).  The PCE can choose to re-synchronize its entire LSP database or a single LSP. 
+  </t>
+  <t>To trigger re-synchronization for an LSP, the PCE MUST first mark the LSP as stale and then send a Path Computation State Update (PCUpd) for it, with the SYNC flag in the LSP object set to 1. The PCE SHOULD NOT include any parameter updates for the LSP, and the PCC SHOULD ignore such updates if the SYNC flag is set. The PCC MUST respond with a PCRpt message with the LSP state, SYNC Flag set to 0 and MUST include the SRP-ID-number of the PCUpd message that triggered the resynchronization.</t> 
+ <t>
+  The PCE can also trigger re-synchronization of the entire LSP database. The PCE MUST first mark all LSPs in the LSP database that were previously reported by the PCC as stale and then send a PCUpd with an LSP object containing a PLSP-ID of 0 and with the SYNC flag set to 1. The PCUpd message MUST include an empty ERO as its intended path and SHOULD NOT include the optional objects for its attributes.
+This PCUpd message is the trigger for the PCC to enter the synchronization phase as described in 
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" /> 
+  and start sending PCRpt messages. After the receipt of the end-of-synchronization marker, the PCE will purge LSPs which were not refreshed. The SRP-ID-number of the PCUpd that triggered the re-synchronization SHOULD be included in each of the PCRpt messages. 
+  </t>
+ <t>
+  If the TRIGGERED-RESYNC capability is not advertised by a PCE and the PCC receives a PCUpd with the SYNC flag set to 1, it MUST send a PCErr with the SRP-ID-number of the PCUpd, Error-Type 20 and Error-Value TBD (suggested value - 4) 'Attempt to trigger synchronization when the TRIGGERED-SYNC capability has not been advertised' (see <xref target="PCEP-Error-Object" pageno="false" format="default" />). 
+  </t>
+ <t>
+  Once the state re-synchronization is triggered by the PCE, the procedures and error checks remain unchanged from the full state synchronization (<xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />). This would also include PCE triggering multiple state re-synchronization requests while synchronization is in progress. 
+  </t>
+  </section>
+ <!--  Triggered sync procedures 
+  --> 
+  </section>
+ <!--  pce triggered re-sync 
+  --> 
+ <section anchor="Capability-TLV" title="Advertising Support of Synchronization Optimizations" toc="default">
+  <t>Support for each of the optimizations described in this document requires advertising the corresponding capabilities during session establishment time.</t> 
+ <t>
+  New flags are defined for the STATEFUL-PCE-CAPABILITY TLV defined in <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />.  Its format is shown in the following figure: 
+  </t>
+ <figure anchor="Capability-TLV-Fmt" title="STATEFUL-PCE-CAPABILITY TLV Format" suppress-title="false" align="left" alt="" width="" height="">
+ <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+ <![CDATA[ 
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  |               Type            |            Length=4           |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  |                             Flags                 |F|D|T|I|S|U|
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             
+
+  ]]> 
+  </artwork>
+  </figure>
+ <t>
+  The value comprises a single field - Flags (32 bits): 
+ <list style="hanging">
+ <t hangText="U (LSP-UPDATE-CAPABILITY - 1 bit):"> defined in 
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />. 
+  </t>
+ <t hangText="S (INCLUDE-DB-VERSION - 1 bit):">
+  if set to 1 by both PCEP Speakers, the PCC will include the LSP-DB-VERSION TLV in each LSP Object.  See 
+  <xref target="sync-avoidance-procedures" pageno="false" format="default" /> for details. 
+  </t>
+ <t hangText="I (LSP-INSTANTIATION-CAPABILITY - 1 bit):"> defined in 
+  <xref target="I-D.ietf-pce-pce-initiated-lsp" pageno="false" format="default" />. 
+  </t>
+ <t hangText="T (TRIGGERED-RESYNC - 1 bit):">
+  if set to 1 by both PCEP Speakers, the PCE can trigger re-synchronization of LSPs at any point in the life of the session. See 
+  <xref target="triggered-resync-procedures" pageno="false" format="default" />  for details. 
+  </t>
+ <t hangText="D (DELTA-LSP-SYNC-CAPABILITY - 1 bit):">
+  if set to 1 by a PCEP speaker, it indicates that the PCEP speaker allows incremental (delta) state synchronization. See 
+  <xref target="incremental-sync-procedures" pageno="false" format="default" /> for details. 
+  </t>
+ <t hangText="F (TRIGGERED-INITIAL-SYNC - 1 bit):">
+  if set to 1 by both PCEP Speakers, the PCE SHOULD trigger initial (first) state synchronization. See 
+  <xref target="triggered-init-procedures" pageno="false" format="default" />  for details. 
+  </t>
+  </list>
+  </t>
+  </section>
+ <!--  Capability-tlv 
+  --> 
+ <section anchor="IANA" title="IANA Considerations" toc="default">
+  <t>This document requests IANA actions to allocate code points for the protocol elements defined in this document.</t> 
+ <section anchor="PCEP-Error-Object" title="PCEP-Error Object" toc="default">
+  <t>IANA is requested to make the following allocation in the "PCEP-ERROR Object Error Types and Values" registry.</t> 
+ <figure title="" suppress-title="false" align="left" alt="" width="" height="">
+ <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+ <![CDATA[ 
+Error-Type Meaning                        Reference
+    6      Mandatory Object missing       [RFC5440]
+           Error-Value= TBD(suggested     This document
+           value 12): LSP-DB-VERSION TLV
+           missing
+    20     LSP State synchronization      [I-D.ietf-pce-stateful-pce]
+           error
+           Error-Value= TBD(suggested     This document
+           value 2): LSP Database version
+           mismatch.
+           Error-Value=TBD(suggested      This document
+           value 3): The LSP-DB-VERSION
+           TLV Missing when state
+           synchronization avoidance is
+           enabled.
+           Error-Value=TBD(suggested      This document
+           value 4): Attempt to trigger a
+           synchronization when the
+           PCE triggered synchronization
+           capability has not been
+           advertised.
+           Error-Value=TBD(suggested      This document
+           value 6): No sufficient LSP
+           change information for
+           incremental LSP state
+           synchronization.
+           Error-Value=TBD(suggested      This document
+           value 7):  Received an invalid
+           LSP DB Version Number
+             
+
+  ]]> 
+  </artwork>
+  </figure>
+ <!-- 
+        <vspace blankLines="1" />
+        <?rfc subcompact="yes"?>
+        <list style="hanging" hangIndent="13">
+          <t hangText=" Error-Type">Meaning</t>
+
+          <t hangText="    6">Mandatory Object missing
+          <list style="hanging" hangIndent="17">
+            <t hangText=" Error-value=12:">LSP-DB-VERSION TLV missing</t>
+          </list>
+          </t>
+          <t hangText="    20">LSP State synchronization error
+          <list style="hanging" hangIndent="17">
+            <t hangText=" Error-value=2:">LSP Database version mismatch.</t>
+            <t hangText=" Error-value=3:">The LSP-DB-VERSION TLV Missing when
+            state synchronization avoidance is enabled.</t>
+            <t hangText=" Error-value=4:">Attempt to trigger a synchronization when
+            the TRIGGERED-SYNC capability has not been advertised.</t>
+            <t hangText=" Error-value=5:"> No sufficient LSP change information for
+            incremental LSP state synchronization. </t>
+            <t hangText=" Error-value=6:"> Received an invalid LSP DB Version Number </t>
+          </list>
+          </t>
+        </list>
+        </t>
+
+  --> 
+  </section>
+ <!--  iana-pcep-error-object 
+  --> 
+ <section anchor="PCEP-TLV-Type-Indicators" title="PCEP TLV Type Indicators" toc="default">
+  <t>IANA is requested to make the following allocation in the "PCEP TLV Type Indicators" registry. </t> 
+ <texttable anchor="PCEP-New-TLV-CP" style="none" suppress-title="true" title="" align="center">
+  <ttcol align="left" width="20%">Value</ttcol> 
+  <ttcol align="left" width="30%">Meaning</ttcol> 
+  <ttcol align="left" width="20%">Reference</ttcol> 
+  <c>TBD(suggested value 23)</c> 
+  <c> LSP-DB-VERSION</c> 
+  <c>This document</c> 
+  <c>TBD(suggested value 24)</c> 
+  <c> SPEAKER-ENTITY-ID</c> 
+  <c>This document</c> 
+  </texttable>
+  </section>
+ <!--  TLV-type-indicators 
+  --> 
+ <section anchor="STATEFUL-PCE-CAPABILITY-TLV-CP" title="STATEFUL-PCE-CAPABILITY TLV" toc="default">
+  <?rfc subcompact="no"?> 
+  <t>The STATEFUL-PCE-CAPABILITY TLV is defined in <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />  and a registry is requested to be created to manage the flags in the TLV.  IANA is requested to make the following allocation in the aforementioned registry.</t> 
+ <texttable anchor="STATEFUL-PCE-CAPABILITY-TLV-Flags" style="none" suppress-title="true" title="" align="center">
+  <ttcol align="left" width="20%">Bit</ttcol> 
+  <ttcol align="left" width="30%">Description</ttcol> 
+  <ttcol align="left" width="20%">Reference</ttcol> 
+  <c>TBD(suggested value 26)</c> 
+  <c>TRIGGERED-INITIAL-SYNC</c> 
+  <c>This document</c> 
+  <c>TBD(suggested value 27)</c> 
+  <c>DELTA-LSP-SYNC-CAPABILITY</c> 
+  <c>This document</c> 
+  <c>TBD(suggested value 28)</c> 
+  <c>TRIGGERED-RESYNC</c> 
+  <c>This document</c> 
+  <c>TBD(suggested value 30)</c> 
+  <c>INCLUDE-DB-VERSION</c> 
+  <c>This document</c> 
+  </texttable>
+  </section>
+ <!-- Stateful-pce-capability-tlv-cp 
+  --> 
+  </section>
+ <!--  IANA 
+  --> 
+ <section title="Manageability Considerations" toc="default">
+ <t>
+  All manageability requirements and considerations listed in <xref target="RFC5440" pageno="false" format="default" /> 
+  and <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" /> 
+  apply to PCEP protocol extensions defined in this document. In addition, requirements and considerations listed in this section apply. 
+  </t>
+ <section title="Control of Function and Policy" toc="default">
+ <t>
+  A PCE or PCC implementation MUST allow configuring the state synchronization optimization capabilities as described in this document. The implementation SHOULD also allow the operator to configure the Speaker Entity Identifier ( 
+  <xref target="SPEAKER-ENTITY-ID-TLV-OPEN" pageno="false" format="default" />). 
+  </t>
+  </section>
+ <section title="Information and Data Models" toc="default">
+  <t>An implementation SHOULD allow the operator to view the stateful capabilities advertised by each peer, and the current synchronization status with each peer.  To serve this purpose, the PCEP MIB module can be extended to include advertised stateful capabilities, and synchronization status.</t> 
+  </section>
+ <section title="Liveness Detection and Monitoring" toc="default">
+ <t>
+  Mechanisms defined in this document do not imply any new liveness detection and monitoring requirements in addition to those already listed in <xref target="RFC5440" pageno="false" format="default" />. 
+  </t>
+  </section>
+ <section title="Verify Correct Operations" toc="default">
+ <t>
+  Mechanisms defined in this document do not imply any new operation verification requirements in addition to those already listed in <xref target="RFC5440" pageno="false" format="default" /> 
+  and <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />. 
+  </t>
+  </section>
+ <section title="Requirements On Other Protocols" toc="default">
+  <t>Mechanisms defined in this document do not imply any new requirements on other protocols.</t> 
+  </section>
+ <section title="Impact On Network Operations" toc="default">
+ <t>
+  Mechanisms defined in this document do not have any impact on network operations in addition to those already listed in 
+  <xref target="RFC5440" pageno="false" format="default" /> 
+  and 
+  <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" />. 
+  </t>
+  </section>
+  </section>
+ <section anchor="Security" title="Security Considerations" toc="default">
+ <t>
+  The security considerations listed in <xref target="I-D.ietf-pce-stateful-pce" pageno="false" format="default" /> 
+  apply to this document as well. However, because the protocol modifications outlined in this document allow the PCE to control state (re)-synchronization timing and sequence, it also introduces a new attack vector: an attacker may flood the PCC with triggered re-synchronization request at a rate which exceeds the PCC's ability to process them, either by spoofing messages or by compromising the PCE itself. The PCC is free to drop any trigger re-synchronization request without additional processing. 
+  </t>
+  </section>
+ <!--  Security 
+  --> 
+ <section anchor="Acknowledgements" title="Acknowledgements" toc="default">
+  <t>We would like to thank Young Lee, Jonathan Hardwick, Sergio Belotti and Cyril Margaria for their comments and discussions.</t> 
+  </section>
+ <!--  Acknowledgements 
+  --> 
+ <section anchor="Contributor" title="Contributors" toc="default">
+ <t>
+  Gang Xie 
+  <vspace blankLines="0" /> 
+  Huawei Technologies 
+  <vspace blankLines="0" /> 
+  F3-5-B R&amp;D Center, Huawei Industrial Base, Bantian, Longgang District 
+  <vspace blankLines="0" /> 
+  Shenzhen, Guangdong, 518129 
+  <vspace blankLines="0" /> 
+  P.R. China 
+  <vspace blankLines="0" /> 
+  Email: xiegang09@huawei.com 
+  <vspace blankLines="0" /> 
+  </t>
+  </section>
+ <!--  Contributor 
+  --> 
+  </middle>
+ <back>
+ <references title="Normative References">
+  <?rfc include="reference.I-D.ietf-pce-stateful-pce"?> 
+  <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"?> 
+  <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.5440.xml"?> 
+  </references>
+ <!--  Normative 
+  --> 
+ <references title="Informative References">
+  <?rfc include="reference.I-D.ietf-pce-pce-initiated-lsp"?> 
+  </references>
+ <!--  Informative 
+  --> 
+  </back>
+  </rfc>

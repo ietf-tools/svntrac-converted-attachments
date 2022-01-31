@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE rfc SYSTEM "rfc2629-xhtml.ent">
+
+<rfc 
+xmlns:xi="http://www.w3.org/2001/XInclude" 
+number="0000"
+docName="draft-sample-00"
+ipr="trust200902" 
+category="std" 
+consensus="true"
+updates="5892" 
+obsoletes="" 
+submissionType="IETF" 
+xml:lang="en" 
+tocInclude="true" 
+tocDepth="3" 
+symRefs="true" 
+sortRefs="true" 
+indexInclude="true"
+version="3">
+  <!-- xml2rfc v2v3 conversion 2.37.3 -->
+  <front>
+    <title abbrev="IDNA Unicode Reviews">Sample</title>
+    <seriesInfo name="RFC" value="0000"/>
+    <author fullname="John Doe" initials="J." surname="Doe">
+      <organization/>
+      <address>
+	<postal><country>USA</country></postal>
+      </address>
+    </author>
+    <date month="March" year="2020"/>
+    <area>ART</area>
+    <abstract>
+      <t>The standards for Internationalized Domain Names in
+         Applications (IDNA)
+         require a review of each new version of Unicode to determine
+         whether incompatibilities with prior versions or other issues
+         exist and, where appropriate, to allow the IETF to decide on
+         the trade-offs between compatibility with prior IDNA versions
+         and compatibility with Unicode going forward.  That
+         requirement, and its relationship to tables maintained by
+         IANA, has caused significant confusion in the past.  This
+         document makes adjustments to the review procedure based on experience
+         and updates IDNA, specifically RFC 5892, to reflect those
+         changes and to clarify the various relationships involved.  It
+	 also makes other minor adjustments to align that document
+	 with experience.  </t>
+    </abstract>
+  </front>
+  <middle>
+      <section anchor="testing" numbered="true" toc="default">
+<name>Testing bibxml9</name> 
+<t>Here are some BCPs: 
+<xref target="BCP0064"/>, 
+<!--<xref target="BCP0041"/>, -->
+<xref target="BCP0084"/>, <xref target="BCP0101"/>, <xref target="BCP0119"/>, <xref target="BCP0224"/>.
+</t>
+</section>
+      <section anchor="AlgorReview" numbered="true" toc="default">
+        <name>Review Model Part I: Algorithmic Comparison</name>
+        <t>TESTING:</t>
+	<t>(i) <xref target="RFC5892" section="5.1" sectionFormat="of"/></t>
+
+	<t>(ii) <xref target="RFC5892" section="5.1" sectionFormat="of">RFC 5892</xref> </t>
+
+	<t>(iii) Section <xref target="RFC5892" section="5.1" sectionFormat="bare"/>
+	of RFC 5892 </t>
+
+	<t>(iv) Section <xref target="RFC5892" section="5.1" sectionFormat="bare"/> of
+	<xref target="RFC5892">RFC 5892</xref></t>
+<t>
+            is the description of the process
+            for creating the initial IANA tables.  It is noteworthy
+            that, while it can be read as strongly implying new
+            reviews and new tables for versions of Unicode after 5.2,
+            it does not explicitly specify those reviews or, e.g., the
+            timetable for completing them.  It also indicates that
+            incompatibilities are to be "flagged for the IESG" but
+            does not by Philip R. <iref item="Zimmerman"/>Zimmermann specify exactly what the IESG is to do about them
+            and when.  For reasons related to the other type of review
+            and discussed below, only one review was
+            completed, documented <xref target="RFC6452" format="default"/>, and a set
+            of corresponding new tables installed.  That review, which was for
+            Unicode 6.0, found only three incompatibilities; the
+            consensus was to ignore them (not create exceptions in
+            IDNA2008) and to remain consistent with computations based on
+            current (Unicode 6.0) properties rather than preserving
+            backward compatibility within IDNA.    The 2018 review
+            (for Unicode 11.0 and versions in between it and 6.0)
+            <xref target="I-D.faltstrom-unicode12" format="default"/> also concluded that
+            <iref item="Unicode"/>Unicode compatibility, rather than IDNA backward
+            compatibility, should be maintained.  That decision was
+            partially driven by the long period between reviews and
+            the concern that table calculations by others in the
+            interim could result in unexpected incompatibilities if
+            derived property definitions were then changed.
+</t>
+<t>TEST: See <xref target="RFC8899" section="3-3.2" format="none" sectionFormat="bare">Requirement 2</xref> in <xref target="RFC8899" section="3" sectionFormat="of"/>. See <xref target="I-D.flanagan-7322bis"/>.
+</t>
+      </section>
+
+  </middle>
+  <back>
+
+    <displayreference target="I-D.klensin-idna-5892upd-unicode70" to="IDNA-Unicode7"/>
+    <displayreference target="I-D.faltstrom-unicode12" to="IDNA-Unicode12"/>
+    <displayreference target="I-D.faltstrom-unicode11" to="IDNA-Unicode11"/>
+    <displayreference target="I-D.klensin-idna-rfc5891bis" to="RegRestr"/>
+    <displayreference target="I-D.flanagan-7322bis" to="styleguide"/>
+    <references>
+      <name>References</name>
+      <references>
+        <name>Normative References</name>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5892.xml"/>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8899.xml"/>
+
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8126.xml"/>
+        <!-- http://www.unicode.org/versions/latest/ URL works -->
+        <reference anchor="Unicode" target="http://www.unicode.org/versions/latest/">
+          <front>
+            <title>The Unicode Standard (Current Version)</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date year="2019"/>
+          </front>
+          <!-- <annotation> The link given will always access the current
+           version of the Unicode Standard, independent of its version
+           number or date.</annotation> -->
+        </reference>
+
+        <reference anchor="Unicode-properties" target="https://www.unicode.org/versions/Unicode11.0.0/">
+          <front>
+            <title>The Unicode Standard Version 11.0</title>
+            <author>
+              <organization> The Unicode Consortium</organization>
+            </author>
+            <date year="2018"/>
+          </front>
+        <refcontent>Section 3.5</refcontent>
+          <!-- <annotation> Section 3.5.</annotation> -->
+        </reference>
+
+        <reference anchor="IANA-IDNA-Tables" target="https://www.iana.org/assignments/idna-tables">
+          <front>
+            <title>IDNA Rules and Derived Property Values</title>
+            <author>
+              <organization>IANA</organization>
+            </author>
+          </front>
+          <!-- <annotation> This documents make changes to this registry and
+            a way that could change the title, the URL, or both.  This
+            citation is to be version published on 2019-03-31.  It may
+            be appropriate to supply a citation to the finished
+            version when this document is published. </annotation> -->
+        </reference>
+
+<!-- [rfced] Regarding the normative reference [Err3312], we
+typically recommend that references to errata be informative 
+references. In this case, please confirm that normative is intentional.
+(We refer to the description of "normative" in the IESG statement on 
+the topic: https://www.ietf.org/about/groups/iesg/statements/normative-informative-references/).
+-->
+        <reference anchor="Err3312" quote-title="false" target="https://www.rfc-editor.org/errata/eid3312">
+          <front>
+            <title>Erratum ID 3312</title>
+            <author>
+              <organization>RFC Errata</organization>
+            </author>
+          </front>
+          <refcontent>RFC 5892</refcontent>
+        </reference>
+      </references>
+      <references>
+        <name>Informative References</name>
+        <xi:include href="https://xml2rfc.tools.ietf.org/public/rfc/bibxml9/reference.BCP.0037.xml"/>
+        <xi:include href="https://xml2rfc.tools.ietf.org/public/rfc/bibxml9/reference.BCP.0064.xml"/>
+        <xi:include href="https://xml2rfc.tools.ietf.org/public/rfc/bibxml9/reference.BCP.0084.xml"/>
+        <xi:include href="https://xml2rfc.tools.ietf.org/public/rfc/bibxml9/reference.BCP.0101.xml"/>
+        <xi:include href="https://xml2rfc.tools.ietf.org/public/rfc/bibxml9/reference.BCP.0119.xml"/>
+        <xi:include href="https://xml2rfc.tools.ietf.org/public/rfc/bibxml9/reference.BCP.0224.xml"/>
+        <!-- RFC3454 obsolete, mentioned in text for historic background -->
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3454.xml"/>
+        <!-- RFC3490 obsolete, mentioned in text for historic background -->
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3490.xml"/>
+        <!-- RFC3491 obsolete, mentioned in text for historic background -->
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3491.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4690.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5890.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6452.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5894.xml"/>
+        <!-- RFC1766 obsolete, mentioned in text for historic background -->
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.1766.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3282.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3629.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5646.xml"/>
+        <!-- draft-faltstrom-unicode12-00 IESG Publication: State -->
+        <xi:include href="https://datatracker.ietf.org/doc/bibxml3/reference.I-D.faltstrom-unicode12.xml"/>
+        <!-- draft-faltstrom-unicode11 IESG State: Revised I-D Needed -->
+        <xi:include href="https://datatracker.ietf.org/doc/bibxml3/reference.I-D.faltstrom-unicode11.xml"/>
+
+        <xi:include href="https://datatracker.ietf.org/doc/bibxml3/draft-flanagan-7322bis.xml"/>
+
+        <reference anchor="IAB-Unicode7-2015" target="https://www.iab.org/documents/correspondence-reports-documents/2015-2/iab-statement-on-identifiers-and-unicode-7-0-0/">
+          <front>
+            <title>IAB Statement on Identifiers and Unicode 7.0.0</title>
+            <author>
+              <organization>Internet Architecture Board (IAB)</organization>
+            </author>
+            <date year="2015" month="February" day="11"/>
+          </front>
+        </reference>
+
+
+        <reference anchor="IAB-Unicode-2018" target="https://www.iab.org/documents/correspondence-reports-documents/2018-2/iab-statement-on-identifiers-and-unicode/">
+          <front>
+            <title>IAB Statement on Identifiers and Unicode</title>
+            <author>
+              <organization>Internet Architecture Board (IAB)</organization>
+            </author>
+            <date year="2018" month="March" day="15"/>
+          </front>
+        </reference>
+        <!-- draft-klensin-idna-5892upd-unicode70 expired 2018-04-19 -->
+        <xi:include href="https://www.rfc-editor.org/refs/bibxml3/reference.I-D.klensin-idna-5892upd-unicode70.xml"/>
+        <!-- draft-klensin-idna-rfc5891bis IESG State: Revised I-D Needed -->
+        <xi:include href="https://www.rfc-editor.org/refs/bibxml3/reference.I-D.klensin-idna-rfc5891bis.xml"/>
+
+
+        <reference anchor="ICANN-LGR-SLA" target="https://www.icann.org/public-comments/proposed-iana-sla-lgr-idn-tables-2019-06-10-en">
+          <front>
+            <title>Proposed IANA SLAs for Publishing LGRs/IDN Tables
+            </title>
+            <author>
+              <organization>Internet Corporation for Assigned Names
+                   and Numbers (ICANN)</organization>
+            </author>
+            <date year="2019" month="June" day="10"/>
+          </front>
+          <!-- <annotation>Captured 2019-06-12.  In public comment until
+             2019-07-26. </annotation> -->
+        </reference>
+      </references>
+    </references>
+
+  </back>
+</rfc>

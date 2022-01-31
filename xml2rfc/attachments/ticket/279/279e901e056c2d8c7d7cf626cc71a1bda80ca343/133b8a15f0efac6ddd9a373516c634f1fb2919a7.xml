@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rfc submissionType="IAB" consensus="yes" category="info" ipr="trust200902" updates="7322" version="3" docName="foo">
+<front>
+ <title abbrev="Non-ASCII in RFCs">The Use of Non-ASCII Characters in RFCs</title>
+
+ <author fullname="Heather Flanagan" initials="H." role="editor"
+            surname="Flanagan">
+    <organization>RFC Editor</organization>
+    <address>
+      <email>rse@rfc-editor.org</email>
+      <uri>http://orcid.org/0000-0002-2647-2220</uri>
+   </address>
+ </author>
+
+ <date month="December" year="2016"/>
+
+ <area>General</area>
+ <workgroup>Internet Architecture Board</workgroup>
+ <keyword>RFC Series, UTF-8, ASCII, format, non-ASCII</keyword>
+
+</front>
+
+
+<middle>
+<section title="Person Names">
+<t>
+Person names may appear in several places within an RFC (e.g., the header, Acknowledgements, and References). When a script
+outside the Unicode Latin blocks <xref target="UNICODE-CHART"/> is used for an
+individual name, an
+author-provided, ASCII-only identifier will appear immediately after the
+non-Latin characters, surrounded by parentheses. This will improve general
+readability of the text.
+</t>
+
+<t>Example header:</t>
+<t>OLD:</t>
+
+<figure>
+<artwork type="example">
+
+Internet Engineering Task Force (IETF)                       J. Tong
+Request for Comments: 7380                                C. Bi, Ed.
+Category: Standards Track                              China Telecom
+ISSN: 2070-1721                                              R. Even
+                                                          Q. Wu, Ed.
+                                                            R. Huang
+                                                              Huawei
+                                                       November 2014
+</artwork>
+</figure>
+
+<t>PROPOSED/NEW:</t>
+<figure>
+<artwork type="example">
+
+Internet Engineering Task Force (IETF)                       J. Tong
+Request for Comments: 7380                                C. Bi, Ed.
+Category: Standards Track                              China Telecom
+ISSN: 2070-1721                                   &#1512;&#1504;&#1493;&#1497; &#1488;&#1503;&#1489; (R. Even)
+                                                    &#21556;&#38054; (Q. Wu), Ed.
+                                                            R. Huang
+                                                              Huawei
+                                                       November 2014
+</artwork>
+</figure>
+
+
+<t>
+Example Acknowledgements section:
+</t>
+<t>OLD:</t>
+<t>
+The following people contributed significant text to early versions of
+this draft: Patrik Faltstrom, William Chan, and Fred Baker.
+</t>
+<t>
+PROPOSED/NEW:</t>
+<t>
+The following people contributed significant text to early versions
+of this draft: Patrik F&#228;ltstr&#246;m (Faltstrom), &#38472;&#26234;&#26124; (William Chan),
+and Fred Baker.
+</t>
+
+<t>Example reference entry:</t>
+<t>OLD:</t>
+<figure><artwork type="example">
+   [RFC6630]  Cao, Z., Deng, H., Wu, Q., and G. Zorn, Ed., "EAP
+              Re-authentication Protocol Extensions for Authenticated
+              Anticipatory Keying (ERP/AAK)", RFC 6630, June 2012.
+</artwork>
+</figure>
+
+<t>NEW</t>
+<figure><artwork type="example">
+   [RFC6630]  Cao, Z., Deng, H., &#21556;&#38054; (Wu, Q.), and G. Zorn, Ed., "EAP
+              Re-authentication Protocol Extensions for Authenticated
+              Anticipatory Keying (ERP/AAK)", RFC 6630, June 2012.
+</artwork>
+</figure>
+</section>
+</middle>
+
+<back>
+
+<references title="Informative References">
+<reference anchor="UNICODE-CHART" target="http://www.unicode.org/charts">
+  <front>
+    <title>The Unicode Standard</title>
+    <author>
+      <organization>The Unicode Consortium</organization>
+    </author>
+    <date />
+  </front>
+</reference>
+</references>
+</back>
+
+</rfc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rfc docName="draft-reschke-xref-tests" submissionType="independent" category="info" ipr="trust200902">
+   <front>
+      <title>Tests for &lt;xref&gt; Element</title>
+      <author surname="Reschke" initials="J." fullname="Julian Reschke"/>
+   </front>
+   <middle>
+      <section>
+         <name>Introduction</name>
+      </section>
+   </middle>
+</rfc>

@@ -1,0 +1,45 @@
+Title: IETF work related to the management and orchestration of network slicing
+Submission Date: 2018-06-15
+URL of the IETF Web page: https://datatracker.ietf.org/liaison/1582/
+
+From: Adrian Farrel <adrian@olddog.co.uk>
+To: Thomas Tovinger <thomas.tovinger@ericsson.com>
+3GPP Liaisons Coordinator <3GPPLiaison@etsi.org>
+Cc: Adrian Farrel <adrian@olddog.co.uk>,Ignas Bagdonas <ibagdona@gmail.com>,Qin Wu <bill.wu@huawei.com>,Warren Kumari <warren@kumari.net>,L2VPN Service Model Discussion List <l2sm@ietf.org>
+Response Contacts: Adrian Farrel <adrian@olddog.co.uk>, Qin Wu <bill.wu@huawei.com>
+Technical Contacts: Adrian Farrel <adrian@olddog.co.uk>,Qin Wu <bill.wu@huawei.com>
+Purpose: For information
+
+Body: We note that 3GPP SA5 is working on Management and orchestration of 5G networks and network slicing (http://www.3gpp.org/NEWS-EVENTS/3GPP-NEWS/1951-SA5_5G) and is considering various existing data models as references.
+
+We would like to take this opportunity to inform you of the status of several pieces of work in the IETF that provide support for network slicing for IP services , L2 services, TE services, and transport networks.
+
+RFC 8299 provides A YANG Data Model for L3VPN Service Delivery.
+This document is a published RFC with IETF consensus.
+https://www.rfc-editor.org/rfc/rfc8299.txt
+
+draft-ietf-l2sm-l2vpn-service-model provides A YANG Data Model for L2VPN Service Delivery.
+This document has achieved working group and IETF consensus, and is currently completing approval for publication as an RFC.
+https://www.ietf.org/id/draft-ietf-l2sm-l2vpn-service-model-10.txt
+
+Two further informational documents developed by the IETF community may help explain this work:
+
+- RFC 8309 sets the previous two documents in context by explaining what the IETF
+   means by the term "Service Model"
+   https://www.rfc-editor.org/rfc/rfc8309.txt
+
+- RFC 8199 provides a YANG module classification that will also assist you in seeing
+   how the IETF's YANG modules fit together.
+   https://www.rfc-editor.org/rfc/rfc8199.txt
+
+You may also be interested in work in the TEAS working group on Abstraction and Control of Traffic Engineered networks (ACTN).
+In particular, there is YANG model for Virtual Network operation in an ACTN context that may be of specific interest to you:
+https://www.ietf.org/id/draft-ietf-teas-actn-vn-yang-00.txt
+
+Wishing you all success in your work,
+Qin Wu and Adrian Farrel
+Co-chairs, IETF L2SM working group
+Attachments:
+
+No document has been attached
+

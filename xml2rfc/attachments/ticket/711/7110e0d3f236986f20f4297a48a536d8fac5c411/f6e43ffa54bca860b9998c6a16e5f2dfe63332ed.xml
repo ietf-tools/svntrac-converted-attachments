@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This XML document is the output of clean-for-DTD.xslt; a tool that strips
+    extensions to RFC 7749 from documents for processing with xml2rfc.
+-->
+<!--TARGET-GENERATOR: 201706-->
+<!--TARGET-VOCABULARY: 3-->
+<?rfc comments="yes"?><?rfc toc="yes"?>
+
+<!DOCTYPE rfc
+  PUBLIC "" "">
+<rfc indexInclude="false" ipr="trust200902" docName="xref-tests" category="std">
+   <front>
+      <title>Tests for &lt;br&gt; element</title>
+      <author initials="J." surname="Reschke" fullname="Julian Reschke">
+         <organization>greenbytes GmbH</organization>
+      </author>
+      <date/>
+      <abstract>
+         <t>Some test cases for &lt;br&gt;.</t>
+      </abstract>
+   </front>
+   <middle>
+      <section anchor="tests" title="Tests">
+         <t>
+          There is a line break<br/>after the word "break".
+        </t>
+      </section>
+      <section anchor="sec-title-br">
+         <name>Line<br/>Break</name>
+         <t>
+          This section has a line break in the title.
+        </t>
+         <t>
+          And here's a reference to the title: <xref target="sec-title-br" format="title"/>.
+        </t>
+      </section>
+   </middle><!--   <back>
+   </back>-->
+</rfc>

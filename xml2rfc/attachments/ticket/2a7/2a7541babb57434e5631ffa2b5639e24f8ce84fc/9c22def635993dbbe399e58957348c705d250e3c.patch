@@ -1,0 +1,198 @@
+--- index.html.rev821	2013-03-11 18:21:05.403310828 +0400
++++ index.html	2013-03-11 18:34:33.690489047 +0400
+@@ -91,24 +91,24 @@
+ 			    <tr>
+ 			      <td class="converter small" height="24"><b> Text: </b> </td>
+ 			      <td class="converter">
+-				<input type="radio" checked="checked" value="txt/ascii" name="modeAsFormat"> plaintext
+-				<input type="radio" value="unpg/ascii" name="modeAsFormat"> ... unpaginated
+-				<input type="radio" value="txt/pdf" name="modeAsFormat"> PDF
++				<label><input type="radio" checked="checked" value="txt/ascii" name="modeAsFormat"> plaintext</label>
++				<label><input type="radio" value="unpg/ascii" name="modeAsFormat"> ... unpaginated</label>
++				<label><input type="radio" value="txt/pdf" name="modeAsFormat"> PDF</label>
+ 			      </td>
+ 			    </tr>
+ 			    <tr>
+ 			      <td class="converter small" height="24"><b> Web page: </b> </td>
+ 			      <td class="converter">
+-				<input type="radio" value="html/ascii" name="modeAsFormat"> HTML
+-				<input type="radio" value="html/pdf" name="modeAsFormat"> PDF
+-				<!-- <input type="radio" value="html/epub" name="modeAsFormat"> ePub -->
++				<label><input type="radio" value="html/ascii" name="modeAsFormat"> HTML</label>
++				<label><input type="radio" value="html/pdf" name="modeAsFormat"> PDF</label>
++				<!-- <label><input type="radio" value="html/epub" name="modeAsFormat"> ePub</label> -->
+ 			      </td>
+ 			    </tr>
+ 			    <tr>
+ 			      <td class="converter small" height="24"><b> Other: </b> </td>
+ 			      <td class="converter">
+-				<input type="radio" value="nr/ascii" name="modeAsFormat"> nroff
+-				<input type="radio" value="xml/ascii" name="modeAsFormat"> expanded XML
++				<label><input type="radio" value="nr/ascii" name="modeAsFormat"> nroff</label>
++				<label><input type="radio" value="xml/ascii" name="modeAsFormat"> expanded XML</label>
+ 			      </td>
+ 			    </tr>
+ 			    <tr>
+@@ -121,9 +121,9 @@
+ 				<b>&nbsp;Output result</b>
+ 			      </td>
+ 			      <td class="converter small">
+-				<input checked="checked" value="toframe" name="type" type="radio"> Use frames to show Warnings &amp; Errors
+-				<input value="ascii" name="type" type="radio"> Window
+-				<input value="binary" name="type" type="radio"> File
++				<label><input checked="checked" value="toframe" name="type" type="radio"> Use frames to show Warnings &amp; Errors</label>
++				<label><input value="ascii" name="type" type="radio"> Window</label>
++				<label><input value="binary" name="type" type="radio"> File</label>
+ 			      </td>
+ 			    </tr>
+ 			    <!-- start debug section --><!-- tr>
+@@ -131,8 +131,8 @@
+ 							       <b>&nbsp;Debugging</b>
+ 							     </td>
+ 			    <td class="converter small">
+-			      <input checked="checked" value="0" name="debug" type="radio"> Off
+-			      <input value="1" name="debug" type="radio"> On
++			      <label><input checked="checked" value="0" name="debug" type="radio"> Off</label>
++			      <label><input value="1" name="debug" type="radio"> On</label>
+ 			    </td>
+ 			    </tr --><!-- end debug section -->
+ 			    <tr>
+@@ -190,24 +190,24 @@
+ 		    <tr>
+ 		      <td class="converter small" height="24"><b> Text: </b> </td>
+ 		      <td class="converter">
+-			<input type="radio" checked="checked" value="txt/ascii" name="modeAsFormat"> plaintext
+-			<input type="radio" value="unpg/ascii" name="modeAsFormat"> ... unpaginated
+-			<input type="radio" value="txt/pdf" name="modeAsFormat"> PDF
++			<label><input type="radio" checked="checked" value="txt/ascii" name="modeAsFormat"> plaintext</label>
++			<label><input type="radio" value="unpg/ascii" name="modeAsFormat"> ... unpaginated</label>
++			<label><input type="radio" value="txt/pdf" name="modeAsFormat"> PDF</label>
+ 		      </td>
+ 		    </tr>
+ 		    <tr>
+ 		      <td class="converter small" height="24"><b> Web page: </b> </td>
+ 		      <td class="converter">
+-			<input type="radio" value="html/ascii" name="modeAsFormat"> HTML
+-			<input type="radio" value="html/pdf" name="modeAsFormat"> PDF
+-			<input type="radio" value="html/epub" name="modeAsFormat"> ePub
++			<label><input type="radio" value="html/ascii" name="modeAsFormat"> HTML</label>
++			<label><input type="radio" value="html/pdf" name="modeAsFormat"> PDF</label>
++			<label><input type="radio" value="html/epub" name="modeAsFormat"> ePub</label>
+ 		      </td>
+ 		    </tr>
+ 		    <tr>
+ 		      <td class="converter small" height="24"><b> Other: </b> </td>
+ 		      <td class="converter">
+-			<input type="radio" value="nr/ascii" name="modeAsFormat"> nroff
+-			<input type="radio" value="xml/ascii" name="modeAsFormat"> expanded XML
++			<label><input type="radio" value="nr/ascii" name="modeAsFormat"> nroff</label>
++			<label><input type="radio" value="xml/ascii" name="modeAsFormat"> expanded XML</label>
+ 		      </td>
+ 		    </tr>
+ 		    <tr>
+@@ -220,8 +220,8 @@
+ 			<b>&nbsp;Checking</b>
+ 		      </td>
+ 		      <td class="converter small">
+-			<input checked="checked" value="strict" name="checking" type="radio"> Strict
+-			<input                   value="fast" name="checking" type="radio"> Fast
++			<label><input checked="checked" value="strict" name="checking" type="radio"> Strict</label>
++			<label><input                   value="fast" name="checking" type="radio"> Fast</label>
+ 		      </td>
+ 		    </tr>
+ 		    <tr>
+@@ -229,9 +229,9 @@
+ 			<b>&nbsp;Output result</b>
+ 		      </td>
+ 		      <td class="converter small">
+-			<input checked="checked" value="toframe" name="type" type="radio"> Use frames to show Warnings &amp; Errors
+-			<input value="ascii" name="type" type="radio"> Window
+-			<input value="binary" name="type" type="radio"> File
++			<label><input checked="checked" value="toframe" name="type" type="radio"> Use frames to show Warnings &amp; Errors</label>
++			<label><input value="ascii" name="type" type="radio"> Window</label>
++			<label><input value="binary" name="type" type="radio"> File</label>
+ 		      </td>
+ 		    </tr>
+ 		    <!-- start debug section --><!-- tr>
+@@ -239,8 +239,8 @@
+ 						       <b>&nbsp;Debugging</b>
+ 						     </td>
+ 		    <td class="converter small">
+-		      <input checked="checked" value="0" name="debug" type="radio"> Off
+-		      <input value="1" name="debug" type="radio"> On
++		      <label><input checked="checked" value="0" name="debug" type="radio"> Off</label>
++		      <label><input value="1" name="debug" type="radio"> On</label>
+ 		    </td>
+ 		    </tr --><!-- end debug section -->
+ 		    <!--
+@@ -637,12 +637,12 @@
+ 		      <b>&nbsp;Output mode</b>
+ 		    </td>
+ 		    <td class="converter">
+-		      <input checked="checked" value="txt" name="mode" type="radio"> Text
+-		      <input value="html" name="mode" type="radio"> HTML
+-		      <input value="htmlxslt" name="mode" type="radio"> <font size='-1'>(via xslt)</font>
+-		      <input value="nr" name="mode" type="radio"> nroff
+-		      <input value="unpg" name="mode" type="radio"> unpaginated
+-		      <input value="xml" name="mode" type="radio"> XML
++		      <label><input checked="checked" value="txt" name="mode" type="radio"> Text</label>
++		      <label><input value="html" name="mode" type="radio"> HTML</label>
++		      <label><input value="htmlxslt" name="mode" type="radio"> <font size='-1'>(via xslt)</font></label>
++		      <label><input value="nr" name="mode" type="radio"> nroff</label>
++		      <label><input value="unpg" name="mode" type="radio"> unpaginated</label>
++		      <label><input value="xml" name="mode" type="radio"> XML</label>
+ 		    </td>
+ 		  </tr>
+ 		  <tr>
+@@ -650,11 +650,11 @@
+ 		      <b>&nbsp;Output format</b>
+ 		    </td>
+ 		    <td class="converter small">
+-		      <input checked="checked" value="ascii" name="format" type="radio"> ASCII
+-		      <input value="pdf" name="format" type="radio"> PDF
+-		      <input value="epub" name="format" type="radio"> ePub
+-		      <input value="rtf" name="format" type="radio"> RTF
+-		      <input value="ps" name="format" type="radio"> PostScript
++		      <label><input checked="checked" value="ascii" name="format" type="radio"> ASCII</label>
++		      <label><input value="pdf" name="format" type="radio"> PDF</label>
++		      <label><input value="epub" name="format" type="radio"> ePub</label>
++		      <label><input value="rtf" name="format" type="radio"> RTF</label>
++		      <label><input value="ps" name="format" type="radio"> PostScript</label>
+ 		    </td>
+ 		  </tr>
+ 		  <tr>
+@@ -662,8 +662,8 @@
+ 		      <b>&nbsp;Checking</b>
+ 		    </td>
+ 		    <td class="converter small">
+-		      <input checked="checked" value="strict" name="checking" type="radio"> Strict
+-		      <input                   value="fast" name="checking" type="radio"> Fast
++		      <label><input checked="checked" value="strict" name="checking" type="radio"> Strict</label>
++		      <label><input                   value="fast" name="checking" type="radio"> Fast</label>
+ 		    </td>
+ 		  </tr>
+ 		  <tr>
+@@ -671,9 +671,9 @@
+ 		      <b>&nbsp;Output result</b>
+ 		    </td>
+ 		    <td class="converter small">
+-		      <input checked="checked" value="toframe" name="type" type="radio"> Use frames to show Warnings &amp; Errors
+-		      <input value="ascii" name="type" type="radio"> Window
+-		      <input value="binary" name="type" type="radio"> File
++		      <label><input checked="checked" value="toframe" name="type" type="radio"> Use frames to show Warnings &amp; Errors</label>
++		      <label><input value="ascii" name="type" type="radio"> Window</label>
++		      <label><input value="binary" name="type" type="radio"> File</label>
+ 		    </td>
+ 		  </tr>
+ 		  <!-- start debug section --><tr>
+@@ -681,8 +681,8 @@
+ 						     <b>&nbsp;Debugging</b>
+ 						   </td>
+ 		  <td class="converter small">
+-		    <input checked="checked" value="0" name="debug" type="radio"> Off
+-		    <input value="1" name="debug" type="radio"> On
++		    <label><input checked="checked" value="0" name="debug" type="radio"> Off</label>
++		    <label><input value="1" name="debug" type="radio"> On</label>
+ 		  </td>
+ 		  </tr><!-- end debug section -->
+ 		  <tr>

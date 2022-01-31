@@ -1,0 +1,15 @@
+<rfc submissionType="IETF" category="exp" ipr="trust200902">
+  <front>
+    <title>Test</title>
+    <author surname="Nominous" initials="A.">
+    </author>
+  </front>
+  <middle>
+    <section title="Unnumbered" numbered="false">
+      <t>foo</t>
+      <section title="Unnumbered subsection">
+        <t>bar</t>
+      </section>
+    </section>
+  </middle>
+</rfc>

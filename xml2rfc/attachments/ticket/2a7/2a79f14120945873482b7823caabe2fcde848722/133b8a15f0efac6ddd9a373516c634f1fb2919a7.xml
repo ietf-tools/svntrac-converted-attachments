@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+
+<!--  USED xml2rfc v2 -->
+
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY rfc2119 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY rfc3611 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3611.xml">
+<!ENTITY rfc4566 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4566.xml">
+<!ENTITY rfc3550 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3550.xml">
+<!ENTITY rfc5725 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5725.xml">
+<!ENTITY rfc6776 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6776.xml">
+<!ENTITY rfc6709 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6709.xml">
+<!ENTITY rfc6792 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6792.xml">
+<!ENTITY rfc6390 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6390.xml">
+<!ENTITY rfc5109 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5109.xml">
+<!ENTITY rfc4588 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4588.xml">
+<!ENTITY rfc5234 PUBLIC ""
+"http://xml.resource.org/public/rfc/bibxml/reference.RFC.5234.xml">
+<!ENTITY rfc5481 PUBLIC "" "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5481.xml">
+]>
+
+<rfc number="XXXX" category="std" submissionType="IETF" consensus="yes" ipr="trust200902">
+
+  <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+
+  <?rfc toc="yes" ?>
+  <?rfc symrefs="yes" ?>
+  <?rfc sortrefs="yes"?>
+  <?rfc rfcedstyle="yes"?>
+  <?rfc compact="yes"?>  
+  <?rfc subcompact="no"?>
+
+  <front>
+    <title abbrev="RTCP XR Burst/Gap Discard">RTP Control Protocol (RTCP)
+    Extended Report (XR) Block for&nbsp;Burst/&wj;Gap&nbsp;Discard&nbsp;Metric&nbsp;Reporting</title>
+
+    <author fullname="Alan Clark" initials="A." surname="Clark">
+      <organization abbrev="Telchemy">Telchemy Incorporated</organization>
+
+      <address>
+        <postal>
+          <street>2905 Premiere Parkway, Suite 280</street>
+
+          <city>Duluth</city>
+
+          <region>GA</region>
+
+          <code>30097</code>
+
+          <country>USA</country>
+        </postal>
+
+        <email>alan.d.clark@telchemy.com</email>
+      </address>
+    </author>
+
+    <author fullname="Rachel Huang" initials="R" surname="Huang">
+      <organization abbrev="Huawei">Huawei Technologies Co.,
+      Ltd.</organization>
+
+      <address>
+        <postal>
+          <street>101 Software Avenue, Yuhua District</street>
+
+          <city>Nanjing</city>
+
+          <region>Jiangsu</region>
+
+          <code>210012</code>
+
+          <country>China</country>
+        </postal>
+
+        <email>Rachel@huawei.com</email>
+      </address>
+    </author>
+
+    <author fullname="Qin Wu" initials="Q." role="editor" surname="Wu">
+      <organization>Huawei</organization>
+
+      <address>
+        <postal>
+          <street>101 Software Avenue, Yuhua District</street>
+
+          <city>Nanjing</city>
+
+          <region>Jiangsu</region>
+
+          <code>210012</code>
+
+          <country>China</country>
+        </postal>
+
+        <email>sunseawq@huawei.com</email>
+      </address>
+    </author>
+
+    <date month="July" year="2013" />
+
+    <area>Real-time Applications and Infrastructure Area</area>
+
+    <workgroup>Audio/Video Transport Working Group</workgroup>
+
+    <keyword>Real Time Control Protocol</keyword>
+
+
+    <abstract>
+      <t>This document defines an RTP Control Protocol (RTCP) Extended Report
+      (XR) block that allows the reporting of burst and gap discard metrics
+      for use in a range of RTP applications.</t>
+    </abstract>
+  </front>
+
+  <middle>
+    <section anchor="intro" title="Introduction">
+      <section title="Burst/Gap Discard Metrics Block">
+        <t>This document defines a new block type to augment those defined in
+        <xref target="RFC3611"></xref> for use in a range of RTP applications.
+        The new block type supports the reporting of the proportion of packets
+        discarded by the jitter buffer at the receiver, using packet discard
+        logic according to the jitter buffer algorithms. The discards during
+        discard bursts are reported, together with the number of bursts. This
+        block is intended to be used in conjunction with <xref
+        target="RFC7002"></xref>, which provides the total packets discarded and
+        on which this block therefore depends. However, the metric in <xref
+        target="RFC7002"></xref> may be used independently of the metrics in
+        this block.</t>
+
+        <t>This block provides information on transient IP problems. Burst/gap
+        metrics are typically used in cumulative reports; however, they also
+        may be used in interval reports (see the Interval Metric flag in
+        Section 3.2). The burstiness of packet discard affects user
+        experience, may influence any sender strategies to mitigate the
+        problem, and may also have diagnostic value.</t>
+
+        <t>The metric belongs to the class of transport-related end-system
+        metrics defined in <xref target="RFC6792"></xref>.</t>
+
+        <t>The definitions of "burst", "gap", "loss", and "discard" are consistent with
+        the definitions in <xref target="RFC3611"></xref>. To accommodate the
+        range of jitter buffer algorithms and packet discard logic that may be
+        used by implementors, the method used to distinguish between bursts
+        and gaps shall use an equivalent method to that defined in Section
+        4.7.2 of <xref target="RFC3611"></xref>. Note that reporting the
+        specific jitter buffer algorithms and/or packet discard logic is out
+        of the scope of this document.</t>
+      </section>
+
+      <section title="RTCP and RTCP Extended Reports">
+        <t>The use of RTCP for reporting is defined in <xref
+        target="RFC3550"></xref>. <xref target="RFC3611"></xref> defined an
+        extensible structure for reporting using an RTCP Extended Report (XR).
+        This document defines a new Extended Report block for use with <xref
+        target="RFC3550"></xref> and <xref target="RFC3611"></xref>.</t>
+      </section>
+
+      <section title="Performance Metrics Framework">
+        <t>The Performance Metrics Framework <xref target="RFC6390"></xref>
+        provides guidance on the definition and specification of performance
+        metrics. The RTP Monitoring Framework <xref
+        target="RFC6792"></xref> provides guidelines for reporting block format
+        using RTCP XR. The metrics block described in this document is in
+        accordance with the guidelines in <xref target="RFC6390"></xref> and
+        <xref target="RFC6792"></xref>.</t>
+      </section>
+
+      <section title="Applicability">
+        <t>These metrics are applicable to a range of RTP applications that
+        contain de-jitter buffers <xref target="RFC5481"></xref> at the
+        receiving end to smooth variation in packet-arrival time and don't
+        use stream repair means, e.g., Forward Error Correction (FEC) <xref
+        target="RFC5109"></xref> and/or retransmission <xref
+        target="RFC4588"></xref>.</t>
+      </section>
+    </section>
+
+    <section title="Terminology">
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+        document are to be interpreted as described in <xref
+        target="RFC2119">RFC 2119</xref>.</t>
+
+        <t>In addition, the following terms are defined:</t>
+
+        <t><list style="hanging">
+            <t hangText="Received, Lost, and Discarded"><vspace
+            blankLines="1" />A packet shall be regarded as "lost" if it fails to
+            arrive within an implementation-specific time window. A packet
+            that arrives within this time window but is too early to be
+            played out, too late to be played out, or thrown away before
+            playout due to packet duplication or redundancy shall be regarded
+            as discarded. A packet shall not be regarded as discarded if it
+            arrives within this time window but is dropped during decoding by
+            some higher-layer decoder, e.g., due to a decoding error. A packet
+            shall be classified as one of received (or OK), discarded, or lost.
+            The metric "cumulative number of packets lost" defined in <xref
+            target="RFC3550"></xref> reports a count of packets lost from the
+            media stream (single synchronization source (SSRC) within a single RTP session). Similarly,
+            the metric "number of packets discarded" defined in <xref
+            target="RFC7002"></xref> reports a count of packets discarded from
+            the media stream (single SSRC within a single RTP session) arriving
+            at the receiver. Another metric, defined in <xref
+            target="RFC5725"></xref>, is available to report on packets that
+            are not recovered by any repair techniques that may be in use.
+            Note that the term "discard" defined here builds on the "discard"
+            definition in <xref target="RFC3611"></xref> but extends the concept
+            to take into account packet duplication and reports different
+            types of discard counts <xref target="RFC7002"></xref>. </t>
+
+            <t hangText="Bursts and Gaps"><vspace blankLines="1" />The terms
+            "burst" and "gap" are used in a manner consistent with that of RTCP XR
+            <xref target="RFC3611"/>. RTCP XR views an RTP stream as being divided into
+            bursts, which are periods during which the discard rate is high
+            enough to cause noticeable quality degradation (generally over 5
+            percent discard rate), and gaps, which are periods during which
+            discarded packets are infrequent and hence quality is generally
+            acceptable. </t>
+          </list></t>
+
+    </section>
+
+    <section title="Burst/Gap Discard Metrics Block">
+      <t>Metrics in this block report on burst/gap discard in the stream
+      arriving at the RTP system. Measurements of these metrics are made at
+      the receiving end of the RTP stream. Instances of this metrics block
+      use the synchronization source (SSRC) to refer to the separate auxiliary
+      Measurement Information Block <xref target="RFC6776"></xref>, which
+      describes measurement periods in use (see <xref target="RFC6776"></xref>, Section 4.2).</t>
+
+      <t>This metrics block relies on the measurement period in the
+      Measurement Information Block indicating the span of the report. Senders
+      MUST send this block in the same compound RTCP packet as the Measurement
+      Information Block. Receivers MUST verify that the measurement period is
+      received in the same compound RTCP packet as this metrics block. If not,
+      this metrics block MUST be discarded.</t>
+
+      <section title="Report Block Structure">
+        <t>The structure of the Burst/Gap Discard Metrics Block is as follows.<figure
+            title="Figure 1: Report Block Structure">
+            <artwork>
+       0                   1                   2                   3
+       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |     BT=20     | I |   resv    |      Block Length = 3         |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |                        SSRC of Source                         |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |   Threshold   |         Packets Discarded in Bursts           |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |       Total Packets Expected in Bursts        |   Reserved    | 
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</artwork>
+          </figure></t>
+      </section>
+
+      <section title="Definition of Fields in Burst/Gap Discard Metrics Block">
+        <t><list style="hanging">
+            <t hangText="Block Type (BT): 8 bits"><vspace blankLines="1" />A
+            Burst/Gap Discard Metrics Block is identified by the constant
+            20.</t>
+
+            <t hangText="Interval Metric flag (I): 2 bits"><vspace
+            blankLines="1" />This field is used to indicate whether the
+            burst/gap discard metrics are Sampled, Interval, or Cumulative
+            metrics <xref target="RFC6792"></xref>: <list>
+                <t>I=10: Interval Duration - the reported value applies to the
+                most recent measurement interval duration between successive
+                metrics reports.</t>
+
+                <t>I=11: Cumulative Duration - the reported value applies to
+                the accumulation period characteristic of cumulative
+                measurements.</t>
+
+                <t>I=01: Sampled Value - the reported value is a sampled
+                instantaneous value.</t>
+              </list>In this document, burst/gap discard metrics can only be
+            measured over definite intervals and cannot be sampled. Also, the
+            value I=00 is reserved for future use. Senders MUST NOT use the
+            values I=00 or I=01. If a block is received with I=00 or I=01, the
+            receiver MUST discard the block. </t>
+
+            <t hangText="Reserved (resv): 6 bits"><vspace
+            blankLines="1" />These bits are reserved. They MUST be set to zero
+            by senders and ignored by receivers (see <xref target="RFC6709"></xref>, Section 4.2).
+            </t>
+
+            <t hangText="Block Length: 16 bits"><vspace blankLines="1" /> The
+            length of this report block in 32-bit words, minus one. For the
+            Burst/Gap Discard Metrics Block, the block length is equal to 3. The block
+            MUST be discarded if the block length is set to a different
+            value.</t>
+
+            <t hangText="SSRC of Source: 32 bits"><vspace blankLines="1" />As
+            defined in Section 4.1 of <xref target="RFC3611"></xref>.</t>
+
+            <t hangText="Threshold: 8 bits"><vspace blankLines="1" />The
+            Threshold is equivalent to Gmin in <xref target="RFC3611"></xref>,
+            i.e., the number of successive packets that must not be discarded
+            prior to and following a discard packet in order for this
+            discarded packet to be regarded as part of a gap. Note that the
+            Threshold is set in accordance with the Gmin calculation defined in
+            Section 4.7.2 of <xref target="RFC3611"></xref>.</t>
+
+            <t hangText="Packets Discarded in Bursts: 24 bits"><vspace
+            blankLines="1" />The total number of packets discarded during
+            discard bursts.<vspace blankLines="1" />The measured value is
+            unsigned value. If the measured value exceeds 0xFFFFFD, the value
+            0xFFFFFE MUST be reported to indicate an over-range measurement.
+            If the measurement is unavailable, the value 0xFFFFFF MUST be
+            reported. </t>
+
+            <t hangText="Total Packets Expected in Bursts: 24 bits"><vspace
+            blankLines="1" />The total number of packets expected during
+            discarded bursts (that is, the sum of received packets and lost
+            packets). <vspace blankLines="1" />The measured value is unsigned
+            value. If the measured value exceeds 0xFFFFFD, the value 0xFFFFFE
+            MUST be reported to indicate an over-range measurement. If the
+            measurement is unavailable, the value 0xFFFFFF MUST be reported.
+            </t>
+
+            <t hangText="Reserved: 8 bits"><vspace
+            blankLines="1" />These bits are reserved. They MUST be set to zero
+            by senders and ignored by receivers (See <xref target="RFC6709"/>, Section 4.2).
+            </t>
+          </list></t>
+      </section>
+
+      <section title="Derived Metrics Based on Reported Metrics">
+        <t>The metrics described here are intended to be used in conjunction
+        with information from the Measurement Information Block <xref
+        target="RFC6776"></xref> and also with the metric "number of packets
+        discarded" provided in the RTCP XR Discard Count Metrics Block <xref
+        target="RFC7002"></xref>.</t>
+
+        <t>These metrics provide the following information relevant to
+        statistical parameters, including:<list style="symbols">
+            <t>The fraction of packets discarded during bursts (Burst Discard
+            Rate in <xref target="RFC7004"></xref>), which can be calculated
+            using the metric "Packets Discarded in Bursts" and the metric
+"Total Packets Expected in Bursts" provided in the Burst/Gap
+            Discard Metrics Block.</t>
+
+            <t>The fraction of packets discarded during gaps (Gap Discard Rate
+            in <xref target="RFC7004"></xref>), which can be calculated using
+            the metric "Packets Discarded in Bursts" and the metric "Total
+            Packets Expected in Bursts" provided in the Burst/Gap Discard
+            Metrics Block.</t>
+          </list></t>
+
+        <t>The details on calculation these parameters in the metrics are
+        described in <xref target="RFC7004"></xref>.</t>
+      </section>
+    </section>
+
+    <section title="Considerations for Voice-over-IP Applications">
+      <t>This metrics block is applicable to a broad range of RTP
+      applications. Where the metric is used with a Voice-over-IP (VoIP)
+      application and the stream repair means is not available, the following
+      considerations apply.</t>
+
+      <t>RTCP XR views a call as being divided into bursts, which are periods
+      during which the discard rate is high enough to cause noticeable call
+      quality degradation (generally over 5 percent discard rate) and gaps,
+      which are periods during which discarded packets are infrequent and
+      hence call quality is generally acceptable.</t>
+
+      <t>If voice activity detection is used, the burst and gap duration shall
+      be determined as if silence packets had been sent, i.e., a period of
+      silence in excess of Gmin packets will terminate a burst condition.</t>
+
+      <t>The recommended value for the threshold Gmin in <xref
+      target="RFC3611"></xref> results in a burst being a period of time
+      during which the call quality is degraded to a similar extent to a
+      typical pulse code modulation (PCM) severely errored second.</t>
+    </section>
+
+    <section title="SDP Signaling">
+      <t><xref target="RFC3611"/> defines the use of SDP (Session Description Protocol) <xref
+      target="RFC4566"></xref> for signaling the use of XR blocks. XR blocks
+      MAY be used without prior signaling.</t>
+
+      <section title="SDP rtcp-xr Attribute Extension">
+        <t>This section augments the SDP <xref target="RFC4566"></xref>
+        attribute "rtcp-xr" defined in <xref target="RFC3611"></xref> by
+        providing an additional value of "xr-format" to signal the use of the
+        report block defined in this document. The ABNF <xref
+target="RFC5234"/> syntax is as follows.<figure>
+            <artwork>
+xr-format =/ xr-bgd-block
+
+xr-bgd-block = "burst-gap-discard"
+</artwork>
+          </figure></t>
+      </section>
+
+      <section title="Offer/Answer Usage">
+        <t>When SDP is used in Offer/Answer context, the SDP Offer/Answer
+        usage defined in <xref target="RFC3611"></xref> for unilateral
+        "rtcp-xr" attribute parameters applies. For detailed usage in
+        Offer/Answer for unilateral parameters, refer to Section 5.2 of <xref
+        target="RFC3611"></xref>.</t>
+      </section>
+    </section>
+
+    <section title="IANA Considerations">
+      <t>New block types for RTCP XR are subject to IANA registration. For
+      general guidelines on IANA considerations for RTCP XR, refer to <xref
+      target="RFC3611"></xref>.</t>
+
+      <section title="New RTCP XR Block Type Value">
+        <t>This document assigns the block type value 20 in the IANA "RTP
+        Control Protocol Extended Reports (RTCP XR) Block Type Registry" to
+        the "Burst/Gap Discard Metrics Block".</t>
+
+      </section>
+
+      <section title="New RTCP XR SDP Parameter">
+        <t>This document also registers a new parameter "burst-gap-discard" in
+        the "RTP Control Protocol Extended Reports (RTCP XR) Session
+        Description Protocol (SDP) Parameters Registry".</t>
+      </section>
+
+      <section title="Contact Information for Registrations">
+        <t>
+           
+The contact information for the registrations is:
+
+<figure><artwork>
+Qin Wu (sunseawq@huawei.com)
+101 Software Avenue, Yuhua District
+Nanjing, Jiangsu  210012
+China
+</artwork></figure>
+</t>
+   </section>
+    </section>
+
+    <section title="Security Considerations">
+      <t>It is believed that this RTCP XR block introduces no
+      new security considerations beyond those described in <xref
+      target="RFC3611"></xref>. This block does not provide per-packet
+      statistics, so the risk to confidentiality documented in Section 7,
+      paragraph 3 of <xref target="RFC3611"></xref> does not apply.</t>
+    </section>
+
+    <section title="Contributors">
+      <t>Geoff Hunt wrote the initial draft of this document.</t>
+    </section>
+
+    <section title="Acknowledgments">
+      <t>The authors gratefully acknowledge reviews and feedback provided by
+      Bruce Adams, Philip Arden, Amit Arora, Claire Bi, Bob Biskner, Benoit
+Claise, Kevin Connor, Claus
+      Dahm, Randy Ethier, Roni Even, Stephen Farrell, Jim Frauenthal, Albert Higashi, Tom Hock,
+      Shane Holthaus, Paul Jones, Rajesh Kumar, Paul Kyzivat, Keith Lantz, Mohamed Mostafa,
+      Amy Pendleton, Colin Perkins, Mike Ramalho, Ravi Raviraj, Dan Romascanu, Albrecht
+      Schwarz, Tom Taylor, and Hideaki Yamada.</t>
+    </section>
+  </middle>
+
+  <back>
+    <references title="Normative References">
+
+&rfc2119;
+&rfc3611;
+&rfc4566;
+&rfc3550;
+&rfc5234;
+&rfc5725;
+&rfc6776;
+
+
+
+      <reference anchor="RFC7002">
+        <front>
+          <title>RTP Control Protocol (RTCP) Extended Report (XR) for Discard Count Metric
+          Reporting</title>
+
+          <author fullname="Alan Clark" initials="A." surname="Clark">
+            <organization></organization>
+          </author>
+
+          <author fullname="Glen Zorn" initials="G." surname="Zorn">
+            <organization></organization>
+          </author>
+
+          <author fullname="Qin Wu" initials="Q." surname="Wu">
+            <organization></organization>
+          </author>
+
+          <date month="July" year="2013" />
+        </front>
+
+        <seriesInfo name="RFC" value="7002" />
+
+      </reference>
+
+
+
+      <reference anchor="RFC7004">
+        <front>
+          <title>RTP Control Protocol (RTCP) Extended Report (XR) Blocks for Summary Statistics Metrics Reporting</title>
+
+          <author fullname="Glen Zorn" initials="G." surname="Zorn">
+            <organization></organization>
+          </author>
+
+          <author fullname="Roland Schott" initials="R." surname="Schott">
+            <organization></organization>
+  </author>
+
+          <author fullname="Qin Wu" initials="Q." surname="Wu" role="editor">
+            <organization></organization>
+  </author>
+
+          <author fullname="Rachel Huang" initials="R." surname="Huang">
+            <organization></organization>
+  </author>
+
+          <date month="July" year="2013" />
+        </front>
+
+        <seriesInfo name="RFC"
+                    value="7004" />
+
+      </reference>
+    </references>
+
+    <references title="Informative References">
+
+&rfc6709;
+&rfc6792;
+&rfc6390;
+&rfc5109;
+&rfc4588;
+&rfc5481;
+
+    </references>
+
+    <section title="Metrics Represented Using the Template from RFC 6390">
+
+      <t><list style="letters">
+          <t>Threshold Metric
+
+<list style="symbols">
+              <t>Metric Name: Threshold in RTP</t>
+
+              <t>Metric Description: The Threshold is equivalent to Gmin in
+              <xref target="RFC3611"/>, i.e., the number of successive packets that must not
+              be discarded prior to and following a discard packet in order
+              for this discarded packet to be regarded as part of a
+              gap. </t>
+
+              <t>Method of Measurement or Calculation: See Section 3.2,
+              Threshold definition. </t>
+
+              <t>Units of Measurement: See Section 3.2, Threshold definition.  </t>
+
+              <t>Measurement Point(s) with Potential Measurement Domain: See
+              Section 3, 1st paragraph. </t>
+
+              <t>Measurement Timing: See Section 3, 2nd paragraph
+              for measurement timing and Section 3.2 for Interval
+              Metric flag.  </t>
+
+              <t>Use and Applications: See Section 1.4.</t>
+
+              <t>Reporting Model: See RFC 3611. </t>
+            </list></t>
+
+          <t>Packets Discarded in Bursts Metric <list
+              style="symbols">
+              <t>Metric Name: RTP packets discarded in bursts</t>
+
+              <t>Metric Description: The total number of RTP packets discarded
+              during discard bursts. </t>
+
+              <t>Method of Measurement or Calculation: See Section 3.2,
+              Packets Discarded in Bursts definition.</t>
+
+              <t>Units of Measurement: See Section 3.2, Packets Discarded in
+              Bursts definition. </t>
+
+              <t>Measurement Point(s) with Potential Measurement Domain: See
+              Section 3, 1st paragraph. </t>
+
+              <t>Measurement Timing: See Section 3, 2nd paragraph
+              for measurement timing and Section 3.2 for Interval
+              Metric flag.  </t>
+
+              <t>Use and Applications: See Section 1.4.</t>
+
+              <t>Reporting Model: See RFC 3611. </t>
+            </list></t>
+
+          <t>Total Packets Expected in Bursts Metric
+
+<list style="symbols">
+              <t>Metric Name: Total RTP packets expected in bursts</t>
+
+              <t>Metric Description: The total number of packets expected
+              during discarded bursts (that is, the sum of received packets
+              and lost packets). </t>
+
+              <t>Method of Measurement or Calculation: See Section 3.2, Total
+              Packets Expected in Bursts definition.</t>
+
+              <t>Units of Measurement: See Section 3.2, Total Packets Expected
+              in Bursts definition. </t>
+
+              <t>Measurement Point(s) with Potential Measurement Domain: See
+              Section 3, 1st paragraph. </t>
+
+              <t>Measurement Timing: See Section 3, 2nd paragraph
+              for measurement timing and Section 3.2 for Interval
+              Metric flag.  </t>
+
+              <t>Use and Applications: See Section 1.4.</t>
+
+              <t>Reporting Model: See RFC 3611. </t>
+            </list></t>
+        </list></t>
+    </section>
+
+  </back>
+</rfc>

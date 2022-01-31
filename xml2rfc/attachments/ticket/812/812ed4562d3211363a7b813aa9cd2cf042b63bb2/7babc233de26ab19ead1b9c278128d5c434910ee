@@ -1,0 +1,1032 @@
+running install
+running bdist_egg
+running egg_info
+writing requirements to xml2rfc.egg-info/requires.txt
+writing xml2rfc.egg-info/PKG-INFO
+writing top-level names to xml2rfc.egg-info/top_level.txt
+writing dependency_links to xml2rfc.egg-info/dependency_links.txt
+reading manifest file 'xml2rfc.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'xml2rfc.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-i686/egg
+running install_lib
+running build_py
+creating build/bdist.linux-i686/egg
+creating build/bdist.linux-i686/egg/xml2rfc
+copying build/lib.linux-i686-2.6/xml2rfc/log.py -> build/bdist.linux-i686/egg/xml2rfc
+copying build/lib.linux-i686-2.6/xml2rfc/utils.py -> build/bdist.linux-i686/egg/xml2rfc
+creating build/bdist.linux-i686/egg/xml2rfc/writers
+copying build/lib.linux-i686-2.6/xml2rfc/writers/expanded_xml.py -> build/bdist.linux-i686/egg/xml2rfc/writers
+copying build/lib.linux-i686-2.6/xml2rfc/writers/base.py -> build/bdist.linux-i686/egg/xml2rfc/writers
+copying build/lib.linux-i686-2.6/xml2rfc/writers/html.py -> build/bdist.linux-i686/egg/xml2rfc/writers
+copying build/lib.linux-i686-2.6/xml2rfc/writers/paginated_txt.py -> build/bdist.linux-i686/egg/xml2rfc/writers
+copying build/lib.linux-i686-2.6/xml2rfc/writers/raw_txt.py -> build/bdist.linux-i686/egg/xml2rfc/writers
+copying build/lib.linux-i686-2.6/xml2rfc/writers/__init__.py -> build/bdist.linux-i686/egg/xml2rfc/writers
+copying build/lib.linux-i686-2.6/xml2rfc/writers/nroff.py -> build/bdist.linux-i686/egg/xml2rfc/writers
+creating build/bdist.linux-i686/egg/xml2rfc/templates
+copying build/lib.linux-i686-2.6/xml2rfc/templates/rfc2629-other.ent -> build/bdist.linux-i686/egg/xml2rfc/templates
+copying build/lib.linux-i686-2.6/xml2rfc/templates/rfc2629.dtd -> build/bdist.linux-i686/egg/xml2rfc/templates
+copying build/lib.linux-i686-2.6/xml2rfc/templates/rfc2629-xhtml.ent -> build/bdist.linux-i686/egg/xml2rfc/templates
+copying build/lib.linux-i686-2.6/xml2rfc/templates/base.html -> build/bdist.linux-i686/egg/xml2rfc/templates
+copying build/lib.linux-i686-2.6/xml2rfc/templates/address_card.html -> build/bdist.linux-i686/egg/xml2rfc/templates
+copying build/lib.linux-i686-2.6/xml2rfc/__init__.py -> build/bdist.linux-i686/egg/xml2rfc
+copying build/lib.linux-i686-2.6/xml2rfc/parser.py -> build/bdist.linux-i686/egg/xml2rfc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/log.py to log.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/utils.py to utils.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/writers/expanded_xml.py to expanded_xml.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/writers/base.py to base.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/writers/html.py to html.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/writers/paginated_txt.py to paginated_txt.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/writers/raw_txt.py to raw_txt.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/writers/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/writers/nroff.py to nroff.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-i686/egg/xml2rfc/parser.py to parser.pyc
+creating build/bdist.linux-i686/egg/EGG-INFO
+installing scripts to build/bdist.linux-i686/egg/EGG-INFO/scripts
+running install_scripts
+running build_scripts
+creating build/bdist.linux-i686/egg/EGG-INFO/scripts
+copying build/scripts-2.6/xml2rfc -> build/bdist.linux-i686/egg/EGG-INFO/scripts
+changing mode of build/bdist.linux-i686/egg/EGG-INFO/scripts/xml2rfc to 755
+copying xml2rfc.egg-info/PKG-INFO -> build/bdist.linux-i686/egg/EGG-INFO
+copying xml2rfc.egg-info/SOURCES.txt -> build/bdist.linux-i686/egg/EGG-INFO
+copying xml2rfc.egg-info/dependency_links.txt -> build/bdist.linux-i686/egg/EGG-INFO
+copying xml2rfc.egg-info/requires.txt -> build/bdist.linux-i686/egg/EGG-INFO
+copying xml2rfc.egg-info/top_level.txt -> build/bdist.linux-i686/egg/EGG-INFO
+zip_safe flag not set; analyzing archive contents...
+xml2rfc.parser: module references __file__
+xml2rfc.writers.html: module references __file__
+creating 'dist/xml2rfc-2.3.10-py2.6.egg' and adding 'build/bdist.linux-i686/egg' to it
+removing 'build/bdist.linux-i686/egg' (and everything under it)
+Processing xml2rfc-2.3.10-py2.6.egg
+removing '/usr/local/lib/python2.6/dist-packages/xml2rfc-2.3.10-py2.6.egg' (and everything under it)
+creating /usr/local/lib/python2.6/dist-packages/xml2rfc-2.3.10-py2.6.egg
+Extracting xml2rfc-2.3.10-py2.6.egg to /usr/local/lib/python2.6/dist-packages
+xml2rfc 2.3.10 is already the active version in easy-install.pth
+Installing xml2rfc script to /usr/local/bin
+
+Installed /usr/local/lib/python2.6/dist-packages/xml2rfc-2.3.10-py2.6.egg
+Processing dependencies for xml2rfc==2.3.10
+Searching for lxml>=2.2.8
+Reading http://pypi.python.org/simple/lxml/
+Reading http://codespeak.net/lxml
+Reading http://lxml.de/
+Best match: lxml 3.1beta1
+Downloading http://pypi.python.org/packages/source/l/lxml/lxml-3.1beta1.tar.gz
+Processing lxml-3.1beta1.tar.gz
+Running lxml-3.1beta1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-6144w7/lxml-3.1beta1/egg-dist-tmp-D2sUGo
+Building lxml version 3.1.beta1.
+Building without Cython.
+ERROR: /bin/sh: xslt-config: not found
+
+** make sure the development packages of libxml2 and libxslt are installed **
+
+Using build configuration of libxslt 
+warning: no files found matching '*.txt' under directory 'src/lxml/tests'
+In file included from src/lxml/lxml.etree.c:257:
+/tmp/easy_install-6144w7/lxml-3.1beta1/src/lxml/includes/etree_defs.h:9:31: error: libxml/xmlversion.h: No such file or directory
+/tmp/easy_install-6144w7/lxml-3.1beta1/src/lxml/includes/etree_defs.h:11:4: error: #error the development package of libxml2 (header files etc.) is not installed correctly
+/tmp/easy_install-6144w7/lxml-3.1beta1/src/lxml/includes/etree_defs.h:13:32: error: libxslt/xsltconfig.h: No such file or directory
+/tmp/easy_install-6144w7/lxml-3.1beta1/src/lxml/includes/etree_defs.h:15:4: error: #error the development package of libxslt (header files etc.) is not installed correctly
+/tmp/easy_install-6144w7/lxml-3.1beta1/src/lxml/includes/etree_defs.h:171:25: error: libxml/tree.h: No such file or directory
+In file included from src/lxml/lxml.etree.c:257:
+/tmp/easy_install-6144w7/lxml-3.1beta1/src/lxml/includes/etree_defs.h:173: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘xmlBuf’
+src/lxml/lxml.etree.c:260:30: error: libxml/xmlstring.h: No such file or directory
+src/lxml/lxml.etree.c:261:29: error: libxml/encoding.h: No such file or directory
+src/lxml/lxml.etree.c:262:28: error: libxml/chvalid.h: No such file or directory
+src/lxml/lxml.etree.c:263:25: error: libxml/hash.h: No such file or directory
+src/lxml/lxml.etree.c:265:24: error: libxml/uri.h: No such file or directory
+src/lxml/lxml.etree.c:266:29: error: libxml/HTMLtree.h: No such file or directory
+src/lxml/lxml.etree.c:267:26: error: libxml/valid.h: No such file or directory
+src/lxml/lxml.etree.c:268:26: error: libxml/xmlIO.h: No such file or directory
+src/lxml/lxml.etree.c:269:28: error: libxml/xmlsave.h: No such file or directory
+src/lxml/lxml.etree.c:270:28: error: libxml/globals.h: No such file or directory
+src/lxml/lxml.etree.c:271:30: error: libxml/xmlmemory.h: No such file or directory
+src/lxml/lxml.etree.c:272:29: error: libxml/xmlerror.h: No such file or directory
+src/lxml/lxml.etree.c:273:26: error: libxml/xpath.h: No such file or directory
+src/lxml/lxml.etree.c:274:35: error: libxml/xpathInternals.h: No such file or directory
+src/lxml/lxml.etree.c:275:25: error: libxml/c14n.h: No such file or directory
+src/lxml/lxml.etree.c:279:27: error: libxml/parser.h: No such file or directory
+src/lxml/lxml.etree.c:280:36: error: libxml/parserInternals.h: No such file or directory
+src/lxml/lxml.etree.c:281:31: error: libxml/HTMLparser.h: No such file or directory
+src/lxml/lxml.etree.c:282:29: error: libxml/xinclude.h: No such file or directory
+src/lxml/lxml.etree.c:283:26: error: libxslt/xslt.h: No such file or directory
+src/lxml/lxml.etree.c:285:35: error: libxslt/xsltInternals.h: No such file or directory
+src/lxml/lxml.etree.c:286:32: error: libxslt/extensions.h: No such file or directory
+src/lxml/lxml.etree.c:287:31: error: libxslt/documents.h: No such file or directory
+src/lxml/lxml.etree.c:288:31: error: libxslt/transform.h: No such file or directory
+src/lxml/lxml.etree.c:289:31: error: libxslt/xsltutils.h: No such file or directory
+src/lxml/lxml.etree.c:290:30: error: libxslt/security.h: No such file or directory
+src/lxml/lxml.etree.c:291:31: error: libxslt/variables.h: No such file or directory
+src/lxml/lxml.etree.c:292:27: error: libxslt/extra.h: No such file or directory
+src/lxml/lxml.etree.c:293:28: error: libexslt/exslt.h: No such file or directory
+src/lxml/lxml.etree.c:294:28: error: libxml/relaxng.h: No such file or directory
+src/lxml/lxml.etree.c:295:31: error: libxml/xmlschemas.h: No such file or directory
+src/lxml/lxml.etree.c:296:31: error: libxml/schematron.h: No such file or directory
+src/lxml/lxml.etree.c:612: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:623: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:633: error: expected specifier-qualifier-list before ‘xmlNs’
+src/lxml/lxml.etree.c:647: error: expected specifier-qualifier-list before ‘xmlNs’
+src/lxml/lxml.etree.c:670: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:755: error: expected specifier-qualifier-list before ‘xmlNode’
+src/lxml/lxml.etree.c:819: error: expected specifier-qualifier-list before ‘xmlEnumeration’
+src/lxml/lxml.etree.c:932: error: expected specifier-qualifier-list before ‘xsltStylesheet’
+src/lxml/lxml.etree.c:1028: error: expected specifier-qualifier-list before ‘xmlXPathContext’
+src/lxml/lxml.etree.c:1069: error: expected specifier-qualifier-list before ‘xmlAttribute’
+src/lxml/lxml.etree.c:1115: error: expected specifier-qualifier-list before ‘xmlXPathCompExpr’
+src/lxml/lxml.etree.c:1170: error: expected specifier-qualifier-list before ‘xmlOutputBuffer’
+src/lxml/lxml.etree.c:1190: error: expected specifier-qualifier-list before ‘xmlNode’
+src/lxml/lxml.etree.c:1243: error: expected specifier-qualifier-list before ‘xmlXPathContext’
+src/lxml/lxml.etree.c:1268: error: expected specifier-qualifier-list before ‘xsltTransformContext’
+src/lxml/lxml.etree.c:1284: error: expected specifier-qualifier-list before ‘xmlElement’
+src/lxml/lxml.etree.c:1340: error: expected specifier-qualifier-list before ‘xmlParserCtxt’
+src/lxml/lxml.etree.c:1355: error: expected specifier-qualifier-list before ‘startElementNsSAX2Func’
+src/lxml/lxml.etree.c:1454: error: expected specifier-qualifier-list before ‘xmlDoc’
+src/lxml/lxml.etree.c:1540: error: expected specifier-qualifier-list before ‘xmlRelaxNG’
+src/lxml/lxml.etree.c:1622: error: expected specifier-qualifier-list before ‘xmlElementContent’
+src/lxml/lxml.etree.c:1635: error: expected specifier-qualifier-list before ‘startElementNsSAX2Func’
+src/lxml/lxml.etree.c:1703: error: expected specifier-qualifier-list before ‘xmlChar’
+src/lxml/lxml.etree.c:1733: error: expected specifier-qualifier-list before ‘_node_to_node_function’
+src/lxml/lxml.etree.c:1775: error: expected specifier-qualifier-list before ‘xmlDtd’
+src/lxml/lxml.etree.c:1793: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:1794: error: expected ‘;’ before ‘int’
+src/lxml/lxml.etree.c:1807: error: expected specifier-qualifier-list before ‘xmlNode’
+src/lxml/lxml.etree.c:1822: error: expected specifier-qualifier-list before ‘xmlDoc’
+src/lxml/lxml.etree.c:1837: error: expected specifier-qualifier-list before ‘xmlDict’
+src/lxml/lxml.etree.c:1885: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:1913: error: expected specifier-qualifier-list before ‘xmlAttribute’
+src/lxml/lxml.etree.c:1926: error: expected specifier-qualifier-list before ‘xmlSchema’
+src/lxml/lxml.etree.c:1943: error: expected specifier-qualifier-list before ‘_node_to_node_function’
+src/lxml/lxml.etree.c:2135: error: expected specifier-qualifier-list before ‘xmlNode’
+src/lxml/lxml.etree.c:2164: error: expected specifier-qualifier-list before ‘xmlNode’
+src/lxml/lxml.etree.c:2208: error: expected specifier-qualifier-list before ‘xmlDoc’
+src/lxml/lxml.etree.c:2221: error: expected specifier-qualifier-list before ‘xmlStructuredErrorFunc’
+src/lxml/lxml.etree.c:2236: error: expected specifier-qualifier-list before ‘xsltSecurityPrefs’
+src/lxml/lxml.etree.c:2299: error: expected specifier-qualifier-list before ‘xmlSchemaValidCtxt’
+src/lxml/lxml.etree.c:2315: error: expected specifier-qualifier-list before ‘xmlEntity’
+src/lxml/lxml.etree.c:2329: error: expected specifier-qualifier-list before ‘xmlAttr’
+src/lxml/lxml.etree.c:2431: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c:2437: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c:2629: error: expected declaration specifiers or ‘...’ before ‘xmlXPathContext’
+src/lxml/lxml.etree.c:2635: error: expected declaration specifiers or ‘...’ before ‘xmlXPathObject’
+src/lxml/lxml.etree.c:2667: error: expected declaration specifiers or ‘...’ before ‘xmlXPathContext’
+src/lxml/lxml.etree.c:2682: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:2682: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:2683: error: expected ‘;’ before ‘PyObject’
+src/lxml/lxml.etree.c:2691: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:2691: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:2694: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:2707: error: expected declaration specifiers or ‘...’ before ‘xsltTransformContext’
+src/lxml/lxml.etree.c:2711: error: expected declaration specifiers or ‘...’ before ‘xsltTransformContext’
+src/lxml/lxml.etree.c:2767: error: expected declaration specifiers or ‘...’ before ‘xsltSecurityOption’
+src/lxml/lxml.etree.c:2768: error: expected declaration specifiers or ‘...’ before ‘xsltTransformContext’
+src/lxml/lxml.etree.c:2769: error: expected declaration specifiers or ‘...’ before ‘xsltSecurityOption’
+src/lxml/lxml.etree.c:2772: error: expected declaration specifiers or ‘...’ before ‘xsltSecurityOption’
+src/lxml/lxml.etree.c:2773: error: expected declaration specifiers or ‘...’ before ‘xsltTransformContext’
+src/lxml/lxml.etree.c:2774: error: expected declaration specifiers or ‘...’ before ‘xsltSecurityOption’
+src/lxml/lxml.etree.c:2848: error: expected declaration specifiers or ‘...’ before ‘xmlParserCtxt’
+src/lxml/lxml.etree.c:2849: error: expected specifier-qualifier-list before ‘xmlParserCtxt’
+src/lxml/lxml.etree.c:2926: error: expected specifier-qualifier-list before ‘xmlNode’
+src/lxml/lxml.etree.c:2985: error: expected specifier-qualifier-list before ‘xmlDoc’
+src/lxml/lxml.etree.c:3062: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c:3066: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c:3137: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:3138: error: expected declaration specifiers or ‘...’ before ‘xmlParserCtxt’
+src/lxml/lxml.etree.c:3144: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:3145: error: expected declaration specifiers or ‘...’ before ‘xmlParserCtxt’
+src/lxml/lxml.etree.c:3161: error: expected declaration specifiers or ‘...’ before ‘xmlParserCtxt’
+src/lxml/lxml.etree.c:3165: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:3166: error: expected specifier-qualifier-list before ‘xmlDoc’
+src/lxml/lxml.etree.c:3182: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:3183: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3184: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3185: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3190: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:3191: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3192: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3193: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3251: error: expected declaration specifiers or ‘...’ before ‘xmlChar’
+src/lxml/lxml.etree.c:3254: error: expected declaration specifiers or ‘...’ before ‘xmlChar’
+src/lxml/lxml.etree.c:3296: error: expected declaration specifiers or ‘...’ before ‘xmlParserCtxt’
+src/lxml/lxml.etree.c:3312: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:3316: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:3389: error: expected specifier-qualifier-list before ‘xmlOutputBuffer’
+src/lxml/lxml.etree.c:3394: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:3457: error: expected specifier-qualifier-list before ‘xmlParserInputBuffer’
+src/lxml/lxml.etree.c:3465: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:3466: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:3467: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:3468: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:3585: error: expected declaration specifiers or ‘...’ before ‘xmlXPathContext’
+src/lxml/lxml.etree.c:3592: error: expected declaration specifiers or ‘...’ before ‘xmlXPathContext’
+src/lxml/lxml.etree.c:3595: error: expected declaration specifiers or ‘...’ before ‘xmlXPathContext’
+src/lxml/lxml.etree.c:3602: error: expected declaration specifiers or ‘...’ before ‘xmlXPathContext’
+src/lxml/lxml.etree.c:3636: error: expected specifier-qualifier-list before ‘xmlNs’
+src/lxml/lxml.etree.c:3646: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:3647: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3647: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:3647: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:3709: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3710: error: expected declaration specifiers or ‘...’ before ‘xmlAttr’
+src/lxml/lxml.etree.c:3720: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3721: error: expected declaration specifiers or ‘...’ before ‘xmlAttr’
+src/lxml/lxml.etree.c:3733: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:3827: error: expected specifier-qualifier-list before ‘xmlDict’
+src/lxml/lxml.etree.c:3842: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:3843: error: expected declaration specifiers or ‘...’ before ‘xmlDict’
+src/lxml/lxml.etree.c:3844: error: expected declaration specifiers or ‘...’ before ‘xmlParserCtxt’
+src/lxml/lxml.etree.c:3845: error: expected declaration specifiers or ‘...’ before ‘xmlXPathContext’
+src/lxml/lxml.etree.c:3846: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:4596: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__pyx_v_4lxml_5etree___DEFAULT_ENTITY_LOADER’
+src/lxml/lxml.etree.c:4609: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__pyx_v_4lxml_5etree_XSLT_DOC_DEFAULT_LOADER’
+src/lxml/lxml.etree.c:4618: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4619: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4620: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4624: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4625: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4626: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4627: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4628: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4629: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4630: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4631: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4633: error: expected declaration specifiers or ‘...’ before ‘xmlNs’
+src/lxml/lxml.etree.c:4633: error: expected declaration specifiers or ‘...’ before ‘xmlNs’
+src/lxml/lxml.etree.c:4634: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4635: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:4635: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4636: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4637: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4638: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4639: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4640: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4641: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4642: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4643: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4648: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:4651: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4652: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4653: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4654: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4655: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4656: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4657: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4658: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4662: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4663: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4666: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4667: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4668: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4669: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4670: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4671: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4673: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4674: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4675: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4675: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4678: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4679: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4680: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4681: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4682: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4683: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4684: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4685: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4686: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4687: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4688: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4689: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4690: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4691: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4692: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4693: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4694: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4699: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4699: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4701: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4701: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4702: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4702: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4703: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4703: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4706: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4706: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4708: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4708: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4715: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4715: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4716: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4716: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4717: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4717: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4723: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4724: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4724: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4732: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c:4733: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c:4737: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4738: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4742: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4743: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4744: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4745: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4746: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4749: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4750: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4751: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4752: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4753: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4754: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4755: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4756: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4757: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4758: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4760: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4767: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4768: error: expected declaration specifiers or ‘...’ before ‘xmlParserCtxt’
+src/lxml/lxml.etree.c:4769: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4770: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c:4771: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4772: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4773: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4774: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4775: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4776: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4777: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4778: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4779: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4780: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4781: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4782: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4783: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4788: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4788: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4789: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4789: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4790: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4790: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4791: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4791: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4792: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4792: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4793: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4793: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4794: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4794: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4795: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4795: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4796: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4796: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4798: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4802: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4803: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4804: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4805: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4806: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4807: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4808: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4812: error: expected declaration specifiers or ‘...’ before ‘xmlOutputBuffer’
+src/lxml/lxml.etree.c:4813: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4816: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4817: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4818: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:4819: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4820: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4821: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4823: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4823: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4824: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4824: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4825: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4825: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4826: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4826: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4827: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4827: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4828: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4828: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4829: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4830: error: expected declaration specifiers or ‘...’ before ‘xmlChar’
+src/lxml/lxml.etree.c:4831: error: expected declaration specifiers or ‘...’ before ‘xmlChar’
+src/lxml/lxml.etree.c:4832: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4833: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4834: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4835: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c:4836: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c:4837: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4838: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4839: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4840: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4841: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4842: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4844: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4845: error: expected declaration specifiers or ‘...’ before ‘xmlXPathParserContext’
+src/lxml/lxml.etree.c:4846: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4849: error: expected declaration specifiers or ‘...’ before ‘xmlChar’
+src/lxml/lxml.etree.c:4851: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4852: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4852: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4853: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4855: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4859: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4860: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4862: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4863: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4864: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4867: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4871: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4872: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4873: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:4874: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4877: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4878: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4879: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4880: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4881: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4882: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4883: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4884: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4887: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4890: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4891: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4892: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4893: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4894: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4895: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4896: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:4898: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4898: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4902: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4903: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:4903: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:4906: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:9090: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:9196: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:9324: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__registerProxy’:
+src/lxml/lxml.etree.c:9341: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree_hasProxy’
+src/lxml/lxml.etree.c:9341: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:9341: error: (Each undeclared identifier is reported only once
+src/lxml/lxml.etree.c:9341: error: for each function it appears in.)
+src/lxml/lxml.etree.c:9367: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__unregisterProxy’:
+src/lxml/lxml.etree.c:9471: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:9471: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:9475: error: ‘__pyx_t_1’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:9488: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:9700: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:9738: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:9965: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:10086: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__fakeDocElementFactory’:
+src/lxml/lxml.etree.c:10103: error: ‘__pyx_v_c_element’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:10103: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:10133: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:10133: error: expected expression before ‘)’ token
+src/lxml/lxml.etree.c:10152: error: too many arguments to function ‘__pyx_f_4lxml_5etree__elementFactory’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:10178: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:10282: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:10476: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:10559: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__growNsCache’:
+src/lxml/lxml.etree.c:10671: error: ‘xmlNs’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:10671: error: ‘__pyx_v_c_ns_ptr’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:10687: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘size’
+src/lxml/lxml.etree.c:10697: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘size’
+src/lxml/lxml.etree.c:10709: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘size’
+src/lxml/lxml.etree.c:10709: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘size’
+src/lxml/lxml.etree.c:10720: error: expected expression before ‘)’ token
+src/lxml/lxml.etree.c:10739: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘new’
+src/lxml/lxml.etree.c:10748: error: expected expression before ‘)’ token
+src/lxml/lxml.etree.c:10770: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘old’
+src/lxml/lxml.etree.c:10782: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘new’
+src/lxml/lxml.etree.c:10791: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘old’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:10832: error: expected declaration specifiers or ‘...’ before ‘xmlNs’
+src/lxml/lxml.etree.c:10832: error: expected declaration specifiers or ‘...’ before ‘xmlNs’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__appendToNsCache’:
+src/lxml/lxml.etree.c:10849: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘last’
+src/lxml/lxml.etree.c:10849: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘size’
+src/lxml/lxml.etree.c:10871: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘old’
+src/lxml/lxml.etree.c:10871: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘last’
+src/lxml/lxml.etree.c:10871: error: ‘__pyx_v_c_old_ns’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:10880: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘new’
+src/lxml/lxml.etree.c:10880: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘last’
+src/lxml/lxml.etree.c:10880: error: ‘__pyx_v_c_new_ns’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:10889: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘last’
+src/lxml/lxml.etree.c:10889: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘last’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:10909: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:11060: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c:11060: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’:
+src/lxml/lxml.etree.c:11061: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11061: error: ‘__pyx_v_c_start_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11062: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11064: error: ‘xmlNs’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11064: error: ‘__pyx_v_c_ns’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11065: error: ‘__pyx_v_c_del_ns_list’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11074: error: ‘__pyx_t_4’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11075: error: ‘__pyx_t_5’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11100: error: ‘__pyx_v_c_element’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11100: error: ‘XML_ELEMENT_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11100: error: ‘XML_COMMENT_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11100: error: ‘XML_ENTITY_REF_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11100: error: ‘XML_PI_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11100: error: ‘XML_XINCLUDE_START’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11100: error: ‘XML_XINCLUDE_END’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11141: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘new’
+src/lxml/lxml.etree.c:11150: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘old’
+src/lxml/lxml.etree.c:11159: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘size’
+src/lxml/lxml.etree.c:11168: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘last’
+src/lxml/lxml.etree.c:11177: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:11177: error: ‘_lx__tree_top’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11177: error: ‘_lx__next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11177: error: ‘XML_DTD_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11228: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__stripRedundantNamespaceDeclarations’
+src/lxml/lxml.etree.c:11270: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘last’
+src/lxml/lxml.etree.c:11280: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘old’
+src/lxml/lxml.etree.c:11290: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘new’
+src/lxml/lxml.etree.c:11313: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree_9_Document__findOrBuildNodeNs’
+src/lxml/lxml.etree.c:11313: error: ‘XML_ATTRIBUTE_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11323: error: too many arguments to function ‘__pyx_f_4lxml_5etree__appendToNsCache’
+src/lxml/lxml.etree.c:11356: error: expected expression before ‘)’ token
+src/lxml/lxml.etree.c:11403: warning: implicit declaration of function ‘xmlFreeNsList’
+src/lxml/lxml.etree.c:11415: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘new’
+src/lxml/lxml.etree.c:11425: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘new’
+src/lxml/lxml.etree.c:11437: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘old’
+src/lxml/lxml.etree.c:11447: error: ‘__pyx_t_4lxml_5etree__nscache’ has no member named ‘old’
+src/lxml/lxml.etree.c:11459: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:11459: error: ‘__pyx_v_c_source_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:11469: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree_fixThreadDictNames’
+src/lxml/lxml.etree.c:11469: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:11507: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree_getProxy’
+src/lxml/lxml.etree.c:11541: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree_fixElementDocument’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:11592: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:11736: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:11850: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:11976: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:12073: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:12187: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:12252: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:12367: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__assertValidNode’:
+src/lxml/lxml.etree.c:12482: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__assertValidDoc’:
+src/lxml/lxml.etree.c:12538: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:12968: error: expected declaration specifiers or ‘...’ before ‘xmlDoc’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__makeElement’:
+src/lxml/lxml.etree.c:12969: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:12969: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:12975: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:12975: error: ‘__pyx_t_2’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:12983: error: ‘__pyx_t_10’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13011: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:13012: error: ‘__pyx_v_c_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13118: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__newHTMLDoc’
+src/lxml/lxml.etree.c:13153: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__newXMLDoc’
+src/lxml/lxml.etree.c:13168: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__createElement’
+src/lxml/lxml.etree.c:13204: warning: implicit declaration of function ‘xmlFreeDoc’
+src/lxml/lxml.etree.c:13252: warning: implicit declaration of function ‘xmlDocSetRootElement’
+src/lxml/lxml.etree.c:13261: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__documentFactory’
+src/lxml/lxml.etree.c:13287: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__setNodeText’
+src/lxml/lxml.etree.c:13309: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__setTailText’
+src/lxml/lxml.etree.c:13321: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__initNodeNamespaces’
+src/lxml/lxml.etree.c:13330: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__initNodeAttributes’
+src/lxml/lxml.etree.c:13342: error: too many arguments to function ‘__pyx_f_4lxml_5etree__elementFactory’
+src/lxml/lxml.etree.c:13405: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__removeText’
+src/lxml/lxml.etree.c:13417: warning: implicit declaration of function ‘xmlFreeNode’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__initNewElement’:
+src/lxml/lxml.etree.c:13503: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13503: error: ‘__pyx_v_c_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13504: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13504: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13509: error: ‘__pyx_t_2’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13510: error: ‘__pyx_t_3’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13673: error: too many arguments to function ‘__pyx_f_4lxml_5etree__registerProxy’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__makeSubElement’:
+src/lxml/lxml.etree.c:13721: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13721: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13722: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13722: error: ‘__pyx_v_c_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13736: error: ‘__pyx_t_10’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13737: error: ‘__pyx_t_11’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:13853: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:13863: error: ‘struct LxmlDocument’ has no member named ‘_parser’
+src/lxml/lxml.etree.c:13865: error: ‘struct LxmlDocument’ has no member named ‘_parser’
+src/lxml/lxml.etree.c:13933: warning: implicit declaration of function ‘xmlAddChild’
+src/lxml/lxml.etree.c:13933: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:14029: error: too many arguments to function ‘__pyx_f_4lxml_5etree__elementFactory’
+src/lxml/lxml.etree.c:14075: error: too many arguments to function ‘__pyx_f_4lxml_5etree__removeNode’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:14135: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:14628: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:15076: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:15839: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:16297: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__replaceNodeByChildren’:
+src/lxml/lxml.etree.c:16298: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:16298: error: ‘__pyx_v_c_parent’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:16299: error: ‘__pyx_v_c_child’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:16303: error: ‘__pyx_t_2’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:16317: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:16327: warning: implicit declaration of function ‘xmlUnlinkNode’
+src/lxml/lxml.etree.c:16431: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:16431: error: too many arguments to function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:16586: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:16705: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:16840: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__getAttributeValue’:
+src/lxml/lxml.etree.c:17083: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__getNodeAttributeValue’
+src/lxml/lxml.etree.c:17083: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__setAttributeValue’:
+src/lxml/lxml.etree.c:17110: error: ‘xmlNs’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:17110: error: ‘__pyx_v_c_ns’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:17113: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:17113: error: ‘__pyx_v_c_tag’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:17114: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:17114: error: ‘__pyx_v_c_value’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:17124: error: ‘__pyx_t_8’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:17198: error: ‘struct LxmlDocument’ has no member named ‘_parser’
+src/lxml/lxml.etree.c:17220: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:17220: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c:17273: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:17273: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c:17304: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:17304: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:17304: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c:17316: warning: implicit declaration of function ‘xmlSetNsProp’
+src/lxml/lxml.etree.c:17316: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__delAttribute’:
+src/lxml/lxml.etree.c:17356: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:17356: error: ‘__pyx_v_c_href’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:17364: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:17364: error: ‘__pyx_t_6’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:17441: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:17441: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c:17443: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:17443: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c:17454: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__delAttributeFromNsName’
+src/lxml/lxml.etree.c:17454: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:17454: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:17454: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:17504: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:17576: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:18007: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:18046: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:18085: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:18328: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:18402: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:18606: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__resolveQNameText’:
+src/lxml/lxml.etree.c:18711: error: ‘xmlNs’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:18711: error: ‘__pyx_v_c_ns’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:18722: error: ‘__pyx_t_7’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:18821: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:18821: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:18821: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:18865: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:18904: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:18989: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:18989: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__findChildSlice’:
+src/lxml/lxml.etree.c:19020: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__countElements’
+src/lxml/lxml.etree.c:19020: error: ‘__pyx_v_c_parent’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:19039: error: ‘__pyx_v_c_start_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:19125: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__findChildBackwards’
+src/lxml/lxml.etree.c:19137: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__findChild’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__collectChildren’:
+src/lxml/lxml.etree.c:19341: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:19341: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:19346: error: ‘__pyx_t_2’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:19374: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:19394: error: ‘XML_ELEMENT_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:19394: error: ‘XML_COMMENT_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:19394: error: ‘XML_ENTITY_REF_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:19394: error: ‘XML_PI_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:19404: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__nextElement’
+src/lxml/lxml.etree.c:19429: error: too many arguments to function ‘__pyx_f_4lxml_5etree__elementFactory’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:19482: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:19537: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:19656: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:19775: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:19902: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:20011: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:20120: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:20221: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:20505: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:20663: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:20998: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__removeNode’:
+src/lxml/lxml.etree.c:20999: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:20999: error: ‘__pyx_v_c_next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21002: error: ‘__pyx_t_1’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21017: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21036: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__moveTail’
+src/lxml/lxml.etree.c:21045: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree_attemptDeallocation’
+src/lxml/lxml.etree.c:21055: error: too many arguments to function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:21088: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:21305: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:21370: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:21502: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:21746: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__deleteSlice’:
+src/lxml/lxml.etree.c:21747: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21747: error: ‘__pyx_v_c_next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21750: error: ‘_node_to_node_function’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21750: error: expected ‘;’ before ‘__pyx_v_next_element’
+src/lxml/lxml.etree.c:21771: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21804: error: ‘__pyx_v_next_element’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21804: error: ‘__pyx_f_4lxml_5etree__nextElement’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21825: error: ‘__pyx_f_4lxml_5etree__previousElement’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21882: warning: implicit declaration of function ‘__pyx_v_next_element’
+src/lxml/lxml.etree.c:21892: error: too many arguments to function ‘__pyx_f_4lxml_5etree__removeNode’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:21941: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__replaceSlice’:
+src/lxml/lxml.etree.c:21942: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21942: error: ‘__pyx_v_c_orig_neighbour’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21943: error: ‘__pyx_v_c_next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21944: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21944: error: ‘__pyx_v_c_source_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21949: error: ‘_node_to_node_function’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21949: error: expected ‘;’ before ‘__pyx_v_next_element’
+src/lxml/lxml.etree.c:21962: error: ‘__pyx_t_11’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:21964: error: ‘__pyx_t_13’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:22001: error: ‘__pyx_v_next_element’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:22001: error: ‘__pyx_f_4lxml_5etree__nextElement’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:22013: error: ‘__pyx_f_4lxml_5etree__previousElement’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:22132: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:22322: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__previousElement’
+src/lxml/lxml.etree.c:22403: error: too many arguments to function ‘__pyx_f_4lxml_5etree__removeNode’
+src/lxml/lxml.etree.c:22476: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__findChildForwards’
+src/lxml/lxml.etree.c:22476: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:22568: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:22737: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:22747: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:22757: warning: implicit declaration of function ‘xmlAddPrevSibling’
+src/lxml/lxml.etree.c:22757: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:22766: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:22777: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:22777: error: too many arguments to function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__appendChild’:
+src/lxml/lxml.etree.c:23074: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23074: error: ‘__pyx_v_c_next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23075: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23076: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23076: error: ‘__pyx_v_c_source_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23079: error: ‘__pyx_t_1’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23080: error: ‘__pyx_t_2’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23095: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:23134: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:23154: error: too many arguments to function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__prependChild’:
+src/lxml/lxml.etree.c:23177: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23177: error: ‘__pyx_v_c_next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23178: error: ‘__pyx_v_c_child’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23179: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23180: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23180: error: ‘__pyx_v_c_source_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23183: error: ‘__pyx_t_1’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23184: error: ‘__pyx_t_2’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23200: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:23230: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:23258: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:23292: error: too many arguments to function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__appendSibling’:
+src/lxml/lxml.etree.c:23315: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23315: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23316: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23316: error: ‘__pyx_v_c_source_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23317: error: ‘__pyx_v_c_next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23320: error: ‘__pyx_t_1’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23321: error: ‘__pyx_t_2’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23336: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:23366: warning: implicit declaration of function ‘xmlAddNextSibling’
+src/lxml/lxml.etree.c:23366: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:23386: error: too many arguments to function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__prependSibling’:
+src/lxml/lxml.etree.c:23409: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23409: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23410: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23410: error: ‘__pyx_v_c_source_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23411: error: ‘__pyx_v_c_next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23414: error: ‘__pyx_t_1’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23415: error: ‘__pyx_t_2’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23430: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:23460: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:23480: error: too many arguments to function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:23502: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:23502: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_check_string_utf8’:
+src/lxml/lxml.etree.c:23597: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:23597: error: ‘__pyx_v_s’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23598: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:23598: error: ‘__pyx_v_c_end’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:23619: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:23619: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c:23712: warning: implicit declaration of function ‘xmlIsChar_ch’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:23770: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:23770: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:23822: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:23822: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:23874: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:23874: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:24323: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:24323: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__encodeFilename’:
+src/lxml/lxml.etree.c:24636: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__isFilePath’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:24764: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:24764: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__pyXmlNameIsValid’:
+src/lxml/lxml.etree.c:25730: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__xmlNameIsValid’
+src/lxml/lxml.etree.c:25730: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:25730: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__pyHtmlNameIsValid’:
+src/lxml/lxml.etree.c:25759: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__htmlNameIsValid’
+src/lxml/lxml.etree.c:25759: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:25759: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:25776: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:25776: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:25805: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:25805: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:25938: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:25938: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__uriValidOrRaise’:
+src/lxml/lxml.etree.c:26424: error: ‘xmlURI’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:26424: error: ‘__pyx_v_c_uri’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:26442: warning: implicit declaration of function ‘xmlParseURI’
+src/lxml/lxml.etree.c:26480: warning: implicit declaration of function ‘xmlFreeURI’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:26512: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:26555: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:26555: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__initThreadLogging’:
+src/lxml/lxml.etree.c:27080: warning: implicit declaration of function ‘xmlSetGenericErrorFunc’
+src/lxml/lxml.etree.c:27080: error: ‘xmlGenericErrorFunc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:27080: error: expected ‘)’ before ‘__pyx_f_4lxml_5etree__nullGenericErrorFunc’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_connectErrorLog’:
+src/lxml/lxml.etree.c:27113: warning: implicit declaration of function ‘xsltSetGenericErrorFunc’
+src/lxml/lxml.etree.c:27113: error: ‘xmlGenericErrorFunc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:27113: error: expected ‘)’ before ‘__pyx_f_4lxml_5etree__receiveXSLTError’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:27126: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_9_LogEntry__setError’:
+src/lxml/lxml.etree.c:27159: error: ‘__pyx_v_error’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:27497: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__decodeFilename’
+src/lxml/lxml.etree.c:27497: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:27497: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:28701: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_13_BaseErrorLog__receive’:
+src/lxml/lxml.etree.c:28735: error: ‘__pyx_v_error’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:28735: error: too many arguments to function ‘__pyx_f_4lxml_5etree_9_LogEntry__setError’
+src/lxml/lxml.etree.c:28746: error: ‘XML_ERR_ERROR’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:28756: error: ‘XML_ERR_FATAL’ undeclared (first use in this function)
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_13_BaseErrorLog__receiveGeneric’:
+src/lxml/lxml.etree.c:28923: error: ‘XML_ERR_ERROR’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:28933: error: ‘XML_ERR_FATAL’ undeclared (first use in this function)
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_13_BaseErrorLog__buildParseException’:
+src/lxml/lxml.etree.c:29080: error: ‘XML_ERR_INTERNAL_ERROR’ undeclared (first use in this function)
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_9_ErrorLog_connect’:
+src/lxml/lxml.etree.c:31519: error: ‘struct __pyx_obj_4lxml_5etree__ErrorLogContext’ has no member named ‘old_error_func’
+src/lxml/lxml.etree.c:31519: error: ‘xmlStructuredError’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:31528: error: ‘struct __pyx_obj_4lxml_5etree__ErrorLogContext’ has no member named ‘old_error_context’
+src/lxml/lxml.etree.c:31550: warning: implicit declaration of function ‘xmlSetStructuredErrorFunc’
+src/lxml/lxml.etree.c:31550: error: ‘xmlStructuredErrorFunc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:31550: error: expected ‘)’ before ‘__pyx_f_4lxml_5etree__receiveError’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_9_ErrorLog_disconnect’:
+src/lxml/lxml.etree.c:31612: error: ‘struct __pyx_obj_4lxml_5etree__ErrorLogContext’ has no member named ‘old_error_context’
+src/lxml/lxml.etree.c:31612: error: ‘struct __pyx_obj_4lxml_5etree__ErrorLogContext’ has no member named ‘old_error_func’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:33757: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__forwardError’:
+src/lxml/lxml.etree.c:33814: error: ‘__pyx_v_error’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:33814: error: too many arguments to function ‘__pyx_f_4lxml_5etree_13_BaseErrorLog__receive’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:33836: error: expected declaration specifiers or ‘...’ before ‘xmlError’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__receiveError’:
+src/lxml/lxml.etree.c:33845: error: ‘__pyx_v_error’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:33845: error: too many arguments to function ‘__pyx_f_4lxml_5etree__forwardError’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__receiveXSLTError’:
+src/lxml/lxml.etree.c:33858: error: ‘xmlError’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:33858: error: expected ‘;’ before ‘__pyx_v_c_error’
+src/lxml/lxml.etree.c:33983: error: ‘__pyx_v_c_error’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:34001: warning: left-hand operand of comma expression has no effect
+src/lxml/lxml.etree.c:34001: warning: value computed is not used
+src/lxml/lxml.etree.c:34001: warning: left-hand operand of comma expression has no effect
+src/lxml/lxml.etree.c:34289: error: ‘XML_FROM_XSLT’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:34298: error: ‘XML_ERR_OK’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:34307: error: ‘XML_ERR_ERROR’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:34325: error: too many arguments to function ‘__pyx_f_4lxml_5etree__forwardError’
+src/lxml/lxml.etree.c: In function ‘__pyx_pf_4lxml_5etree_9_Document___dealloc__’:
+src/lxml/lxml.etree.c:34872: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_9_Document_getroot’:
+src/lxml/lxml.etree.c:34886: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:34886: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:34903: warning: implicit declaration of function ‘xmlDocGetRootElement’
+src/lxml/lxml.etree.c:34903: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:34938: error: too many arguments to function ‘__pyx_f_4lxml_5etree__elementFactory’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_9_Document_hasdoctype’:
+src/lxml/lxml.etree.c:34979: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:34981: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_9_Document_getdoctype’:
+src/lxml/lxml.etree.c:35004: error: ‘xmlDtd’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:35004: error: ‘__pyx_v_c_dtd’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:35005: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:35005: error: ‘__pyx_v_c_root_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:35011: error: ‘__pyx_t_1’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:35048: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:35078: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree_funicode’
+src/lxml/lxml.etree.c:35123: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:35212: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_9_Document_getxmlinfo’:
+src/lxml/lxml.etree.c:35298: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:35298: error: ‘__pyx_v_c_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:35303: error: ‘__pyx_t_1’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:35318: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree_9_Document_isstandalone’:
+src/lxml/lxml.etree.c:35454: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:35480: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c: At top level:
+src/lxml/lxml.etree.c:35705: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:35995: error: expected declaration specifiers or ‘...’ before ‘xmlNode’
+src/lxml/lxml.etree.c:35995: warning: type defaults to ‘int’ in declaration of ‘xmlChar’
+src/lxml/lxml.etree.c:35995: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c:36099: error: expected ‘)’ before ‘*’ token
+src/lxml/lxml.etree.c: In function ‘__pyx_pf_4lxml_5etree_7DocInfo_3URL___get__’:
+src/lxml/lxml.etree.c:37192: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:37218: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c: In function ‘__pyx_pf_4lxml_5etree_7DocInfo_3URL_2__set__’:
+src/lxml/lxml.etree.c:37256: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:37256: error: ‘__pyx_v_c_oldurl’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:37260: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+src/lxml/lxml.etree.c:37260: error: ‘__pyx_t_2’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:37288: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:37308: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:37320: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c:37320: warning: implicit declaration of function ‘xmlStrdup’
+src/lxml/lxml.etree.c:37320: error: expected ‘)’ before ‘xmlChar’
+src/lxml/lxml.etree.c:37320: warning: type defaults to ‘int’ in declaration of ‘type name’
+src/lxml/lxml.etree.c:37341: warning: implicit declaration of function ‘xmlFree’
+src/lxml/lxml.etree.c: In function ‘__pyx_pf_4lxml_5etree_7DocInfo_11internalDTD___get__’:
+src/lxml/lxml.etree.c:37697: warning: implicit declaration of function ‘__pyx_f_4lxml_5etree__dtdFactory’
+src/lxml/lxml.etree.c:37697: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c: In function ‘__pyx_pf_4lxml_5etree_7DocInfo_11externalDTD___get__’:
+src/lxml/lxml.etree.c:37751: error: ‘struct LxmlDocument’ has no member named ‘_c_doc’
+src/lxml/lxml.etree.c: In function ‘__pyx_pf_4lxml_5etree_8_Element_2__dealloc__’:
+src/lxml/lxml.etree.c:37833: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:37852: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c: In function ‘__pyx_pf_4lxml_5etree_8_Element_4__setitem__’:
+src/lxml/lxml.etree.c:37897: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:37897: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:37898: error: ‘__pyx_v_c_next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:37899: error: ‘xmlDoc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:37899: error: ‘__pyx_v_c_source_doc’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:37909: error: ‘__pyx_t_4’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:37910: error: ‘__pyx_t_5’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:37985: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:37985: error: too many arguments to function ‘__pyx_f_4lxml_5etree__findChildSlice’
+src/lxml/lxml.etree.c:38036: warning: passing argument 5 of ‘__pyx_f_4lxml_5etree__replaceSlice’ makes pointer from integer without a cast
+src/lxml/lxml.etree.c:21941: note: expected ‘struct PyObject *’ but argument is of type ‘int’
+src/lxml/lxml.etree.c:38036: error: too many arguments to function ‘__pyx_f_4lxml_5etree__replaceSlice’
+src/lxml/lxml.etree.c:38079: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:38111: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:38121: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:38140: warning: implicit declaration of function ‘xmlReplaceNode’
+src/lxml/lxml.etree.c:38140: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:38149: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:38160: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:38160: error: too many arguments to function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’
+src/lxml/lxml.etree.c:38182: error: too many arguments to function ‘__pyx_f_4lxml_5etree_moveNodeToDocument’
+src/lxml/lxml.etree.c: In function ‘__pyx_pf_4lxml_5etree_8_Element_6__delitem__’:
+src/lxml/lxml.etree.c:38226: error: ‘xmlNode’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:38226: error: ‘__pyx_v_c_node’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:38227: error: ‘__pyx_v_c_next’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:38234: error: ‘__pyx_t_3’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:38297: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:38317: error: ‘XML_ELEMENT_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:38317: error: ‘XML_COMMENT_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:38317: error: ‘XML_ENTITY_REF_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:38317: error: ‘XML_PI_NODE’ undeclared (first use in this function)
+src/lxml/lxml.etree.c:38361: error: too many arguments to function ‘__pyx_f_4lxml_5etree__removeNode’
+src/lxml/lxml.etree.c:38387: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:38387: error: too many arguments to function ‘__pyx_f_4lxml_5etree__findChildSlice’
+src/lxml/lxml.etree.c:38398: error: too many arguments to function ‘__pyx_f_4lxml_5etree__deleteSlice’
+src/lxml/lxml.etree.c:38414: error: ‘struct LxmlElement’ has no member named ‘_c_node’
+src/lxml/lxml.etree.c:38460: error: too many arguments to function ‘__pyx_f_4lxml_5etree__removeNode’
+error: Setup script exited with interrupted

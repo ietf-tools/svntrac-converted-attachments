@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" []>
+
+<rfc category="info" docName="draft-schaad-sample-00.txt" ipr="trust200902">
+  <front>
+    <title>Sample Document</title>
+    <author initials="J." surname="Schaad" fullname="Jim Schaad">
+      <address>
+        <email>ietf@augustcellars.com</email>
+      </address>
+    </author>
+    <date/>
+    <abstract>
+      <t>TBD</t>
+    </abstract>
+  </front>
+  <middle>
+    <section anchor="Intro" title="Introduction">
+      <t>
+        THis is a sample text file.  Everything is in <xref target="Intro"/>.
+      </t>
+      <t>
+        THe TCL code generated this reference <xref target="ListStep"/>.
+        But the Python version doesn't.
+      </t>
+      <t>
+        THis is the list item
+        <list style="numbers">
+          <t>Step by Step.</t>
+          <t>Lots of small steps.</t>
+          <t>
+            Complicated Step:
+            <list style="letters">
+              <t>Nested step</t>
+              <t anchor="ListStep">and one more</t>
+            </list>
+          </t>
+        </list>
+      </t>
+    </section>
+  </middle>
+</rfc>
+
+

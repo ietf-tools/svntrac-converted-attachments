@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rfc submissionType='independent' ipr="trust200902" docName="spacing-00" category="info">
+   <front>
+      <title>Spacing Test</title>
+      <author fullname="An Author"/>
+   </front>
+   <middle>
+      <section>
+	 <name>Test</name>
+	 <t>
+    This is a sentence. So is this. However, the space in the name
+    Roy T. Fielding is not a sentence end.
+	 </t>
+      </section>
+   </middle>
+
+</rfc>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rfc docName="postal-tests"
+     submissionType="independent"
+     category="info"
+     ipr="trust200902"
+     version="3">
+   <front>
+      <title>Tests for &lt;xref&gt; Element</title>
+      <author surname="Nonymous" initials="A." fullname="A. Nonymous"/>
+   </front>
+   <middle>
+      <section anchor="s1">
+         <name>Dummy Section 1</name>
+         <t pn="section-1">
+            See <xref target="s2"/>.
+         </t>
+         <t>
+            See <xref target="section-2"/>.
+         </t>
+      </section>
+      <section anchor="s2" pn="section-2">
+         <name>Dummy Section 2</name>
+         <t>
+            See <xref target="s1"/>.
+         </t>
+         <t>
+            See <xref target="section-1"/>.
+         </t>
+      </section>
+   </middle>
+   <back/>
+</rfc>

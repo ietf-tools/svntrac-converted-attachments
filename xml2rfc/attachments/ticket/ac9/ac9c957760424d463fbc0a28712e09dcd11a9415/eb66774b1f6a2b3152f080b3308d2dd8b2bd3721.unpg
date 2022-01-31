@@ -1,0 +1,404 @@
+
+
+
+
+Network Working Group                                       A. Argentina
+Internet-Draft                                              A. Australia
+Intended status: Informational                                A. Austria
+Expires: April 18, 2020                                       B. Belgium
+                                                               B. Brazil
+                                                               C. Canada
+                                                                C. Chile
+                                                                C. China
+                                                              H. Croatia
+                                                              C. Czechia
+                                                              D. Denmark
+                                                              D. Germany
+                                                               G. Greece
+                                                              F. Finland
+                                                               F. France
+                                                              H. Hungary
+                                                                I. India
+                                                              I. Ireland
+                                                               I. Israel
+                                                                I. Italy
+                                                                J. Japan
+                                                                K. Korea
+                                                           L. Luxembourg
+                                                            M. Mauritius
+                                                               M. Mexico
+                                                          N. Netherlands
+                                                          N. New Zealand
+                                                               N. Norway
+                                                               P. Poland
+                                                             P. Portugal
+                                                              R. Romania
+                                                   R. Russian Federation
+                                                            S. Singapore
+                                                             S. Slovakia
+                                                             S. Slovenia
+                                                                E. Spain
+                                                               S. Sweden
+                                                          C. Switzerland
+                                                             T. Thailand
+                                                               T. Turkey
+                 G. United Kingdom of Great Britain and Northern Ireland
+                                             U. United States of America
+                                                              U. Uruguay
+                                                        October 16, 2019
+
+
+                       Tests for <postal> Element
+                              postal-tests
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on April 18, 2020.
+
+Copyright Notice
+
+   Copyright (c) 2019 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.
+
+Table of Contents
+
+   1.  Dummy Section
+   Authors' Addresses
+
+1.  Dummy Section
+
+Authors' Addresses
+
+   Arg Argentina
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   REGION
+   Argentina
+
+
+   Aus Australia
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITY REGION CODE
+   Australia
+
+
+   Aut Austria
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Austria
+
+
+   Bel Belgium
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Belgium
+
+
+   Bra Brazil
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITYAREA
+   CITY-REGION
+   CODE
+   Brazil
+
+
+   Can Canada
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITY REGION CODE
+   Canada
+
+
+   Chl Chile
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   REGION
+   Chile
+
+
+   Chn China
+   China
+   CODE
+   REGION CITY CITYAREA
+   STREET-1, STREET-2, STREET-3, POBOX
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+
+
+   Hrv Croatia
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   HR-CODE CITY
+   Croatia
+
+
+   Cze Czechia
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Czechia
+
+
+   Dnk Denmark
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Denmark
+
+
+   Deu Germany
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Germany
+
+
+   Grc Greece
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Greece
+
+
+   Fin Finland
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   FI-CODE CITY
+   Finland
+
+
+   Fra France
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   France
+
+
+   Hun Hungary
+   CITY
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE
+   Hungary
+
+
+   Ind India
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITY CODE
+   REGION
+   India
+
+
+   Irl Ireland
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITYAREA
+   CITY
+   REGION CODE
+   Ireland
+
+
+   Isr Israel
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITY CODE
+   Israel
+
+
+   Ita Italy
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY REGION
+   Italy
+
+
+   Jpn Japan
+   Japan
+   〒CODE
+   REGION
+   STREET-1, STREET-2, STREET-3, POBOX
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+
+
+   Kor Korea
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITY
+
+
+   Lux Luxembourg
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   L-CODE CITY
+   Luxembourg
+
+
+   Mus Mauritius
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE
+   CITY
+   Mauritius
+
+
+   Mex Mexico
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITYAREA
+   CODE CITY, REGION
+   Mexico
+
+
+   Nld Netherlands
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Netherlands
+
+
+   Nzl New Zealand
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITYAREA
+   CITY CODE
+   New Zealand
+
+
+   Nor Norway
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Norway
+
+
+   Pol Poland
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Poland
+
+
+   Prt Portugal
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Portugal
+
+
+   Rou Romania
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Romania
+
+
+   Rus Russian Federation
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITY
+   REGION
+   CODE
+   Russian Federation
+
+
+   Sgp Singapore
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   SINGAPORE CODE
+   Singapore
+
+
+   Svk Slovakia
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY
+   Slovakia
+
+
+   Svn Slovenia
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   SI-CODE CITY
+   Slovenia
+
+
+   Esp Spain
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY REGION
+   Spain
+
+
+   Swe Sweden
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   SE-CODE CITY
+   Sweden
+
+
+   Che Switzerland
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CH-CODE CITY
+   Switzerland
+
+
+   Tha Thailand
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITYAREA CITY
+   REGION CODE
+   Thailand
+
+
+   Tur Turkey
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY/REGION
+   Turkey
+
+
+   Gbr United Kingdom of Great Britain and Northern Ireland
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITY
+   CODE
+   United Kingdom of Great Britain and Northern Ireland
+
+
+   Usa United States of America
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CITY, REGION CODE
+   United States of America
+
+
+   Ury Uruguay
+   EXTADDR-1, EXTADDR-2, EXTADDR-3
+   STREET-1, STREET-2, STREET-3, POBOX
+   CODE CITY REGION
+   Uruguay
