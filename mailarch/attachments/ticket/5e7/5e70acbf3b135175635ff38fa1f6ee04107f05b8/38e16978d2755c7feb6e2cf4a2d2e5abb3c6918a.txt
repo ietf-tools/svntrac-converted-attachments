@@ -1,0 +1,187 @@
+
+
+I have reviewed this document as part of the security directorate's 
+ongoing effort to review all IETF documents being processed by the 
+IESG.  These comments were written primarily for the benefit of the 
+security area directors.  Document editors and WG chairs should treat 
+these comments just like any other last call comments.
+
+
+[Note that I am not well versed in SCTP]
+
+This document defines SDP [RFC4566] protocol identifiers (proto values):
+'UDP/DTLS/SCTP' and 'TCP/DTLS/SCTP'.  This specification also specifies
+how to use the new proto values with the SDP Offer/Answer mechanism
+[RFC3264] for negotiating SCTP-over-DTLS associations.
+
+As this document only defines a method of signaling to use UDP/DTLS/SCTP
+or UDP/DTLS/SCTP, there are not specific Security Considerations for this
+document, and the Security Considerations correctly points to the documents
+that actually implement the UDP/DTLS/SCTP and TCP/DTLS/SCTP protocols.
+
+So from a security point of view, this document is Ready.
+
+I do have some generic concerns and questions I would like to see addressed:
+
+One general issue I have is with the specification of IANA values and punting
+some of its meaning. Let me quote an example:
+
+	NOTE: This specification only defines the usage of the SDP 'max-
+	message-size' attribute when associated with an m- line containing
+	one of the following proto values: 'UDP/DTLS/SCTP' or 'TCP/DTLS/
+	SCTP'.  Usage of the attribute with other proto values needs to be
+	defined in a separate specification.
+
+This type of constraint is not clear and easilly displayed in an IANA registry if
+other values are later added to the table. This text is also an example of how
+througout the document, items are explicitely "this use is unspecified for now
+but other documents may change that". It would have been better to just simply
+and clearly state the current specified use, and let future documents handle
+updating this document appropriately. This language use makes a lot of decisions
+for implementers unclear as these decisions are punted forward in time without
+a reference to follow.
+
+Section 4.4.1 states:
+
+	This specification creates an IANA registry for 'association-usage' values.
+
+I think this should be specified a little more clearly, similar to the IANA section
+specification itself. Something like:
+
+	This specification creates the IANA 'association-usage' registry for SDP Attributes.
+
+Section 4.4.2:
+
+The table contains an error on the <port> entries (UDP instead of TCP). I would personally
+change the port parameter value to just "port number for <proto>" or "UDP or TCP port number"
+
+Section 4.5:
+
+I'm unsure if ordering matters, so I am confused by the table ordering in media, proto, port,
+and the m= line example ordering media, port proto.
+
+I'm further confused by the table listing colon's, eg "<proto>:" and the m= line not
+using colons but spaces. And the following a= lines using colons again. Is this an error,
+or this is my lack of familiarity with the used protocols?
+
+Section 5.1:
+
+	Therefore, if the attribute is not present, the associated m- line MUST be considered invalid.
+
+Is it obvious what one must done when the m- line is considered invalid?
+
+Section 5.2:
+
+	Leading zeroes MUST NOT be used.
+
+What is the problem with leading zeros? What can go wrong when these are used? Should
+an implementor be warned about something specific?
+
+Section 6.1:
+
+	An SCTP endpoint MUST NOT send a SCTP user message with a message
+	size that is larger than the maximum size indicated by the peer, as
+	it cannot be assumed that the peer would accept such message.
+
+While this tells an implementer what not to do, it does not tell the implementer
+what to do when this happens on the receiving end. It would be good to specify
+that here as well so that implementors will be reminded to think of this error
+handling case.
+
+	a maximum message size value of zero, it indicates the SCTP endpoint will handle
+	messages of any size, subject to memory capacity etc.
+
+I'm personally not a big fan of 0 meaning infinite, but if this is how other related
+specs are handling these values in this way, I can understand doing it here as well.
+For instance, not specifying a max-message-size seems more indicative of not having
+a max message size. But here that has been defined as meaning 64k. If this usage
+would be a precedent, I would recommend to not do this. If this is how these things
+are done in this world, then I guess stick to what has already been done in this space.
+
+The table entry in 6.2 lists an email contact for an IANA entry. Why does an IANA
+entry need someone's email address as contact? IANA entries normally only refer to
+the RFC's that define them, and people are expected to contact the working group
+or maybe one of the RFC authors for questions. But putting a name and email address
+entry here seems to convey some kind of "ownership" of the IANA entry which I think
+is the wrong thing to do.
+
+Section 6.3
+
+   As the usage of multiple SCTP associations on top of a single DTLS
+   association is outside the scope of this specification, no mux rules
+   are specified for the 'UDP/DTLS/SCTP' and 'TCP/DTLS/SCTP' proto
+   values.
+
+Why is this out of scope? If there are good reasons not to do it, should it not
+be defined to MUST NOT? If it is out of scope only for now, then it seems that
+this document should in fact just specify it so people know how to do it. The
+way this is phrased seems to leave the thing hanging in midair, and implememters
+might end up doing different things.
+
+
+Section 7:
+
+   NOTE: While [I-D.ietf-tsvwg-sctp-dtls-encaps] allows multiple SCTP
+   associations on top of a single DTLS association, the procedures in
+   this specification only support the negotiation of a single SCTP
+   association on top of any given DTLS association.
+
+And similar here. 
+
+Setion 8:
+
+Similar issues with "the procedures" and with "is out of scope for this"
+
+Section 9.2:
+
+	This specification does not define semantics for the SDP direction
+	attributes [RFC4566].  Unless semantics of these attributes for an
+	SCTP association usage have been defined, SDP direction attributes
+	MUST be ignored if present.
+
+Why are these attributes not defined in this specification? If there are good
+reasons for it not to have been specified, why not change the language to
+clearly state these attributes here are invalid and MUST be ignored? If it
+is possibly these will be defined in the future (which the current text
+suggest might happen) perhaps that specification really belongs in this
+document.
+
+
+Nits:
+
+Through the document, there are paragraphs that start with "NOTE:". I think
+those can all be safely removed to increase the readability.
+
+Section 1:
+
+   [I-D.ietf-tsvwg-sctp-dtls-encaps]
+
+This looks but is not a proper reference. (eg there is no link)
+
+   When the 'UDP/DTLS/SCTP' and 'TCP/DTLS/SCTP' proto values, the m-
+   line fmt value, identifying the application-layer protocol, MUST be
+   registered by IANA.
+
+This sentence does not parse.
+
+
+Section 6.1
+
+Line wrapping 'TCP/DTLS/
+              SCTP'   is best avoided.
+
+
+Section 9
+
+	Each can be established and closed without impacting others.
+
+Should that not be "each other" or "the others" (as opposed to "others" being other things far far away)
+
+Section 10.3
+
+[I-D.ietf-mmusic-dtls-sdp] is not a proper reference with link.
+
+Section 12
+
+I would rephrase "The text in the paragraph above" as these indirect references make the text harder
+to read.

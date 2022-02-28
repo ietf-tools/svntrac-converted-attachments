@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC1034 SYSTEM "bibxml/reference.RFC.1034.xml">
+<!ENTITY RFC1035 SYSTEM "bibxml/reference.RFC.1035.xml">
+<!ENTITY RFC3548 SYSTEM "bibxml/reference.RFC.3548.xml">
+<!ENTITY RFC5234 SYSTEM "bibxml/reference.RFC.5234.xml">
+<!ENTITY RFC5646 SYSTEM "bibxml/reference.RFC.5646.xml">
+<!ENTITY RFC1706 SYSTEM "bibxml/reference.RFC.1706.xml">
+<!ENTITY RFC2535 SYSTEM "bibxml/reference.RFC.2535.xml">
+<!ENTITY RFC2782 SYSTEM "bibxml/reference.RFC.2782.xml">
+<!ENTITY RFC2874 SYSTEM "bibxml/reference.RFC.2874.xml">
+<!ENTITY RFC3123 SYSTEM "bibxml/reference.RFC.3123.xml">
+<!ENTITY RFC4025 SYSTEM "bibxml/reference.RFC.4025.xml">
+<!ENTITY RFC4033 SYSTEM "bibxml/reference.RFC.4033.xml">
+<!ENTITY RFC4398 SYSTEM "bibxml/reference.RFC.4398.xml">
+<!ENTITY RFC5205 SYSTEM "bibxml/reference.RFC.5205.xml">
+]>
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<?rfc toc="yes" ?>
+<?rfc tocindent="yes" ?>
+<?rfc tocdepth="2" ?>
+<?rfc symrefs="yes" ?>
+<?rfc sortrefs="yes"?>
+<?rfc iprnotified="no" ?>
+<rfc category="std" docName="draft-levine-dnsextlang-12" ipr="trust200902">
+  <front>
+    <title abbrev="DNS Extension Language">An Extension Language for the
+    DNS</title>
+
+    <author fullname="John Levine" initials="J." surname="Levine">
+      <organization>Taughannock Networks</organization>
+
+      <address>
+        <postal>
+          <street>PO Box 727</street>
+          <city>Trumansburg</city>
+          <code>14886</code>
+          <region>NY</region>
+        </postal>
+        <email>standards@taugh.com</email>
+        <uri>http://jl.ly</uri>
+      </address>
+    </author>
+
+    <author fullname="Paul Vixie" initials="P." surname="Vixie">
+      <address>
+        <postal>
+          <street>950 Charter Street</street>
+          <city>Redwood City</city>
+          <region>CA</region>
+        </postal>
+        <email>vixie@fsi.io</email>
+      </address>
+    </author>
+
+    <date year="2019"/>
+
+    <area>Operations and Management</area>
+    <keyword>DNS</keyword>
+    <keyword>extensions</keyword>
+
+    <abstract>
+      <t>Adding new RRTYPEs to the DNS has required that DNS servers and
+      provisioning software be upgraded to support each new RRTYPE in Master
+      files. This document defines a DNS extension language intended to allow
+      most new RRTYPEs to be supported by adding entries to configuration data
+      read by the DNS software, with no software changes needed for each
+      RRTYPE.</t>
+    </abstract>
+  </front>
+
+  <middle>
+    <section title="Introduction">
+      <t>The Domain Name System<xref target="RFC1034"/> <xref
+      target="RFC1035"/> is designed to be extensible, with new record types,
+      known as RRTYPEs, added as needed. While it is straightforward in
+      principle to add a new RRTYPE, in practice it can be difficult due to
+      the software changes needed to add the new RRTYPE to the master file
+      format read by many authoritative DNS servers, and to the provisioning
+      software used to create and update the master files or the local
+      equivalent.</t>
+
+      <t>While some new RRTYPEs, notably those for <xref
+      target="RFC4033">DNSSEC</xref>, require that DNS servers do new special
+      purpose processing, most new RRTYPEs are, from the point of view of the
+      DNS, just static data to return to queries, perhaps with some additional
+      section records if the record includes another domain name. This
+      document defines an extension language to describe any RRTYPEs, so
+      that provisioning software can parse master file records for
+      the RRTYPEs.
+      DNS servers can use the extension language to implement RRTYPEs that
+      do not require special purpose processing.</t>
+   <t>
+      The extension language can also be useful in provisioning software, to
+      create input forms and validate the syntax of entered records.
+   </t>
+    </section>
+
+    <section title="Typical usage">
+      <t>The extension language is written as strings of UTF-8 text that
+      describe new RR types, intended to be stored in the DNS itself. (They
+      may also be stored in a local file with a well-known name, for debugging
+      and local overrides, but this usage is optional.) All of the DNS
+      software that needs to handle master file records fetches records from
+      the DNS as needed. To support a new RRTYPE, one would add suitable
+      records to the DNS zone where the descriptions are located, or to the
+      local file.</t>
+
+      <t>DNS servers can use the extension language to parse new RRTYPE
+      records in master files, and to translate them to the binary
+      representation. Servers that create ASCII master files from zone data
+      retrieved via AXFR can use the extension language to create master file
+      records for new RRTYPEs.</t>
+
+      <t>Provisioning software can use the extension language to create
+      templates for users to fill in, to create new RRTYPE records in master
+      files to be passed to DNS servers, and to syntax check records entered
+      by users.
+      The extension language includes natural language field descriptions intended
+      to be used as prompts in fill-in templates, and can handle versions of
+      prompts in multiple languages.            
+      </t>
+
+      <t>Provisioning software could create TYPEnn master
+      records if the local DNS server doesn't implement the extension
+      language, although it would be less confusing if both provisioning and
+      server software both accept the same master record syntax.</t>
+
+      <t>Some DNS servers store records in ways other than master files, such
+      as SQL databases. The extension language could be used to
+      create new schema entries to handle new RRTYPEs, although the details
+      are too specific to particular varieties of DNS server software for this
+      document to try to describe the details.</t>
+
+      <t>The extension language can describe all existing RRTYPEs, which may
+	 be useful in table driven provisioning software.
+      </t>
+    </section>
+
+    <section title="Extension language syntax">
+      <section title="Lexical structure">
+        <t>The extension language consists of "stanzas", each of which defines
+        an RRTYPE. In the DNS, a stanza is stored as a multi-string TXT
+        record, with each string conceptually being a line in the stanza. In a
+        file, it is stored as a series of lines. The first line of a stanza
+        defines the symbolic RRTYPE name. Subsequent lines, which must start
+        with white space, each define a field in the record. Blank lines and
+        comment lines where the first nonblank character is "#" are ignored.</t>
+
+        <t>The following ABNF imports ALPHA, DIGIT, and WSP from <xref
+        target="RFC5234"/>.</t>
+
+        <figure>
+          <artwork><![CDATA[
+ldh = ALPHA 0*(ALPHA | DIGIT | "-")
+
+dnsextfile = 1*stanza
+
+stanza = rrtypeline 1*fieldline
+
+rrtypeline = ldh ":" 1*DIGIT 0*1(":" 1*ALPHA) 0*1(WSP freetext)
+
+fieldline = ftype 0*1qualifiers 0*1(":" ldh ) 0*1(WSP freetext)
+
+ftype = "I1" | "I2" | "I4" | "A" | "AA" | "AAAA" | "N" | "S" |
+  "B32" | "B64" | "X" | "EUI48" | "EUI64" | "T" | "Z"
+
+qualifiers = "[" qual 0*(, qual) "]"
+
+qual = ldh "=" 1*DIGIT | "C" | "A" | "L" | "M" | "X" | "P" |
+   "WKS" | "NSAP" | "NXT" | "A6P" | "A6S" | "APL" | "IPSECKEY" |
+   "HIPHIT" | "HIPPK"
+
+freetext = 0*(%x20-%xfe)]]></artwork>
+        </figure>
+      </section>
+
+      <section title="Storage in the DNS">
+        <t>Each extension language stanza stored in the DNS is stored as two
+        identical TXT records, one with a name based on the numeric RR type,
+        one with a name based on the text name. (One record may be aliased to
+        the other using a CNAME.) The numeric names are located at
+        RRTYPE.ARPA, and the text names are located at RRNAME.ARPA.
+	</t>
+	<t>The first string in the TXT record are the identification tag "RRTYPE=1" to
+        identify the record as an RRTYPE definition.
+	Each line of the stanza
+        is a string in the TXT records. The leading spaces used in the file
+        format (described below) are not used.
+	The record name may also have a <xref target="RFC5646">language
+	   tag</xref> prefix that identifies the language in which the descriptive text
+	is written.
+	There should always be an unprefixed record for each type, to be the default
+	if there is no record in the desired languge, which might be aliased to a prefixed
+	record with CNAME.
+	</t>
+	<t>For example, if the FOO record
+        type were type 999, the two records for an English language description would be:
+	</t>
+
+        <figure>
+          <artwork><![CDATA[
+999.RRTYPE.ARPA. TXT "RRTYPE=1" "FOO:999 Foorec" "I2:count Count" "..."
+FOO.RRNAME.ARPA. TXT "RRTYPE=1" "FOO:999 Foorec" "I2:count Count" "..."]]></artwork>
+        </figure>
+	<t>If there are descriptions in multiple languages, they are stored with
+	   name prefixes, and applications can choose the most suitable one.</t>
+        <figure>
+          <artwork><![CDATA[
+EN.999.RRTYPE.ARPA. TXT "RRTYPE=1" "FOO:999 Foo rec" "..."
+999.RRTYPE.ARPA. CNAME EN.999.RTYPE.ARPA.
+FR.999.RRTYPE.ARPA. TXT "RRTYPE=1" "FOO:999 Un foo" "..."
+EN.FOO.RRNAME.ARPA. TXT "RRTYPE=1" "FOO:999 Foo rec" "..."
+FOO.RRTYPE.ARPA. CNAME EN.FOO.RTYPE.ARPA.
+FR.FOO.RRNAME.ARPA. TXT "RRTYPE=1" "FOO:999 Un foo" "..."]]></artwork>
+        </figure>
+	<section title="Record type directory">
+	   <t>A directory of all of the available RR names is stored at _LIST.RRTYPE.ARPA.
+	      It is a TXT record containing RRTYPE=1 followed by each name as a separate string, e.g.:
+	      </t>
+        <figure>
+          <artwork><![CDATA[
+_LIST.RRNAME.ARPA. TXT "RRTYPE=1" "A" "A6" ... "WKS" "X25"]]></artwork>
+        </figure>
+	</section>
+      </section>
+
+      <section title="Storage in a file">
+        <t>All the extension language stanzas stored in a file are stored as
+        lines of ASCII text. The name of the RR type starts in the first
+        position of the first line in the stanza. Subsequent lines in the
+        stanza start with white space. A line that is blank or where the first
+	nonblank character is a # is a comment and is ignored.</t>
+     <t>Descriptions in different languages are stored in separate files.
+	A directory of names can be created by scanning the file.
+     </t>
+      </section>
+
+      <section title="Stanza structure">
+        <t>Each stanza starts with a line containing the name of the RRTYPE, a
+        colon, and the numeric RRTYPE. The name of the RRTYPE must start in
+        the first position on the line. When stored in a file, the RRTYPE name
+        should not be the same as an existing RRTYPE or DNS class name (IN or
+        CH) or bad things will happen.</t>
+
+        <t>The RRTYPE may be followed a colon and letters, to indicate options
+        for the RRTYPE. The letter is "X" means that
+        implementing the RRTYPE requires extra processing by DNS servers,
+        e.g., the extra processing for DNAME or DNSSEC records. The intention
+        of the option is to allow DNS servers to report an error if a zone
+        contains a record defined with "X" for which the server does not
+        implement the extra processing.
+	The letters "I" and "A" mean that the RRTYPE is defined in the IN class only, or
+	in any class, respectively.
+	The letters "O" and "E" indicate that the type is obsolete or experimental,
+	respectively.
+	</t>
+
+        <t>That can be followed by white space and a descriptive comment
+        intended to be displayed to human users, but not interpreted by DNS
+        software. Provisioning software might use the comments as prompts or
+        labels to help a user select the desired RRTYPE.</t>
+
+        <t>The rest of the lines in the stanza
+        describe the fields in the record. Each field is one or more octets
+        long, and fields are stored sequentially in the record:</t>
+
+        <figure>
+          <artwork><![CDATA[
+ FOO:999 Foo record
+    field description
+    field:tag description
+    field[qual,qual] description
+    field[qual,qual]:tag description
+    field ...]]></artwork>
+        </figure>
+
+        <t>Some fields may be followed by a comma-separated list of qualifiers
+        in square brackets. The qualifiers further define the field, e.g., in
+        a numeric field, the qualifiers may define symbolic names for field
+        values or bit masks.
+	That can be followed by an colon and an ldh string.
+	The string is intended to be used as the
+	   name of the field in software applications that create data structures
+	   for an RRTYPE.  Applications will often have to change the punctuation
+	   to match the syntax of the programming language, such as replacing
+	   hyphens with underscores.
+	   If two fields in an RRTYPE have the same name, the result is undefined.
+	</t>
+	<t>
+	The field and optional qualifiers and name may be followed
+        by white space and a description of the field. The description is
+        intended to be displayed to human users, and is not interpreted by DNS
+        software. Provisioning software might use the comments as prompts or
+        labels for templates into which users enter RR data.</t>
+      </section>
+
+      <section title="Field types">
+        <t>Each field type is defined by a token name consisting of letters
+        and digits, starting with a letter.</t>
+
+        <section title="Integer fields">
+          <t>Integer fields are defined by I1, I2, and I4 tokens, for fields
+          one, two, or four octets long. The corresponding value in a master
+          record is an unsigned integer number. A field may be followed by
+          qualifiers defining symbolic field values.</t>
+
+          <t>A symbolic field value is represented as NAME=NN where NAME is
+          the symbol and NN is the numeric value to be placed in the field.
+          The corresponding value in a master record is the symbol. The symbol
+          can contain letters, digits, and hypens. For example, to define the
+          type field in a <xref target="RFC4398">CERT record</xref>:</t>
+
+          <figure>
+            <artwork><![CDATA[
+   I2[PKIX=1,SPKI=2,PGP=2,IPKIX=4,ISPKI=5,IPGP=6,ACPKIX=7,\
+    IACPKIX=8,URI=253,OID=254]:type Certificate type
+                 ]]></artwork>
+          </figure>
+	  <t>RRTYPE fields are defined by R tokens, for a two octet
+	     field containing an RRTYPE.  The corresponding
+	     value in a master record is a symbolic RRTYPE or TYPEnnn
+	     for types without names.
+	     A R[L] token and qualifier defines a structured bitmap of RRTYPEs
+	     used in NSEC and NSEC3 records, which must be the last field in the record.
+	     The corresponding value in a master record is a list of RRTYPEs.
+	  </t>
+
+        </section>
+
+        <section title="IP address and partial address fields">
+          <t>IP address fields are defined by A or AAAA tokens, for four-octet
+          IPv4 addresses or 16-octet IPv6 addresses. The corresponding value
+          in a master record is an IP address written in the usual way. There
+          are no qualifiers.</t>
+       <t>The AA token defines a 64 bit field written like half of an IPv6
+	  address, with up to four colon separated groups of up to four hex digits.
+       </t>
+        </section>
+
+        <section title="Domain name fields">
+          <t>Domain name fields are defined by N tokens. The qualifier C means
+          the name is compressed.
+	  The qualifier A means that the domain name represents a mailbox, with the
+	  first component being the local part of the mailbox.
+	  The qualifier L means that the domain name is converted to lower case
+	  before DNSSEC validation.
+	  An N tag and an O qualifier, which can only appear as the last
+	  field in a record, means the name is optional.
+	  </t>
+
+          <t>The corresponding value in a master record is a domain name,
+          written in the usual way, with \. meaning a literal dot in a
+          record.</t>
+
+          <t>Names are absolute if they end with a dot, otherwise relative to
+          $ORIGIN, the convention for master files.</t>
+        </section>
+
+        <section title="String fields">
+          <t>String fields are defined by S tokens.
+	     A plain S token means a single string preceded by a one-octet length.
+	     A S[M] token and qualifier means that
+          there may be multiple strings, each stored as a length and string in the
+          record. A S[M] field must be the last field
+          in the record.</t>
+
+          <t>An S[X] token and qualifier is a raw string, stored without any
+             length bytes. It must be the last field in the record.
+             </t>
+          <t>The corresponding value in a master record is a string enclosed
+          in single or double quotes, or multiple strings if the M qualifier
+          is present. Embedded quotes may be escaped with a backslash, and a
+          double backslash represents a backslash. If a non-null string
+          contains no white space, quote characters, or backslashes, the
+          quotes may be omitted.</t>
+
+        </section>
+
+        <section title="Base-32 and Base-64 fields">
+          <t>A base32 or base64 field is defined by a B32 or B64 token.
+	     A base32 field is stored in the record with a preceding one-octet length.
+	     A base64 field is stored as binary data, and must be the last field in the record.</t>
+
+          <t>The corresponding value in a master record is a string
+	     represented as <xref target="RFC3548">base32 or base64</xref>. The value of a
+	     base64 field may include embedded spaces for
+          readability, which are ignored.</t>
+        </section>
+
+        <section title="Hex fields">
+          <t>A hex field is defined by an X token.
+	     A plain X field is binary data.
+	     An X[C] token and qualifier means that the field is stored in the record as a string
+	     with a preceding one-octet length.
+	     An unqualified hex field must be the last field in the record,
+	     and may include embedded spaces for readability, which are ignored.</t>
+
+	  <t>The corresponding value in a master record is a string
+	     represented as an even number of hexadecimal digits.
+	  </t>
+	  <t>EUI48 and EUI64 fields are defined by X6 and X8 tokens, respectively.
+	     The corresponding fields in master records are six or eight pairs of hex
+	     digits separated by hyphens.
+	  </t>
+	</section>
+
+	<section title="Time stamp fields">
+	   <t>
+	      A 32-bit timestamp field is defined by a T token.
+	      The corresponding value in a master record is a fourteen digit value
+	      in the form YYYYMMDDHHmmSS indicating a UTC timestamp,
+	      or as an unsigned number of seconds with ten digits or less.
+	      The field is stored in the record as a Unix timestamp, the unsigned number
+	      of seconds since January 1, 1970 00:00:00 UTC.
+	   </t>
+	</section>
+
+	<section title="Miscellaneous fields">
+	   <t>Some RRTYPEs have fields with a unique syntax, represented as qualifiers in a Z field.
+	   </t>
+	   <t>Z[WKS] is the bitmap of port numbers in the <xref target="RFC1035">WKS</xref> RRTYPE.</t>
+	   <t>Z[NSAP] is the special hex syntax for the address in the <xref target="RFC1706">NSAP</xref> RRTYPE.</t>
+	   <t>Z[NXT] is the bitmap of RRTYPES in the <xref target="RFC2535">NXT</xref> RRTYPE.</t>
+	   <t>Z[A6P] and Z[A6S] are the prefix length and the variable length address suffix in the <xref target="RFC2874">A6</xref> RRTYPE.</t>
+	   <t>Z[APL] is the list of address prefixes in the <xref target="RFC3123">APL</xref> RRTYPE.</t>
+	   <t>Z[IPSECKEY] is the variable format gateway in the <xref target="RFC4025">IPSECKEY</xref> RRTYPE.</t>
+	   <t>Z[HIPHIT] and Z[HIPPK] are the hex HIT and base64 PK fields with detached implicit
+	      lengths in the <xref target="RFC5205">HIP</xref> RRTYPE.</t>
+	   
+	</section>
+
+      </section>
+    </section>
+
+    <section title="Examples">
+      <t><figure>
+          <preamble>A description of an MX
+          record could be defined as:</preamble>
+
+          <artwork><![CDATA[
+ MX:15 Mail exchanger
+   I2:priority Priority (lower values are higher priority)
+   N[A,C]:exchanger Host name
+             ]]></artwork>
+
+          <postamble>The name is MX, the RRTYPE is 15, and the data includes a
+          two-octet number and a compressed domain name, with additional
+          section records for the domain name.</postamble>
+        </figure></t>
+
+      <t><figure>
+          <preamble>The <xref target="RFC2782">SRV record</xref> could be
+          defined as:</preamble>
+
+          <artwork><![CDATA[
+ SRV:33 Service location
+   I2:priority Priority
+   I2:weight Weight
+   I2:port Port
+   N:target Target host name
+             ]]></artwork>
+
+          <postamble>The name is SRV, the RRTYPE is 33. The record contains
+          three two-octet fields for the priority, weight, and port, and a
+          domain name. The domain name is not compressed.</postamble>
+        </figure></t>
+    </section>
+
+    <section title="Security considerations">
+      <t>The extension language makes it possible to create master files that
+      represent arbitrary DNS records. Since most DNS servers already provide
+      ways to represent arbitrary data, this doesn't introduce any new
+      security issues to the DNS and DNS servers, although it may create
+      security issues in provisioning software if the provisioning system is
+      intended to limit the kinds of records its users can define.</t>
+
+      <t>Extension language files with accidentally or deliberately invalid
+      field definitions could provoke odd bugs in server or provisioning
+      software that doesn't check the syntax before using it.</t>
+
+      <t>When extension language data are imported from the DNS, a hostile
+      party might use DNS spoofing techniques to modify the records imported.
+      Methods to defend against DNS spoofing include DNSSEC.</t>
+    </section>
+
+    <section title="IANA considerations">
+      <t>This document requests that IANA create the RRTYPE.ARPA and
+      RRNAME.ARPA zones. Their initial contents are as shown in Appendix B.
+      </t>
+
+      <t>When new RR types are defined, the defining documents SHOULD request
+      IANA to add appropriate records to RRTYPE.ARPA and RRNAME.ARPA.</t>
+
+      <t>This document requests that IANA create a registry of DNS Extension
+      Language Field Types. Its initial contents are as follows</t>
+
+      <texttable anchor="dnsextreg"
+                 title="DNS Extension Language Field Types Registry Initial Values">
+        <ttcol align="center">TYPE</ttcol>
+        <ttcol align="left">REFERENCE</ttcol>
+        <ttcol align="left">EXTLANG VERSION</ttcol>
+
+        <c>I1</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>I2</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>I4</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>A</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>AA</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>AAAA</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>N</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>S</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>B32</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>B64</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+        <c>X</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+	<c>EUI48</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+	<c>EUI64</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+	<c>T</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+	<c>Z</c>
+        <c>(this document)</c>
+        <c>1</c>
+
+      </texttable>
+    </section>
+  </middle>
+
+  <back>
+    <references title="References - Normative">
+       &RFC1034;
+       &RFC1035;
+       &RFC3548;
+       &RFC5234;
+       &RFC5646;
+    </references>
+
+    <references title="References - Informative">
+       &RFC1706;
+       &RFC2535;
+       &RFC2782;
+       &RFC2874;
+       &RFC3123;
+       &RFC4025;
+       &RFC4033;
+       &RFC4398;
+       &RFC5205;
+    </references>
+
+    <section title="Change Log">
+      <t><spanx style="strong">NOTE TO RFC EDITOR: This section may be removed
+        upon publication of this document as an RFC.</spanx></t>
+
+      <section title="Changes from -11 to -12">
+	<t>Change to xml2rfc v3.
+	Minor editorial changes.</t>
+      </section>
+      <section title="Changes from -10 to -11">
+	<t>Put language back in the name.  Add _LIST directory.  Add O and E hints.</t>
+      </section>
+
+      <section title="Changes from -09 to -10">
+	<t>Add hint letters for RRTYPE classes.</t>
+      </section>
+
+      <section title="Changes from -08 to -09">
+        <t>Add Z fields for rrtype-specific fields.
+	   Redid qualifier descriptions.
+	</t>
+	<t>Add definitions of RRTYPEs.</t>
+
+      </section>
+      <section title="Changes from -07 to -08">
+        <t>Add counted hex and raw strings and other new types. Added language tags.
+	Added field names.</t>
+
+      </section>
+      <section title="Changes from -06 to -07">
+        <t>Add RRTYPE=1 tag in TXT records.</t>
+
+        <t>Allow digits and hyphens in qualifier tags, for names like
+        SHA-1.</t>
+      </section>
+
+      <section title="Changes from -05 to -06">
+        <t>Fix formatting problems.</t>
+
+        <t>Add RRTYPE option "X".</t>
+      </section>
+
+      <section title="Changes from -04 to -05">
+        <t>DNS publication in RRYPE.ARPA and RRNAME.ARPA.</t>
+      </section>
+
+      <section title="Changes from -03 to -04">
+        <t>More use cases.</t>
+
+        <t>Fix up BNF</t>
+      </section>
+
+      <section title="Changes from -02 to -03">
+        <t>First stab at BNF</t>
+
+        <t>Note $ORIGIN matters</t>
+      </section>
+
+      <section title="Changes from -01 to -02">
+        <t>Editorial nits</t>
+      </section>
+
+      <section title="Changes from -00 to -01">
+        <t>Switch to multi-line format. Add comments for provisioning.</t>
+      </section>
+    </section>
+
+    <section title="Descriptions of currently defined RRTYPEs">
+       <t>Here are descriptions of currently RRTYPEs that can appear in zone files.
+       The \ indicating continuation lines are only for display in this document
+       and would not appear in the descriptions.</t>
+        <figure>
+          <artwork><![CDATA[
+A:1:I a host address [RFC1035]
+   A:addr IPv4 address
+
+NS:2:A an authoritative name server [RFC1035]
+   N[C]:host Host name
+
+MD:3:AO a mail destination (OBSOLETE - use MX) [RFC1035]
+   N[C]:host Host name
+
+MF:4:AO a mail forwarder (OBSOLETE - use MX) [RFC1035]
+   N[C]:host Host name
+
+CNAME:5:A the canonical name for an alias [RFC1035]
+   N[C]:host Host name
+
+SOA:6:A marks the start of a zone of authority [RFC1035]
+   N[C]:primary Primary server name
+   N[A]:mailbox Responsible mailbox
+   I4:serial Serial number
+   I4:refresh Refresh time (seconds)
+   I4:retry Retry time (seconds)
+   I4:expire Expire time (seconds)
+   I4:minimum Minium time (seconds)
+
+MB:7:AE a mailbox domain name (EXPERIMENTAL) [RFC1035]
+   N[C]:host Host name
+
+MG:8:AE a mail group member (EXPERIMENTAL) [RFC1035]
+   N[A]:mailbox Mailbox name
+
+MR:9:AE a mail rename domain name (EXPERIMENTAL) [RFC1035]
+   N[A]:mailbox Mailbox name
+
+WKS:11:I a well known service description [RFC1035]
+   A IPv4 address
+   I1 Protocol number
+   Z[WKS]:bitmap Bit Map
+
+PTR:12:A a domain name pointer [RFC1035]
+   N[C]:host Host name
+
+HINFO:13:A host information [RFC1035]
+   S:cpu CPU type
+   S:os Operating system
+
+MINFO:14:A mailbox or mail list information [RFC1035]
+   N[A]:respbox Responsible mailbox
+   N[A]:errbox Error mailbox
+
+MX:15:A mail exchange [RFC1035]
+   I2:priority Priority (lower values are higher priority)
+   N[C]:hostname Host name
+
+TXT:16:A text strings [RFC1035]
+   S[M]:text Strings
+
+RP:17:A for Responsible Person [RFC1183]
+   N[A]:mailbox Mailbox
+   N:text Text location
+
+AFSDB:18:A for AFS Data Base location [RFC1183][RFC5864]
+    I2:subtype Subtype
+    N:hostname Hostname
+
+X25:19:A for X.25 PSDN address [RFC1183]
+   S:address PSDN address
+
+ISDN:20:A for ISDN address [RFC1183]
+   S[M]:address ISDN address, and optional subaddress
+
+RT:21:A for Route Through [RFC1183]
+   I2:preference Preference
+   N:hostname Intermediate host
+
+NSAP:22:I for NSAP address, NSAP style A record [RFC1706]
+   Z[NSAP]:address NSAP Address 
+
+NSAP-PTR:23:I for domain name pointer, NSAP style [RFC1348][RFC1637]
+   N:hostname Host name
+
+SIG:24:A for security signature [RFC4034]
+   I2:sigtype Type covered
+   I1:algorithm Algorithm
+   I1:labels Labels
+   I4:ttl Original TTL
+   T:expires Signature expiration time
+   T:signed Time signed
+   I2:footprint Key footprint
+   N[C]:name Signer's name
+   B64:signature Signature data
+
+KEY:25:A for security key [RFC4034]
+   I2:flags Flags
+   I1:protocol Protocol
+   I1:algorithm Algorithm
+   B64:data Key data
+
+PX:26:I X.400 mail mapping information [RFC2163]
+   I2:pref Preference
+   N:idomain Internet mail domain
+   N:xdomain X.400 mail domain
+
+GPOS:27:A Geographical Position [RFC1712]
+   S:longitude Longitude (decimal degrees)
+   S:latitude Latitude (decimal degrees)
+   S:altitude Altitude (meters)
+
+AAAA:28:I IP6 Address [RFC3596]
+   AAAA:address Address
+
+LOC:29:A Location Information [RFC1876]
+   I1:version Version
+   I1:sphere Sphere size
+   I2:hprecision Horiz precision
+   I2:vprecision Vert precision
+   I4:latitude Latitude (offset milliseconds)
+   I4:longitude Longitude (offset milliseconds)
+   I4:altitude Altitude (offset cm)
+
+NXT:30:AO Next Domain (OBSOLETE) [RFC3755][RFC2535]
+   N[C]:next Domain
+   Z[NXT]:rrtypes Bitmap of rrtypes
+
+SRV:33:I Server Selection [1][RFC2782]
+   I2:priority Priority
+   I2:weight Weight
+   I2:port Port
+   N:target Target host name
+
+NAPTR:35:I Naming Authority Pointer [RFC2915][RFC2168][RFC3403]
+   I2:order Order
+   I2:pref Preference
+   S:flags Flags
+   S:services Services
+   S:regex Regular expression
+   N:replacement Replacement
+
+KX:36:I Key Exchanger [RFC2230]
+   I2:pref Preference
+   N:exchanger Exchanger
+
+CERT:37:A CERT [RFC4398]
+   I2[PKIX=1,SPKI=2,PGP=2,IPKIX=4,ISPKI=5,IPGP=6,ACPKIX=7,IACPKIX=8,\
+    URI=253,OID=254]:type Type
+   I2:tag Key tag
+   I1[RSAMD5=1,DH=2,DSA=3,ECC=4,RSASHA1=5,INDIRECT=252,PRIVATEDNS=253,\
+    PRIVATEOID=254]:algorithm Algorithm
+   B64:certificate Certificate or CRL
+
+A6:38:IO A6 (OBSOLETE - use AAAA) [RFC3226][RFC2874][RFC6563]
+   Z[A6P]:preflen Prefix length
+   Z[A6S]:suffix Address suffix
+   N:prefname Prefix name
+
+DNAME:39:A DNAME [RFC6672]
+   N:source Source name
+
+APL:42:I APL [RFC3123]
+   Z[APL]:prefixes Prefixes
+
+DS:43:A Delegation Signer [RFC4034][RFC3658]
+   I2:keytag Key tag
+   I1[RSAMD5=1,DH=2,DSA=3,ECC=4,RSASHA1=5,DSA-NSEC-SHA1=6,\
+    RSASHA1-NSEC3-SHA1=7,RSASHA256=8,RSASHA512=10,ECC-GOST=12,\
+    ECDSAP256SHA256=13,ECDSAP384SHA384=14,INDIRECT=252,PRIVATEDNS=253,\
+    PRIVATEOID=254]:algorithm Algorithm
+   I1[SHA-1=1,SHA-256=2,GOST=3,SHA-384=4]:digtype Digest type
+   X:digest Digest
+
+SSHFP:44:A SSH Key Fingerprint [RFC4255]
+  I1:algorithm Algorithm
+  I1:ftype Fingerprint type
+  X:fingerprint Fingerprint
+
+IPSECKEY:45:I IPSECKEY [RFC4025]
+   I1:prec Precedence
+   I1:gtype Gateway type
+   I1:algorithm Algorithm
+   Z[IPSECKEY]:gateway Gateway
+   B64:key Public key
+
+RRSIG:46:A RRSIG [RFC4034][RFC3755]
+   R:rrtype Type covered (Type mnemonic)
+   I1[RSAMD5=1,DH=2,DSA=3,ECC=4,RSASHA1=5,INDIRECT=252,PRIVATEDNS=253,\
+    PRIVATEOID=254]:algorithm Algorithm
+   I1:labels Labels
+   I4:origttl Original TTL
+   T:expire Signature expiration (timestamp)
+   T:inception Signature inception (timestamp)
+   I2:keytag Key tag
+   N:signer Signer's name
+   B64:signature Signature
+
+NSEC:47:A NSEC [RFC4034][RFC3755]
+   N:next Next domain name
+   R[L]:types Type bitmaps (as window blocks)
+
+DNSKEY:48:A DNSKEY [RFC4034][RFC3755]
+   I2:flags Flags
+   I1:protocol Protocol (must be 3)
+   I1[RSAMD5=1,DH=2,DSA=3,ECC=4,RSASHA1=5,INDIRECT=252,PRIVATEDNS=253,\
+    PRIVATEOID=254]:algorithm Algorithm
+   B64:publickey Public key
+
+DHCID:49:I DHCID [RFC4701]
+   B64:dhcpinfo DHCP information
+
+NSEC3:50:A NSEC3 [RFC5155]
+   I1[SHA-1=1]:algorithm Hash algorithm
+   I1[OPTOUT=1]:flags Flags
+   I2:iterations Iterations
+   X[C]:salt Salt
+   B32:next Next hashed owner
+   R[L]:types Type bitmaps (as window blocks)
+
+NSEC3PARAM:51:A NSEC3PARAM [RFC5155]
+   I1[SHA-1=1]:algorithm Hash algorithm
+   I1[OPTOUT=1]:flags Flags
+   I2:iterations Iterations
+   X[C]:salt Salt
+
+TLSA:52:A TLSA [RFC6698]
+   I1:usage Certificate usage
+   I1:selector Certificate selector
+   I1:mtype Matching Type
+   X:cert Certificate association data
+
+SMIMEA:53:A S/MIME cert association [draft-ietf-dane-smime]
+   I1:usage Certificate usage
+   I1:selector Certificate selector
+   I1:mtype Matching Type
+   X:cert Certificate association data
+
+HIP:55:A Host Identity Protocol [RFC-ietf-hip-rfc5205-bis-10]
+   I1:pkalg PK algorithm
+   Z[HIPHIT]:hit HIT
+   Z[HIPPK]:pubkey Public Key
+   N[O]:servers Rendezvous servers
+
+CDS:59:A Child DS [RFC7344]
+   I2:keytag Key tag
+   I1[RSAMD5=1,DH=2,DSA=3,ECC=4,RSASHA1=5,DSA-NSEC-SHA1=6,\
+    RSASHA1-NSEC3-SHA1=7,RSASHA256=8,RSASHA512=10,ECC-GOST=12,\
+    ECDSAP256SHA256=13,ECDSAP384SHA384=14,INDIRECT=252,\
+    PRIVATEDNS=253,PRIVATEOID=254]:algorithm Algorithm
+   I1[SHA-1=1,SHA-256=2,GOST=3,SHA-384=4]:digtype Digest type
+   X:digest Digest
+
+CDNSKEY:60:A DNSKEY(s) the Child wants reflected in DS [RFC7344]
+   I2:flags Flags
+   I1:protocol Protocol (must be 3)
+   I1[RSAMD5=1,DH=2,DSA=3,ECC=4,RSASHA1=5,INDIRECT=252,PRIVATEDNS=253,\
+    PRIVATEOID=254]:algorithm Algorithm
+   B64:publickey Public key
+
+OPENPGPKEY:61:A OpenPGP Key [RFC7929]
+   B64:key PGP key
+
+CSYNC:62:A Child-To-Parent Synchronization [RFC7477]
+   I4:serial SOA serial
+   I2:flags Flags
+   R[L]:Types
+
+SPF:99:AO  [RFC7208]
+  S[M]:text SPF data
+
+NID:104:A  [RFC6742]
+   I2:preference Preference
+   AA:nodeid Node ID
+
+L32:105:A  [RFC6742]
+   I2:preference Preference
+   A:locator Locator32
+
+L64:106:A  [RFC6742]
+   I2:preference Preference
+   AA:locator Locator64
+
+LP:107:A  [RFC6742]
+   I2:preference Preference
+   N:pointer Pointer
+
+EUI48:108:A an EUI-48 address [RFC7043]
+   X6:address Address (digit pairs separated by hyphens)
+
+EUI64:109:A an EUI-64 address [RFC7043]
+   X8:address Address (digit pairs separated by hyphens)
+
+URI:256:A URI [RFC7553]
+   I2:priority Priority
+   I2:weight Weight
+   S[X]:target Target
+
+CAA:257:A Certification Authority Restriction [RFC6844]
+   I1:flags Flags
+   S:tag Tag
+   S[X]:value Value
+
+DLV:32769:A DNSSEC Lookaside Validation [RFC4431]
+   I2:key Key tag
+   I1[RSAMD5=1,DH=2,DSA=3,ECC=4,RSASHA1=5,INDIRECT=252,PRIVATEDNS=253,\
+    PRIVATEOID=254]:algorithm Algorithm
+   I1:type Digest type
+   X:digest Digest
+
+       
+]]></artwork>
+        </figure>
+    </section>
+  </back>
+</rfc>

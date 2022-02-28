@@ -1,0 +1,329 @@
+43c43
+< version = "0.13"
+---
+> version = "0.16"
+68c68
+<     "Ned": "Edward" ,
+---
+>     "Ned": "Edward",
+102a103
+>     text = text.expandtabs()
+153c154,155
+<         haveblank = False
+---
+>         blankcount = 0
+>         linecount = 0
+167a170
+>             linecount += 1
+190c193
+<             if re.search(".{60,}(Jan|Feb|Mar|March|Apr|April|May|Jun|June|Jul|July|Aug|Sep|Oct|Nov|Dec) (19[89][0-9]|20[0-9][0-9]) *$", line, re.I):
+---
+>             if linecount > 15 and re.search(".{58,}(Jan|Feb|Mar|March|Apr|April|May|Jun|June|Jul|July|Aug|Sep|Oct|Nov|Dec) (19[89][0-9]|20[0-9][0-9]) *$", line, re.I):
+203,205c206,208
+<                     if haveblank:
+<                         stripped += [""]
+<                 haveblank = False
+---
+>                     if blankcount:
+>                         stripped += [""]*blankcount
+>                 blankcount = 0
+211c214
+<                 haveblank = True
+---
+>                 blankcount += 1
+276c279
+<         header_re = re.compile("^(\s*)([0-9]+\.? |Appendix|Status of|Table of|Full Copyright|Copyright|Intellectual Property|Acknowled|Author|Index).*", re.I)
+---
+>         header_re = re.compile("^(\s*)([0-9]+\.? |Appendix|Status of|Table of|Full Copyright|Copyright|Intellectual Property|Acknowled|Author|Index|Disclaimer).*", re.I)
+341a345,349
+>         def acronym_match(s, l):
+>             acronym = re.sub("[^A-Z]", "", l)
+>             #_debug(" s:%s; l:%s => %s; %s" % (s, l, acronym, s==acronym)) 
+>             return s == acronym
+> 
+347c355
+<                 "honor" : r"(?:Dr\.?|Prof(?:\.?|essor)|Sir|Lady|Dame)",
+---
+>                 "honor" : r"(?:Dr\.?|Prof(?:\.?|essor)|Sir|Lady|Dame|Sri)",
+349c357
+<                 "suffix": r"(jr|II|2nd|III|3rd|IV|4th)",
+---
+>                 "suffix": r"(jr.?|Jr.?|II|2nd|III|3rd|IV|4th)",
+355c363
+<                 r" {6}(((%(prefix)s )?%(last)s)( %(suffix)s)?, %(first)s)([, ]([Ee]d\.?|\([Ee]d\.?\)))?$" % aux,
+---
+>                 r" {6}(((%(prefix)s )?%(last)s)( %(suffix)s)?, %(first)s)?$" % aux,
+357a366,374
+>             multiauthformats = [
+>                 (
+>                     r" {6}(%(first)s[ \.]{1,3}((%(prefix)s )?%(last)s)( %(suffix)s)?)(, ?%(first)s[ \.]{1,3}((%(prefix)s )?%(last)s)( %(suffix)s)?)+$" % aux,
+>                     r"(%(first)s[ \.]{1,3}((%(prefix)s )?%(last)s)( %(suffix)s)?)" % aux
+>                 ),
+>             ]
+>             editorformats = [
+>                 r"(?:, | )([Ee]d\.?|\([Ee]d\.?\)|[Ee]ditor)$",
+>                 ]
+382a400
+>                         _debug("Breaking for centered line")
+384,385c402,407
+<                     for authformat in authformats:
+<                         match = re.search(authformat, line)
+---
+>                     for editorformat in editorformats:
+>                         if re.search(editorformat, line):
+>                             line = re.sub(editorformat, "", line)
+>                             break
+>                     for lineformat, authformat in multiauthformats:
+>                         match = re.search(lineformat, line)
+387,388c409,411
+<                             author = match.group(1)
+<                             authors += [ author ]
+---
+>                             _debug("Multiauth format: '%s'" % lineformat)
+>                             author_list = re.findall(authformat, line)
+>                             authors += [ a[0] for a in author_list ]
+391c414,425
+<                             _debug("Author: '%s'" % author)
+---
+>                             for author in author_list:
+>                                 _debug("Author: '%s'" % author[0])
+>                     else:
+>                         for authformat in authformats:                        
+>                             match = re.search(authformat, line)
+>                             if match:
+>                                 _debug("Auth format: '%s'" % authformat)
+>                                 author = match.group(1)
+>                                 authors += [ author ]
+>                                 #_debug("\nLine:   " + line)
+>                                 #_debug("Format: " + authformat)
+>                                 _debug("Author: '%s'" % author)
+393c427
+<                     if prev_blankline:
+---
+>                     if prev_blankline and authors:
+421a456,460
+>                 prefix_match = re.search(" %(prefix)s$" % aux, first)
+>                 if prefix_match:
+>                     prefix = prefix_match.group(1)
+>                     first = first[:-len(prefix)].strip()
+>                     last = prefix+" "+last
+423c462
+<                 for author in [ "%s %s"%(first,last), "%s %s"%(last,first), ]:
+---
+>                 for author in [ "%s %s"%(first,last), "%s %s"%(last,first), "%s %s"%(first,last.upper()), "%s %s"%(last,first.upper()), ]:
+434c473,474
+<                     authpat = re.sub("-", ".*?-", authpat)
+---
+>                     if not "[A-Z]" in authpat:
+>                         authpat = re.sub("-", ".*?-", authpat)
+438c478
+<                     authpat = "^(?:%s ?)?(%s)( *\(.*\)|,( [A-Z][-A-Za-z0-9]*)?)?" % (aux["honor"], authpat)
+---
+>                     authpat = "(?:^| and )(?:%s ?)?(%s)( *\(.*\)|,( [A-Z][-A-Za-z0-9]*)?| %s| [A-Z][a-z]+)?" % (aux["honor"], authpat, aux["suffix"])
+444,488c484,533
+<                     try:
+<                         for j in range(len(self.lines)-1, 15, -1):
+<                             line = self.lines[j].strip()
+<                             forms = [ line ] + [ line.replace(short, longform[short]) for short in longform if short in line ]
+<                             for line in forms:
+<                                 try:
+<                                     if re.search(authpat, line):
+<                                         start = j
+<                                         _debug( " ==>   " + line.strip())
+<                                         # The author info could be formatted in multiple columns...
+<                                         columns = re.split("(    +)", line)
+<                                         # _debug( "Columns:" + columns; sys.stdout.flush())
+<                                         # Find which column:
+<                                         #_debug( "Col range:" + range(len(columns)); sys.stdout.flush())
+< 
+<                                         cols = [ c for c in range(len(columns)) if re.search(authpat+r"$", columns[c].strip()) ]
+<                                         if cols:
+<                                             col = cols[0]
+<                                             if not (start, col) in found_pos:
+<                                                 found_pos += [ (start, col) ]
+<                                                 _debug( "Col:   %d" % col)
+<                                                 beg = len("".join(columns[:col]))
+<                                                 _debug( "Beg:   %d '%s'" % (beg, "".join(columns[:col])))
+<                                                 _debug( "Len:   %d" % len(columns))
+<                                                 if col == len(columns) or col == len(columns)-1:
+<                                                     end = None
+<                                                     _debug( "End1:  %s" % end)
+<                                                 else:
+<                                                     end = beg + len("".join(columns[col:col+2]))
+<                                                     _debug( "End2:  %d '%s'" % (end, "".join(columns[col:col+2])))
+<                                                 _debug( "Cut:   '%s'" % line[beg:end])
+<                                                 author = re.search(authpat, columns[col].strip()).group(1)
+<                                                 if author in companies:
+<                                                     authors[i] = None
+<                                                 else:
+<                                                     authors[i] = author
+<                                                 #_debug( "Author: %s: %s" % (author, authors[author]))
+<                                                 # We need to exit 2 for loops -- a break isn't sufficient:
+<                                                 raise StopIteration("Found Author")
+<                                 except AssertionError, e:
+<                                     sys.stderr.write("filename: "+self.filename+"\n")
+<                                     sys.stderr.write("authpat: "+authpat+"\n")
+<                                     raise
+<                     except StopIteration:
+<                         pass
+---
+>                     # Scan towards the front from the end of the file, looking for a match to authpath
+>                     for j in range(len(self.lines)-1, 15, -1):
+>                         line = self.lines[j]
+>                         forms = [ line ] + [ line.replace(short, longform[short]) for short in longform if short in line ]
+>                         for form in forms:
+>                             try:
+>                                 if re.search(authpat, form.strip()) and not j in found_pos:
+>                                     start = j
+>                                     found_pos += [ start ]
+>                                     _debug( " ==> start %s, normalized '%s'" % (start, form.strip()))
+>                                     # The author info could be formatted in multiple columns...
+>                                     columns = re.split("(    +| and )", form)
+>                                     # _debug( "Columns:" + columns; sys.stdout.flush())
+>                                     # Find which column:
+>                                     #_debug( "Col range:" + range(len(columns)); sys.stdout.flush())
+> 
+>                                     cols = [ c for c in range(len(columns)) if re.search(authpat+r"( and |, |$)", columns[c].strip()) ]
+>                                     if cols:
+>                                         col = cols[0]
+>                                         if not (start, col) in found_pos:
+>                                             found_pos += [ (start, col) ]
+>                                             _debug( "Col:   %d" % col)
+>                                             beg = len("".join(columns[:col]))
+>                                             _debug( "Beg:   %d '%s'" % (beg, "".join(columns[:col])))
+>                                             _debug( "Len:   %d" % len(columns))
+>                                             if col == len(columns) or col == len(columns)-1:
+>                                                 end = None
+>                                                 _debug( "End1:  %s" % end)
+>                                             else:
+>                                                 end = beg + len("".join(columns[col:col+2]))
+>                                                 _debug( "End2:  %d '%s'" % (end, "".join(columns[col:col+2])))
+>                                             _debug( "Cut:   '%s'" % form[beg:end])
+>                                             author_match = re.search(authpat, columns[col].strip()).group(1)
+>                                             _debug( "AuthMatch: '%s'" % (author_match,))
+>                                             if author_match in companies:
+>                                                 authors[i] = None
+>                                             else:
+>                                                 for name in [first, last]:
+>                                                     if name.upper() in author_match:
+>                                                         author_match = author_match.replace(name.upper(), name)
+>                                                         break
+>                                                 authors[i] = author_match
+>                                             #_debug( "Author: %s: %s" % (author_match, authors[author_match]))
+>                                             break
+>                             except AssertionError, e:
+>                                 sys.stderr.write("filename: "+self.filename+"\n")
+>                                 sys.stderr.write("authpat: "+authpat+"\n")
+>                                 raise
+>                         if start and col != None:
+>                             break
+497c542
+<                     count = 0
+---
+>                     nonblank_count = 0
+511c556
+<                             count += 1                    
+---
+>                             nonblank_count += 1                    
+518c563
+<                         authmatch = [ a for a in authors[i+1:] if a and not a in companies and re.search((r"(^|\W)"+re.sub("\.? ", ".* ", a)+"(\W|$)"), line.strip()) ]
+---
+>                         authmatch = [ a for a in authors[i+1:] if a and not a.lower() in companies and (re.search((r"(?i)(^|\W)"+re.sub("\.? ", ".* ", a)+"(\W|$)"), line.strip()) or acronym_match(a, line.strip()) )]
+522c567
+<                             if count == 1 or (count == 2 and not blanklines):
+---
+>                             if nonblank_count == 1 or (nonblank_count == 2 and not blanklines):
+524,525c569,570
+<                                 companies += authmatch
+<                                 companies += [ line.strip() ] # XXX fix this for columnized author list
+---
+>                                 companies += [ c.lower() for c in authmatch ]
+>                                 companies += [ line.strip().lower() ] # XXX fix this for columnized author list
+529c574
+<                                     if authors[k] in companies:
+---
+>                                     if authors[k] and authors[k].lower() in companies:
+568c613
+<             # authors.sort() 
+---
+>             authors.sort() 
+579,580c624,628
+<         title_re = re.compile('(?:\n\s*\n\s*)((.+\n){1,2}(.+\n?))(\s+<?draft-\S+\s*\n)\s*\n')
+<         match = title_re.search(self.pages[0])
+---
+>         match = re.search('(?:\n\s*\n\s*)((.+\n){0,2}(.+\n*))(\s+<?draft-\S+\s*\n)\s*\n', self.pages[0])
+>         if not match:
+>             match = re.search('(?:\n\s*\n\s*)<?draft-\S+\s*\n*((.+\n){1,3})\s*\n', self.pages[0])
+>         if not match:
+>             match = re.search('(?i)(.+\n|.+\n.+\n)(\s*status of this memo\s*\n)', self.pages[0])
+585,592c633
+<             self._title = title
+<             return self._title
+<         # unusual title extract
+<         unusual_title_re = re.compile('(.+\n|.+\n.+\n)(\s*status of this memo\s*\n)', re.I)
+<         match = unusual_title_re.search(self.pages[0])
+<         if match:
+<             title = match.group(1)
+<             title = title.strip()
+---
+>             title = re.sub(' +', ' ', title)
+596a638,676
+>     # ------------------------------------------------------------------
+>     def get_refs(self):
+>         refs = []
+>         normrefs = []
+>         rfcrefs = []
+>         refline = None
+>         for i in range(len(self.lines)-1, 15, -1):
+>             if re.search(r"(?i)^ *[0-9.]+ *(((normative|informative|informational|non-normative) )?references|references\W+(normative|informative))", self.lines[i]):
+>                 refline = i
+>                 break
+>         if refline:
+>             for i in range(refline, len(self.lines)):
+>                 line = self.lines[i].strip()
+>                 ref_match = re.search(r"(?i)^\[[a-z0-9.-]+( [a-z0-9.-]+)?\].+", line)
+>                 if ref_match:
+>                     para = line
+>                     while True:
+>                         i += 1
+>                         if i >= len(self.lines):
+>                             break
+>                         line = self.lines[i].strip()
+>                         if not line:
+>                             break
+>                         if para[-1] not in ["-", "/"]:
+>                             para += " "
+>                         para += line
+>                     refs += [ para ]
+>                     rfc_match = re.search("(?i)rfc ?\d+", para)
+>                     if rfc_match:
+>                         rfc = rfc_match.group(0).replace(" ","").lower()
+>                         rfcrefs += [ rfc ]
+>         normrefs = list(set(normrefs))
+>         normrefs.sort()
+>         rfcrefs = list(set(rfcrefs))
+>         rfcrefs.sort()
+>         refs = list(set(refs))
+>         refs.sort()
+>         return normrefs, rfcrefs, refs
+> 
+625c705,709
+<     filename = os.path.join("/www/tools.ietf.org/id", fn)
+---
+>     if os.path.exists(fn):
+>         filename = fn
+>         fn = os.path.basename(fn)
+>     else:
+>         filename = os.path.join("/www/tools.ietf.org/id", fn)
+636a721
+>     #_debug("\n".join(draft.lines))
+644a730,731
+>     normrefs, rfcrefs, refs = draft.get_refs()
+>     fields["docrfcrefs"] = ", ".join(rfcrefs)
+732,733c819,821
+<                 _debug( "** Processing '%s'" % draft)
+<                 _printmeta(timestamp, draft)
+---
+>                 if draft:
+>                     _debug( "** Processing '%s'" % draft)
+>                     _printmeta(timestamp, draft)

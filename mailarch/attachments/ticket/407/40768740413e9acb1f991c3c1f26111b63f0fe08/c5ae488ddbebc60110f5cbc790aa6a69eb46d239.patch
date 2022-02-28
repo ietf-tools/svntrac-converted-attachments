@@ -1,0 +1,83 @@
+Index: ietf/doc/tests_review.py
+===================================================================
+--- ietf/doc/tests_review.py	(revision 16504)
++++ ietf/doc/tests_review.py	(working copy)
+@@ -29,7 +29,7 @@
+ from ietf.message.models import Message
+ from ietf.name.models import ReviewResultName, ReviewRequestStateName, ReviewAssignmentStateName
+ from ietf.person.models import Email, Person
+-from ietf.review.factories import ReviewRequestFactory, ReviewAssignmentFactory
++from ietf.review.factories import ReviewRequestFactory, ReviewAssignmentFactory, ReviewTeamSettingsFactory, ReviewerSettingsFactory, NextReviewerInTeamFactory
+ from ietf.review.models import (ReviewRequest, ReviewerSettings,
+                                 ReviewWish, UnavailablePeriod, NextReviewerInTeam)
+ from ietf.review.utils import reviewer_rotation_list, possibly_advance_next_reviewer_for_team
+@@ -981,3 +981,44 @@
+         assignment = reload_db_objects(assignment)
+         self.assertEqual(assignment.state_id, 'withdrawn')
+ 
++class SkipNextTests(TestCase):
++
++    def test_skipnext(self):
++        '''
++            This exercises one case where the current round-robin queue management has a bug.
++            The issue arises when it's time to assign a document, but the person at the head of the queue is not available.
++            This can happen if that person set an UnavailablePeriod since the last time documents were assigned, or, as in this test, has a had a skip added.
++            When an out-of-order assignment happens, the queue doesn't rotate on assignment, but then those with skips are skipped, leaving the head of the
++            queue on the next available person, even if that person just recieved an assignment.
++            The fix (probably) is to rotate through skips at the front of the rotate code as well as at the end.
++        '''
++        team = ReviewTeamSettingsFactory().group
++        secr = RoleFactory(group=team,person__user__username='reviewsecretary',person__user__email='reviewsecretary@example.com',name_id='secr').person
++
++        ReviewerSettingsFactory(team=team,person__name="Brady Brady",skip_next=1)
++        ReviewerSettingsFactory(team=team,person__name="Andy Andy",skip_next=1)
++        ReviewerSettingsFactory(team=team,person__name="Danny Danny",skip_next=0)
++        ReviewerSettingsFactory(team=team,person__name="Cindy Cindy",skip_next=0)
++        ReviewerSettingsFactory(team=team,person__name="Emily Emily",skip_next=0)
++        ReviewerSettingsFactory(team=team,person__name="Franky Franky",skip_next=0)
++
++        for rs in team.reviewersettings_set.all():
++            RoleFactory(group=team,name_id='reviewer',person=rs.person,email=rs.person.email())
++
++        NextReviewerInTeamFactory(team=team,next_reviewer=team.reviewersettings_set.get(person__name="Andy Andy").person)
++
++        print([(r1,r1.reviewersettings_set.first().skip_next) for r1 in reviewer_rotation_list(team)])
++
++        requests = ReviewRequestFactory.create_batch(3,team=team,doc__pages=1)
++
++        assign_url = urlreverse('ietf.doc.views_review.assign_reviewer', kwargs={ "name": requests[0].doc.name, "request_id": requests[0].pk })
++        login_testing_unauthorized(self,secr.user.username,assign_url)
++        r = self.client.post(assign_url, { "action": "assign", "reviewer": Person.objects.get(name="Cindy Cindy").email().pk })
++        self.assertEqual(r.status_code, 302)
++
++        print([(r2,r2.reviewersettings_set.first().skip_next) for r2 in reviewer_rotation_list(team)])
++
++        self.assertEqual(team.nextreviewerinteam_set.first().next_reviewer.name, 'Danny Danny')
++
++
++
+Index: ietf/review/factories.py
+===================================================================
+--- ietf/review/factories.py	(revision 16504)
++++ ietf/review/factories.py	(working copy)
+@@ -1,7 +1,7 @@
+ import factory
+ import datetime
+ 
+-from ietf.review.models import ReviewTeamSettings, ReviewRequest, ReviewAssignment, ReviewerSettings
++from ietf.review.models import ReviewTeamSettings, ReviewRequest, ReviewAssignment, ReviewerSettings, NextReviewerInTeam
+ from ietf.name.models import ReviewTypeName, ReviewResultName
+ 
+ class ReviewTeamSettingsFactory(factory.DjangoModelFactory):
+@@ -54,3 +54,10 @@
+ 
+     team = factory.SubFactory('ietf.group.factories.ReviewTeamFactory')
+     person = factory.SubFactory('ietf.person.factories.PersonFactory')
++
++class NextReviewerInTeamFactory(factory.DjangoModelFactory):
++    class Meta:
++        model = NextReviewerInTeam
++
++    team = factory.SubFactory('ietf.group.factories.ReviewTeamFactory')
++    next_reviewer = factory.SubFactory('ietf.person.factories.PersonFactory')
+
