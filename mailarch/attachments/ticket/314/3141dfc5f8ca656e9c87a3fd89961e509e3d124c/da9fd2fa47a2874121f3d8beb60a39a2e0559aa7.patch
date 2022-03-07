@@ -1,0 +1,18 @@
+Index: ietf/meeting/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ietf/meeting/views.py b/ietf/meeting/views.py
+--- a/ietf/meeting/views.py	(revision 19945)
++++ b/ietf/meeting/views.py	(date 1645148945154)
+@@ -4168,7 +4168,7 @@
+     if current_minutes:
+         try:
+             with open(current_minutes.get_file_name()) as f:
+-                if import_contents == Note.preprocess_source(f.read()):
++                if import_contents == f.read():
+                     contents_changed = False
+                     messages.warning(request, 'This document is identical to the current revision, no need to import.')
+         except FileNotFoundError:
+
